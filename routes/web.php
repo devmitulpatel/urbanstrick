@@ -18,7 +18,7 @@ use Inertia\Inertia;
 |
 */
 
-if((bool)env('site',false)){
+if((bool)envmix('site','up')){
     Route::get('/', function () {
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
