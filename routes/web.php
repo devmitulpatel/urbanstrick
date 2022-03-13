@@ -3,6 +3,7 @@
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\TestController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,7 +18,7 @@ use Inertia\Inertia;
 |
 */
 
-if((bool)envmix('site','up')){
+if((bool)env('site',false)){
     Route::get('/', function () {
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
@@ -28,6 +29,12 @@ if((bool)envmix('site','up')){
     });
    require implode(DIRECTORY_SEPARATOR,[__DIR__,'frontend.php']);
 }else{
+    Route::get('/migrate',function (){
+        $exitCode = Artisan::call('migrate:fresh', [
+            '--force'=>'','--seed'=>''
+        ]);
+        dd($exitCode);
+    });
     Route::fallback([FallbackController::class,'underConstruction']);
 }
 
