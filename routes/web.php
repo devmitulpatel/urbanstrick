@@ -31,7 +31,7 @@ if((bool)env('site',false)){
 }else{
     Route::get('/migrate',function (){
         $exitCode = Artisan::call('migrate:fresh', [
-            '--force'=>'','--seed'=>''
+            '--force'=>true,'--seed'=>true
         ]);
         dd($exitCode);
     });
