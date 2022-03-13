@@ -10,6 +10,6 @@ class FallbackController extends Controller
         $options=[
             'launch_date'=>envmix('site','launch-date')
         ];
-        return inertia('UnderConstruction',$options);
+        return view('UnderConstruction',$options);
     }
 }
