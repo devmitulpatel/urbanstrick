@@ -37,7 +37,7 @@ class SubscriberController extends Controller
     public function store(StoreSubscriberRequest $request)
     {
         $request->presist();
-        return redirect('/',['msg'=>'test']);
+        return redirect('/');
     }
 
     /**
