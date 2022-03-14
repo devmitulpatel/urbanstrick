@@ -1,5 +1,6 @@
 <?php
 
+use App\Resource\ProductFacade;
 use App\Resource\ProductRepository;
 use Illuminate\Support\Facades\Facade;
 
@@ -177,6 +178,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Plank\Mediable\MediableServiceProvider::class,
 
     ],
 
@@ -192,7 +194,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Product'=> \App\Resource\ProductFacade::class
+        'Product'=> ProductFacade::class,
+        'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
     ])->toArray(),
 
 ];

@@ -11,6 +11,7 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.7",
+        "plank/laravel-mediable": "^5.4",
         "plank/laravel-metable": "^5.2",
         "tightenco/ziggy": "^1.0"
     },

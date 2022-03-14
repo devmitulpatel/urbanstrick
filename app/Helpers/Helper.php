@@ -2,6 +2,7 @@
 
 
 use App\Models\DynamicData;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Str;
 
 if(!function_exists('enum')){
@@ -47,10 +48,10 @@ if(!function_exists('envmix')){
         $seconds=2;
         $hasCatchValue=cache($keyName);
         if($hasCatchValue==null){
-            $foundSlug=$model::where('slug',$type)->first()->getMeta($slug);
+            $foundSlug=$model::where('slug',$type)->first();
 
             if($foundSlug!=null){
-                $hasCatchValue=$foundSlug;
+                $hasCatchValue=$foundSlug->getMeta($slug);
             }else{
                 $hasCatchValue=env($rawSlug,'');
             }
@@ -64,5 +65,22 @@ if(!function_exists('envmix')){
 
 
 
+    }
+}
+
+if(!function_exists('able_model_schema')){
+    function able_model_schema(Blueprint $table, $related,$options=[]){
+        $type=implode('_',[$related,'type']);
+
+        $related=implode('_',[$related,'id']);
+
+        $table->id();
+        $table->unsignedBigInteger($related);
+        $table->string($type);
+        if(array_key_exists('foreign',$options))$table->unsignedBigInteger($options['foreign']);
+        if(array_key_exists('pivot',$options))foreach ($options['pivot'] as $pivotColumn)$table->$pivotColumn['type']($pivotColumn['name'])->nullable();
+
+        $table->boolean('status')->default(1);
+        $table->timestamps();
     }
 }

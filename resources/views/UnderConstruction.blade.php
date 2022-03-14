@@ -32,17 +32,7 @@ Author URI: http://webthemez.com/
 </head>
 
 <body>
-<nav id="mainNav">
-    <div id="menuToggle"><i class="fa fa-bars"></i></div>
-    <ul class="menuLinks">
-        <li class="active" id="firstLink"><a href="#home" class="scroll-link">Home</a></li>
-        <li><a href="#services" class="scroll-link">Services</a></li>
-        <li><a href="#aboutUs" class="scroll-link">About Us</a></li>
-        <li><a href="#contactUs" class="scroll-link">Contact Us</a></li>
-    </ul>
-</nav>
-<!--/.header-->
-<div id="#top"></div>
+
 <section id="home">
     <div class="banner-container">
         <div class="container">
@@ -50,132 +40,15 @@ Author URI: http://webthemez.com/
                 <div class="logo"> <img src="images/logo.png" alr='logo'/> </div>
             </div>
             <div class="heading text-center">
-                <h2>Our new site is coming soon!!!</h2>
-                <strong>Stay tuned for something amazing</strong> </div>
+                <h2>Selling Clothes is not our specialty
+                </h2>
+                <strong>But happiness is !
+                </strong> </div>
             <div class="countdown styled"></div>
         </div>
     </div>
 </section>
-<section id="services" class="page-section colord">
-    <div class="container">
-        <div class="heading wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="row">
-                <div class="text-center col-sm-8 col-sm-offset-2">
-                    <h2>Services</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
-                </div>
-            </div>
-        </div>
-        <div class="text-center our-services">
-            <div class="row">
-                <div class="col-sm-4 wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; -webkit-animation-duration: 1000ms; animation-delay: 300ms; -webkit-animation-delay: 300ms; animation-name: fadeInDown; -webkit-animation-name: fadeInDown;">
-                    <div class="service-icon">
-                        <i class="fa fa-cube"></i>
-                    </div>
-                    <div class="service-info">
-                        <h3>Desiging</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="450ms" style="visibility: visible; animation-duration: 1000ms; -webkit-animation-duration: 1000ms; animation-delay: 450ms; -webkit-animation-delay: 450ms; animation-name: fadeInDown; -webkit-animation-name: fadeInDown;">
-                    <div class="service-icon">
-                        <i class="fa fa-user"></i>
-                    </div>
-                    <div class="service-info">
-                        <h3>Mobile App</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="550ms" style="visibility: visible; animation-duration: 1000ms; -webkit-animation-duration: 1000ms; animation-delay: 550ms; -webkit-animation-delay: 550ms; animation-name: fadeInDown; -webkit-animation-name: fadeInDown;">
-                    <div class="service-icon">
-                        <i class="fa fa-cloud"></i>
-                    </div>
-                    <div class="service-info">
-                        <h3>E-Commerce</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="650ms" style="visibility: visible; animation-duration: 1000ms; -webkit-animation-duration: 1000ms; animation-delay: 650ms; -webkit-animation-delay: 650ms; animation-name: fadeInUp; -webkit-animation-name: fadeInUp;">
-                    <div class="service-icon">
-                        <i class="fa fa-download"></i>
-                    </div>
-                    <div class="service-info">
-                        <h3>Marketing</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="750ms" style="visibility: visible; animation-duration: 1000ms; -webkit-animation-duration: 1000ms; animation-delay: 750ms; -webkit-animation-delay: 750ms; animation-name: fadeInUp; -webkit-animation-name: fadeInUp;">
-                    <div class="service-icon">
-                        <i class="fa fa-dollar"></i>
-                    </div>
-                    <div class="service-info">
-                        <h3>Finance</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="850ms" style="visibility: visible; animation-duration: 1000ms; -webkit-animation-duration: 1000ms; animation-delay: 850ms; -webkit-animation-delay: 850ms; animation-name: fadeInUp; -webkit-animation-name: fadeInUp;">
-                    <div class="service-icon">
-                        <i class="fa fa-gift"></i>
-                    </div>
-                    <div class="service-info">
-                        <h3>Managment</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="aboutUs">
-    <div class="container">
-        <div class="row feature design">
-            <div class="six columns right">
-                <h2>Our Company</h2>
-                <p>Lorem ipsum dolor sit amet, ea eum labitur scsstie percipitoleat fabulas complectitur deterruisset at pro. Odio quaeque reformidans est eu, expetendis intellegebat has ut, viderer invenire ut his. Has molestie percipit an. Falli volumus efficiantur sed id, ad vel noster propriae. Ius ut etiam vivendo, graeci iudicabit constituto at mea. No soleat fabulas prodesset vel, ut quo solum dicunt.
-                    Nec et jority have suffered alteration. </p>
-                <p>Odio quaeque reformidans est eu, expetendis intellegebat has ut, viderer invenire ut his. Has molestie percipit an. Falli volumus efficiantur sed id, ad vel noster propriae. Ius ut etiam vivendo, graeci iudicabit constituto at mea. No soleat fabulas prodesset vel, ut quo solum dicunt.
-                    Nec et amet vidisse mentitumsstie percipitoleat fabulas. </p>
-            </div>
-            <div class="six columns feature-media left"> <img src="images/picture-136.png" alt=""> </div>
-        </div>
-    </div>
-</section>
-<section id="contactUs" class="contact-parlex">
-    <div class="parlex-back">
-        <div class="container">
-            <div class="row">
-                <div class="heading text-center">
-                    <!-- Heading -->
-                    <h2>Contact Us</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
-                </div>
-            </div>
-            <div class="row mrgn30">
-                <div class="col-md-offset-2 col-md-8"
-                <div id="contactfrm">
-                    <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert('Thank you for your feedback!');">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <input type="text" name="Name" id="Name" class="form-control wow fadeInUp" placeholder="Name" required/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="Email" id="Email" class="form-control wow fadeInUp" placeholder="Email" required/>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="Message" rows="10" cols="20" id="Message" class="form-control input-message wow fadeInUp"  placeholder="Message" required></textarea>
-                            </div>
-                            <div class="form-group text-center">
-                                <input type="submit" name="submit" value="Submit" class="btn btn-success wow fadeInUp" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/.container-->
-    </div>
-</section>
+
 <footer>
     <div class="container">
         <div class="social text-center"> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-flickr"></i></a> <a href="#"><i class="fa fa-github"></i></a> </div>
@@ -184,7 +57,7 @@ Author URI: http://webthemez.com/
     </div>
 </footer>
 <!--/.page-section-->
-<section class="copyright">
+<section class="copyright" style="display: none">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center"> Copyright 2019 | All Rights Reserved -  by UrbanStrick </div>

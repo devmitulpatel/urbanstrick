@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'a742ad270975f253b1ca2a7b450d3eb362bbab53',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -367,6 +367,15 @@
             'reference' => '6a050ce04a710ac4809161558ac09fe49f13075e',
             'dev_requirement' => false,
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.1',
+            'version' => '2.7.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '744ebba495319501b873a4e48787759c72e3fb8c',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -392,12 +401,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'a742ad270975f253b1ca2a7b450d3eb362bbab53',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -666,6 +675,15 @@
             'aliases' => array(),
             'reference' => '1b5856028273bfd855e60a887278857d872ec67a',
             'dev_requirement' => true,
+        ),
+        'plank/laravel-mediable' => array(
+            'pretty_version' => '5.4.0',
+            'version' => '5.4.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../plank/laravel-mediable',
+            'aliases' => array(),
+            'reference' => '5284e6406e6f973ea9d717627f5235a2758e9525',
+            'dev_requirement' => false,
         ),
         'plank/laravel-metable' => array(
             'pretty_version' => '5.2.0',
