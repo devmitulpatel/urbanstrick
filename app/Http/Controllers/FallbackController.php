@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 class FallbackController extends Controller
 {
-    public function underConstruction(){
+    public function comingSoon(){
+
         $options=[
             'launch_date'=>envmix('site','launch-date')
         ];
-        return view('UnderConstruction',$options);
+        return view('ComingSoon',$options);
     }
+
+
 }

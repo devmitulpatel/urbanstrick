@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
+use App\Models\Unit;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->createBasicUsers();
+        $this->call(CurrencySeeder::class);
+        $this->call(CountrySeeder::class);
+        //$this->call(UnitSeeder::class);
         $this->call(DynamicDataSeeder::class);
         $this->call(ProductSeeder::class);
     }

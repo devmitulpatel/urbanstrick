@@ -4,6 +4,9 @@
 use App\Models\Product;
 use App\Facades\Unit;
 
+
+$user=\App\Models\User::with(['country'])->find(1);
+
 $data=[
     'name'=>' test 2',
 ];

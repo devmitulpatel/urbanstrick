@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('priceables', function (Blueprint $table) {
-            $table->id();
+
             able_model_schema($table,'price');
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('currency_id');
             $table->unsignedBigInteger('country_id');
-            $table->timestamps();
         });
     }
 

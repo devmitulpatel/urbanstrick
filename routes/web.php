@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FallbackController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
@@ -18,6 +19,8 @@ use Inertia\Inertia;
 |
 */
 
+
+
 if((bool)envmix('site','up')){
     Route::get('/', function () {
         return Inertia::render('Welcome', [
@@ -26,16 +29,17 @@ if((bool)envmix('site','up')){
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
         ]);
-    });
+    })->name('home');
    require implode(DIRECTORY_SEPARATOR,[__DIR__,'frontend.php']);
 }else{
+    Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber');
     Route::get('/migrate',function (){
         $exitCode = Artisan::call('migrate:fresh', [
             '--force'=>true,'--seed'=>true
         ]);
         dd($exitCode);
     });
-    Route::fallback([FallbackController::class,'underConstruction']);
+    Route::fallback([FallbackController::class,'comingSoon']);
 }
 
 

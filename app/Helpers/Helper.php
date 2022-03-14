@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Enum\RowStatus;
 use App\Models\DynamicData;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Str;
@@ -82,5 +83,26 @@ if(!function_exists('able_model_schema')){
 
         $table->boolean('status')->default(1);
         $table->timestamps();
+    }
+}
+
+if(!function_exists('normal_name_table')){
+    function normal_name_table($table){
+        $table->id();
+        $table->string('name');
+        $table->string('slug');
+        $table->enum('status',enum(RowStatus::class))->default(RowStatus::Active->value);
+        $table->timestamps();
+    }
+}
+if(!function_exists('normal_seed')){
+    function normal_seed($name,$extra=[]){
+        $array=['name'=>$name,'slug'=>Str::slug($name)];
+        if(array_key_exists('name',$extra))unset($extra['name']);
+        if(array_key_exists('slug',$extra))unset($extra['slug']);
+        $extra['created_at']=now();
+        $extra['updated_at']=now();
+       // dd(array_merge($array,$extra));
+        return array_merge($array,$extra);
     }
 }
