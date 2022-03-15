@@ -1,54 +1,59 @@
 (function ($) {
  "use strict";
 
-    
+
     /*----------------------------
     jQuery MeanMenu
     ------------------------------ */
         $('nav#dropdown').meanmenu({
         meanScreenWidth: "991",
         meanMenuContainer: ".mobile-menu",
-    });	
+    });
     /*----------------------------
     wow js active
     ------------------------------ */
         new WOW().init();
-    
+
     /*----------------------------
     top search active
-    ------------------------------ */   
+    ------------------------------ */
         $('.icon_search').on('click', function(e){
         e.preventDefault();
         $('.widget_searchform_content').toggleClass('active');
-        });  
-    
+        });
+
     /*----------------------------
     top cart active
-    ------------------------------ */   
+    ------------------------------ */
         $('.top-shop-title').on('click', function(e){
             e.preventDefault();
             $('.wish-cart').toggleClass('active');
-        });   
+        });
     /*----------------------------
     top search active
-    ------------------------------ */   
+    ------------------------------ */
         $('.header-menu-item-icon').on('click', function(e){
             e.preventDefault();
             $('.widget_searchform').toggleClass('active');
-        });      
+        });
     /*----------------------------
      sticky active
-    ------------------------------ */  
+    ------------------------------ */
     var stickyTop = $('.header-menu').offset().top;
     $(window).on('scroll', function () {
         if ($(window).scrollTop() > stickyTop) {
             $('.header-menu').addClass('stick');
+            // $('.dynamic-logo-big').addClass('d-none');
+            // $('.dynamic-logo-small').removeClass('d-none');
+
         } else {
             $('.header-menu').removeClass('stick');
+            // $('.dynamic-logo-small').addClass('d-none');
+            // $('.dynamic-logo-big').removeClass('d-none');;
         }
     });
-    
-    
+
+
     /*----------------------------
     features-curosel2 owl active
     ------------------------------ */
@@ -79,7 +84,7 @@
             }
         }
     });
-    
+
     /*----------------------------
     slider-active-two owl active
     ------------------------------ */
@@ -91,7 +96,7 @@
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         margin: 30,
         item: 3,
-        smartSpeed:2000, 
+        smartSpeed:2000,
         responsive: {
             0: {
                 items: 1
@@ -107,7 +112,7 @@
             }
         }
     });
-    
+
     /*----------------------------
     owlcarousel client-all active
     ------------------------------ */
@@ -132,12 +137,12 @@
             }
         }
     });
-    
-    
+
+
     /*---------------------
     price slider
-    --------------------- */  
-	
+    --------------------- */
+
     $( "#slider-range" ).slider({
         range: true,
         min: 40,
@@ -153,31 +158,31 @@
     " - "+"$" + $( "#slider-range" ).slider( "values", 1 ) );
     $('input[name="first_price"]').val( "$" + $( "#slider-range" ).slider( "values", 0 ));
     $('input[name="last_price"]').val( "$" + $( "#slider-range" ).slider( "values", 1 ));
-    
-    
-    
-    
+
+
+
+
     /*-------------------------
     checkout showcoupon toggle function
     --------------------------*/
         $( '#showcoupon' ).on('click', function() {
             $( '#checkout_coupon' ).slideToggle(900);
         });
-    
+
     /*-------------------------
     checkout showcoupon toggle function
     --------------------------*/
     $( '#showcoupon2 input' ).on('click', function() {
         $( '#checkout_coupon2' ).slideToggle(900);
     });
-    
+
     /*-------------------------
     checkout showcoupon toggle function
     --------------------------*/
     $( '#showcoupon3' ).on('click', function() {
         $( '#checkout_coupon3' ).slideToggle(900);
     });
-    
+
     /*-------------------------
     checkout one click toggle function
     --------------------------*/
@@ -189,17 +194,17 @@
         $( '.payment_box' ).slideUp(900);
         $(this).siblings( '.payment_box' ).slideToggle(900);
     });
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
     /*-------------------------
     single-product count
     --------------------------*/
-    
-    
+
+
     $(".cart-plus-minus").prepend('<div class="dec qtybutton">-</div>');
      $(".cart-plus-minus").append('<div class="inc qtybutton">+</div>');
      $(".qtybutton").on("click", function() {
@@ -217,21 +222,21 @@
         }
       $button.parent().find("input").val(newVal);
      });
-    
-    
+
+
     /*-------------------------
     zoom-img single-product
-    --------------------------*/   
+    --------------------------*/
     $('.demo4').snipe({
         class: 'zoom',
     });
-    
-    
-    
-    
+
+
+
+
     /*--------------------------
      scrollUp
-    ---------------------------- */	
+    ---------------------------- */
     $(window).on('scroll',function () {
         if($(window).scrollTop()>200) {
             $("#toTop").fadeIn();
@@ -243,10 +248,10 @@
         $("html,body").animate({
             scrollTop:0
         }, 500)
-    });    
-    
-    
-    
+    });
+
+
+
     /*------------------------------------
         DateCountdown active 1
     ------------------------------------- */
@@ -273,17 +278,17 @@
                 color: "#fff"
             }
         }
-    }); 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 
-})(jQuery); 
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+})(jQuery);

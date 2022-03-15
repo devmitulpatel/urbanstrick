@@ -22,8 +22,8 @@ use Inertia\Inertia;
 
 
 if((bool)envmix('site','up')){
-    Route::get('/', function () {
-        return Inertia::render('Welcome', [
+    Route::get('/test', function () {
+        return Inertia::render('Front/LandingPage', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
@@ -44,7 +44,7 @@ if((bool)envmix('site','up')){
 
 
 
-Route::get('test',[TestController::class,'index']);
-
+//Route::get('test',[TestController::class,'index']);
+//
 
 require __DIR__.'/auth.php';

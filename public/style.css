@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Noraure-eCommerce-bootstrap-template 
+    Template Name: Noraure-eCommerce-bootstrap-template
     Template URI: http://bootexperts.com
     Description: This is html5 template
     Author: BootExperts
@@ -8,10 +8,10 @@
     Version: 2.3
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     1. Theme Default CSS (body, link color, section etc)
     2. index
     3. index-2
@@ -403,7 +403,7 @@ h3.hedding-border {
     display: block;
     z-index: 99999999;
 }
-.tb-menu-sidebar .widget_searchform_content > form, .blog-area .widget_searchform_content > form { 
+.tb-menu-sidebar .widget_searchform_content > form, .blog-area .widget_searchform_content > form {
     padding-right: 80px;
     position: relative;
 }
@@ -1496,7 +1496,7 @@ address {
 }
 .product-area .tb-item-content-info .tb-product-title a:hover, .tb-beg a:hover{
     color: #ce9634;
-}  
+}
 /*--------------------- 3. index-2--------------------*/
 .header-area.home-2 {
     background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
@@ -2538,7 +2538,7 @@ textarea.form-control {
     transition: all 0.4s ease 0s;
 }
 .shop-area .shop-one ul li span {
-    color: #cccccc; 
+    color: #cccccc;
 }
 .shop-area .shop-one ul li.current-cat::before {
     color: #ce9634;
@@ -2777,7 +2777,7 @@ a.clear-all {
     vertical-align: middle;
 }
 .shop6 select {
-    width: 180px; 
+    width: 180px;
 }
 .shop-all-tab .sort-by  .shop6 a {
     color: #2b2b2b;
@@ -2832,7 +2832,7 @@ a.clear-all {
     font-size: 18px;
 }
 .features-tab ul li a:hover{
-    color: #ce9634; 
+    color: #ce9634;
 }
 .features-tab ul li.active-icon a{
     color: #EE4A42;
@@ -4494,7 +4494,7 @@ p.woocommerce-nore2 {
 #toTop:hover {
     background-color: #ce9634 ;
 }
-/*............. 19.Start QUICK VIEW................*/   
+/*............. 19.Start QUICK VIEW................*/
 .product-name > h1 {
     font-size: 24px;
     line-height: 42px;

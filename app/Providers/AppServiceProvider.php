@@ -9,6 +9,7 @@ use App\Repositories\ProductRepository;
 use App\Repositories\UnitRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Inertia::setRootView('app2');
+
+
         //
         Schema::defaultStringLength(191);
     }

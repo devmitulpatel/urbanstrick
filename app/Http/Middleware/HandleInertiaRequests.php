@@ -39,4 +39,14 @@ class HandleInertiaRequests extends Middleware
             ],
         ]);
     }
+
+    public function rootView(Request $request)
+    {
+        if ($request->route()->getPrefix() == 'admin') {
+            return 'layout.BackRoot';
+        }
+        return 'layout.FrontRoot';
+
+       // return parent::rootView($request);
+    }
 }
