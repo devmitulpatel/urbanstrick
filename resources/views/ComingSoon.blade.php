@@ -43,8 +43,10 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
     {!! global_site_tag() !!}
+    {!! google_tag_head_tag() !!}
 </head>
 <body>
+{!! google_tag_body_tag() !!}
 <header class="header-area contact header-none">
     <div class="header-top">
         <div class="container">

@@ -35,5 +35,6 @@ class DynamicDataSeeder extends Seeder
 
         $data['site'][]=seed_array('launch-date',new Carbon('2022-04-1'));
         $data['google'][]=seed_array('analytic-id','G-WWHRD95S08');
+        $data['google'][]=seed_array('google-tag-id','G-WWHRD95S08');
     }
 }
