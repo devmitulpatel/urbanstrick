@@ -98,7 +98,7 @@ onMounted(()=>{
                     <div class="col-lg-8 col-md-8 col-12">
                         <div class="tb-info-box">
                             <div class="tb-image">
-                                <img alt="" src="img/banner/img-1.jpg">
+                                <img alt="" src="img/banner/t_1.png">
                             </div>
                             <div class="tb-content">
                                 <h5>NEW DESIGN</h5>
@@ -113,14 +113,14 @@ onMounted(()=>{
                                 <h6><a href="#">GET IT NOW</a></h6>
                             </div>
                             <div class="tb-image tb-right">
-                                <img alt="" src="img/banner/img-2.jpg">
+                                <img alt="" src="img/banner/t_2.png">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="ro-info-box-wrap tpl3 fs">
                             <div class="tb-image">
-                                <img alt="" src="img/banner/img-3.jpg">
+                                <img alt="" src="img/banner/t_3.png">
                             </div>
                             <div class="tb-content">
                                 <div class="tb-content-inner">

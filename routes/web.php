@@ -28,20 +28,16 @@ Route::get('/test', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 })->name('home');
-if((bool)envmix('site','up')){
 
-   require implode(DIRECTORY_SEPARATOR,[__DIR__,'frontend.php']);
-}else{
-    Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber');
-    Route::get('/migrate',function (){
-        $exitCode = Artisan::call('migrate:fresh', [
-            '--force'=>true,'--seed'=>true
-        ]);
-        dd($exitCode);
-    });
-    Route::fallback([FallbackController::class,'comingSoon']);
-}
 
+Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber');
+Route::get('/migrate',function (){
+    $exitCode = Artisan::call('migrate:fresh', [
+        '--force'=>true,'--seed'=>true
+    ]);
+    dd($exitCode);
+});
+Route::fallback([FallbackController::class,'comingSoon']);
 
 
 //Route::get('test',[TestController::class,'index']);
