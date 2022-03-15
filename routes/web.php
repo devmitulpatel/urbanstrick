@@ -22,14 +22,7 @@ use Inertia\Inertia;
 
 
 if((bool)envmix('site','up')){
-    Route::get('/test', function () {
-        return Inertia::render('Front/LandingPage', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
-        ]);
-    })->name('home');
+    Route::get('/', [FallbackController::class,'comingSoon'])->name('home');
    require implode(DIRECTORY_SEPARATOR,[__DIR__,'frontend.php']);
 }else{
     Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber');
