@@ -23096,7 +23096,7 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"header-top\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6 col-md-6 col-sm-5 d-none d-sm-block\"><div class=\"top-text\"><div class=\"textwidget\">Welcome To Our Store!</div></div></div><div class=\"col-lg-6 col-md-6 col-sm-7 col-12\"><div class=\"widget\"><ul><li><a href=\"#\">My Account</a></li><li><a href=\"#\">Wishlist</a></li><li><a href=\"#\">Check Out</a></li><li><a class=\"tb-login\" href=\"#\">Login</a></li></ul></div></div></div></div></div>", 1);
 
 var _hoisted_3 = {
-  "class": "pt-2 pb-4 hidden-sm hidden-xs"
+  "class": "pt-3 pb-4 hidden-sm hidden-xs"
 };
 var _hoisted_4 = {
   "class": "container"
@@ -23115,7 +23115,7 @@ var _hoisted_8 = ["href"];
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "dynamic-logo-big",
   style: {
-    "max-height": "60px"
+    "max-height": "160px"
   },
   src: "img/logo/04_Homepage.png",
   alt: ""

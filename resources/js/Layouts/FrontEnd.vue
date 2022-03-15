@@ -41,13 +41,13 @@ const showingNavigationDropdown = ref(false);
                 </div>
             </div>
         </div>
-        <div class="pt-2 pb-4 hidden-sm hidden-xs">
+        <div class="pt-3 pb-4 hidden-sm hidden-xs">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="home4-logo">
                             <a :href="route('home')">
-                                <img class="dynamic-logo-big" style="max-height: 60px" src="img/logo/04_Homepage.png" alt="">
+                                <img class="dynamic-logo-big" style="max-height: 160px" src="img/logo/04_Homepage.png" alt="">
 
                             </a>
                         </div>
