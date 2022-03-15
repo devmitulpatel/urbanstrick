@@ -106,3 +106,21 @@ if(!function_exists('normal_seed')){
         return array_merge($array,$extra);
     }
 }
+if(!function_exists('global_site_tag')){
+    function global_site_tag($tag=null){
+
+        if($tag==null)$tag=envmix('google','analytic-id');
+        $str=<<<EOF
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={$tag}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{$tag}');
+</script>
+EOF;
+
+        return $str;
+
+    }}
