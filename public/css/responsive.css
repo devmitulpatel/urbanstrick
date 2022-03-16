@@ -551,6 +551,10 @@
 }
 /* small mobile :320px. */
 @media (max-width: 767px) {
+
+    .slider-main-area.home-3{
+        padding-top:100px ;
+    }
     .home-2.home-5 .stick .mobile-menu {
         top: 76px;
     }
@@ -831,7 +835,9 @@
         margin-top: 8%;
     }
     .home-3 .slide-all2 {
-        margin-top: 8%;
+        margin-top: 25%;
+        float: right;
+        margin-right: 2%;;
     }
     .preview-2 .nivo-directionNav a.nivo-prevNav::before {
         font: 400 13px/32px FontAwesome;
