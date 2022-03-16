@@ -23,7 +23,7 @@ const showingNavigationDropdown = ref(false);
                     <div class="muti_menu">
                         <nav>
                             <ul>
-                                <li><a class="fast active" href="index.html">home <i class="fa fa-angle-down"></i></a>
+                                <li v-if="false"><a class="fast active" href="index.html">home <i class="fa fa-angle-down"></i></a>
                                     <div class="rayed ru">
                                         <div class="tas menu-last2">
                                             <a href="index-2.html">Homepage 02</a>
@@ -131,8 +131,8 @@ const showingNavigationDropdown = ref(false);
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="shop.html">Jewelry</a></li>
-                                <li><a class="fast" href="index.html">Pages <i class="fa fa-angle-down"></i></a>
+                                <li  v-if="false"><a href="shop.html">Jewelry</a></li>
+                                <li v-if="false"><a class="fast" href="index.html">Pages <i class="fa fa-angle-down"></i></a>
                                     <div class="rayed ru">
                                         <div class="tas menu-last2">
                                             <a href="blog.html">Blog</a>
@@ -150,9 +150,10 @@ const showingNavigationDropdown = ref(false);
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="blog.html">Watches</a></li>
-                                <li><a href="blog.html">Blog</a></li>
+                                <li v-if="false"><a href="blog.html">Watches</a></li>
+                                <li v-if="false"><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.html">About US</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -516,7 +517,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="footer-address">
                             <address>
                                 Copyright ©
-                                <a href="#">HasThemes.</a>
+                                <a :href="route('home')"><img src="img/logo/logo.png" style="max-height: 20px;"></a>
                                 All Rights Reserved
                             </address>
                         </div>

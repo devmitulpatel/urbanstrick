@@ -27,6 +27,9 @@ class DynamicDataSeeder extends Seeder
     private function createBasicData(array &$data)
     {
         $data['site'][]=seed_array('main-title','UrbanStrick');
+        $data['site'][]=seed_array('site-title', <<<EOF
+UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian
+EOF);
         $data['site'][]=seed_array('support-email','help@urbanstrick.com');
         $data['sms_gateway'][]=seed_array('api-key','IEnWDHlXuYP5NLw7vJF2b69BijGRUfq8oTyegpdKCxQAOa0c4S5ALjFWOrV3otsgZlXBKQbnS2qHad6m');
         $data['sms_gateway'][]=seed_array('api-key','IEnWDHlXuYP5NLw7vJF2b69BijGRUfq8oTyegpdKCxQAOa0c4S5ALjFWOrV3otsgZlXBKQbnS2qHad6m');

@@ -22517,6 +22517,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=script&setup=true&lang=js":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=script&setup=true&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {},
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var props = __props;
+    var __returned__ = {
+      props: props
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/UnderConstruction.vue?vue&type=script&setup=true&lang=js":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/UnderConstruction.vue?vue&type=script&setup=true&lang=js ***!
@@ -23167,13 +23197,148 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "header-area home-2 home-5"
+};
+var _hoisted_2 = {
+  "class": "header-menu header-menu-2"
+};
+var _hoisted_3 = {
+  "class": "header-wrapper"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"header-area home-2 home-5\"><div class=\"header-menu header-menu-2\"><div class=\"header-wrapper\"><div class=\"logo-stiky\"><a href=\"index.html\"><img style=\"max-height:50px;\" src=\"img/logo/logo.png\" alt=\"\"></a></div><div class=\"menu-cart\"><div class=\"muti_menu\"><nav><ul><li><a class=\"fast active\" href=\"index.html\">home <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"index-2.html\">Homepage 02</a><a href=\"index-3.html\">Homepage 03</a><a href=\"index-4.html\">Homepage 04</a><a href=\"index-5.html\">Homepage 05</a><a href=\"index-6.html\">Homepage 06</a></div></div></li><li><a href=\"shop.html\">Women <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothings</a></h3><a href=\"#\">Dresses</a><a href=\"#\">Tops</a><a href=\"#\">Outerwear</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Jewelry</a></h3><a href=\"#\">Necklaces</a><a href=\"#\">Earrings</a><a href=\"#\">Rings</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Flats</a><a href=\"#\">Boots</a></div></div><div class=\"tas2\"><div class=\"menu-img ist\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Men <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1 tas3\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothing</a></h3><a href=\"#\">Shirts</a><a href=\"#\">Tops</a><a href=\"#\">Fashion Scarves</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Casual</a><a href=\"#\">Boots</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Bags</a></h3><a href=\"#\">Work</a><a href=\"#\">Weekend</a><a href=\"#\">Backpacks</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Accessories</a></h3><a href=\"#\">Sunglasses</a><a href=\"#\">Watches</a><a href=\"#\">Jewelry</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Sale</a></h3><a href=\"#\">Tops</a><a href=\"#\">Bottoms</a><a href=\"#\">Denim</a></div><div class=\"tas mrgn-none\"><h3 class=\"hedding-border\"><a href=\"#\">Features</a></h3><a href=\"#\">Holiday Party</a><a href=\"#\">The Carry On</a><a href=\"#\">Holiday Travel</a></div></div><div class=\"tas4\"><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></div><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Jewelry</a></li><li><a class=\"fast\" href=\"index.html\">Pages <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">coming soon</a></div></div></li><li><a href=\"blog.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div><div class=\"menu-sidebar-container\"><div class=\"tb-menu-sidebar floatleft\"><div class=\"search-item\"><a class=\"icon_search\" href=\"#\"><i class=\"fa fa-search search-icon\"></i></a><div class=\"widget_searchform_content\"><form action=\"#\"><input type=\"text\" placeholder=\"Search\" name=\"s\" value=\"\"><input type=\"submit\" value=\"Search\"></form></div></div></div><div class=\"tb-menu-canvas-wrap floatleft\"><div class=\"header-menu-item-icon\"><a href=\"#\"><i class=\"fa fa-bars\"></i></a></div><div class=\"widget_searchform\"><h3 class=\"wg-title\"><span>ACCOUNT</span></h3><div class=\"widget\"><ul><li><a href=\"#\"><i class=\"fa fa-user\"></i> My Account</a></li><li><a href=\"#\"><i class=\"fa fa-heart\"></i>My Wishlist</a></li><li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i> My Cart</a></li><li><a class=\"tb-login\" href=\"#\"><i class=\"fa fa-usd\"></i> Check Out</a></li><li><a class=\"tb-login\" href=\"#\"><i class=\"fa fa-unlock-alt\"></i> Login</a></li></ul></div></div></div><div class=\"top-cart-wrapper wrap floatleft\"><div class=\"top-shop-contain\"><div class=\"block-shop\"><div class=\"top-shop-title\"><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i><span class=\"count co1\">2</span></a></div><div class=\"wish-cart margin\"><div class=\"wish-item\"><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c1.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">vintage-lambskin-shoe</a></p><p><span class=\"agn\">1 </span>x <span>$199.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c2.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">luxury-leather-bag</a></p><p><span class=\"agn\">1</span> x <span>$99.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div></div><div class=\"wish-item\"><div class=\"cat_bottom\"><p class=\"total\"><strong>Subtotal:</strong><span class=\"amount\">$298.00</span></p><p class=\"buttons\"><a class=\"button wc-forward\" href=\"#\">View Cart</a><a class=\"button checkout wc-forward\" href=\"#\">Checkout</a></p></div></div></div></div></div></div><div class=\"mobile-menu\"><nav id=\"dropdown\"><ul class=\"main-menu\"><li><a href=\"index.html\">Home</a><ul class=\"menu-up\"><li><a href=\"index-2.html\">Homepage 02</a></li><li><a href=\"index-3.html\">Homepage 03</a></li><li><a href=\"index-4.html\">Homepage 04</a></li><li><a href=\"index-5.html\">Homepage 05</a></li><li><a href=\"index-6.html\">Homepage 06</a></li></ul></li><li><a href=\"shop.html\">Women</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothings</a><ul class=\"main-menu3\"><li><a>Dresses</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Jewelry</a><ul class=\"main-menu3\"><li><a>Necklaces</a></li><li><a>Earrings</a></li><li><a>Rings</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Flats</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Men</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothing</a><ul class=\"main-menu3\"><li><a>Shirts</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Casual</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\">Bags</a><ul class=\"main-menu3\"><li><a>Work</a></li><li><a>Weekend</a></li><li><a>Backpacks</a></li></ul></li><li><a href=\"#\">Accessories</a><ul class=\"main-menu3\"><li><a>Sunglasses</a></li><li><a>Watches</a></li><li><a>Jewelry</a></li></ul></li><li><a href=\"#\">Sale</a><ul class=\"main-menu3\"><li><a>Tops</a></li><li><a>Bottoms</a></li><li><a>Denim</a></li></ul></li><li><a href=\"#\">Features</a><ul class=\"main-menu3\"><li><a>Holiday Party</a></li><li><a>The Carry On</a></li><li><a>Holiday Travel</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Jewelry</a></li><li><a href=\"#\">Pages</a><ul><li><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">Coming soon</a></li></ul></li><li><a href=\"shop.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div></div></div></div></div></header>", 1);
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "logo-stiky"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "index.html"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  style: {
+    "max-height": "50px"
+  },
+  src: "img/logo/logo.png",
+  alt: ""
+})])], -1
+/* HOISTED */
+);
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer class=\"footer-area\"><div class=\"footer-top\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Contact Us</h3><div class=\"textwidget\"><ul><li><a href=\"#\"><i class=\"fa fa-map-marker\"></i><span>NORAURE London Oxford Street 012 United Kingdom.</span></a></li><li><a href=\"#\"><i class=\"fa fa-envelope\"></i><span>emailnoraure@gmail.com emailsupport@gmail.com</span></a></li><li><a href=\"#\"><i class=\"fa fa-phone\"></i><span> (+92) 3456 7890 <br> (+92) 1234 5678 </span></a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Information</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">My account</a></li><li><a href=\"#\">Order history</a></li><li><a href=\"#\">Wish List</a></li><li><a href=\"#\">Returns</a></li><li><a href=\"#\">Privacy Policy</a></li><li><a href=\"#\">Site Map</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Our Offers</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">New collection</a></li><li><a href=\"#\">Best sellers</a></li><li><a href=\"#\">Manufacturers</a></li><li><a href=\"#\">New products</a></li><li><a href=\"#\">Suppliers</a></li><li><a href=\"#\">Delivery &amp; returns</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12\"><div class=\"first-footer res-mrg-top-md rspn\"><h3 class=\"wg-title\">Our Policy</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">Help &amp; Contact</a></li><li><a href=\"#\">Shipping &amp; taxes</a></li><li><a href=\"#\">Returns policy</a></li><li><a href=\"#\">Careens</a></li><li><a href=\"#\">Affiliates</a></li><li><a href=\"#\">Legal Notice</a></li></ul></div></div></div><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"last-footer res-mrg-top-md\"><h3 class=\"wg-title\">Get Newsletters</h3><div class=\"newsletter\"><form action=\"#\"><p><input class=\"newsletter-email\" type=\"email\" placeholder=\"Email\" required=\"\"></p><p><input class=\"newsletter-submit\" type=\"submit\" value=\"Subscribe\"></p></form></div><div class=\"widget_text\"><h3 class=\"wg-title\">Connect Us</h3><div class=\"textwid\"><ul class=\"socials\"><li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-linkedin\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-rss\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-dribbble\"></i></a></li></ul></div></div></div></div></div></div></div><div class=\"footer-bottom\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6 col-md-6 col-12\"><div class=\"footer-address\"><address> Copyright © <a href=\"#\">HasThemes.</a> All Rights Reserved </address></div></div><div class=\"col-lg-6 col-md-6 col-12\"><div class=\"foot-icon\"><ul><li><a href=\"#\"><img src=\"img/icon-img/payment-1.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-2.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-3.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-4.jpg\" alt=\"\"></a></li></ul></div></div></div></div></div></footer>", 1);
+var _hoisted_5 = {
+  "class": "menu-cart"
+};
+var _hoisted_6 = {
+  "class": "muti_menu"
+};
+var _hoisted_7 = {
+  key: 0
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"fast active\" href=\"index.html\">home <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"index-2.html\">Homepage 02</a><a href=\"index-3.html\">Homepage 03</a><a href=\"index-4.html\">Homepage 04</a><a href=\"index-5.html\">Homepage 05</a><a href=\"index-6.html\">Homepage 06</a></div></div>", 2);
+
+var _hoisted_10 = [_hoisted_8];
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li><a href=\"shop.html\">Women <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothings</a></h3><a href=\"#\">Dresses</a><a href=\"#\">Tops</a><a href=\"#\">Outerwear</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Jewelry</a></h3><a href=\"#\">Necklaces</a><a href=\"#\">Earrings</a><a href=\"#\">Rings</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Flats</a><a href=\"#\">Boots</a></div></div><div class=\"tas2\"><div class=\"menu-img ist\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Men <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1 tas3\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothing</a></h3><a href=\"#\">Shirts</a><a href=\"#\">Tops</a><a href=\"#\">Fashion Scarves</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Casual</a><a href=\"#\">Boots</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Bags</a></h3><a href=\"#\">Work</a><a href=\"#\">Weekend</a><a href=\"#\">Backpacks</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Accessories</a></h3><a href=\"#\">Sunglasses</a><a href=\"#\">Watches</a><a href=\"#\">Jewelry</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Sale</a></h3><a href=\"#\">Tops</a><a href=\"#\">Bottoms</a><a href=\"#\">Denim</a></div><div class=\"tas mrgn-none\"><h3 class=\"hedding-border\"><a href=\"#\">Features</a></h3><a href=\"#\">Holiday Party</a><a href=\"#\">The Carry On</a><a href=\"#\">Holiday Travel</a></div></div><div class=\"tas4\"><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></div><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></div></div></div></li>", 2);
+
+var _hoisted_13 = {
+  key: 1
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "shop.html"
+}, "Jewelry", -1
+/* HOISTED */
+);
+
+var _hoisted_15 = [_hoisted_14];
+var _hoisted_16 = {
+  key: 2
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"fast\" href=\"index.html\">Pages <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">coming soon</a></div></div>", 2);
+
+var _hoisted_19 = [_hoisted_17];
+var _hoisted_20 = {
+  key: 3
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "blog.html"
+}, "Watches", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = [_hoisted_21];
+var _hoisted_23 = {
+  key: 4
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "blog.html"
+}, "Blog", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = [_hoisted_24];
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "contact.html"
+}, "Contact")], -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "contact.html"
+}, "About US")], -1
+/* HOISTED */
+);
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"menu-sidebar-container\"><div class=\"tb-menu-sidebar floatleft\"><div class=\"search-item\"><a class=\"icon_search\" href=\"#\"><i class=\"fa fa-search search-icon\"></i></a><div class=\"widget_searchform_content\"><form action=\"#\"><input type=\"text\" placeholder=\"Search\" name=\"s\" value=\"\"><input type=\"submit\" value=\"Search\"></form></div></div></div><div class=\"tb-menu-canvas-wrap floatleft\"><div class=\"header-menu-item-icon\"><a href=\"#\"><i class=\"fa fa-bars\"></i></a></div><div class=\"widget_searchform\"><h3 class=\"wg-title\"><span>ACCOUNT</span></h3><div class=\"widget\"><ul><li><a href=\"#\"><i class=\"fa fa-user\"></i> My Account</a></li><li><a href=\"#\"><i class=\"fa fa-heart\"></i>My Wishlist</a></li><li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i> My Cart</a></li><li><a class=\"tb-login\" href=\"#\"><i class=\"fa fa-usd\"></i> Check Out</a></li><li><a class=\"tb-login\" href=\"#\"><i class=\"fa fa-unlock-alt\"></i> Login</a></li></ul></div></div></div><div class=\"top-cart-wrapper wrap floatleft\"><div class=\"top-shop-contain\"><div class=\"block-shop\"><div class=\"top-shop-title\"><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i><span class=\"count co1\">2</span></a></div><div class=\"wish-cart margin\"><div class=\"wish-item\"><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c1.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">vintage-lambskin-shoe</a></p><p><span class=\"agn\">1 </span>x <span>$199.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c2.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">luxury-leather-bag</a></p><p><span class=\"agn\">1</span> x <span>$99.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div></div><div class=\"wish-item\"><div class=\"cat_bottom\"><p class=\"total\"><strong>Subtotal:</strong><span class=\"amount\">$298.00</span></p><p class=\"buttons\"><a class=\"button wc-forward\" href=\"#\">View Cart</a><a class=\"button checkout wc-forward\" href=\"#\">Checkout</a></p></div></div></div></div></div></div><div class=\"mobile-menu\"><nav id=\"dropdown\"><ul class=\"main-menu\"><li><a href=\"index.html\">Home</a><ul class=\"menu-up\"><li><a href=\"index-2.html\">Homepage 02</a></li><li><a href=\"index-3.html\">Homepage 03</a></li><li><a href=\"index-4.html\">Homepage 04</a></li><li><a href=\"index-5.html\">Homepage 05</a></li><li><a href=\"index-6.html\">Homepage 06</a></li></ul></li><li><a href=\"shop.html\">Women</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothings</a><ul class=\"main-menu3\"><li><a>Dresses</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Jewelry</a><ul class=\"main-menu3\"><li><a>Necklaces</a></li><li><a>Earrings</a></li><li><a>Rings</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Flats</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Men</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothing</a><ul class=\"main-menu3\"><li><a>Shirts</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Casual</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\">Bags</a><ul class=\"main-menu3\"><li><a>Work</a></li><li><a>Weekend</a></li><li><a>Backpacks</a></li></ul></li><li><a href=\"#\">Accessories</a><ul class=\"main-menu3\"><li><a>Sunglasses</a></li><li><a>Watches</a></li><li><a>Jewelry</a></li></ul></li><li><a href=\"#\">Sale</a><ul class=\"main-menu3\"><li><a>Tops</a></li><li><a>Bottoms</a></li><li><a>Denim</a></li></ul></li><li><a href=\"#\">Features</a><ul class=\"main-menu3\"><li><a>Holiday Party</a></li><li><a>The Carry On</a></li><li><a>Holiday Travel</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Jewelry</a></li><li><a href=\"#\">Pages</a><ul><li><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">Coming soon</a></li></ul></li><li><a href=\"shop.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div></div>", 1);
+
+var _hoisted_29 = {
+  "class": "footer-area"
+};
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"footer-top\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Contact Us</h3><div class=\"textwidget\"><ul><li><a href=\"#\"><i class=\"fa fa-map-marker\"></i><span>NORAURE London Oxford Street 012 United Kingdom.</span></a></li><li><a href=\"#\"><i class=\"fa fa-envelope\"></i><span>emailnoraure@gmail.com emailsupport@gmail.com</span></a></li><li><a href=\"#\"><i class=\"fa fa-phone\"></i><span> (+92) 3456 7890 <br> (+92) 1234 5678 </span></a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Information</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">My account</a></li><li><a href=\"#\">Order history</a></li><li><a href=\"#\">Wish List</a></li><li><a href=\"#\">Returns</a></li><li><a href=\"#\">Privacy Policy</a></li><li><a href=\"#\">Site Map</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Our Offers</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">New collection</a></li><li><a href=\"#\">Best sellers</a></li><li><a href=\"#\">Manufacturers</a></li><li><a href=\"#\">New products</a></li><li><a href=\"#\">Suppliers</a></li><li><a href=\"#\">Delivery &amp; returns</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12\"><div class=\"first-footer res-mrg-top-md rspn\"><h3 class=\"wg-title\">Our Policy</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">Help &amp; Contact</a></li><li><a href=\"#\">Shipping &amp; taxes</a></li><li><a href=\"#\">Returns policy</a></li><li><a href=\"#\">Careens</a></li><li><a href=\"#\">Affiliates</a></li><li><a href=\"#\">Legal Notice</a></li></ul></div></div></div><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"last-footer res-mrg-top-md\"><h3 class=\"wg-title\">Get Newsletters</h3><div class=\"newsletter\"><form action=\"#\"><p><input class=\"newsletter-email\" type=\"email\" placeholder=\"Email\" required=\"\"></p><p><input class=\"newsletter-submit\" type=\"submit\" value=\"Subscribe\"></p></form></div><div class=\"widget_text\"><h3 class=\"wg-title\">Connect Us</h3><div class=\"textwid\"><ul class=\"socials\"><li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-linkedin\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-rss\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-dribbble\"></i></a></li></ul></div></div></div></div></div></div></div>", 1);
+
+var _hoisted_31 = {
+  "class": "footer-bottom"
+};
+var _hoisted_32 = {
+  "class": "container"
+};
+var _hoisted_33 = {
+  "class": "row"
+};
+var _hoisted_34 = {
+  "class": "col-lg-6 col-md-6 col-12"
+};
+var _hoisted_35 = {
+  "class": "footer-address"
+};
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copyright © ");
+
+var _hoisted_37 = ["href"];
+
+var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "img/logo/logo.png",
+  style: {
+    "max-height": "20px"
+  }
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_39 = [_hoisted_38];
+
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" All Rights Reserved ");
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-lg-6 col-md-6 col-12\"><div class=\"foot-icon\"><ul><li><a href=\"#\"><img src=\"img/icon-img/payment-1.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-2.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-3.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-4.jpg\" alt=\"\"></a></li></ul></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]), _hoisted_2], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [ false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_11,  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_26, _hoisted_27])])]), _hoisted_28])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("footer", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("address", null, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: _ctx.route('home')
+  }, _hoisted_39, 8
+  /* PROPS */
+  , _hoisted_37), _hoisted_40])])]), _hoisted_41])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -23907,139 +24072,13 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_2 = {
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "slider-main-area home-3 bg-gray"
-};
-var _hoisted_3 = {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "main-slider an-si"
-};
-var _hoisted_4 = {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "bend niceties preview-2"
-};
-var _hoisted_5 = {
-  key: 0,
-  "class": "landing-slider owl-carousel"
-};
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12 t-cn Builder nivo-caption",
-  style: {
-    "min-height": "100vh",
-    "min-width": "100vw"
-  }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/slider-1.jpg",
-  alt: "",
-  title: "#slider-direction-1"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "float": "right",
-    "display": "block",
-    "position": "relative",
-    "margin-top": "-23%",
-    "margin-right": "2%"
-  },
-  "class": "slide-all2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title5"
-}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title6"
-}, "Men’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "title0"
-}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "min1",
-  href: "#"
-}, "Shop Now")])])], -1
-/* HOISTED */
-);
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12 t-cn Builder nivo-caption",
-  style: {
-    "min-height": "100vh",
-    "min-width": "100vw"
-  }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/slider-2.jpg",
-  alt: "",
-  title: "#slider-direction-1"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "display": "block",
-    "position": "relative",
-    "margin-top": "-23%"
-  },
-  "class": "slide-all slide2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title5"
-}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title6"
-}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "title0"
-}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "min1",
-  href: "#"
-}, "Shop Now")])])], -1
-/* HOISTED */
-);
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12 t-cn Builder nivo-caption",
-  style: {
-    "min-height": "100vh",
-    "min-width": "100vw"
-  }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/slider-3.jpg",
-  alt: "",
-  title: "#slider-direction-1"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "display": "block",
-    "position": "relative",
-    "margin-top": "-23%"
-  },
-  "class": "slide-all slide2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title5"
-}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title6"
-}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "title0"
-}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "min1",
-  href: "#"
-}, "Shop Now")])])], -1
-/* HOISTED */
-);
-
-var _hoisted_9 = [_hoisted_6, _hoisted_7, _hoisted_8];
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "slider-wrapper theme-default"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "jquery-slider-demo",
@@ -24129,84 +24168,11 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "min1",
   href: "#"
-}, "Shop Now")])])])])], -1
+}, "Shop Now")])])])])])])])], -1
 /* HOISTED */
 );
 
-var _hoisted_11 = {
-  key: 1
-};
-
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  id: "ensign-nivoslider-2 ",
-  "class": "slides"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/bg_slider1.jpg",
-  alt: "",
-  title: "#slider-direction-1"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/bg_slider22.jpg",
-  alt: "",
-  title: "#slider-direction-2"
-})])], -1
-/* HOISTED */
-);
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  id: "slider-direction-1",
-  "class": "t-cn slider-direction Builder"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "slide-all slide2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title5"
-}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title6"
-}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "title0"
-}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "min1",
-  href: "#"
-}, "Shop Now")])])], -1
-/* HOISTED */
-);
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  id: "slider-direction-2",
-  "class": "t-cn slider-direction Builder"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "slide-all2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title5"
-}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "title6"
-}, "Men’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "title0"
-}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "layer-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "min1",
-  href: "#"
-}, "Shop Now")])])], -1
-/* HOISTED */
-);
-
-var _hoisted_15 = [_hoisted_12, _hoisted_13, _hoisted_14];
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "design-area home-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "container"
@@ -24225,13 +24191,13 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   src: "img/banner/t_1.png"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-content"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "NEW DESIGN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "SEND HER YOUR LOVE"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "NEW DESIGN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "big dream big act"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
 }, "GET IT NOW")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-info-box bt-no"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-content"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "NEW DESIGN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "SEND HER YOUR LOVE"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "NEW DESIGN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "ALWAYS STRONG"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
 }, "GET IT NOW")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-image tb-right"
@@ -24251,7 +24217,7 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-content"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-content-inner"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "MEN’S FASHION"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "MID SEASON SALE"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "T-shirt FASHION"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "MID SEASON SALE"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
 }, "VIEW COLLECTION")])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "row"
@@ -25214,91 +25180,7 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
-  "class": "client-area home-2 stripe-parallax-bg",
-  "data-parallax-speed": "0.5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-bg"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "container"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-lg-12 col-12 text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "pro-text"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "What's Client Say?"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/icon-img/underline-style-1.png",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-all owl-carousel"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-slider"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "sppb-testimonial-message"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "““This theme is totally customizable, clean with all the options you could want. Don’t want full screen layout? With one word added to the code the entire site becomes a boxed version…. The customer support is absolutely unsurpassed. Every question is answered with more help than anyone could expect for the price. Can not recommend […]")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-img"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/testimonial/item-11.png",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ro-title"
-}, "John Doe")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "ro-company"
-}, "Technical Support - Olker")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-slider"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "sppb-testimonial-message"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "““This theme is totally customizable, clean with all the options you could want. Don’t want full screen layout? With one word added to the code the entire site becomes a boxed version…. The customer support is absolutely unsurpassed. Every question is answered with more help than anyone could expect for the price. Can not recommend […]")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-img"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/testimonial/elizabett.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ro-title"
-}, "Elizabeth Smith")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "ro-company"
-}, "Agency - Olker")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-slider"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "sppb-testimonial-message"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "““This theme is totally customizable, clean with all the options you could want. Don’t want full screen layout? With one word added to the code the entire site becomes a boxed version…. The customer support is absolutely unsurpassed. Every question is answered with more help than anyone could expect for the price. Can not recommend […]")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-img"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/testimonial/user1.png",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ro-title"
-}, "John Doe")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "ro-company"
-}, "Technical Support - Olker")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-slider"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "sppb-testimonial-message"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "““This theme is totally customizable, clean with all the options you could want. Don’t want full screen layout? With one word added to the code the entire site becomes a boxed version…. The customer support is absolutely unsurpassed. Every question is answered with more help than anyone could expect for the price. Can not recommend […]")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "client-img"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/testimonial/user2.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ro-title"
-}, "Diana John")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "ro-company"
-}, "Director Business - Olker")])])])])])])])])], -1
-/* HOISTED */
-);
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "specail-area home-3 hm-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "container"
@@ -25319,7 +25201,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "new"
 }, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/product/5.jpg",
+  src: "img/product/1.png",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "la-icon",
@@ -25334,11 +25216,15 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-beg"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
-}, "Luxury Leather Bag")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "UrbanStrick Earth")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-price font-noraure-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$170.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "amount2 ana text-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("del", {
+  "class": "text-danger text-sm"
+}, "₹1299.00"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("₹999.00 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-warning"
+}, "( 23 % off)")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
@@ -25361,7 +25247,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "new"
 }, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/product/9.jpg",
+  src: "img/product/2.png",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "la-icon",
@@ -25376,13 +25262,15 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-beg"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
-}, "Glasses")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "U Urban")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-price font-noraure-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$79.00 - "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$100.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "amount2 ana text-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("del", {
+  "class": "text-danger text-sm"
+}, "₹1099.00"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("₹799.00 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-warning"
+}, "( 27 % off)")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
@@ -25411,7 +25299,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "new"
 }, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/product/8.jpg",
+  src: "img/product/3.png",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "la-icon",
@@ -25426,11 +25314,15 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-beg"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
-}, "Vintage Shoulder Bag")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "Focus")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-price font-noraure-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$99.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "amount2 ana text-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("del", {
+  "class": "text-danger text-sm"
+}, "₹1099.00"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("₹799.00 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-warning"
+}, "( 27 % off)")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
@@ -25453,7 +25345,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "new"
 }, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/product/3.jpg",
+  src: "img/product/4.png",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "la-icon",
@@ -25468,11 +25360,15 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-beg"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
-}, "Vintage Lambskin Shoe")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "Work Hard Stay Humble")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-price font-noraure-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$270.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "amount2 ana text-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("del", {
+  "class": "text-danger text-sm"
+}, "₹1099.00"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("₹799.00 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-warning"
+}, "( 27 % off)")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
@@ -25501,7 +25397,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "new"
 }, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/product/6.jpg",
+  src: "img/product/5.png",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "la-icon",
@@ -25516,11 +25412,15 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-beg"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
-}, "Vintage Glasses")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "Always Strong")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-price font-noraure-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$120.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "amount2 ana text-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("del", {
+  "class": "text-danger text-sm"
+}, "₹1099.00"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("₹799.00 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-warning"
+}, "( 27 % off)")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
@@ -25543,7 +25443,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "new"
 }, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/product/10.jpg",
+  src: "img/product/6.png",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "la-icon",
@@ -25558,11 +25458,15 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "tb-beg"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
-}, "Vintage Lambskin Shoe")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "Big Dream Big act")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-price font-noraure-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "amount2 ana"
-}, "$170.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "amount2 ana text-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("del", {
+  "class": "text-danger text-sm"
+}, "₹1299.00"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("₹999.00 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-warning"
+}, "( 23 % off)")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "tb-product-btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#"
@@ -25580,179 +25484,12 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
-  "class": "lastest-area"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "container"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-md-12 text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lastest-from res"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Lastest From Blogs")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "slider-active-two indicator-style2 owl-carousel"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-post-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-thumb"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/banner/l1.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "tb-publish font-noraure-3"
-}, "Dec / 11")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-content7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  "class": "tb-titlel"
-}, "That most modern")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-excerpt"
-}, " The summer holidays are wonderful. Dressing for them can be significantly less so: Packing{...} ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-post-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-thumb"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/banner/l2.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "tb-publish font-noraure-3"
-}, "Nov / 28")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-content7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  "class": "tb-titlel"
-}, "Glance Into the Future of Androids")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-excerpt"
-}, " The summer holidays are wonderful. Dressing for them can be significantly less so: Packing{...} ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-post-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-thumb"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/banner/l3.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "tb-publish font-noraure-3"
-}, "Dec / 11")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-content7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  "class": "tb-titlel"
-}, "Nullam at tellus vehicula")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-excerpt"
-}, " The summer holidays are wonderful. Dressing for them can be significantly less so: Packing{...} ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-post-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-thumb"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/banner/l4.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "tb-publish font-noraure-3"
-}, "Nov / 26")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-content7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  "class": "tb-titlel"
-}, "Summer Classics in Positano")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-excerpt"
-}, " The summer holidays are wonderful. Dressing for them can be significantly less so: Packing{...} ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-post-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-thumb"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/banner/l5.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "tb-publish font-noraure-3"
-}, "Nov / 16")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-content7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  "class": "tb-titlel"
-}, "Photography Tips From Wai Su")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-excerpt"
-}, " The summer holidays are wonderful. Dressing for them can be significantly less so: Packing{...} ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-post-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-thumb"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/banner/l1.jpg",
-  alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "tb-publish font-noraure-3"
-}, "Dec / 11")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-content7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  "class": "tb-titlel"
-}, "Nullam at tellus vehicula")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "tb-excerpt"
-}, " The summer holidays are wonderful. Dressing for them can be significantly less so: Packing{...} ")])])])])], -1
-/* HOISTED */
-);
-
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "icon-slider-area"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "container"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-md-12 text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mates"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/icon-slider/logo-05.png",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mates"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/icon-slider/logo-03.png",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mates nm"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/icon-slider/logo-02.png",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mates"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/icon-slider/logo-01.png",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mates"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/icon-slider/logo-04.png",
-  alt: ""
-})])])])])], -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
-    title: "Dashboard"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FrontEndLayout"], null, {
+    title: "UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian"
+  }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FrontEndLayout"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile-menu-area end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [ false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_10,  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_16, _hoisted_17, _hoisted_18, _hoisted_19, _hoisted_20];
+      return [_hoisted_2, _hoisted_3, _hoisted_4];
     }),
     _: 1
     /* STABLE */
@@ -25760,6 +25497,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   })], 64
   /* STABLE_FRAGMENT */
   );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=template&id=29c8d53b":
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=template&id=29c8d53b ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return null;
 }
 
 /***/ }),
@@ -62739,6 +62493,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Front/PrivacyPolicy.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/Pages/Front/PrivacyPolicy.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _PrivacyPolicy_vue_vue_type_template_id_29c8d53b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PrivacyPolicy.vue?vue&type=template&id=29c8d53b */ "./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=template&id=29c8d53b");
+/* harmony import */ var _PrivacyPolicy_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PrivacyPolicy.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var E_Projects_Github_urbanstrick_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_Projects_Github_urbanstrick_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PrivacyPolicy_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PrivacyPolicy_vue_vue_type_template_id_29c8d53b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Front/PrivacyPolicy.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/UnderConstruction.vue":
 /*!**************************************************!*\
   !*** ./resources/js/Pages/UnderConstruction.vue ***!
@@ -63121,6 +62903,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=script&setup=true&lang=js":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=script&setup=true&lang=js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrivacyPolicy_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrivacyPolicy_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrivacyPolicy.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/UnderConstruction.vue?vue&type=script&setup=true&lang=js":
 /*!*************************************************************************************!*\
   !*** ./resources/js/Pages/UnderConstruction.vue?vue&type=script&setup=true&lang=js ***!
@@ -63489,6 +63287,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=template&id=29c8d53b":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=template&id=29c8d53b ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrivacyPolicy_vue_vue_type_template_id_29c8d53b__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrivacyPolicy_vue_vue_type_template_id_29c8d53b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrivacyPolicy.vue?vue&type=template&id=29c8d53b */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Front/PrivacyPolicy.vue?vue&type=template&id=29c8d53b");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/UnderConstruction.vue?vue&type=template&id=ca048e20&scoped=true":
 /*!********************************************************************************************!*\
   !*** ./resources/js/Pages/UnderConstruction.vue?vue&type=template&id=ca048e20&scoped=true ***!
@@ -63828,6 +63642,7 @@ var map = {
 	"./Auth/VerifyEmail.vue": "./resources/js/Pages/Auth/VerifyEmail.vue",
 	"./Dashboard.vue": "./resources/js/Pages/Dashboard.vue",
 	"./Front/LandingPage.vue": "./resources/js/Pages/Front/LandingPage.vue",
+	"./Front/PrivacyPolicy.vue": "./resources/js/Pages/Front/PrivacyPolicy.vue",
 	"./UnderConstruction.vue": "./resources/js/Pages/UnderConstruction.vue",
 	"./Welcome.vue": "./resources/js/Pages/Welcome.vue"
 };
