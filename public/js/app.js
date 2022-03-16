@@ -22396,12 +22396,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-owl-carousel */ "./node_modules/vue-owl-carousel/dist/vue-owl-carousel.js");
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_owl_carousel__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var owl_carousel_dist_assets_owl_carousel_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! owl.carousel/dist/assets/owl.carousel.css */ "./node_modules/owl.carousel/dist/assets/owl.carousel.css");
-/* harmony import */ var owl_carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.carousel.js");
-/* harmony import */ var owl_carousel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(owl_carousel__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Lib_nivoslider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Lib/nivoslider */ "./resources/js/Lib/nivoslider.js");
+/* harmony import */ var _Lib_nivoslider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Lib_nivoslider__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Lib_nivo_slider_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Lib/nivo-slider.css */ "./resources/js/Lib/nivo-slider.css");
+/* harmony import */ var _Lib_preview_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Lib/preview.css */ "./resources/js/Lib/preview.css");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+
+ // import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel';
 
 
 
@@ -22411,23 +22415,97 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    (0,vue__WEBPACK_IMPORTED_MODULE_5__.onMounted)(function () {
-      $('.owl-carousel').owlCarousel({
-        items: 6,
-        center: true,
-        // autoWidth:true,
-        URLhashListener: true,
-        nav: true,
-        slideBy: true,
+    (0,vue__WEBPACK_IMPORTED_MODULE_6__.onMounted)(function () {
+      // $('.landing-slider').owlCarousel({
+      //     items:1,
+      //     center:true,
+      //    // autoWidth:true,
+      //     loop:true,
+      //     URLhashListener:true,
+      //     nav:false,
+      //     slideBy:true,
+      //     lazyLoad:true,
+      //     autoplay:false,
+      //     responsive: {
+      //         0: {
+      //             items: 1
+      //         },
+      //         576: {
+      //             items: 1
+      //         },
+      //         768: {
+      //             items: 1
+      //         },
+      //         992: {
+      //             items: 1
+      //         },
+      //         1200: {
+      //             items: 1
+      //         }
+      //     },
+      //     dots:false
+      //
+      // });
+      $('#jquery-slider-demo').nivoSlider({
         lazyLoad: true,
-        autoplay: true
+        autoplay: true,
+        loop: true,
+        effect: 'random',
+        slices: 35,
+        boxCols: 12,
+        boxRows: 12,
+        animSpeed: 500,
+        pauseTime: 500,
+        startSlide: 0,
+        directionNav: true,
+        controlNavThumbs: true,
+        pauseOnHover: true,
+        manualAdvance: true
+      });
+      $('#ensign-nivoslider').nivoSlider({
+        effect: 'random',
+        slices: 15,
+        boxCols: 8,
+        boxRows: 4,
+        animSpeed: 500,
+        pauseTime: 5000,
+        startSlide: 0,
+        directionNav: true,
+        controlNavThumbs: false,
+        pauseOnHover: false,
+        manualAdvance: true
+      });
+      $('#ensign-nivoslider-2').nivoSlider({
+        effect: 'random',
+        slices: 15,
+        boxCols: 8,
+        boxRows: 4,
+        animSpeed: 500,
+        pauseTime: 5000,
+        startSlide: 0,
+        directionNav: true,
+        controlNavThumbs: false,
+        pauseOnHover: true,
+        manualAdvance: true
       });
     });
+    var vfOptions = (0,vue__WEBPACK_IMPORTED_MODULE_6__.ref)({
+      autoplay: true
+    });
+    var vfImages = (0,vue__WEBPACK_IMPORTED_MODULE_6__.ref)(['img/slider/bg_slider1.jpg', 'img/slider/bg_slider22.jpg']);
+    var vfTransitions = (0,vue__WEBPACK_IMPORTED_MODULE_6__.ref)(['fade', 'cube', 'book', 'wave']);
+    var vfCaptions = (0,vue__WEBPACK_IMPORTED_MODULE_6__.ref)(['Caption for image 1', 'Caption for image 2', 'Caption for image 3']);
     var __returned__ = {
+      vfOptions: vfOptions,
+      vfImages: vfImages,
+      vfTransitions: vfTransitions,
+      vfCaptions: vfCaptions,
       FrontEndLayout: _Layouts_FrontEnd_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
       carousel: (vue_owl_carousel__WEBPACK_IMPORTED_MODULE_2___default()),
-      onMounted: vue__WEBPACK_IMPORTED_MODULE_5__.onMounted
+      onBeforeMount: vue__WEBPACK_IMPORTED_MODULE_6__.onBeforeMount,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_6__.onMounted,
+      ref: vue__WEBPACK_IMPORTED_MODULE_6__.ref
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23089,88 +23167,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "header-area"
-};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"header-top\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6 col-md-6 col-sm-5 d-none d-sm-block\"><div class=\"top-text\"><div class=\"textwidget\">Welcome To Our Store!</div></div></div><div class=\"col-lg-6 col-md-6 col-sm-7 col-12\"><div class=\"widget\"><ul><li><a href=\"#\">My Account</a></li><li><a href=\"#\">Wishlist</a></li><li><a href=\"#\">Check Out</a></li><li><a class=\"tb-login\" href=\"#\">Login</a></li></ul></div></div></div></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"header-area home-2 home-5\"><div class=\"header-menu header-menu-2\"><div class=\"header-wrapper\"><div class=\"logo-stiky\"><a href=\"index.html\"><img style=\"max-height:50px;\" src=\"img/logo/logo.png\" alt=\"\"></a></div><div class=\"menu-cart\"><div class=\"muti_menu\"><nav><ul><li><a class=\"fast active\" href=\"index.html\">home <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"index-2.html\">Homepage 02</a><a href=\"index-3.html\">Homepage 03</a><a href=\"index-4.html\">Homepage 04</a><a href=\"index-5.html\">Homepage 05</a><a href=\"index-6.html\">Homepage 06</a></div></div></li><li><a href=\"shop.html\">Women <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothings</a></h3><a href=\"#\">Dresses</a><a href=\"#\">Tops</a><a href=\"#\">Outerwear</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Jewelry</a></h3><a href=\"#\">Necklaces</a><a href=\"#\">Earrings</a><a href=\"#\">Rings</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Flats</a><a href=\"#\">Boots</a></div></div><div class=\"tas2\"><div class=\"menu-img ist\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Men <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1 tas3\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothing</a></h3><a href=\"#\">Shirts</a><a href=\"#\">Tops</a><a href=\"#\">Fashion Scarves</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Casual</a><a href=\"#\">Boots</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Bags</a></h3><a href=\"#\">Work</a><a href=\"#\">Weekend</a><a href=\"#\">Backpacks</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Accessories</a></h3><a href=\"#\">Sunglasses</a><a href=\"#\">Watches</a><a href=\"#\">Jewelry</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Sale</a></h3><a href=\"#\">Tops</a><a href=\"#\">Bottoms</a><a href=\"#\">Denim</a></div><div class=\"tas mrgn-none\"><h3 class=\"hedding-border\"><a href=\"#\">Features</a></h3><a href=\"#\">Holiday Party</a><a href=\"#\">The Carry On</a><a href=\"#\">Holiday Travel</a></div></div><div class=\"tas4\"><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></div><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Jewelry</a></li><li><a class=\"fast\" href=\"index.html\">Pages <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">coming soon</a></div></div></li><li><a href=\"blog.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div><div class=\"menu-sidebar-container\"><div class=\"tb-menu-sidebar floatleft\"><div class=\"search-item\"><a class=\"icon_search\" href=\"#\"><i class=\"fa fa-search search-icon\"></i></a><div class=\"widget_searchform_content\"><form action=\"#\"><input type=\"text\" placeholder=\"Search\" name=\"s\" value=\"\"><input type=\"submit\" value=\"Search\"></form></div></div></div><div class=\"tb-menu-canvas-wrap floatleft\"><div class=\"header-menu-item-icon\"><a href=\"#\"><i class=\"fa fa-bars\"></i></a></div><div class=\"widget_searchform\"><h3 class=\"wg-title\"><span>ACCOUNT</span></h3><div class=\"widget\"><ul><li><a href=\"#\"><i class=\"fa fa-user\"></i> My Account</a></li><li><a href=\"#\"><i class=\"fa fa-heart\"></i>My Wishlist</a></li><li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i> My Cart</a></li><li><a class=\"tb-login\" href=\"#\"><i class=\"fa fa-usd\"></i> Check Out</a></li><li><a class=\"tb-login\" href=\"#\"><i class=\"fa fa-unlock-alt\"></i> Login</a></li></ul></div></div></div><div class=\"top-cart-wrapper wrap floatleft\"><div class=\"top-shop-contain\"><div class=\"block-shop\"><div class=\"top-shop-title\"><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i><span class=\"count co1\">2</span></a></div><div class=\"wish-cart margin\"><div class=\"wish-item\"><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c1.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">vintage-lambskin-shoe</a></p><p><span class=\"agn\">1 </span>x <span>$199.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c2.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">luxury-leather-bag</a></p><p><span class=\"agn\">1</span> x <span>$99.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div></div><div class=\"wish-item\"><div class=\"cat_bottom\"><p class=\"total\"><strong>Subtotal:</strong><span class=\"amount\">$298.00</span></p><p class=\"buttons\"><a class=\"button wc-forward\" href=\"#\">View Cart</a><a class=\"button checkout wc-forward\" href=\"#\">Checkout</a></p></div></div></div></div></div></div><div class=\"mobile-menu\"><nav id=\"dropdown\"><ul class=\"main-menu\"><li><a href=\"index.html\">Home</a><ul class=\"menu-up\"><li><a href=\"index-2.html\">Homepage 02</a></li><li><a href=\"index-3.html\">Homepage 03</a></li><li><a href=\"index-4.html\">Homepage 04</a></li><li><a href=\"index-5.html\">Homepage 05</a></li><li><a href=\"index-6.html\">Homepage 06</a></li></ul></li><li><a href=\"shop.html\">Women</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothings</a><ul class=\"main-menu3\"><li><a>Dresses</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Jewelry</a><ul class=\"main-menu3\"><li><a>Necklaces</a></li><li><a>Earrings</a></li><li><a>Rings</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Flats</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Men</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothing</a><ul class=\"main-menu3\"><li><a>Shirts</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Casual</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\">Bags</a><ul class=\"main-menu3\"><li><a>Work</a></li><li><a>Weekend</a></li><li><a>Backpacks</a></li></ul></li><li><a href=\"#\">Accessories</a><ul class=\"main-menu3\"><li><a>Sunglasses</a></li><li><a>Watches</a></li><li><a>Jewelry</a></li></ul></li><li><a href=\"#\">Sale</a><ul class=\"main-menu3\"><li><a>Tops</a></li><li><a>Bottoms</a></li><li><a>Denim</a></li></ul></li><li><a href=\"#\">Features</a><ul class=\"main-menu3\"><li><a>Holiday Party</a></li><li><a>The Carry On</a></li><li><a>Holiday Travel</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Jewelry</a></li><li><a href=\"#\">Pages</a><ul><li><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">Coming soon</a></li></ul></li><li><a href=\"shop.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div></div></div></div></div></header>", 1);
 
-var _hoisted_3 = {
-  "class": "pt-3 pb-4 hidden-sm hidden-xs"
-};
-var _hoisted_4 = {
-  "class": "container"
-};
-var _hoisted_5 = {
-  "class": "row"
-};
-var _hoisted_6 = {
-  "class": "col-md-12 text-center"
-};
-var _hoisted_7 = {
-  "class": "home4-logo"
-};
-var _hoisted_8 = ["href"];
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "dynamic-logo-big",
-  style: {
-    "max-height": "160px"
-  },
-  src: "img/logo/04_Homepage.png",
-  alt: ""
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_10 = [_hoisted_9];
-var _hoisted_11 = {
-  "class": "header-menu home-3 hm-4"
-};
-var _hoisted_12 = {
-  "class": "container"
-};
-var _hoisted_13 = {
-  "class": "row"
-};
-var _hoisted_14 = {
-  "class": "col-sm-12"
-};
-var _hoisted_15 = {
-  "class": "header-wrapper"
-};
-var _hoisted_16 = {
-  "class": "logo hm4 floatleft"
-};
-var _hoisted_17 = ["href"];
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  className: "dynamic-logo-small",
-  style: {
-    "max-height": "60px"
-  },
-  src: "img/logo/logo_text.png",
-  alt: ""
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_19 = [_hoisted_18];
-
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"menu-cart floatright\"><div class=\"mobile-menu\"><nav id=\"dropdown\"><ul class=\"main-menu\"><li><a href=\"index.html\">Home</a><ul class=\"menu-up\"><li><a href=\"index-2.html\">Homepage 02</a></li><li><a href=\"index-3.html\">Homepage 03</a></li><li><a href=\"index-4.html\">Homepage 04</a></li><li><a href=\"index-5.html\">Homepage 05</a></li><li><a href=\"index-6.html\">Homepage 06</a></li></ul></li><li><a href=\"shop.html\">Women</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothings</a><ul class=\"main-menu3\"><li><a>Dresses</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Jewelry</a><ul class=\"main-menu3\"><li><a>Necklaces</a></li><li><a>Earrings</a></li><li><a>Rings</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Flats</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Men</a><ul class=\"main-menu2\"><li><a href=\"#\">Clothing</a><ul class=\"main-menu3\"><li><a>Shirts</a></li><li><a>Tops</a></li><li><a>Outerwear</a></li></ul></li><li><a href=\"#\">Shoes</a><ul class=\"main-menu3\"><li><a>Sneakers</a></li><li><a>Casual</a></li><li><a>Boots</a></li></ul></li><li><a href=\"#\">Bags</a><ul class=\"main-menu3\"><li><a>Work</a></li><li><a>Weekend</a></li><li><a>Backpacks</a></li></ul></li><li><a href=\"#\">Accessories</a><ul class=\"main-menu3\"><li><a>Sunglasses</a></li><li><a>Watches</a></li><li><a>Jewelry</a></li></ul></li><li><a href=\"#\">Sale</a><ul class=\"main-menu3\"><li><a>Tops</a></li><li><a>Bottoms</a></li><li><a>Denim</a></li></ul></li><li><a href=\"#\">Features</a><ul class=\"main-menu3\"><li><a>Holiday Party</a></li><li><a>The Carry On</a></li><li><a>Holiday Travel</a></li></ul></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></li><li><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></li></ul></li><li><a href=\"shop.html\">Jewelry</a></li><li><a href=\"#\">Pages</a><ul><li><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">Coming soon</a></li></ul></li><li><a href=\"shop.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div><div class=\"muti_menu floatleft\"><nav><ul><li><a class=\"fast active\" href=\"index.html\">home <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"index-2.html\">Homepage 02</a><a href=\"index-3.html\">Homepage 03</a><a href=\"index-4.html\">Homepage 04</a><a href=\"index-5.html\">Homepage 05</a><a href=\"index-6.html\">Homepage 06</a></div></div></li><li><a href=\"shop.html\">Women <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothings</a></h3><a href=\"#\">Dresses</a><a href=\"#\">Tops</a><a href=\"#\">Outerwear</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Jewelry</a></h3><a href=\"#\">Necklaces</a><a href=\"#\">Earrings</a><a href=\"#\">Rings</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Flats</a><a href=\"#\">Boots</a></div></div><div class=\"tas2\"><div class=\"menu-img ist\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu1.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Men <i class=\"fa fa-angle-down\"></i></a><div class=\"mega-menu menu-minus\"><div class=\"tas1 tas3\"><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Clothing</a></h3><a href=\"#\">Shirts</a><a href=\"#\">Tops</a><a href=\"#\">Fashion Scarves</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Shoes</a></h3><a href=\"#\">Sneakers</a><a href=\"#\">Casual</a><a href=\"#\">Boots</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Bags</a></h3><a href=\"#\">Work</a><a href=\"#\">Weekend</a><a href=\"#\">Backpacks</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Accessories</a></h3><a href=\"#\">Sunglasses</a><a href=\"#\">Watches</a><a href=\"#\">Jewelry</a></div><div class=\"tas\"><h3 class=\"hedding-border\"><a href=\"#\">Sale</a></h3><a href=\"#\">Tops</a><a href=\"#\">Bottoms</a><a href=\"#\">Denim</a></div><div class=\"tas mrgn-none\"><h3 class=\"hedding-border\"><a href=\"#\">Features</a></h3><a href=\"#\">Holiday Party</a><a href=\"#\">The Carry On</a><a href=\"#\">Holiday Travel</a></div></div><div class=\"tas4\"><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu2.jpg\"></a></div><div class=\"menu-img im3\"><a href=\"#\"><img alt=\"\" src=\"img/banner/bg_menu3.jpg\"></a></div></div></div></li><li><a href=\"shop.html\">Jewelry</a></li><li><a class=\"fast\" href=\"index.html\">Pages <i class=\"fa fa-angle-down\"></i></a><div class=\"rayed ru\"><div class=\"tas menu-last2\"><a href=\"blog.html\">Blog</a><a href=\"blog-details.html\">Blog Details</a><a href=\"checkout.html\">checkout</a><a href=\"contact.html\">Contacts</a><a href=\"login.html\">Login</a><a href=\"my-account.html\">My Account</a><a href=\"shop.html\">shop</a><a href=\"shop-list.html\">shop List</a><a href=\"single-product.html\">single-product</a><a href=\"shopping-cart.html\">shopping-cart</a><a href=\"wishlist.html\">wishlist</a><a href=\"coming-soon.html\">coming soon</a></div></div></li><li><a href=\"blog.html\">Watches</a></li><li><a href=\"blog.html\">Blog</a></li><li><a href=\"contact.html\">Contact</a></li></ul></nav></div><div class=\"two-hom4\"><div class=\"tb-menu-sidebar floatleft\"><div class=\"search-item\"><a class=\"icon_search\" href=\"#\"><i class=\"fa fa-search search-icon\"></i></a><div class=\"widget_searchform_content\"><form action=\"#\"><input type=\"text\" placeholder=\"Search\" name=\"s\" value=\"\"><input type=\"submit\" value=\"Search\"></form></div></div></div><div class=\"top-cart-wrapper wrap floatleft\"><div class=\"top-shop-contain\"><div class=\"block-shop\"><div class=\"top-shop-title\"><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i><span class=\"count co1\">2</span></a></div><div class=\"wish-cart margin\"><div class=\"wish-item\"><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c1.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">vintage-lambskin-shoe</a></p><p><span class=\"agn\">1 </span>x <span>$199.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div><div class=\"cat\"><a class=\"image\" href=\"#\"><img src=\"img/product/c2.jpg\" alt=\"\"></a><div class=\"cat_two\"><p><a href=\"#\">luxury-leather-bag</a></p><p><span class=\"agn\">1</span> x <span>$99.00</span></p></div><div class=\"cat_icon\"><a class=\"remove\" href=\"#\">×</a></div></div></div><div class=\"wish-item\"><div class=\"cat_bottom\"><p class=\"total\"><strong>Subtotal:</strong><span class=\"amount\">$298.00</span></p><p class=\"buttons\"><a class=\"button wc-forward\" href=\"#\">View Cart</a><a class=\"button checkout wc-forward\" href=\"#\">Checkout</a></p></div></div></div></div></div></div></div></div>", 1);
-
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer class=\"footer-area\"><div class=\"footer-top\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Contact Us</h3><div class=\"textwidget\"><ul><li><a href=\"#\"><i class=\"fa fa-map-marker\"></i><span>NORAURE London Oxford Street 012 United Kingdom.</span></a></li><li><a href=\"#\"><i class=\"fa fa-envelope\"></i><span>emailnoraure@gmail.com emailsupport@gmail.com</span></a></li><li><a href=\"#\"><i class=\"fa fa-phone\"></i><span> (+92) 3456 7890 <br> (+92) 1234 5678 </span></a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Information</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">My account</a></li><li><a href=\"#\">Order history</a></li><li><a href=\"#\">Wish List</a></li><li><a href=\"#\">Returns</a></li><li><a href=\"#\">Privacy Policy</a></li><li><a href=\"#\">Site Map</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Our Offers</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">New collection</a></li><li><a href=\"#\">Best sellers</a></li><li><a href=\"#\">Manufacturers</a></li><li><a href=\"#\">New products</a></li><li><a href=\"#\">Suppliers</a></li><li><a href=\"#\">Delivery &amp; returns</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12\"><div class=\"first-footer res-mrg-top-md rspn\"><h3 class=\"wg-title\">Our Policy</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">Help &amp; Contact</a></li><li><a href=\"#\">Shipping &amp; taxes</a></li><li><a href=\"#\">Returns policy</a></li><li><a href=\"#\">Careens</a></li><li><a href=\"#\">Affiliates</a></li><li><a href=\"#\">Legal Notice</a></li></ul></div></div></div><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"last-footer res-mrg-top-md\"><h3 class=\"wg-title\">Get Newsletters</h3><div class=\"newsletter\"><form action=\"#\"><p><input class=\"newsletter-email\" type=\"email\" placeholder=\"Email\" required=\"\"></p><p><input class=\"newsletter-submit\" type=\"submit\" value=\"Subscribe\"></p></form></div><div class=\"widget_text\"><h3 class=\"wg-title\">Connect Us</h3><div class=\"textwid\"><ul class=\"socials\"><li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-linkedin\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-rss\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-dribbble\"></i></a></li></ul></div></div></div></div></div></div></div><div class=\"footer-bottom\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6 col-md-6 col-12\"><div class=\"footer-address\"><address> Copyright © <a href=\"#\">HasThemes.</a> All Rights Reserved </address></div></div><div class=\"col-lg-6 col-md-6 col-12\"><div class=\"foot-icon\"><ul><li><a href=\"#\"><img src=\"img/icon-img/payment-1.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-2.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-3.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-4.jpg\" alt=\"\"></a></li></ul></div></div></div></div></div></footer>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer class=\"footer-area\"><div class=\"footer-top\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Contact Us</h3><div class=\"textwidget\"><ul><li><a href=\"#\"><i class=\"fa fa-map-marker\"></i><span>NORAURE London Oxford Street 012 United Kingdom.</span></a></li><li><a href=\"#\"><i class=\"fa fa-envelope\"></i><span>emailnoraure@gmail.com emailsupport@gmail.com</span></a></li><li><a href=\"#\"><i class=\"fa fa-phone\"></i><span> (+92) 3456 7890 <br> (+92) 1234 5678 </span></a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Information</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">My account</a></li><li><a href=\"#\">Order history</a></li><li><a href=\"#\">Wish List</a></li><li><a href=\"#\">Returns</a></li><li><a href=\"#\">Privacy Policy</a></li><li><a href=\"#\">Site Map</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-3 col-12\"><div class=\"first-footer rspn\"><h3 class=\"wg-title\">Our Offers</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">New collection</a></li><li><a href=\"#\">Best sellers</a></li><li><a href=\"#\">Manufacturers</a></li><li><a href=\"#\">New products</a></li><li><a href=\"#\">Suppliers</a></li><li><a href=\"#\">Delivery &amp; returns</a></li></ul></div></div></div><div class=\"col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12\"><div class=\"first-footer res-mrg-top-md rspn\"><h3 class=\"wg-title\">Our Policy</h3><div class=\"textwidget\"><ul class=\"f-none\"><li><a href=\"#\">Help &amp; Contact</a></li><li><a href=\"#\">Shipping &amp; taxes</a></li><li><a href=\"#\">Returns policy</a></li><li><a href=\"#\">Careens</a></li><li><a href=\"#\">Affiliates</a></li><li><a href=\"#\">Legal Notice</a></li></ul></div></div></div><div class=\"col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12\"><div class=\"last-footer res-mrg-top-md\"><h3 class=\"wg-title\">Get Newsletters</h3><div class=\"newsletter\"><form action=\"#\"><p><input class=\"newsletter-email\" type=\"email\" placeholder=\"Email\" required=\"\"></p><p><input class=\"newsletter-submit\" type=\"submit\" value=\"Subscribe\"></p></form></div><div class=\"widget_text\"><h3 class=\"wg-title\">Connect Us</h3><div class=\"textwid\"><ul class=\"socials\"><li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-linkedin\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-rss\"></i></a></li><li><a href=\"#\"><i class=\"fa fa-dribbble\"></i></a></li></ul></div></div></div></div></div></div></div><div class=\"footer-bottom\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6 col-md-6 col-12\"><div class=\"footer-address\"><address> Copyright © <a href=\"#\">HasThemes.</a> All Rights Reserved </address></div></div><div class=\"col-lg-6 col-md-6 col-12\"><div class=\"foot-icon\"><ul><li><a href=\"#\"><img src=\"img/icon-img/payment-1.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-2.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-3.jpg\" alt=\"\"></a></li><li><a href=\"#\"><img src=\"img/icon-img/payment-4.jpg\" alt=\"\"></a></li></ul></div></div></div></div></div></footer>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: _ctx.route('home')
-  }, _hoisted_10, 8
-  /* PROPS */
-  , _hoisted_8)])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: _ctx.route('home')
-  }, _hoisted_19, 8
-  /* PROPS */
-  , _hoisted_17)]), _hoisted_20])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]), _hoisted_21], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]), _hoisted_2], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -23898,36 +23901,244 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "top"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_2 = {
   "class": "slider-main-area home-3 bg-gray"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_3 = {
   "class": "main-slider an-si"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_4 = {
   "class": "bend niceties preview-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "owl-carousel"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
+};
+var _hoisted_5 = {
+  key: 0,
+  "class": "landing-slider owl-carousel"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-12 t-cn Builder nivo-caption",
+  style: {
+    "min-height": "100vh",
+    "min-width": "100vw"
+  }
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/bg_slider1.jpg",
+  src: "img/slider/slider-1.jpg",
   alt: "",
   title: "#slider-direction-1"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  style: {
+    "float": "right",
+    "display": "block",
+    "position": "relative",
+    "margin-top": "-23%",
+    "margin-right": "2%"
+  },
+  "class": "slide-all2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title5"
+}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title6"
+}, "Men’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "title0"
+}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "min1",
+  href: "#"
+}, "Shop Now")])])], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-12 t-cn Builder nivo-caption",
+  style: {
+    "min-height": "100vh",
+    "min-width": "100vw"
+  }
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/slider/bg_slider22.jpg",
+  src: "img/slider/slider-2.jpg",
   alt: "",
-  title: "#slider-direction-2"
+  title: "#slider-direction-1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  style: {
+    "display": "block",
+    "position": "relative",
+    "margin-top": "-23%"
+  },
+  "class": "slide-all slide2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title5"
+}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title6"
+}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "title0"
+}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "min1",
+  href: "#"
+}, "Shop Now")])])], -1
+/* HOISTED */
+);
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-12 t-cn Builder nivo-caption",
+  style: {
+    "min-height": "100vh",
+    "min-width": "100vw"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "img/slider/slider-3.jpg",
+  alt: "",
+  title: "#slider-direction-1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  style: {
+    "display": "block",
+    "position": "relative",
+    "margin-top": "-23%"
+  },
+  "class": "slide-all slide2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title5"
+}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title6"
+}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "title0"
+}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "min1",
+  href: "#"
+}, "Shop Now")])])], -1
+/* HOISTED */
+);
+
+var _hoisted_9 = [_hoisted_6, _hoisted_7, _hoisted_8];
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "slider-wrapper theme-default"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "jquery-slider-demo",
+  "class": "nivoSlider"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  title: "#slide-title-1",
+  src: "img/slider/slider-1.jpg",
+  alt: "The slide 1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  title: "#slide-title-2",
+  src: "img/slider/slider-2.jpg",
+  alt: "The slide 2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  title: "#slide-title-3",
+  src: "img/slider/slider-3.jpg",
+  alt: "The slide 3",
+  "data-transition": "slideInLeft"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "3")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "4")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "5")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "6")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  id: "ensign-nivoslider-2",
+  id: "slide-title-1",
+  "class": "nivo-html-caption t-cn Builder"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "t-cn Builder"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "slide-all2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title5"
+}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title6"
+}, "Men’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "title0"
+}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "min1",
+  href: "#"
+}, "Shop Now")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "slide-title-2",
+  "class": "nivo-html-caption t-cn Builder"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "t-cn Builder"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "slide-all slide2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title5"
+}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title6"
+}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "title0"
+}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "min1",
+  href: "#"
+}, "Shop Now")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "slide-title-3",
+  "class": "nivo-html-caption"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "t-cn Builder"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "slide-all slide2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title5"
+}, "new collection")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "title6"
+}, "Women’s Fashion")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 2 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "title0"
+}, "Save Up To 40% Off")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" layer 3 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "layer-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "min1",
+  href: "#"
+}, "Shop Now")])])])])], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  key: 1
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "ensign-nivoslider-2 ",
   "class": "slides"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "img/slider/bg_slider1.jpg",
@@ -23937,7 +24148,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   src: "img/slider/bg_slider22.jpg",
   alt: "",
   title: "#slider-direction-2"
-})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "slider-direction-1",
   "class": "t-cn slider-direction Builder"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23959,7 +24174,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "min1",
   href: "#"
-}, "Shop Now")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "Shop Now")])])], -1
+/* HOISTED */
+);
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "slider-direction-2",
   "class": "t-cn slider-direction Builder"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23981,11 +24200,13 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "min1",
   href: "#"
-}, "Shop Now")])])])])])], -1
+}, "Shop Now")])])], -1
 /* HOISTED */
 );
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_15 = [_hoisted_12, _hoisted_13, _hoisted_14];
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "design-area home-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "container"
@@ -24993,7 +25214,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "client-area home-2 stripe-parallax-bg",
   "data-parallax-speed": "0.5"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -25077,7 +25298,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "specail-area home-3 hm-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "container"
@@ -25359,7 +25580,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "lastest-area"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "container"
@@ -25489,7 +25710,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon-slider-area"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "container"
@@ -25531,7 +25752,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "Dashboard"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FrontEndLayout"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile-menu-area end "), _hoisted_1, _hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5, _hoisted_6];
+      return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile-menu-area end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [ false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_10,  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_16, _hoisted_17, _hoisted_18, _hoisted_19, _hoisted_20];
     }),
     _: 1
     /* STABLE */
@@ -25662,6 +25883,767 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* STABLE_FRAGMENT */
   );
 }
+
+/***/ }),
+
+/***/ "./resources/js/Lib/nivoslider.js":
+/*!****************************************!*\
+  !*** ./resources/js/Lib/nivoslider.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/*
+ * jQuery Nivo Slider v3.2
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+(function ($) {
+  var NivoSlider = function NivoSlider(element, options) {
+    // Defaults are below
+    var settings = $.extend({}, $.fn.nivoSlider.defaults, options); // Useful variables. Play carefully.
+
+    var vars = {
+      currentSlide: 0,
+      currentImage: '',
+      totalSlides: 0,
+      running: false,
+      paused: false,
+      stop: false,
+      controlNavEl: false
+    }; // Get this slider
+
+    var slider = $(element);
+    slider.data('nivo:vars', vars).addClass('nivoSlider'); // Find our slider children
+
+    var kids = slider.children();
+    kids.each(function () {
+      var child = $(this);
+      var link = '';
+
+      if (!child.is('img')) {
+        if (child.is('a')) {
+          child.addClass('nivo-imageLink');
+          link = child;
+        }
+
+        child = child.find('img:first');
+      } // Get img width & height
+
+
+      var childWidth = childWidth === 0 ? child.attr('width') : child.width(),
+          childHeight = childHeight === 0 ? child.attr('height') : child.height();
+
+      if (link !== '') {
+        link.css('display', 'none');
+      }
+
+      child.css('display', 'none');
+      vars.totalSlides++;
+    }); // If randomStart
+
+    if (settings.randomStart) {
+      settings.startSlide = Math.floor(Math.random() * vars.totalSlides);
+    } // Set startSlide
+
+
+    if (settings.startSlide > 0) {
+      if (settings.startSlide >= vars.totalSlides) {
+        settings.startSlide = vars.totalSlides - 1;
+      }
+
+      vars.currentSlide = settings.startSlide;
+    } // Get initial image
+
+
+    if ($(kids[vars.currentSlide]).is('img')) {
+      vars.currentImage = $(kids[vars.currentSlide]);
+    } else {
+      vars.currentImage = $(kids[vars.currentSlide]).find('img:first');
+    } // Show initial link
+
+
+    if ($(kids[vars.currentSlide]).is('a')) {
+      $(kids[vars.currentSlide]).css('display', 'block');
+    } // Set first background
+
+
+    var sliderImg = $('<img/>').addClass('nivo-main-image');
+    sliderImg.attr('src', vars.currentImage.attr('src')).show();
+    slider.append(sliderImg); // Detect Window Resize
+
+    $(window).resize(function () {
+      slider.children('img').width(slider.width());
+      sliderImg.attr('src', vars.currentImage.attr('src'));
+      sliderImg.stop().height('auto');
+      $('.nivo-slice').remove();
+      $('.nivo-box').remove();
+    }); //Create caption
+
+    slider.append($('<div class="nivo-caption"></div>')); // Process caption function
+
+    var processCaption = function processCaption(settings) {
+      var nivoCaption = $('.nivo-caption', slider);
+
+      if (vars.currentImage.attr('title') != '' && vars.currentImage.attr('title') != undefined) {
+        var title = vars.currentImage.attr('title');
+        if (title.substr(0, 1) == '#') title = $(title).html();
+
+        if (nivoCaption.css('display') == 'block') {
+          setTimeout(function () {
+            nivoCaption.html(title);
+          }, settings.animSpeed);
+        } else {
+          nivoCaption.html(title);
+          nivoCaption.stop().fadeIn(settings.animSpeed);
+        }
+      } else {
+        nivoCaption.stop().fadeOut(settings.animSpeed);
+      }
+    }; //Process initial  caption
+
+
+    processCaption(settings); // In the words of Super Mario "let's a go!"
+
+    var timer = 0;
+
+    if (!settings.manualAdvance && kids.length > 1) {
+      timer = setInterval(function () {
+        nivoRun(slider, kids, settings, false);
+      }, settings.pauseTime);
+    } // Add Direction nav
+
+
+    if (settings.directionNav) {
+      slider.append('<div class="nivo-directionNav"><a class="nivo-prevNav">' + settings.prevText + '</a><a class="nivo-nextNav">' + settings.nextText + '</a></div>');
+      $(slider).on('click', 'a.nivo-prevNav', function () {
+        if (vars.running) {
+          return false;
+        }
+
+        clearInterval(timer);
+        timer = '';
+        vars.currentSlide -= 2;
+        nivoRun(slider, kids, settings, 'prev');
+      });
+      $(slider).on('click', 'a.nivo-nextNav', function () {
+        if (vars.running) {
+          return false;
+        }
+
+        clearInterval(timer);
+        timer = '';
+        nivoRun(slider, kids, settings, 'next');
+      });
+    } // Add Control nav
+
+
+    if (settings.controlNav) {
+      vars.controlNavEl = $('<div class="nivo-controlNav"></div>');
+      slider.after(vars.controlNavEl);
+
+      for (var i = 0; i < kids.length; i++) {
+        if (settings.controlNavThumbs) {
+          vars.controlNavEl.addClass('nivo-thumbs-enabled');
+          var child = kids.eq(i);
+
+          if (!child.is('img')) {
+            child = child.find('img:first');
+          }
+
+          if (child.attr('data-thumb')) vars.controlNavEl.append('<a class="nivo-control" rel="' + i + '"><img src="' + child.attr('data-thumb') + '" alt="" /></a>');
+        } else {
+          vars.controlNavEl.append('<a class="nivo-control" rel="' + i + '">' + (i + 1) + '</a>');
+        }
+      } //Set initial active link
+
+
+      $('a:eq(' + vars.currentSlide + ')', vars.controlNavEl).addClass('active');
+      $('a', vars.controlNavEl).bind('click', function () {
+        if (vars.running) return false;
+        if ($(this).hasClass('active')) return false;
+        clearInterval(timer);
+        timer = '';
+        sliderImg.attr('src', vars.currentImage.attr('src'));
+        vars.currentSlide = $(this).attr('rel') - 1;
+        nivoRun(slider, kids, settings, 'control');
+      });
+    } //For pauseOnHover setting
+
+
+    if (settings.pauseOnHover) {
+      slider.hover(function () {
+        vars.paused = true;
+        clearInterval(timer);
+        timer = '';
+      }, function () {
+        vars.paused = false; // Restart the timer
+
+        if (timer === '' && !settings.manualAdvance) {
+          timer = setInterval(function () {
+            nivoRun(slider, kids, settings, false);
+          }, settings.pauseTime);
+        }
+      });
+    } // Event when Animation finishes
+
+
+    slider.bind('nivo:animFinished', function () {
+      sliderImg.attr('src', vars.currentImage.attr('src'));
+      vars.running = false; // Hide child links
+
+      $(kids).each(function () {
+        if ($(this).is('a')) {
+          $(this).css('display', 'none');
+        }
+      }); // Show current link
+
+      if ($(kids[vars.currentSlide]).is('a')) {
+        $(kids[vars.currentSlide]).css('display', 'block');
+      } // Restart the timer
+
+
+      if (timer === '' && !vars.paused && !settings.manualAdvance) {
+        timer = setInterval(function () {
+          nivoRun(slider, kids, settings, false);
+        }, settings.pauseTime);
+      } // Trigger the afterChange callback
+
+
+      settings.afterChange.call(this);
+    }); // Add slices for slice animations
+
+    var createSlices = function createSlices(slider, settings, vars) {
+      if ($(vars.currentImage).parent().is('a')) $(vars.currentImage).parent().css('display', 'block');
+      $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').width(slider.width()).css('visibility', 'hidden').show();
+      var sliceHeight = $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').parent().is('a') ? $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').parent().height() : $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').height();
+
+      for (var i = 0; i < settings.slices; i++) {
+        var sliceWidth = Math.round(slider.width() / settings.slices);
+
+        if (i === settings.slices - 1) {
+          slider.append($('<div class="nivo-slice" name="' + i + '"><img src="' + vars.currentImage.attr('src') + '" style="position:absolute; width:' + slider.width() + 'px; height:auto; display:block !important; top:0; left:-' + (sliceWidth + i * sliceWidth - sliceWidth) + 'px;" /></div>').css({
+            left: sliceWidth * i + 'px',
+            width: slider.width() - sliceWidth * i + 'px',
+            height: sliceHeight + 'px',
+            opacity: '0',
+            overflow: 'hidden'
+          }));
+        } else {
+          slider.append($('<div class="nivo-slice" name="' + i + '"><img src="' + vars.currentImage.attr('src') + '" style="position:absolute; width:' + slider.width() + 'px; height:auto; display:block !important; top:0; left:-' + (sliceWidth + i * sliceWidth - sliceWidth) + 'px;" /></div>').css({
+            left: sliceWidth * i + 'px',
+            width: sliceWidth + 'px',
+            height: sliceHeight + 'px',
+            opacity: '0',
+            overflow: 'hidden'
+          }));
+        }
+      }
+
+      $('.nivo-slice', slider).height(sliceHeight);
+      sliderImg.stop().animate({
+        height: $(vars.currentImage).height()
+      }, settings.animSpeed);
+    }; // Add boxes for box animations
+
+
+    var createBoxes = function createBoxes(slider, settings, vars) {
+      if ($(vars.currentImage).parent().is('a')) $(vars.currentImage).parent().css('display', 'block');
+      $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').width(slider.width()).css('visibility', 'hidden').show();
+      var boxWidth = Math.round(slider.width() / settings.boxCols),
+          boxHeight = Math.round($('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').height() / settings.boxRows);
+
+      for (var rows = 0; rows < settings.boxRows; rows++) {
+        for (var cols = 0; cols < settings.boxCols; cols++) {
+          if (cols === settings.boxCols - 1) {
+            slider.append($('<div class="nivo-box" name="' + cols + '" rel="' + rows + '"><img src="' + vars.currentImage.attr('src') + '" style="position:absolute; width:' + slider.width() + 'px; height:auto; display:block; top:-' + boxHeight * rows + 'px; left:-' + boxWidth * cols + 'px;" /></div>').css({
+              opacity: 0,
+              left: boxWidth * cols + 'px',
+              top: boxHeight * rows + 'px',
+              width: slider.width() - boxWidth * cols + 'px'
+            }));
+            $('.nivo-box[name="' + cols + '"]', slider).height($('.nivo-box[name="' + cols + '"] img', slider).height() + 'px');
+          } else {
+            slider.append($('<div class="nivo-box" name="' + cols + '" rel="' + rows + '"><img src="' + vars.currentImage.attr('src') + '" style="position:absolute; width:' + slider.width() + 'px; height:auto; display:block; top:-' + boxHeight * rows + 'px; left:-' + boxWidth * cols + 'px;" /></div>').css({
+              opacity: 0,
+              left: boxWidth * cols + 'px',
+              top: boxHeight * rows + 'px',
+              width: boxWidth + 'px'
+            }));
+            $('.nivo-box[name="' + cols + '"]', slider).height($('.nivo-box[name="' + cols + '"] img', slider).height() + 'px');
+          }
+        }
+      }
+
+      sliderImg.stop().animate({
+        height: $(vars.currentImage).height()
+      }, settings.animSpeed);
+    }; // Private run method
+
+
+    var nivoRun = function nivoRun(slider, kids, settings, nudge) {
+      // Get our vars
+      var vars = slider.data('nivo:vars'); // Trigger the lastSlide callback
+
+      if (vars && vars.currentSlide === vars.totalSlides - 1) {
+        settings.lastSlide.call(this);
+      } // Stop
+
+
+      if ((!vars || vars.stop) && !nudge) {
+        return false;
+      } // Trigger the beforeChange callback
+
+
+      settings.beforeChange.call(this); // Set current background before change
+
+      if (!nudge) {
+        sliderImg.attr('src', vars.currentImage.attr('src'));
+      } else {
+        if (nudge === 'prev') {
+          sliderImg.attr('src', vars.currentImage.attr('src'));
+        }
+
+        if (nudge === 'next') {
+          sliderImg.attr('src', vars.currentImage.attr('src'));
+        }
+      }
+
+      vars.currentSlide++; // Trigger the slideshowEnd callback
+
+      if (vars.currentSlide === vars.totalSlides) {
+        vars.currentSlide = 0;
+        settings.slideshowEnd.call(this);
+      }
+
+      if (vars.currentSlide < 0) {
+        vars.currentSlide = vars.totalSlides - 1;
+      } // Set vars.currentImage
+
+
+      if ($(kids[vars.currentSlide]).is('img')) {
+        vars.currentImage = $(kids[vars.currentSlide]);
+      } else {
+        vars.currentImage = $(kids[vars.currentSlide]).find('img:first');
+      } // Set active links
+
+
+      if (settings.controlNav) {
+        $('a', vars.controlNavEl).removeClass('active');
+        $('a:eq(' + vars.currentSlide + ')', vars.controlNavEl).addClass('active');
+      } // Process caption
+
+
+      processCaption(settings); // Remove any slices from last transition
+
+      $('.nivo-slice', slider).remove(); // Remove any boxes from last transition
+
+      $('.nivo-box', slider).remove();
+      var currentEffect = settings.effect,
+          anims = ''; // Generate random effect
+
+      if (settings.effect === 'random') {
+        anims = new Array('sliceDownRight', 'sliceDownLeft', 'sliceUpRight', 'sliceUpLeft', 'sliceUpDown', 'sliceUpDownLeft', 'fold', 'fade', 'boxRandom', 'boxRain', 'boxRainReverse', 'boxRainGrow', 'boxRainGrowReverse');
+        currentEffect = anims[Math.floor(Math.random() * (anims.length + 1))];
+
+        if (currentEffect === undefined) {
+          currentEffect = 'fade';
+        }
+      } // Run random effect from specified set (eg: effect:'fold,fade')
+
+
+      if (settings.effect.indexOf(',') !== -1) {
+        anims = settings.effect.split(',');
+        currentEffect = anims[Math.floor(Math.random() * anims.length)];
+
+        if (currentEffect === undefined) {
+          currentEffect = 'fade';
+        }
+      } // Custom transition as defined by "data-transition" attribute
+
+
+      if (vars.currentImage.attr('data-transition')) {
+        currentEffect = vars.currentImage.attr('data-transition');
+      } // Run effects
+
+
+      vars.running = true;
+      var timeBuff = 0,
+          i = 0,
+          slices = '',
+          firstSlice = '',
+          totalBoxes = '',
+          boxes = '';
+
+      if (currentEffect === 'sliceDown' || currentEffect === 'sliceDownRight' || currentEffect === 'sliceDownLeft') {
+        createSlices(slider, settings, vars);
+        timeBuff = 0;
+        i = 0;
+        slices = $('.nivo-slice', slider);
+
+        if (currentEffect === 'sliceDownLeft') {
+          slices = $('.nivo-slice', slider)._reverse();
+        }
+
+        slices.each(function () {
+          var slice = $(this);
+          slice.css({
+            'top': '0px'
+          });
+
+          if (i === settings.slices - 1) {
+            setTimeout(function () {
+              slice.animate({
+                opacity: '1.0'
+              }, settings.animSpeed, '', function () {
+                slider.trigger('nivo:animFinished');
+              });
+            }, 100 + timeBuff);
+          } else {
+            setTimeout(function () {
+              slice.animate({
+                opacity: '1.0'
+              }, settings.animSpeed);
+            }, 100 + timeBuff);
+          }
+
+          timeBuff += 50;
+          i++;
+        });
+      } else if (currentEffect === 'sliceUp' || currentEffect === 'sliceUpRight' || currentEffect === 'sliceUpLeft') {
+        createSlices(slider, settings, vars);
+        timeBuff = 0;
+        i = 0;
+        slices = $('.nivo-slice', slider);
+
+        if (currentEffect === 'sliceUpLeft') {
+          slices = $('.nivo-slice', slider)._reverse();
+        }
+
+        slices.each(function () {
+          var slice = $(this);
+          slice.css({
+            'bottom': '0px'
+          });
+
+          if (i === settings.slices - 1) {
+            setTimeout(function () {
+              slice.animate({
+                opacity: '1.0'
+              }, settings.animSpeed, '', function () {
+                slider.trigger('nivo:animFinished');
+              });
+            }, 100 + timeBuff);
+          } else {
+            setTimeout(function () {
+              slice.animate({
+                opacity: '1.0'
+              }, settings.animSpeed);
+            }, 100 + timeBuff);
+          }
+
+          timeBuff += 50;
+          i++;
+        });
+      } else if (currentEffect === 'sliceUpDown' || currentEffect === 'sliceUpDownRight' || currentEffect === 'sliceUpDownLeft') {
+        createSlices(slider, settings, vars);
+        timeBuff = 0;
+        i = 0;
+        var v = 0;
+        slices = $('.nivo-slice', slider);
+
+        if (currentEffect === 'sliceUpDownLeft') {
+          slices = $('.nivo-slice', slider)._reverse();
+        }
+
+        slices.each(function () {
+          var slice = $(this);
+
+          if (i === 0) {
+            slice.css('top', '0px');
+            i++;
+          } else {
+            slice.css('bottom', '0px');
+            i = 0;
+          }
+
+          if (v === settings.slices - 1) {
+            setTimeout(function () {
+              slice.animate({
+                opacity: '1.0'
+              }, settings.animSpeed, '', function () {
+                slider.trigger('nivo:animFinished');
+              });
+            }, 100 + timeBuff);
+          } else {
+            setTimeout(function () {
+              slice.animate({
+                opacity: '1.0'
+              }, settings.animSpeed);
+            }, 100 + timeBuff);
+          }
+
+          timeBuff += 50;
+          v++;
+        });
+      } else if (currentEffect === 'fold') {
+        createSlices(slider, settings, vars);
+        timeBuff = 0;
+        i = 0;
+        $('.nivo-slice', slider).each(function () {
+          var slice = $(this);
+          var origWidth = slice.width();
+          slice.css({
+            top: '0px',
+            width: '0px'
+          });
+
+          if (i === settings.slices - 1) {
+            setTimeout(function () {
+              slice.animate({
+                width: origWidth,
+                opacity: '1.0'
+              }, settings.animSpeed, '', function () {
+                slider.trigger('nivo:animFinished');
+              });
+            }, 100 + timeBuff);
+          } else {
+            setTimeout(function () {
+              slice.animate({
+                width: origWidth,
+                opacity: '1.0'
+              }, settings.animSpeed);
+            }, 100 + timeBuff);
+          }
+
+          timeBuff += 50;
+          i++;
+        });
+      } else if (currentEffect === 'fade') {
+        createSlices(slider, settings, vars);
+        firstSlice = $('.nivo-slice:first', slider);
+        firstSlice.css({
+          'width': slider.width() + 'px'
+        });
+        firstSlice.animate({
+          opacity: '1.0'
+        }, settings.animSpeed * 2, '', function () {
+          slider.trigger('nivo:animFinished');
+        });
+      } else if (currentEffect === 'slideInRight') {
+        createSlices(slider, settings, vars);
+        firstSlice = $('.nivo-slice:first', slider);
+        firstSlice.css({
+          'width': '0px',
+          'opacity': '1'
+        });
+        firstSlice.animate({
+          width: slider.width() + 'px'
+        }, settings.animSpeed * 2, '', function () {
+          slider.trigger('nivo:animFinished');
+        });
+      } else if (currentEffect === 'slideInLeft') {
+        createSlices(slider, settings, vars);
+        firstSlice = $('.nivo-slice:first', slider);
+        firstSlice.css({
+          'width': '0px',
+          'opacity': '1',
+          'left': '',
+          'right': '0px'
+        });
+        firstSlice.animate({
+          width: slider.width() + 'px'
+        }, settings.animSpeed * 2, '', function () {
+          // Reset positioning
+          firstSlice.css({
+            'left': '0px',
+            'right': ''
+          });
+          slider.trigger('nivo:animFinished');
+        });
+      } else if (currentEffect === 'boxRandom') {
+        createBoxes(slider, settings, vars);
+        totalBoxes = settings.boxCols * settings.boxRows;
+        i = 0;
+        timeBuff = 0;
+        boxes = shuffle($('.nivo-box', slider));
+        boxes.each(function () {
+          var box = $(this);
+
+          if (i === totalBoxes - 1) {
+            setTimeout(function () {
+              box.animate({
+                opacity: '1'
+              }, settings.animSpeed, '', function () {
+                slider.trigger('nivo:animFinished');
+              });
+            }, 100 + timeBuff);
+          } else {
+            setTimeout(function () {
+              box.animate({
+                opacity: '1'
+              }, settings.animSpeed);
+            }, 100 + timeBuff);
+          }
+
+          timeBuff += 20;
+          i++;
+        });
+      } else if (currentEffect === 'boxRain' || currentEffect === 'boxRainReverse' || currentEffect === 'boxRainGrow' || currentEffect === 'boxRainGrowReverse') {
+        createBoxes(slider, settings, vars);
+        totalBoxes = settings.boxCols * settings.boxRows;
+        i = 0;
+        timeBuff = 0; // Split boxes into 2D array
+
+        var rowIndex = 0;
+        var colIndex = 0;
+        var box2Darr = [];
+        box2Darr[rowIndex] = [];
+        boxes = $('.nivo-box', slider);
+
+        if (currentEffect === 'boxRainReverse' || currentEffect === 'boxRainGrowReverse') {
+          boxes = $('.nivo-box', slider)._reverse();
+        }
+
+        boxes.each(function () {
+          box2Darr[rowIndex][colIndex] = $(this);
+          colIndex++;
+
+          if (colIndex === settings.boxCols) {
+            rowIndex++;
+            colIndex = 0;
+            box2Darr[rowIndex] = [];
+          }
+        }); // Run animation
+
+        for (var cols = 0; cols < settings.boxCols * 2; cols++) {
+          var prevCol = cols;
+
+          for (var rows = 0; rows < settings.boxRows; rows++) {
+            if (prevCol >= 0 && prevCol < settings.boxCols) {
+              /* Due to some weird JS bug with loop vars
+              being used in setTimeout, this is wrapped
+              with an anonymous function call */
+              (function (row, col, time, i, totalBoxes) {
+                var box = $(box2Darr[row][col]);
+                var w = box.width();
+                var h = box.height();
+
+                if (currentEffect === 'boxRainGrow' || currentEffect === 'boxRainGrowReverse') {
+                  box.width(0).height(0);
+                }
+
+                if (i === totalBoxes - 1) {
+                  setTimeout(function () {
+                    box.animate({
+                      opacity: '1',
+                      width: w,
+                      height: h
+                    }, settings.animSpeed / 1.3, '', function () {
+                      slider.trigger('nivo:animFinished');
+                    });
+                  }, 100 + time);
+                } else {
+                  setTimeout(function () {
+                    box.animate({
+                      opacity: '1',
+                      width: w,
+                      height: h
+                    }, settings.animSpeed / 1.3);
+                  }, 100 + time);
+                }
+              })(rows, prevCol, timeBuff, i, totalBoxes);
+
+              i++;
+            }
+
+            prevCol--;
+          }
+
+          timeBuff += 100;
+        }
+      }
+    }; // Shuffle an array
+
+
+    var shuffle = function shuffle(arr) {
+      for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i, 10), x = arr[--i], arr[i] = arr[j], arr[j] = x) {
+        ;
+      }
+
+      return arr;
+    }; // For debugging
+
+
+    var trace = function trace(msg) {
+      if (this.console && typeof console.log !== 'undefined') {
+        console.log(msg);
+      }
+    }; // Start / Stop
+
+
+    this.stop = function () {
+      if (!$(element).data('nivo:vars').stop) {
+        $(element).data('nivo:vars').stop = true;
+        trace('Stop Slider');
+      }
+    };
+
+    this.start = function () {
+      if ($(element).data('nivo:vars').stop) {
+        $(element).data('nivo:vars').stop = false;
+        trace('Start Slider');
+      }
+    }; // Trigger the afterLoad callback
+
+
+    settings.afterLoad.call(this);
+    return this;
+  };
+
+  $.fn.nivoSlider = function (options) {
+    return this.each(function (key, value) {
+      var element = $(this); // Return early if this element already has a plugin instance
+
+      if (element.data('nivoslider')) {
+        return element.data('nivoslider');
+      } // Pass options to plugin constructor
+
+
+      var nivoslider = new NivoSlider(this, options); // Store plugin object in this element's data
+
+      element.data('nivoslider', nivoslider);
+    });
+  }; //Default settings
+
+
+  $.fn.nivoSlider.defaults = {
+    effect: 'random',
+    slices: 15,
+    boxCols: 8,
+    boxRows: 4,
+    animSpeed: 500,
+    pauseTime: 3000,
+    startSlide: 0,
+    directionNav: true,
+    controlNav: true,
+    controlNavThumbs: false,
+    pauseOnHover: true,
+    manualAdvance: false,
+    prevText: 'Prev',
+    nextText: 'Next',
+    randomStart: false,
+    beforeChange: function beforeChange() {},
+    afterChange: function afterChange() {},
+    slideshowEnd: function slideshowEnd() {},
+    lastSlide: function lastSlide() {},
+    afterLoad: function afterLoad() {}
+  };
+  $.fn._reverse = [].reverse;
+})(jQuery);
 
 /***/ }),
 
@@ -25828,10 +26810,10 @@ if ($defineProperty) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/owl.carousel/dist/assets/owl.carousel.css":
-/*!************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/owl.carousel/dist/assets/owl.carousel.css ***!
-  \************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/Lib/nivo-slider.css":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/Lib/nivo-slider.css ***!
+  \**************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -25839,19 +26821,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _owl_video_play_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./owl.video.play.png */ "./node_modules/owl.carousel/dist/assets/owl.video.play.png");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*\r\n * jQuery Nivo Slider v3.2\r\n * http://nivo.dev7studios.com\r\n *\r\n * Copyright 2012, Dev7studios\r\n * Free to use and abuse under the MIT license.\r\n * http://www.opensource.org/licenses/mit-license.php\r\n */\r\n \r\n/* The Nivo Slider styles */\r\n/* #container {\r\n    width:100%;\r\n    height:100%;\r\n    overflow:hidden;\r\n    position:fixed;\r\n    top:0px;\r\n    left:0px;\r\n}\r\n.nivoSlider {\r\n    position:fixed;\r\n    top:-16px;\r\n    left:0px;\r\n}\r\n.nivoSlider img {position:absolute;\r\n    top:0px;\r\n    left:0px;\r\n} */\r\n.nivoSlider {\r\n\tposition:relative;\r\n\twidth:100%;\r\n\theight:auto;\r\n\toverflow: hidden;\r\n}\r\n.nivoSlider img {\r\n\tposition:absolute;\r\n\ttop:0px;\r\n\tleft:0px;\r\n\tmax-width: none;\r\n}\r\n.nivoSlider .layer-5{\r\n\tposition:absolute;\r\n\ttop:0px;\r\n\tleft:0px;\r\n\tmax-width: none;\r\n}\r\n.nivoSlider .layer-7{\r\n\tposition:absolute;\r\n\ttop:0px;\r\n\tleft:0px;\r\n\tmax-width: none;\r\n}\r\n.nivo-main-image {\r\n\tdisplay: block !important;\r\n\tposition: relative !important; \r\n\twidth: 100% !important;\r\n}\r\n\r\n/* If an image is wrapped in a link */\r\n.nivoSlider a.nivo-imageLink {\r\n\tposition:absolute;\r\n\ttop:0px;\r\n\tleft:0px;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tborder:0;\r\n\tpadding:0;\r\n\tmargin:0;\r\n\tz-index:6;\r\n\tdisplay:none;\r\n\tbackground:white; \r\n\tfilter:alpha(opacity=0); \r\n\topacity:0;\r\n}\r\n/* The slices and boxes in the Slider */\r\n.nivo-slice {\r\n\tdisplay:block;\r\n\tposition:absolute;\r\n\tz-index:5;\r\n\theight:100%;\r\n\ttop:0;\r\n}\r\n.nivo-box {\r\n\tdisplay:block;\r\n\tposition:absolute;\r\n\tz-index:5;\r\n\toverflow:hidden;\r\n}\r\n.nivo-box img { display:block; }\r\n\r\n/* Caption styles */\r\n.nivo-caption {\r\n\tposition:absolute;\r\n\tleft:0px;\r\n\tbottom:0px;\r\n\tcolor:#fff;\r\n\twidth:100%;\r\n\tz-index:8;\r\n\tpadding: 5px 10px;\r\n\topacity: 2;\r\n\toverflow: hidden;\r\n\tdisplay: none;\r\n\t-moz-opacity: 0.8;\r\n\tfilter:alpha(opacity=8); /* Safari/Chrome, other WebKit */    /* Firefox, other Gecko */\r\n\tbox-sizing: border-box;         /* Opera/IE 8+ */\r\n}\r\n.nivo-caption p {\r\n\tpadding:5px;\r\n\tmargin:0;\r\n}\r\n.nivo-caption a {\r\n\tdisplay:inline !important;\r\n}\r\n.nivo-html-caption {\r\n    display:none;\r\n}\r\n/* Direction nav styles (e.g. Next & Prev) */\r\n.nivo-directionNav a {\r\n\tposition:absolute;\r\n\ttop:45%;\r\n\tz-index:9;\r\n\tcursor:pointer;\r\n}\r\n.nivo-prevNav {\r\n\tleft:0px;\r\n}\r\n.nivo-nextNav {\r\n\tright:0px;\r\n}\r\n/* Control nav styles (e.g. 1,2,3...) */\r\n.nivo-controlNav {\r\n\ttext-align:center;\r\n\tpadding: 15px 0;\r\n}\r\n.nivo-controlNav a {\r\n\tcursor:pointer;\r\n}\r\n.nivo-controlNav a.active {\r\n\tfont-weight:bold;\r\n}\r\n/* ------------------------------\r\nDefault Theme\r\n---------------------------------*/\r\n.slider-direction {\r\n\tposition: absolute;\r\n\tleft:0; \r\n\ttop:0;  \r\n\twidth: 100%;\r\n\tbackground: none;\r\n\tcolor: #fff;\r\n\tfont-size: 16px;\r\n\tz-index: 999;\r\n\tdisplay: none;\r\n}\r\n\r\n/* If an image is wrapped in a link */\r\n.nivoSlider a.nivo-imageLink {\r\n    position:absolute;\r\n    top:0px;\r\n    left:0px;\r\n    width:100%;\r\n    height:100%;\r\n    border:0;\r\n    padding:0;\r\n    margin:0;\r\n    z-index:6;\r\n    display:none;\r\n    background:white; \r\n    filter:alpha(opacity=0); \r\n    opacity:0;\r\n}\r\n/* The slices and boxes in the Slider */\r\n.nivo-slice {\r\n    display:block;\r\n    position:absolute;\r\n    z-index:5;\r\n    height:100%;\r\n    top:0;\r\n}\r\n.nivo-box {\r\n    display:block;\r\n    position:absolute;\r\n    z-index:5;\r\n    overflow:hidden;\r\n}\r\n.nivo-box img { display:block; }\r\n.nivo-caption {\r\n  position:absolute;\r\n    left:0; \r\n    top:0;  \r\n    color:#fff;\r\n    width:100%;\r\n    height: 100%;\r\n    z-index:8;\r\n}\r\n.nivo-main-image {\r\n    display: block !important;\r\n    position: relative !important; \r\n    width: 100% !important;\r\n}\r\n/* The slices and boxes in the Slider */\r\n.nivo-slice {\r\n    display:block;\r\n    position:absolute;\r\n    z-index:5;\r\n    height:100%;\r\n    top:0;\r\n}\r\n.nivo-box {\r\n    display:block;\r\n    position:absolute;\r\n    z-index:5;\r\n    overflow:hidden;\r\n}\r\n@-webkit-keyframes myfirst {\r\n  from {width: 0;}\r\n  to {width: 100%;}\r\n }\r\n @keyframes myfirst {\r\n  from {width: 0;}\r\n  to {width: 100%;}\r\n }\r\n .slider-progress.pos_hover{\r\n  -webkit-animation-play-state: paused;\r\n  animation-play-state: paused;\r\n }\r\n/* ------------------------------\r\ncustom slider\r\n---------------------------------*/\r\n.slider-progress{\r\n\tposition:absolute;\r\n\ttop:0;\r\n\tleft:0;\r\n\tbackground-color: rgba(255, 255, 255, .7);\r\n\theight:5px;\r\n\t-webkit-animation: myfirst 5000ms ease-in-out;\r\n\tanimation: myfirst 5000ms ease-in-out;\r\n}\r\n.s-tb{\r\n\tdisplay: table;\r\n\theight: 100%;\r\n\twidth: 100%;\r\n\tfloat: left;\r\n}\r\n.s-tb-c{\r\n\tdisplay: table-cell;\r\n    vertical-align: middle;\r\n}\r\n.t-cn{text-align: center}\r\n.t-lft{text-align: left}\r\n.t-lfr{text-align: right}\r\n/* ------------------------------\r\nslider animation\r\n---------------------------------*/\r\n/* -------------- Home 1  ---------------- */\r\n.slider-1 h1,.slider-1 h1{\r\n    -webkit-animation: bounceInUp 1000ms ease-in-out;\r\n    animation: bounceInUp 1000ms ease-in-out;\r\n}\r\n .slider-1 h2,.slider-1 h2{\r\n        -webkit-animation: fadeInRight 1500ms ease-in-out;\r\n    animation: fadeInRight 1500ms ease-in-out;\r\n}\r\n\r\n .slider-1 h3,.slider-1 h3{\r\n    -webkit-animation: fadeInLeft 1500ms ease-in-out;\r\n    animation: fadeInLeft 1500ms ease-in-out;\r\n}\r\n .slider-2 h1,.slider-2 h1{\r\n    -webkit-animation: bounceInUp 2000ms ease-in-out;\r\n    animation: bounceInUp 2000ms ease-in-out;\r\n}\r\n.slider-2 h3,.slider-2 h3{\r\n    -webkit-animation: fadeInLeft 1500ms ease-in-out;\r\n    animation: fadeInLeft 1500ms ease-in-out;\r\n}\r\n\r\n/* -------------- Home 2  ---------------- */\r\n .slider-2 h1{\r\n        -webkit-animation: fadeInLeft 500ms ease-in-out;\r\n    animation: fadeInLeft 500ms ease-in-out;\r\n}\r\n .slider-2 h3{\r\n        -webkit-animation: fadeInLeft 1500ms ease-in-out;\r\n    animation: fadeInLeft 1500ms ease-in-out;\r\n}\r\n.layer-1{\r\n    -webkit-animation: fadeInUpBig 1500ms ease-in-out;\r\n    animation: fadeInUpBig 1500ms ease-in-out;\r\n}\r\n .layer-2{\r\n\t-webkit-animation: zoomInDown 2000ms ease-in-out;\r\n    animation: zoomInDown 2000ms ease-in-out;\r\n}\r\n.slide-all{\r\n    -webkit-animation: bounceInUp 1000ms ease-in-out;\r\n    animation: bounceInUp 1000ms ease-in-out;\r\n}\r\n.layer-3{\r\n\t -webkit-animation: fadeInRight 1500ms ease-in-out;\r\n    animation: fadeInRight 1500ms ease-in-out;\r\n}\r\n .layer-1-1{\r\n\t-webkit-animation: fadeInRight 1500ms ease-in-out;\r\n    animation: fadeInRight 1500ms ease-in-out;\r\n}\r\n .slider-2 p{\r\n        -webkit-animation: fadeInLeft 1500ms ease-in-out;\r\n    animation: fadeInLeft 1500ms ease-in-out;\r\n}\r\n.layer-5{\r\n\t -webkit-animation: fadeInRight 1500ms ease-in-out;\r\n    animation: fadeInRight 1500ms ease-in-out;\r\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/Lib/preview.css":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/Lib/preview.css ***!
+  \**********************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _img_loading_gif__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./img/loading.gif */ "./resources/js/Lib/img/loading.gif");
+/* harmony import */ var _img_bullets_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./img/bullets.png */ "./resources/js/Lib/img/bullets.png");
+/* harmony import */ var _img_arrows_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./img/arrows.png */ "./resources/js/Lib/img/arrows.png");
 // Imports
 
 
 
-var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_owl_video_play_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_loading_gif__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_bullets_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_arrows_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/**\n * Owl Carousel v2.3.4\n * Copyright 2013-2018 David Deutsch\n * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE\n */\n/*\n *  Owl Carousel - Core\n */\n.owl-carousel {\n  display: none;\n  width: 100%;\n  -webkit-tap-highlight-color: transparent;\n  /* position relative and z-index fix webkit rendering fonts issue */\n  position: relative;\n  z-index: 1; }\n  .owl-carousel .owl-stage {\n    position: relative;\n    touch-action: manipulation;\n    -moz-backface-visibility: hidden;\n    /* fix firefox animation glitch */ }\n  .owl-carousel .owl-stage:after {\n    content: \".\";\n    display: block;\n    clear: both;\n    visibility: hidden;\n    line-height: 0;\n    height: 0; }\n  .owl-carousel .owl-stage-outer {\n    position: relative;\n    overflow: hidden;\n    /* fix for flashing background */\n    -webkit-transform: translate3d(0px, 0px, 0px); }\n  .owl-carousel .owl-wrapper,\n  .owl-carousel .owl-item {\n    -webkit-backface-visibility: hidden;\n    -moz-backface-visibility: hidden;\n    -ms-backface-visibility: hidden;\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0); }\n  .owl-carousel .owl-item {\n    position: relative;\n    min-height: 1px;\n    float: left;\n    -webkit-backface-visibility: hidden;\n    -webkit-tap-highlight-color: transparent;\n    -webkit-touch-callout: none; }\n  .owl-carousel .owl-item img {\n    display: block;\n    width: 100%; }\n  .owl-carousel .owl-nav.disabled,\n  .owl-carousel .owl-dots.disabled {\n    display: none; }\n  .owl-carousel .owl-nav .owl-prev,\n  .owl-carousel .owl-nav .owl-next,\n  .owl-carousel .owl-dot {\n    cursor: pointer;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .owl-carousel .owl-nav button.owl-prev,\n  .owl-carousel .owl-nav button.owl-next,\n  .owl-carousel button.owl-dot {\n    background: none;\n    color: inherit;\n    border: none;\n    padding: 0 !important;\n    font: inherit; }\n  .owl-carousel.owl-loaded {\n    display: block; }\n  .owl-carousel.owl-loading {\n    opacity: 0;\n    display: block; }\n  .owl-carousel.owl-hidden {\n    opacity: 0; }\n  .owl-carousel.owl-refresh .owl-item {\n    visibility: hidden; }\n  .owl-carousel.owl-drag .owl-item {\n    touch-action: pan-y;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .owl-carousel.owl-grab {\n    cursor: move;\n    cursor: -webkit-grab;\n    cursor: grab; }\n  .owl-carousel.owl-rtl {\n    direction: rtl; }\n  .owl-carousel.owl-rtl .owl-item {\n    float: right; }\n\n/* No Js */\n.no-js .owl-carousel {\n  display: block; }\n\n/*\n *  Owl Carousel - Animate Plugin\n */\n.owl-carousel .animated {\n  -webkit-animation-duration: 1000ms;\n          animation-duration: 1000ms;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both; }\n\n.owl-carousel .owl-animated-in {\n  z-index: 0; }\n\n.owl-carousel .owl-animated-out {\n  z-index: 1; }\n\n.owl-carousel .fadeOut {\n  -webkit-animation-name: fadeOut;\n          animation-name: fadeOut; }\n\n@-webkit-keyframes fadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes fadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n/*\n * \tOwl Carousel - Auto Height Plugin\n */\n.owl-height {\n  transition: height 500ms ease-in-out; }\n\n/*\n * \tOwl Carousel - Lazy Load Plugin\n */\n.owl-carousel .owl-item {\n  /**\n\t\t\tThis is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong\n\t\t\tcalculation of the height of the owl-item that breaks page layouts\n\t\t */ }\n  .owl-carousel .owl-item .owl-lazy {\n    opacity: 0;\n    transition: opacity 400ms ease; }\n  .owl-carousel .owl-item .owl-lazy[src^=\"\"], .owl-carousel .owl-item .owl-lazy:not([src]) {\n    max-height: 0; }\n  .owl-carousel .owl-item img.owl-lazy {\n    transform-style: preserve-3d; }\n\n/*\n * \tOwl Carousel - Video Plugin\n */\n.owl-carousel .owl-video-wrapper {\n  position: relative;\n  height: 100%;\n  background: #000; }\n\n.owl-carousel .owl-video-play-icon {\n  position: absolute;\n  height: 80px;\n  width: 80px;\n  left: 50%;\n  top: 50%;\n  margin-left: -40px;\n  margin-top: -40px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat;\n  cursor: pointer;\n  z-index: 1;\n  -webkit-backface-visibility: hidden;\n  transition: transform 100ms ease; }\n\n.owl-carousel .owl-video-play-icon:hover {\n  transform: scale(1.3, 1.3); }\n\n.owl-carousel .owl-video-playing .owl-video-tn,\n.owl-carousel .owl-video-playing .owl-video-play-icon {\n  display: none; }\n\n.owl-carousel .owl-video-tn {\n  opacity: 0;\n  height: 100%;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n  transition: opacity 400ms ease; }\n\n.owl-carousel .owl-video-frame {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  width: 100%; }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\nSkin Name: Nivo Slider Default Theme\nSkin URI: http://nivo.dev7studios.com\nDescription: The default skin for the Nivo Slider.\nVersion: 1.3\nAuthor: Gilbert Pellegrom\nAuthor URI: http://dev7studios.com\nSupports Thumbs: true\n*/\n/* -------------------------------------\npreview-1\n---------------------------------------- */\n.preview-1 .nivoSlider {\n\tposition:relative;\n\tbackground: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat 50% 50%;\n}\n.preview-1 .nivoSlider img {\n\tposition:absolute;\n\ttop:0px;\n\tleft:0px;\n\tdisplay:none;\n}\n.preview-1 .nivoSlider a {\n\tborder:0;\n\tdisplay:block;\n}\n\n.preview-1 .nivo-controlNav {\n\ttext-align: center;\n\tpadding: 20px 0;\n}\n.preview-1 .nivo-controlNav a {\n\tdisplay:inline-block;\n\twidth:22px;\n\theight:22px;\n\tbackground:url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat;\n\ttext-indent:-9999px;\n\tborder:0;\n\tmargin: 0 2px;\n}\n.preview-1 .nivo-controlNav a.active {\n\tbackground-position:0 -22px;\n}\n\n.preview-1 .nivo-directionNav a {\n\tdisplay:block;\n\twidth:30px;\n\theight:30px;\n\tbackground:url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") no-repeat;\n\ttext-indent:-9999px;\n\tborder:0;\n\topacity: 0;\n transition: all 200ms ease-in-out;\n}\n.preview-1:hover .nivo-directionNav a { opacity: 1; }\n.preview-1 a.nivo-nextNav {\n\tbackground-position:-30px 0;\n\tright:15px;\n}\n.preview-1 a.nivo-prevNav {\n\tleft:15px;\n}\n.preview-1 .nivo-caption {\n    font-family: Helvetica, Arial, sans-serif;\n}\n.preview-1 .nivo-caption a {\n    color:#fff;\n    border-bottom:1px dotted #fff;\n}\n.preview-1 .nivo-caption a:hover {\n    color:#fff;\n}\n\n.preview-1 .nivo-controlNav.nivo-thumbs-enabled {\n\twidth: 100%;\n}\n.preview-1 .nivo-controlNav.nivo-thumbs-enabled a {\n\twidth: auto;\n\theight: auto;\n\tbackground: none;\n\tmargin-bottom: 5px;\n}\n.preview-1 .nivo-controlNav.nivo-thumbs-enabled img {\n\tdisplay: block;\n\twidth: 120px;\n\theight: auto;\n}\n.preview-1 .nivo-controlNav {\n    position: relative;\n    z-index: 99999;\n    bottom: 68px;\n}\n.preview-1 .nivo-controlNav a {\n\tborder:5px solid #fff;\n\tdisplay: inline-block;\n\theight:18px;\n\tmargin: 0 5px;\n\ttext-indent: -9999px;\n\twidth:18px;\n\tline-height: 8px;\n\tbackground: #3c3c3c;\n\tcursor: pointer;\n\tposition: relative;\n\tz-index: 9;\n\tborder-radius: 100%;\n\topacity: 0;\n\tz-index: -999;\n}\n.preview-1:hover .nivo-controlNav a{\n  opacity: 1;\n  z-index: 999999;\n}\n.preview-1 .nivo-controlNav a:hover, .preview-1 .nivo-controlNav a.active {\n    background: #000;\n    cursor: pointer;\n}\n/* -------------------------------------\npreview-2\n---------------------------------------- */\n.preview-2 .nivoSlider:hover .nivo-directionNav a.nivo-prevNav {\n  left: 15px;\n}\n.preview-2 .nivoSlider:hover .nivo-directionNav a.nivo-nextNav{\n  right: 65px;\n}\n.preview-2 .nivoSlider .nivo-directionNav a.nivo-prevNav {\n  left: -34px;\n  font-size: 0;\n}\n.preview-2 .nivoSlider .nivo-directionNav a.nivo-nextNav {\n  right: 16px;\n    font-size: 0;\n}\n.preview-2 .nivo-directionNav a.nivo-prevNav:hover:before{\n  background: #fff;\n  color: #000;\n}\n.preview-2 .nivo-directionNav a.nivo-prevNav:before{\n  background: rgba(0,0,0,0.25);\n  content: \"\\f053\";\n  font: normal normal normal 14px/1 FontAwesome;\n  color: #fff;\n  cursor: pointer;\n  font-size: 25px;\n  font-weight: 400;\n  height: 50px;\n  line-height: 50px;\n  margin: 0;\n  position: absolute;\n  text-align: center;\n  top: 45%;\n  transition: all 300ms ease-in 0s;\n  width: 50px;\n  z-index: 9;\n}\n.preview-2 .nivo-directionNav a.nivo-nextNav:hover:before{\n  background:#fff;\n  color: #000\n}\n.preview-2 .nivo-directionNav a.nivo-nextNav:before{\n  background: rgba(0,0,0,0.25);\n  content: \"\\f054\";\n  font: normal normal normal 14px/1 FontAwesome;\n  color: #fff;\n  cursor: pointer;\n  font-size: 25px;\n  font-weight: 400;\n  height: 50px;\n  line-height: 50px;\n  margin: 0;\n  position: absolute;\n  text-align: center;\n  top: 45%;\n  transition: all 300ms ease-in 0s;\n  width: 50px;\n  z-index: 9;\n}\n.preview-2 .nivo-controlNav {\n    position: relative;\n    z-index: 91;\n    bottom: 0px;\n}\n.preview-2 .nivo-controlNav a {\n\tborder:5px solid #fff;\n\tdisplay: inline-block;\n\theight:18px;\n\tmargin: 0 5px;\n\ttext-indent: -9999px;\n\twidth:18px;\n\tline-height: 8px;\n\tbackground: #3c3c3c;\n\tcursor: pointer;\n\tposition: relative;\n\tz-index: 9;\n\tborder-radius: 100%;\n\topacity: 0;\n\tz-index: -999;\n}\n.preview-2:hover .nivo-controlNav a{\n  opacity: 1;\n  z-index: 999999;\n}\n.preview-2 .nivo-controlNav a:hover, .preview-2 .nivo-controlNav a.active {\n    background: #000;\n    cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26170,10 +27182,10 @@ module.exports = deepmerge_1;
 
 /***/ }),
 
-/***/ "./node_modules/owl.carousel/dist/assets/owl.video.play.png":
-/*!******************************************************************!*\
-  !*** ./node_modules/owl.carousel/dist/assets/owl.video.play.png ***!
-  \******************************************************************/
+/***/ "./resources/js/Lib/img/arrows.png":
+/*!*****************************************!*\
+  !*** ./resources/js/Lib/img/arrows.png ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26181,7 +27193,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/vendor/owl.carousel/dist/owl.video.play.png?7f01b07148f205f6e8258e92bbf652d9");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrows.png?064a0cb1a69b641d2f737354ef87eb7c");
+
+/***/ }),
+
+/***/ "./resources/js/Lib/img/bullets.png":
+/*!******************************************!*\
+  !*** ./resources/js/Lib/img/bullets.png ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bullets.png?03e7bd0a03d7ecc78b19c19b6bfaa4f6");
+
+/***/ }),
+
+/***/ "./resources/js/Lib/img/loading.gif":
+/*!******************************************!*\
+  !*** ./resources/js/Lib/img/loading.gif ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/loading.gif?c601cb127f3667bf933525dfc9bd8b87");
 
 /***/ }),
 
@@ -59440,3466 +60482,6 @@ function arrObjKeys(obj, inspect) {
 
 /***/ }),
 
-/***/ "./node_modules/owl.carousel/dist/owl.carousel.js":
-/*!********************************************************!*\
-  !*** ./node_modules/owl.carousel/dist/owl.carousel.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/**
- * Owl Carousel v2.3.4
- * Copyright 2013-2018 David Deutsch
- * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
- */
-/**
- * Owl carousel
- * @version 2.3.4
- * @author Bartosz Wojciechowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- * @todo Lazy Load Icon
- * @todo prevent animationend bubling
- * @todo itemsScaleUp
- * @todo Test Zepto
- * @todo stagePadding calculate wrong active classes
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates a carousel.
-	 * @class The Owl Carousel.
-	 * @public
-	 * @param {HTMLElement|jQuery} element - The element to create the carousel for.
-	 * @param {Object} [options] - The options
-	 */
-	function Owl(element, options) {
-
-		/**
-		 * Current settings for the carousel.
-		 * @public
-		 */
-		this.settings = null;
-
-		/**
-		 * Current options set by the caller including defaults.
-		 * @public
-		 */
-		this.options = $.extend({}, Owl.Defaults, options);
-
-		/**
-		 * Plugin element.
-		 * @public
-		 */
-		this.$element = $(element);
-
-		/**
-		 * Proxied event handlers.
-		 * @protected
-		 */
-		this._handlers = {};
-
-		/**
-		 * References to the running plugins of this carousel.
-		 * @protected
-		 */
-		this._plugins = {};
-
-		/**
-		 * Currently suppressed events to prevent them from being retriggered.
-		 * @protected
-		 */
-		this._supress = {};
-
-		/**
-		 * Absolute current position.
-		 * @protected
-		 */
-		this._current = null;
-
-		/**
-		 * Animation speed in milliseconds.
-		 * @protected
-		 */
-		this._speed = null;
-
-		/**
-		 * Coordinates of all items in pixel.
-		 * @todo The name of this member is missleading.
-		 * @protected
-		 */
-		this._coordinates = [];
-
-		/**
-		 * Current breakpoint.
-		 * @todo Real media queries would be nice.
-		 * @protected
-		 */
-		this._breakpoint = null;
-
-		/**
-		 * Current width of the plugin element.
-		 */
-		this._width = null;
-
-		/**
-		 * All real items.
-		 * @protected
-		 */
-		this._items = [];
-
-		/**
-		 * All cloned items.
-		 * @protected
-		 */
-		this._clones = [];
-
-		/**
-		 * Merge values of all items.
-		 * @todo Maybe this could be part of a plugin.
-		 * @protected
-		 */
-		this._mergers = [];
-
-		/**
-		 * Widths of all items.
-		 */
-		this._widths = [];
-
-		/**
-		 * Invalidated parts within the update process.
-		 * @protected
-		 */
-		this._invalidated = {};
-
-		/**
-		 * Ordered list of workers for the update process.
-		 * @protected
-		 */
-		this._pipe = [];
-
-		/**
-		 * Current state information for the drag operation.
-		 * @todo #261
-		 * @protected
-		 */
-		this._drag = {
-			time: null,
-			target: null,
-			pointer: null,
-			stage: {
-				start: null,
-				current: null
-			},
-			direction: null
-		};
-
-		/**
-		 * Current state information and their tags.
-		 * @type {Object}
-		 * @protected
-		 */
-		this._states = {
-			current: {},
-			tags: {
-				'initializing': [ 'busy' ],
-				'animating': [ 'busy' ],
-				'dragging': [ 'interacting' ]
-			}
-		};
-
-		$.each([ 'onResize', 'onThrottledResize' ], $.proxy(function(i, handler) {
-			this._handlers[handler] = $.proxy(this[handler], this);
-		}, this));
-
-		$.each(Owl.Plugins, $.proxy(function(key, plugin) {
-			this._plugins[key.charAt(0).toLowerCase() + key.slice(1)]
-				= new plugin(this);
-		}, this));
-
-		$.each(Owl.Workers, $.proxy(function(priority, worker) {
-			this._pipe.push({
-				'filter': worker.filter,
-				'run': $.proxy(worker.run, this)
-			});
-		}, this));
-
-		this.setup();
-		this.initialize();
-	}
-
-	/**
-	 * Default options for the carousel.
-	 * @public
-	 */
-	Owl.Defaults = {
-		items: 3,
-		loop: false,
-		center: false,
-		rewind: false,
-		checkVisibility: true,
-
-		mouseDrag: true,
-		touchDrag: true,
-		pullDrag: true,
-		freeDrag: false,
-
-		margin: 0,
-		stagePadding: 0,
-
-		merge: false,
-		mergeFit: true,
-		autoWidth: false,
-
-		startPosition: 0,
-		rtl: false,
-
-		smartSpeed: 250,
-		fluidSpeed: false,
-		dragEndSpeed: false,
-
-		responsive: {},
-		responsiveRefreshRate: 200,
-		responsiveBaseElement: window,
-
-		fallbackEasing: 'swing',
-		slideTransition: '',
-
-		info: false,
-
-		nestedItemSelector: false,
-		itemElement: 'div',
-		stageElement: 'div',
-
-		refreshClass: 'owl-refresh',
-		loadedClass: 'owl-loaded',
-		loadingClass: 'owl-loading',
-		rtlClass: 'owl-rtl',
-		responsiveClass: 'owl-responsive',
-		dragClass: 'owl-drag',
-		itemClass: 'owl-item',
-		stageClass: 'owl-stage',
-		stageOuterClass: 'owl-stage-outer',
-		grabClass: 'owl-grab'
-	};
-
-	/**
-	 * Enumeration for width.
-	 * @public
-	 * @readonly
-	 * @enum {String}
-	 */
-	Owl.Width = {
-		Default: 'default',
-		Inner: 'inner',
-		Outer: 'outer'
-	};
-
-	/**
-	 * Enumeration for types.
-	 * @public
-	 * @readonly
-	 * @enum {String}
-	 */
-	Owl.Type = {
-		Event: 'event',
-		State: 'state'
-	};
-
-	/**
-	 * Contains all registered plugins.
-	 * @public
-	 */
-	Owl.Plugins = {};
-
-	/**
-	 * List of workers involved in the update process.
-	 */
-	Owl.Workers = [ {
-		filter: [ 'width', 'settings' ],
-		run: function() {
-			this._width = this.$element.width();
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function(cache) {
-			cache.current = this._items && this._items[this.relative(this._current)];
-		}
-	}, {
-		filter: [ 'items', 'settings' ],
-		run: function() {
-			this.$stage.children('.cloned').remove();
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function(cache) {
-			var margin = this.settings.margin || '',
-				grid = !this.settings.autoWidth,
-				rtl = this.settings.rtl,
-				css = {
-					'width': 'auto',
-					'margin-left': rtl ? margin : '',
-					'margin-right': rtl ? '' : margin
-				};
-
-			!grid && this.$stage.children().css(css);
-
-			cache.css = css;
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function(cache) {
-			var width = (this.width() / this.settings.items).toFixed(3) - this.settings.margin,
-				merge = null,
-				iterator = this._items.length,
-				grid = !this.settings.autoWidth,
-				widths = [];
-
-			cache.items = {
-				merge: false,
-				width: width
-			};
-
-			while (iterator--) {
-				merge = this._mergers[iterator];
-				merge = this.settings.mergeFit && Math.min(merge, this.settings.items) || merge;
-
-				cache.items.merge = merge > 1 || cache.items.merge;
-
-				widths[iterator] = !grid ? this._items[iterator].width() : width * merge;
-			}
-
-			this._widths = widths;
-		}
-	}, {
-		filter: [ 'items', 'settings' ],
-		run: function() {
-			var clones = [],
-				items = this._items,
-				settings = this.settings,
-				// TODO: Should be computed from number of min width items in stage
-				view = Math.max(settings.items * 2, 4),
-				size = Math.ceil(items.length / 2) * 2,
-				repeat = settings.loop && items.length ? settings.rewind ? view : Math.max(view, size) : 0,
-				append = '',
-				prepend = '';
-
-			repeat /= 2;
-
-			while (repeat > 0) {
-				// Switch to only using appended clones
-				clones.push(this.normalize(clones.length / 2, true));
-				append = append + items[clones[clones.length - 1]][0].outerHTML;
-				clones.push(this.normalize(items.length - 1 - (clones.length - 1) / 2, true));
-				prepend = items[clones[clones.length - 1]][0].outerHTML + prepend;
-				repeat -= 1;
-			}
-
-			this._clones = clones;
-
-			$(append).addClass('cloned').appendTo(this.$stage);
-			$(prepend).addClass('cloned').prependTo(this.$stage);
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function() {
-			var rtl = this.settings.rtl ? 1 : -1,
-				size = this._clones.length + this._items.length,
-				iterator = -1,
-				previous = 0,
-				current = 0,
-				coordinates = [];
-
-			while (++iterator < size) {
-				previous = coordinates[iterator - 1] || 0;
-				current = this._widths[this.relative(iterator)] + this.settings.margin;
-				coordinates.push(previous + current * rtl);
-			}
-
-			this._coordinates = coordinates;
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function() {
-			var padding = this.settings.stagePadding,
-				coordinates = this._coordinates,
-				css = {
-					'width': Math.ceil(Math.abs(coordinates[coordinates.length - 1])) + padding * 2,
-					'padding-left': padding || '',
-					'padding-right': padding || ''
-				};
-
-			this.$stage.css(css);
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function(cache) {
-			var iterator = this._coordinates.length,
-				grid = !this.settings.autoWidth,
-				items = this.$stage.children();
-
-			if (grid && cache.items.merge) {
-				while (iterator--) {
-					cache.css.width = this._widths[this.relative(iterator)];
-					items.eq(iterator).css(cache.css);
-				}
-			} else if (grid) {
-				cache.css.width = cache.items.width;
-				items.css(cache.css);
-			}
-		}
-	}, {
-		filter: [ 'items' ],
-		run: function() {
-			this._coordinates.length < 1 && this.$stage.removeAttr('style');
-		}
-	}, {
-		filter: [ 'width', 'items', 'settings' ],
-		run: function(cache) {
-			cache.current = cache.current ? this.$stage.children().index(cache.current) : 0;
-			cache.current = Math.max(this.minimum(), Math.min(this.maximum(), cache.current));
-			this.reset(cache.current);
-		}
-	}, {
-		filter: [ 'position' ],
-		run: function() {
-			this.animate(this.coordinates(this._current));
-		}
-	}, {
-		filter: [ 'width', 'position', 'items', 'settings' ],
-		run: function() {
-			var rtl = this.settings.rtl ? 1 : -1,
-				padding = this.settings.stagePadding * 2,
-				begin = this.coordinates(this.current()) + padding,
-				end = begin + this.width() * rtl,
-				inner, outer, matches = [], i, n;
-
-			for (i = 0, n = this._coordinates.length; i < n; i++) {
-				inner = this._coordinates[i - 1] || 0;
-				outer = Math.abs(this._coordinates[i]) + padding * rtl;
-
-				if ((this.op(inner, '<=', begin) && (this.op(inner, '>', end)))
-					|| (this.op(outer, '<', begin) && this.op(outer, '>', end))) {
-					matches.push(i);
-				}
-			}
-
-			this.$stage.children('.active').removeClass('active');
-			this.$stage.children(':eq(' + matches.join('), :eq(') + ')').addClass('active');
-
-			this.$stage.children('.center').removeClass('center');
-			if (this.settings.center) {
-				this.$stage.children().eq(this.current()).addClass('center');
-			}
-		}
-	} ];
-
-	/**
-	 * Create the stage DOM element
-	 */
-	Owl.prototype.initializeStage = function() {
-		this.$stage = this.$element.find('.' + this.settings.stageClass);
-
-		// if the stage is already in the DOM, grab it and skip stage initialization
-		if (this.$stage.length) {
-			return;
-		}
-
-		this.$element.addClass(this.options.loadingClass);
-
-		// create stage
-		this.$stage = $('<' + this.settings.stageElement + '>', {
-			"class": this.settings.stageClass
-		}).wrap( $( '<div/>', {
-			"class": this.settings.stageOuterClass
-		}));
-
-		// append stage
-		this.$element.append(this.$stage.parent());
-	};
-
-	/**
-	 * Create item DOM elements
-	 */
-	Owl.prototype.initializeItems = function() {
-		var $items = this.$element.find('.owl-item');
-
-		// if the items are already in the DOM, grab them and skip item initialization
-		if ($items.length) {
-			this._items = $items.get().map(function(item) {
-				return $(item);
-			});
-
-			this._mergers = this._items.map(function() {
-				return 1;
-			});
-
-			this.refresh();
-
-			return;
-		}
-
-		// append content
-		this.replace(this.$element.children().not(this.$stage.parent()));
-
-		// check visibility
-		if (this.isVisible()) {
-			// update view
-			this.refresh();
-		} else {
-			// invalidate width
-			this.invalidate('width');
-		}
-
-		this.$element
-			.removeClass(this.options.loadingClass)
-			.addClass(this.options.loadedClass);
-	};
-
-	/**
-	 * Initializes the carousel.
-	 * @protected
-	 */
-	Owl.prototype.initialize = function() {
-		this.enter('initializing');
-		this.trigger('initialize');
-
-		this.$element.toggleClass(this.settings.rtlClass, this.settings.rtl);
-
-		if (this.settings.autoWidth && !this.is('pre-loading')) {
-			var imgs, nestedSelector, width;
-			imgs = this.$element.find('img');
-			nestedSelector = this.settings.nestedItemSelector ? '.' + this.settings.nestedItemSelector : undefined;
-			width = this.$element.children(nestedSelector).width();
-
-			if (imgs.length && width <= 0) {
-				this.preloadAutoWidthImages(imgs);
-			}
-		}
-
-		this.initializeStage();
-		this.initializeItems();
-
-		// register event handlers
-		this.registerEventHandlers();
-
-		this.leave('initializing');
-		this.trigger('initialized');
-	};
-
-	/**
-	 * @returns {Boolean} visibility of $element
-	 *                    if you know the carousel will always be visible you can set `checkVisibility` to `false` to
-	 *                    prevent the expensive browser layout forced reflow the $element.is(':visible') does
-	 */
-	Owl.prototype.isVisible = function() {
-		return this.settings.checkVisibility
-			? this.$element.is(':visible')
-			: true;
-	};
-
-	/**
-	 * Setups the current settings.
-	 * @todo Remove responsive classes. Why should adaptive designs be brought into IE8?
-	 * @todo Support for media queries by using `matchMedia` would be nice.
-	 * @public
-	 */
-	Owl.prototype.setup = function() {
-		var viewport = this.viewport(),
-			overwrites = this.options.responsive,
-			match = -1,
-			settings = null;
-
-		if (!overwrites) {
-			settings = $.extend({}, this.options);
-		} else {
-			$.each(overwrites, function(breakpoint) {
-				if (breakpoint <= viewport && breakpoint > match) {
-					match = Number(breakpoint);
-				}
-			});
-
-			settings = $.extend({}, this.options, overwrites[match]);
-			if (typeof settings.stagePadding === 'function') {
-				settings.stagePadding = settings.stagePadding();
-			}
-			delete settings.responsive;
-
-			// responsive class
-			if (settings.responsiveClass) {
-				this.$element.attr('class',
-					this.$element.attr('class').replace(new RegExp('(' + this.options.responsiveClass + '-)\\S+\\s', 'g'), '$1' + match)
-				);
-			}
-		}
-
-		this.trigger('change', { property: { name: 'settings', value: settings } });
-		this._breakpoint = match;
-		this.settings = settings;
-		this.invalidate('settings');
-		this.trigger('changed', { property: { name: 'settings', value: this.settings } });
-	};
-
-	/**
-	 * Updates option logic if necessery.
-	 * @protected
-	 */
-	Owl.prototype.optionsLogic = function() {
-		if (this.settings.autoWidth) {
-			this.settings.stagePadding = false;
-			this.settings.merge = false;
-		}
-	};
-
-	/**
-	 * Prepares an item before add.
-	 * @todo Rename event parameter `content` to `item`.
-	 * @protected
-	 * @returns {jQuery|HTMLElement} - The item container.
-	 */
-	Owl.prototype.prepare = function(item) {
-		var event = this.trigger('prepare', { content: item });
-
-		if (!event.data) {
-			event.data = $('<' + this.settings.itemElement + '/>')
-				.addClass(this.options.itemClass).append(item)
-		}
-
-		this.trigger('prepared', { content: event.data });
-
-		return event.data;
-	};
-
-	/**
-	 * Updates the view.
-	 * @public
-	 */
-	Owl.prototype.update = function() {
-		var i = 0,
-			n = this._pipe.length,
-			filter = $.proxy(function(p) { return this[p] }, this._invalidated),
-			cache = {};
-
-		while (i < n) {
-			if (this._invalidated.all || $.grep(this._pipe[i].filter, filter).length > 0) {
-				this._pipe[i].run(cache);
-			}
-			i++;
-		}
-
-		this._invalidated = {};
-
-		!this.is('valid') && this.enter('valid');
-	};
-
-	/**
-	 * Gets the width of the view.
-	 * @public
-	 * @param {Owl.Width} [dimension=Owl.Width.Default] - The dimension to return.
-	 * @returns {Number} - The width of the view in pixel.
-	 */
-	Owl.prototype.width = function(dimension) {
-		dimension = dimension || Owl.Width.Default;
-		switch (dimension) {
-			case Owl.Width.Inner:
-			case Owl.Width.Outer:
-				return this._width;
-			default:
-				return this._width - this.settings.stagePadding * 2 + this.settings.margin;
-		}
-	};
-
-	/**
-	 * Refreshes the carousel primarily for adaptive purposes.
-	 * @public
-	 */
-	Owl.prototype.refresh = function() {
-		this.enter('refreshing');
-		this.trigger('refresh');
-
-		this.setup();
-
-		this.optionsLogic();
-
-		this.$element.addClass(this.options.refreshClass);
-
-		this.update();
-
-		this.$element.removeClass(this.options.refreshClass);
-
-		this.leave('refreshing');
-		this.trigger('refreshed');
-	};
-
-	/**
-	 * Checks window `resize` event.
-	 * @protected
-	 */
-	Owl.prototype.onThrottledResize = function() {
-		window.clearTimeout(this.resizeTimer);
-		this.resizeTimer = window.setTimeout(this._handlers.onResize, this.settings.responsiveRefreshRate);
-	};
-
-	/**
-	 * Checks window `resize` event.
-	 * @protected
-	 */
-	Owl.prototype.onResize = function() {
-		if (!this._items.length) {
-			return false;
-		}
-
-		if (this._width === this.$element.width()) {
-			return false;
-		}
-
-		if (!this.isVisible()) {
-			return false;
-		}
-
-		this.enter('resizing');
-
-		if (this.trigger('resize').isDefaultPrevented()) {
-			this.leave('resizing');
-			return false;
-		}
-
-		this.invalidate('width');
-
-		this.refresh();
-
-		this.leave('resizing');
-		this.trigger('resized');
-	};
-
-	/**
-	 * Registers event handlers.
-	 * @todo Check `msPointerEnabled`
-	 * @todo #261
-	 * @protected
-	 */
-	Owl.prototype.registerEventHandlers = function() {
-		if ($.support.transition) {
-			this.$stage.on($.support.transition.end + '.owl.core', $.proxy(this.onTransitionEnd, this));
-		}
-
-		if (this.settings.responsive !== false) {
-			this.on(window, 'resize', this._handlers.onThrottledResize);
-		}
-
-		if (this.settings.mouseDrag) {
-			this.$element.addClass(this.options.dragClass);
-			this.$stage.on('mousedown.owl.core', $.proxy(this.onDragStart, this));
-			this.$stage.on('dragstart.owl.core selectstart.owl.core', function() { return false });
-		}
-
-		if (this.settings.touchDrag){
-			this.$stage.on('touchstart.owl.core', $.proxy(this.onDragStart, this));
-			this.$stage.on('touchcancel.owl.core', $.proxy(this.onDragEnd, this));
-		}
-	};
-
-	/**
-	 * Handles `touchstart` and `mousedown` events.
-	 * @todo Horizontal swipe threshold as option
-	 * @todo #261
-	 * @protected
-	 * @param {Event} event - The event arguments.
-	 */
-	Owl.prototype.onDragStart = function(event) {
-		var stage = null;
-
-		if (event.which === 3) {
-			return;
-		}
-
-		if ($.support.transform) {
-			stage = this.$stage.css('transform').replace(/.*\(|\)| /g, '').split(',');
-			stage = {
-				x: stage[stage.length === 16 ? 12 : 4],
-				y: stage[stage.length === 16 ? 13 : 5]
-			};
-		} else {
-			stage = this.$stage.position();
-			stage = {
-				x: this.settings.rtl ?
-					stage.left + this.$stage.width() - this.width() + this.settings.margin :
-					stage.left,
-				y: stage.top
-			};
-		}
-
-		if (this.is('animating')) {
-			$.support.transform ? this.animate(stage.x) : this.$stage.stop()
-			this.invalidate('position');
-		}
-
-		this.$element.toggleClass(this.options.grabClass, event.type === 'mousedown');
-
-		this.speed(0);
-
-		this._drag.time = new Date().getTime();
-		this._drag.target = $(event.target);
-		this._drag.stage.start = stage;
-		this._drag.stage.current = stage;
-		this._drag.pointer = this.pointer(event);
-
-		$(document).on('mouseup.owl.core touchend.owl.core', $.proxy(this.onDragEnd, this));
-
-		$(document).one('mousemove.owl.core touchmove.owl.core', $.proxy(function(event) {
-			var delta = this.difference(this._drag.pointer, this.pointer(event));
-
-			$(document).on('mousemove.owl.core touchmove.owl.core', $.proxy(this.onDragMove, this));
-
-			if (Math.abs(delta.x) < Math.abs(delta.y) && this.is('valid')) {
-				return;
-			}
-
-			event.preventDefault();
-
-			this.enter('dragging');
-			this.trigger('drag');
-		}, this));
-	};
-
-	/**
-	 * Handles the `touchmove` and `mousemove` events.
-	 * @todo #261
-	 * @protected
-	 * @param {Event} event - The event arguments.
-	 */
-	Owl.prototype.onDragMove = function(event) {
-		var minimum = null,
-			maximum = null,
-			pull = null,
-			delta = this.difference(this._drag.pointer, this.pointer(event)),
-			stage = this.difference(this._drag.stage.start, delta);
-
-		if (!this.is('dragging')) {
-			return;
-		}
-
-		event.preventDefault();
-
-		if (this.settings.loop) {
-			minimum = this.coordinates(this.minimum());
-			maximum = this.coordinates(this.maximum() + 1) - minimum;
-			stage.x = (((stage.x - minimum) % maximum + maximum) % maximum) + minimum;
-		} else {
-			minimum = this.settings.rtl ? this.coordinates(this.maximum()) : this.coordinates(this.minimum());
-			maximum = this.settings.rtl ? this.coordinates(this.minimum()) : this.coordinates(this.maximum());
-			pull = this.settings.pullDrag ? -1 * delta.x / 5 : 0;
-			stage.x = Math.max(Math.min(stage.x, minimum + pull), maximum + pull);
-		}
-
-		this._drag.stage.current = stage;
-
-		this.animate(stage.x);
-	};
-
-	/**
-	 * Handles the `touchend` and `mouseup` events.
-	 * @todo #261
-	 * @todo Threshold for click event
-	 * @protected
-	 * @param {Event} event - The event arguments.
-	 */
-	Owl.prototype.onDragEnd = function(event) {
-		var delta = this.difference(this._drag.pointer, this.pointer(event)),
-			stage = this._drag.stage.current,
-			direction = delta.x > 0 ^ this.settings.rtl ? 'left' : 'right';
-
-		$(document).off('.owl.core');
-
-		this.$element.removeClass(this.options.grabClass);
-
-		if (delta.x !== 0 && this.is('dragging') || !this.is('valid')) {
-			this.speed(this.settings.dragEndSpeed || this.settings.smartSpeed);
-			this.current(this.closest(stage.x, delta.x !== 0 ? direction : this._drag.direction));
-			this.invalidate('position');
-			this.update();
-
-			this._drag.direction = direction;
-
-			if (Math.abs(delta.x) > 3 || new Date().getTime() - this._drag.time > 300) {
-				this._drag.target.one('click.owl.core', function() { return false; });
-			}
-		}
-
-		if (!this.is('dragging')) {
-			return;
-		}
-
-		this.leave('dragging');
-		this.trigger('dragged');
-	};
-
-	/**
-	 * Gets absolute position of the closest item for a coordinate.
-	 * @todo Setting `freeDrag` makes `closest` not reusable. See #165.
-	 * @protected
-	 * @param {Number} coordinate - The coordinate in pixel.
-	 * @param {String} direction - The direction to check for the closest item. Ether `left` or `right`.
-	 * @return {Number} - The absolute position of the closest item.
-	 */
-	Owl.prototype.closest = function(coordinate, direction) {
-		var position = -1,
-			pull = 30,
-			width = this.width(),
-			coordinates = this.coordinates();
-
-		if (!this.settings.freeDrag) {
-			// check closest item
-			$.each(coordinates, $.proxy(function(index, value) {
-				// on a left pull, check on current index
-				if (direction === 'left' && coordinate > value - pull && coordinate < value + pull) {
-					position = index;
-				// on a right pull, check on previous index
-				// to do so, subtract width from value and set position = index + 1
-				} else if (direction === 'right' && coordinate > value - width - pull && coordinate < value - width + pull) {
-					position = index + 1;
-				} else if (this.op(coordinate, '<', value)
-					&& this.op(coordinate, '>', coordinates[index + 1] !== undefined ? coordinates[index + 1] : value - width)) {
-					position = direction === 'left' ? index + 1 : index;
-				}
-				return position === -1;
-			}, this));
-		}
-
-		if (!this.settings.loop) {
-			// non loop boundries
-			if (this.op(coordinate, '>', coordinates[this.minimum()])) {
-				position = coordinate = this.minimum();
-			} else if (this.op(coordinate, '<', coordinates[this.maximum()])) {
-				position = coordinate = this.maximum();
-			}
-		}
-
-		return position;
-	};
-
-	/**
-	 * Animates the stage.
-	 * @todo #270
-	 * @public
-	 * @param {Number} coordinate - The coordinate in pixels.
-	 */
-	Owl.prototype.animate = function(coordinate) {
-		var animate = this.speed() > 0;
-
-		this.is('animating') && this.onTransitionEnd();
-
-		if (animate) {
-			this.enter('animating');
-			this.trigger('translate');
-		}
-
-		if ($.support.transform3d && $.support.transition) {
-			this.$stage.css({
-				transform: 'translate3d(' + coordinate + 'px,0px,0px)',
-				transition: (this.speed() / 1000) + 's' + (
-					this.settings.slideTransition ? ' ' + this.settings.slideTransition : ''
-				)
-			});
-		} else if (animate) {
-			this.$stage.animate({
-				left: coordinate + 'px'
-			}, this.speed(), this.settings.fallbackEasing, $.proxy(this.onTransitionEnd, this));
-		} else {
-			this.$stage.css({
-				left: coordinate + 'px'
-			});
-		}
-	};
-
-	/**
-	 * Checks whether the carousel is in a specific state or not.
-	 * @param {String} state - The state to check.
-	 * @returns {Boolean} - The flag which indicates if the carousel is busy.
-	 */
-	Owl.prototype.is = function(state) {
-		return this._states.current[state] && this._states.current[state] > 0;
-	};
-
-	/**
-	 * Sets the absolute position of the current item.
-	 * @public
-	 * @param {Number} [position] - The new absolute position or nothing to leave it unchanged.
-	 * @returns {Number} - The absolute position of the current item.
-	 */
-	Owl.prototype.current = function(position) {
-		if (position === undefined) {
-			return this._current;
-		}
-
-		if (this._items.length === 0) {
-			return undefined;
-		}
-
-		position = this.normalize(position);
-
-		if (this._current !== position) {
-			var event = this.trigger('change', { property: { name: 'position', value: position } });
-
-			if (event.data !== undefined) {
-				position = this.normalize(event.data);
-			}
-
-			this._current = position;
-
-			this.invalidate('position');
-
-			this.trigger('changed', { property: { name: 'position', value: this._current } });
-		}
-
-		return this._current;
-	};
-
-	/**
-	 * Invalidates the given part of the update routine.
-	 * @param {String} [part] - The part to invalidate.
-	 * @returns {Array.<String>} - The invalidated parts.
-	 */
-	Owl.prototype.invalidate = function(part) {
-		if ($.type(part) === 'string') {
-			this._invalidated[part] = true;
-			this.is('valid') && this.leave('valid');
-		}
-		return $.map(this._invalidated, function(v, i) { return i });
-	};
-
-	/**
-	 * Resets the absolute position of the current item.
-	 * @public
-	 * @param {Number} position - The absolute position of the new item.
-	 */
-	Owl.prototype.reset = function(position) {
-		position = this.normalize(position);
-
-		if (position === undefined) {
-			return;
-		}
-
-		this._speed = 0;
-		this._current = position;
-
-		this.suppress([ 'translate', 'translated' ]);
-
-		this.animate(this.coordinates(position));
-
-		this.release([ 'translate', 'translated' ]);
-	};
-
-	/**
-	 * Normalizes an absolute or a relative position of an item.
-	 * @public
-	 * @param {Number} position - The absolute or relative position to normalize.
-	 * @param {Boolean} [relative=false] - Whether the given position is relative or not.
-	 * @returns {Number} - The normalized position.
-	 */
-	Owl.prototype.normalize = function(position, relative) {
-		var n = this._items.length,
-			m = relative ? 0 : this._clones.length;
-
-		if (!this.isNumeric(position) || n < 1) {
-			position = undefined;
-		} else if (position < 0 || position >= n + m) {
-			position = ((position - m / 2) % n + n) % n + m / 2;
-		}
-
-		return position;
-	};
-
-	/**
-	 * Converts an absolute position of an item into a relative one.
-	 * @public
-	 * @param {Number} position - The absolute position to convert.
-	 * @returns {Number} - The converted position.
-	 */
-	Owl.prototype.relative = function(position) {
-		position -= this._clones.length / 2;
-		return this.normalize(position, true);
-	};
-
-	/**
-	 * Gets the maximum position for the current item.
-	 * @public
-	 * @param {Boolean} [relative=false] - Whether to return an absolute position or a relative position.
-	 * @returns {Number}
-	 */
-	Owl.prototype.maximum = function(relative) {
-		var settings = this.settings,
-			maximum = this._coordinates.length,
-			iterator,
-			reciprocalItemsWidth,
-			elementWidth;
-
-		if (settings.loop) {
-			maximum = this._clones.length / 2 + this._items.length - 1;
-		} else if (settings.autoWidth || settings.merge) {
-			iterator = this._items.length;
-			if (iterator) {
-				reciprocalItemsWidth = this._items[--iterator].width();
-				elementWidth = this.$element.width();
-				while (iterator--) {
-					reciprocalItemsWidth += this._items[iterator].width() + this.settings.margin;
-					if (reciprocalItemsWidth > elementWidth) {
-						break;
-					}
-				}
-			}
-			maximum = iterator + 1;
-		} else if (settings.center) {
-			maximum = this._items.length - 1;
-		} else {
-			maximum = this._items.length - settings.items;
-		}
-
-		if (relative) {
-			maximum -= this._clones.length / 2;
-		}
-
-		return Math.max(maximum, 0);
-	};
-
-	/**
-	 * Gets the minimum position for the current item.
-	 * @public
-	 * @param {Boolean} [relative=false] - Whether to return an absolute position or a relative position.
-	 * @returns {Number}
-	 */
-	Owl.prototype.minimum = function(relative) {
-		return relative ? 0 : this._clones.length / 2;
-	};
-
-	/**
-	 * Gets an item at the specified relative position.
-	 * @public
-	 * @param {Number} [position] - The relative position of the item.
-	 * @return {jQuery|Array.<jQuery>} - The item at the given position or all items if no position was given.
-	 */
-	Owl.prototype.items = function(position) {
-		if (position === undefined) {
-			return this._items.slice();
-		}
-
-		position = this.normalize(position, true);
-		return this._items[position];
-	};
-
-	/**
-	 * Gets an item at the specified relative position.
-	 * @public
-	 * @param {Number} [position] - The relative position of the item.
-	 * @return {jQuery|Array.<jQuery>} - The item at the given position or all items if no position was given.
-	 */
-	Owl.prototype.mergers = function(position) {
-		if (position === undefined) {
-			return this._mergers.slice();
-		}
-
-		position = this.normalize(position, true);
-		return this._mergers[position];
-	};
-
-	/**
-	 * Gets the absolute positions of clones for an item.
-	 * @public
-	 * @param {Number} [position] - The relative position of the item.
-	 * @returns {Array.<Number>} - The absolute positions of clones for the item or all if no position was given.
-	 */
-	Owl.prototype.clones = function(position) {
-		var odd = this._clones.length / 2,
-			even = odd + this._items.length,
-			map = function(index) { return index % 2 === 0 ? even + index / 2 : odd - (index + 1) / 2 };
-
-		if (position === undefined) {
-			return $.map(this._clones, function(v, i) { return map(i) });
-		}
-
-		return $.map(this._clones, function(v, i) { return v === position ? map(i) : null });
-	};
-
-	/**
-	 * Sets the current animation speed.
-	 * @public
-	 * @param {Number} [speed] - The animation speed in milliseconds or nothing to leave it unchanged.
-	 * @returns {Number} - The current animation speed in milliseconds.
-	 */
-	Owl.prototype.speed = function(speed) {
-		if (speed !== undefined) {
-			this._speed = speed;
-		}
-
-		return this._speed;
-	};
-
-	/**
-	 * Gets the coordinate of an item.
-	 * @todo The name of this method is missleanding.
-	 * @public
-	 * @param {Number} position - The absolute position of the item within `minimum()` and `maximum()`.
-	 * @returns {Number|Array.<Number>} - The coordinate of the item in pixel or all coordinates.
-	 */
-	Owl.prototype.coordinates = function(position) {
-		var multiplier = 1,
-			newPosition = position - 1,
-			coordinate;
-
-		if (position === undefined) {
-			return $.map(this._coordinates, $.proxy(function(coordinate, index) {
-				return this.coordinates(index);
-			}, this));
-		}
-
-		if (this.settings.center) {
-			if (this.settings.rtl) {
-				multiplier = -1;
-				newPosition = position + 1;
-			}
-
-			coordinate = this._coordinates[position];
-			coordinate += (this.width() - coordinate + (this._coordinates[newPosition] || 0)) / 2 * multiplier;
-		} else {
-			coordinate = this._coordinates[newPosition] || 0;
-		}
-
-		coordinate = Math.ceil(coordinate);
-
-		return coordinate;
-	};
-
-	/**
-	 * Calculates the speed for a translation.
-	 * @protected
-	 * @param {Number} from - The absolute position of the start item.
-	 * @param {Number} to - The absolute position of the target item.
-	 * @param {Number} [factor=undefined] - The time factor in milliseconds.
-	 * @returns {Number} - The time in milliseconds for the translation.
-	 */
-	Owl.prototype.duration = function(from, to, factor) {
-		if (factor === 0) {
-			return 0;
-		}
-
-		return Math.min(Math.max(Math.abs(to - from), 1), 6) * Math.abs((factor || this.settings.smartSpeed));
-	};
-
-	/**
-	 * Slides to the specified item.
-	 * @public
-	 * @param {Number} position - The position of the item.
-	 * @param {Number} [speed] - The time in milliseconds for the transition.
-	 */
-	Owl.prototype.to = function(position, speed) {
-		var current = this.current(),
-			revert = null,
-			distance = position - this.relative(current),
-			direction = (distance > 0) - (distance < 0),
-			items = this._items.length,
-			minimum = this.minimum(),
-			maximum = this.maximum();
-
-		if (this.settings.loop) {
-			if (!this.settings.rewind && Math.abs(distance) > items / 2) {
-				distance += direction * -1 * items;
-			}
-
-			position = current + distance;
-			revert = ((position - minimum) % items + items) % items + minimum;
-
-			if (revert !== position && revert - distance <= maximum && revert - distance > 0) {
-				current = revert - distance;
-				position = revert;
-				this.reset(current);
-			}
-		} else if (this.settings.rewind) {
-			maximum += 1;
-			position = (position % maximum + maximum) % maximum;
-		} else {
-			position = Math.max(minimum, Math.min(maximum, position));
-		}
-
-		this.speed(this.duration(current, position, speed));
-		this.current(position);
-
-		if (this.isVisible()) {
-			this.update();
-		}
-	};
-
-	/**
-	 * Slides to the next item.
-	 * @public
-	 * @param {Number} [speed] - The time in milliseconds for the transition.
-	 */
-	Owl.prototype.next = function(speed) {
-		speed = speed || false;
-		this.to(this.relative(this.current()) + 1, speed);
-	};
-
-	/**
-	 * Slides to the previous item.
-	 * @public
-	 * @param {Number} [speed] - The time in milliseconds for the transition.
-	 */
-	Owl.prototype.prev = function(speed) {
-		speed = speed || false;
-		this.to(this.relative(this.current()) - 1, speed);
-	};
-
-	/**
-	 * Handles the end of an animation.
-	 * @protected
-	 * @param {Event} event - The event arguments.
-	 */
-	Owl.prototype.onTransitionEnd = function(event) {
-
-		// if css2 animation then event object is undefined
-		if (event !== undefined) {
-			event.stopPropagation();
-
-			// Catch only owl-stage transitionEnd event
-			if ((event.target || event.srcElement || event.originalTarget) !== this.$stage.get(0)) {
-				return false;
-			}
-		}
-
-		this.leave('animating');
-		this.trigger('translated');
-	};
-
-	/**
-	 * Gets viewport width.
-	 * @protected
-	 * @return {Number} - The width in pixel.
-	 */
-	Owl.prototype.viewport = function() {
-		var width;
-		if (this.options.responsiveBaseElement !== window) {
-			width = $(this.options.responsiveBaseElement).width();
-		} else if (window.innerWidth) {
-			width = window.innerWidth;
-		} else if (document.documentElement && document.documentElement.clientWidth) {
-			width = document.documentElement.clientWidth;
-		} else {
-			console.warn('Can not detect viewport width.');
-		}
-		return width;
-	};
-
-	/**
-	 * Replaces the current content.
-	 * @public
-	 * @param {HTMLElement|jQuery|String} content - The new content.
-	 */
-	Owl.prototype.replace = function(content) {
-		this.$stage.empty();
-		this._items = [];
-
-		if (content) {
-			content = (content instanceof jQuery) ? content : $(content);
-		}
-
-		if (this.settings.nestedItemSelector) {
-			content = content.find('.' + this.settings.nestedItemSelector);
-		}
-
-		content.filter(function() {
-			return this.nodeType === 1;
-		}).each($.proxy(function(index, item) {
-			item = this.prepare(item);
-			this.$stage.append(item);
-			this._items.push(item);
-			this._mergers.push(item.find('[data-merge]').addBack('[data-merge]').attr('data-merge') * 1 || 1);
-		}, this));
-
-		this.reset(this.isNumeric(this.settings.startPosition) ? this.settings.startPosition : 0);
-
-		this.invalidate('items');
-	};
-
-	/**
-	 * Adds an item.
-	 * @todo Use `item` instead of `content` for the event arguments.
-	 * @public
-	 * @param {HTMLElement|jQuery|String} content - The item content to add.
-	 * @param {Number} [position] - The relative position at which to insert the item otherwise the item will be added to the end.
-	 */
-	Owl.prototype.add = function(content, position) {
-		var current = this.relative(this._current);
-
-		position = position === undefined ? this._items.length : this.normalize(position, true);
-		content = content instanceof jQuery ? content : $(content);
-
-		this.trigger('add', { content: content, position: position });
-
-		content = this.prepare(content);
-
-		if (this._items.length === 0 || position === this._items.length) {
-			this._items.length === 0 && this.$stage.append(content);
-			this._items.length !== 0 && this._items[position - 1].after(content);
-			this._items.push(content);
-			this._mergers.push(content.find('[data-merge]').addBack('[data-merge]').attr('data-merge') * 1 || 1);
-		} else {
-			this._items[position].before(content);
-			this._items.splice(position, 0, content);
-			this._mergers.splice(position, 0, content.find('[data-merge]').addBack('[data-merge]').attr('data-merge') * 1 || 1);
-		}
-
-		this._items[current] && this.reset(this._items[current].index());
-
-		this.invalidate('items');
-
-		this.trigger('added', { content: content, position: position });
-	};
-
-	/**
-	 * Removes an item by its position.
-	 * @todo Use `item` instead of `content` for the event arguments.
-	 * @public
-	 * @param {Number} position - The relative position of the item to remove.
-	 */
-	Owl.prototype.remove = function(position) {
-		position = this.normalize(position, true);
-
-		if (position === undefined) {
-			return;
-		}
-
-		this.trigger('remove', { content: this._items[position], position: position });
-
-		this._items[position].remove();
-		this._items.splice(position, 1);
-		this._mergers.splice(position, 1);
-
-		this.invalidate('items');
-
-		this.trigger('removed', { content: null, position: position });
-	};
-
-	/**
-	 * Preloads images with auto width.
-	 * @todo Replace by a more generic approach
-	 * @protected
-	 */
-	Owl.prototype.preloadAutoWidthImages = function(images) {
-		images.each($.proxy(function(i, element) {
-			this.enter('pre-loading');
-			element = $(element);
-			$(new Image()).one('load', $.proxy(function(e) {
-				element.attr('src', e.target.src);
-				element.css('opacity', 1);
-				this.leave('pre-loading');
-				!this.is('pre-loading') && !this.is('initializing') && this.refresh();
-			}, this)).attr('src', element.attr('src') || element.attr('data-src') || element.attr('data-src-retina'));
-		}, this));
-	};
-
-	/**
-	 * Destroys the carousel.
-	 * @public
-	 */
-	Owl.prototype.destroy = function() {
-
-		this.$element.off('.owl.core');
-		this.$stage.off('.owl.core');
-		$(document).off('.owl.core');
-
-		if (this.settings.responsive !== false) {
-			window.clearTimeout(this.resizeTimer);
-			this.off(window, 'resize', this._handlers.onThrottledResize);
-		}
-
-		for (var i in this._plugins) {
-			this._plugins[i].destroy();
-		}
-
-		this.$stage.children('.cloned').remove();
-
-		this.$stage.unwrap();
-		this.$stage.children().contents().unwrap();
-		this.$stage.children().unwrap();
-		this.$stage.remove();
-		this.$element
-			.removeClass(this.options.refreshClass)
-			.removeClass(this.options.loadingClass)
-			.removeClass(this.options.loadedClass)
-			.removeClass(this.options.rtlClass)
-			.removeClass(this.options.dragClass)
-			.removeClass(this.options.grabClass)
-			.attr('class', this.$element.attr('class').replace(new RegExp(this.options.responsiveClass + '-\\S+\\s', 'g'), ''))
-			.removeData('owl.carousel');
-	};
-
-	/**
-	 * Operators to calculate right-to-left and left-to-right.
-	 * @protected
-	 * @param {Number} [a] - The left side operand.
-	 * @param {String} [o] - The operator.
-	 * @param {Number} [b] - The right side operand.
-	 */
-	Owl.prototype.op = function(a, o, b) {
-		var rtl = this.settings.rtl;
-		switch (o) {
-			case '<':
-				return rtl ? a > b : a < b;
-			case '>':
-				return rtl ? a < b : a > b;
-			case '>=':
-				return rtl ? a <= b : a >= b;
-			case '<=':
-				return rtl ? a >= b : a <= b;
-			default:
-				break;
-		}
-	};
-
-	/**
-	 * Attaches to an internal event.
-	 * @protected
-	 * @param {HTMLElement} element - The event source.
-	 * @param {String} event - The event name.
-	 * @param {Function} listener - The event handler to attach.
-	 * @param {Boolean} capture - Wether the event should be handled at the capturing phase or not.
-	 */
-	Owl.prototype.on = function(element, event, listener, capture) {
-		if (element.addEventListener) {
-			element.addEventListener(event, listener, capture);
-		} else if (element.attachEvent) {
-			element.attachEvent('on' + event, listener);
-		}
-	};
-
-	/**
-	 * Detaches from an internal event.
-	 * @protected
-	 * @param {HTMLElement} element - The event source.
-	 * @param {String} event - The event name.
-	 * @param {Function} listener - The attached event handler to detach.
-	 * @param {Boolean} capture - Wether the attached event handler was registered as a capturing listener or not.
-	 */
-	Owl.prototype.off = function(element, event, listener, capture) {
-		if (element.removeEventListener) {
-			element.removeEventListener(event, listener, capture);
-		} else if (element.detachEvent) {
-			element.detachEvent('on' + event, listener);
-		}
-	};
-
-	/**
-	 * Triggers a public event.
-	 * @todo Remove `status`, `relatedTarget` should be used instead.
-	 * @protected
-	 * @param {String} name - The event name.
-	 * @param {*} [data=null] - The event data.
-	 * @param {String} [namespace=carousel] - The event namespace.
-	 * @param {String} [state] - The state which is associated with the event.
-	 * @param {Boolean} [enter=false] - Indicates if the call enters the specified state or not.
-	 * @returns {Event} - The event arguments.
-	 */
-	Owl.prototype.trigger = function(name, data, namespace, state, enter) {
-		var status = {
-			item: { count: this._items.length, index: this.current() }
-		}, handler = $.camelCase(
-			$.grep([ 'on', name, namespace ], function(v) { return v })
-				.join('-').toLowerCase()
-		), event = $.Event(
-			[ name, 'owl', namespace || 'carousel' ].join('.').toLowerCase(),
-			$.extend({ relatedTarget: this }, status, data)
-		);
-
-		if (!this._supress[name]) {
-			$.each(this._plugins, function(name, plugin) {
-				if (plugin.onTrigger) {
-					plugin.onTrigger(event);
-				}
-			});
-
-			this.register({ type: Owl.Type.Event, name: name });
-			this.$element.trigger(event);
-
-			if (this.settings && typeof this.settings[handler] === 'function') {
-				this.settings[handler].call(this, event);
-			}
-		}
-
-		return event;
-	};
-
-	/**
-	 * Enters a state.
-	 * @param name - The state name.
-	 */
-	Owl.prototype.enter = function(name) {
-		$.each([ name ].concat(this._states.tags[name] || []), $.proxy(function(i, name) {
-			if (this._states.current[name] === undefined) {
-				this._states.current[name] = 0;
-			}
-
-			this._states.current[name]++;
-		}, this));
-	};
-
-	/**
-	 * Leaves a state.
-	 * @param name - The state name.
-	 */
-	Owl.prototype.leave = function(name) {
-		$.each([ name ].concat(this._states.tags[name] || []), $.proxy(function(i, name) {
-			this._states.current[name]--;
-		}, this));
-	};
-
-	/**
-	 * Registers an event or state.
-	 * @public
-	 * @param {Object} object - The event or state to register.
-	 */
-	Owl.prototype.register = function(object) {
-		if (object.type === Owl.Type.Event) {
-			if (!$.event.special[object.name]) {
-				$.event.special[object.name] = {};
-			}
-
-			if (!$.event.special[object.name].owl) {
-				var _default = $.event.special[object.name]._default;
-				$.event.special[object.name]._default = function(e) {
-					if (_default && _default.apply && (!e.namespace || e.namespace.indexOf('owl') === -1)) {
-						return _default.apply(this, arguments);
-					}
-					return e.namespace && e.namespace.indexOf('owl') > -1;
-				};
-				$.event.special[object.name].owl = true;
-			}
-		} else if (object.type === Owl.Type.State) {
-			if (!this._states.tags[object.name]) {
-				this._states.tags[object.name] = object.tags;
-			} else {
-				this._states.tags[object.name] = this._states.tags[object.name].concat(object.tags);
-			}
-
-			this._states.tags[object.name] = $.grep(this._states.tags[object.name], $.proxy(function(tag, i) {
-				return $.inArray(tag, this._states.tags[object.name]) === i;
-			}, this));
-		}
-	};
-
-	/**
-	 * Suppresses events.
-	 * @protected
-	 * @param {Array.<String>} events - The events to suppress.
-	 */
-	Owl.prototype.suppress = function(events) {
-		$.each(events, $.proxy(function(index, event) {
-			this._supress[event] = true;
-		}, this));
-	};
-
-	/**
-	 * Releases suppressed events.
-	 * @protected
-	 * @param {Array.<String>} events - The events to release.
-	 */
-	Owl.prototype.release = function(events) {
-		$.each(events, $.proxy(function(index, event) {
-			delete this._supress[event];
-		}, this));
-	};
-
-	/**
-	 * Gets unified pointer coordinates from event.
-	 * @todo #261
-	 * @protected
-	 * @param {Event} - The `mousedown` or `touchstart` event.
-	 * @returns {Object} - Contains `x` and `y` coordinates of current pointer position.
-	 */
-	Owl.prototype.pointer = function(event) {
-		var result = { x: null, y: null };
-
-		event = event.originalEvent || event || window.event;
-
-		event = event.touches && event.touches.length ?
-			event.touches[0] : event.changedTouches && event.changedTouches.length ?
-				event.changedTouches[0] : event;
-
-		if (event.pageX) {
-			result.x = event.pageX;
-			result.y = event.pageY;
-		} else {
-			result.x = event.clientX;
-			result.y = event.clientY;
-		}
-
-		return result;
-	};
-
-	/**
-	 * Determines if the input is a Number or something that can be coerced to a Number
-	 * @protected
-	 * @param {Number|String|Object|Array|Boolean|RegExp|Function|Symbol} - The input to be tested
-	 * @returns {Boolean} - An indication if the input is a Number or can be coerced to a Number
-	 */
-	Owl.prototype.isNumeric = function(number) {
-		return !isNaN(parseFloat(number));
-	};
-
-	/**
-	 * Gets the difference of two vectors.
-	 * @todo #261
-	 * @protected
-	 * @param {Object} - The first vector.
-	 * @param {Object} - The second vector.
-	 * @returns {Object} - The difference.
-	 */
-	Owl.prototype.difference = function(first, second) {
-		return {
-			x: first.x - second.x,
-			y: first.y - second.y
-		};
-	};
-
-	/**
-	 * The jQuery Plugin for the Owl Carousel
-	 * @todo Navigation plugin `next` and `prev`
-	 * @public
-	 */
-	$.fn.owlCarousel = function(option) {
-		var args = Array.prototype.slice.call(arguments, 1);
-
-		return this.each(function() {
-			var $this = $(this),
-				data = $this.data('owl.carousel');
-
-			if (!data) {
-				data = new Owl(this, typeof option == 'object' && option);
-				$this.data('owl.carousel', data);
-
-				$.each([
-					'next', 'prev', 'to', 'destroy', 'refresh', 'replace', 'add', 'remove'
-				], function(i, event) {
-					data.register({ type: Owl.Type.Event, name: event });
-					data.$element.on(event + '.owl.carousel.core', $.proxy(function(e) {
-						if (e.namespace && e.relatedTarget !== this) {
-							this.suppress([ event ]);
-							data[event].apply(this, [].slice.call(arguments, 1));
-							this.release([ event ]);
-						}
-					}, data));
-				});
-			}
-
-			if (typeof option == 'string' && option.charAt(0) !== '_') {
-				data[option].apply(data, args);
-			}
-		});
-	};
-
-	/**
-	 * The constructor for the jQuery Plugin
-	 * @public
-	 */
-	$.fn.owlCarousel.Constructor = Owl;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * AutoRefresh Plugin
- * @version 2.3.4
- * @author Artus Kolanowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates the auto refresh plugin.
-	 * @class The Auto Refresh Plugin
-	 * @param {Owl} carousel - The Owl Carousel
-	 */
-	var AutoRefresh = function(carousel) {
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		/**
-		 * Refresh interval.
-		 * @protected
-		 * @type {number}
-		 */
-		this._interval = null;
-
-		/**
-		 * Whether the element is currently visible or not.
-		 * @protected
-		 * @type {Boolean}
-		 */
-		this._visible = null;
-
-		/**
-		 * All event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'initialized.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.autoRefresh) {
-					this.watch();
-				}
-			}, this)
-		};
-
-		// set default options
-		this._core.options = $.extend({}, AutoRefresh.Defaults, this._core.options);
-
-		// register event handlers
-		this._core.$element.on(this._handlers);
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	AutoRefresh.Defaults = {
-		autoRefresh: true,
-		autoRefreshInterval: 500
-	};
-
-	/**
-	 * Watches the element.
-	 */
-	AutoRefresh.prototype.watch = function() {
-		if (this._interval) {
-			return;
-		}
-
-		this._visible = this._core.isVisible();
-		this._interval = window.setInterval($.proxy(this.refresh, this), this._core.settings.autoRefreshInterval);
-	};
-
-	/**
-	 * Refreshes the element.
-	 */
-	AutoRefresh.prototype.refresh = function() {
-		if (this._core.isVisible() === this._visible) {
-			return;
-		}
-
-		this._visible = !this._visible;
-
-		this._core.$element.toggleClass('owl-hidden', !this._visible);
-
-		this._visible && (this._core.invalidate('width') && this._core.refresh());
-	};
-
-	/**
-	 * Destroys the plugin.
-	 */
-	AutoRefresh.prototype.destroy = function() {
-		var handler, property;
-
-		window.clearInterval(this._interval);
-
-		for (handler in this._handlers) {
-			this._core.$element.off(handler, this._handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.AutoRefresh = AutoRefresh;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Lazy Plugin
- * @version 2.3.4
- * @author Bartosz Wojciechowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates the lazy plugin.
-	 * @class The Lazy Plugin
-	 * @param {Owl} carousel - The Owl Carousel
-	 */
-	var Lazy = function(carousel) {
-
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		/**
-		 * Already loaded items.
-		 * @protected
-		 * @type {Array.<jQuery>}
-		 */
-		this._loaded = [];
-
-		/**
-		 * Event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'initialized.owl.carousel change.owl.carousel resized.owl.carousel': $.proxy(function(e) {
-				if (!e.namespace) {
-					return;
-				}
-
-				if (!this._core.settings || !this._core.settings.lazyLoad) {
-					return;
-				}
-
-				if ((e.property && e.property.name == 'position') || e.type == 'initialized') {
-					var settings = this._core.settings,
-						n = (settings.center && Math.ceil(settings.items / 2) || settings.items),
-						i = ((settings.center && n * -1) || 0),
-						position = (e.property && e.property.value !== undefined ? e.property.value : this._core.current()) + i,
-						clones = this._core.clones().length,
-						load = $.proxy(function(i, v) { this.load(v) }, this);
-					//TODO: Need documentation for this new option
-					if (settings.lazyLoadEager > 0) {
-						n += settings.lazyLoadEager;
-						// If the carousel is looping also preload images that are to the "left"
-						if (settings.loop) {
-              position -= settings.lazyLoadEager;
-              n++;
-            }
-					}
-
-					while (i++ < n) {
-						this.load(clones / 2 + this._core.relative(position));
-						clones && $.each(this._core.clones(this._core.relative(position)), load);
-						position++;
-					}
-				}
-			}, this)
-		};
-
-		// set the default options
-		this._core.options = $.extend({}, Lazy.Defaults, this._core.options);
-
-		// register event handler
-		this._core.$element.on(this._handlers);
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	Lazy.Defaults = {
-		lazyLoad: false,
-		lazyLoadEager: 0
-	};
-
-	/**
-	 * Loads all resources of an item at the specified position.
-	 * @param {Number} position - The absolute position of the item.
-	 * @protected
-	 */
-	Lazy.prototype.load = function(position) {
-		var $item = this._core.$stage.children().eq(position),
-			$elements = $item && $item.find('.owl-lazy');
-
-		if (!$elements || $.inArray($item.get(0), this._loaded) > -1) {
-			return;
-		}
-
-		$elements.each($.proxy(function(index, element) {
-			var $element = $(element), image,
-                url = (window.devicePixelRatio > 1 && $element.attr('data-src-retina')) || $element.attr('data-src') || $element.attr('data-srcset');
-
-			this._core.trigger('load', { element: $element, url: url }, 'lazy');
-
-			if ($element.is('img')) {
-				$element.one('load.owl.lazy', $.proxy(function() {
-					$element.css('opacity', 1);
-					this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
-				}, this)).attr('src', url);
-            } else if ($element.is('source')) {
-                $element.one('load.owl.lazy', $.proxy(function() {
-                    this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
-                }, this)).attr('srcset', url);
-			} else {
-				image = new Image();
-				image.onload = $.proxy(function() {
-					$element.css({
-						'background-image': 'url("' + url + '")',
-						'opacity': '1'
-					});
-					this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
-				}, this);
-				image.src = url;
-			}
-		}, this));
-
-		this._loaded.push($item.get(0));
-	};
-
-	/**
-	 * Destroys the plugin.
-	 * @public
-	 */
-	Lazy.prototype.destroy = function() {
-		var handler, property;
-
-		for (handler in this.handlers) {
-			this._core.$element.off(handler, this.handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.Lazy = Lazy;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * AutoHeight Plugin
- * @version 2.3.4
- * @author Bartosz Wojciechowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates the auto height plugin.
-	 * @class The Auto Height Plugin
-	 * @param {Owl} carousel - The Owl Carousel
-	 */
-	var AutoHeight = function(carousel) {
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		this._previousHeight = null;
-
-		/**
-		 * All event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'initialized.owl.carousel refreshed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.autoHeight) {
-					this.update();
-				}
-			}, this),
-			'changed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.autoHeight && e.property.name === 'position'){
-					this.update();
-				}
-			}, this),
-			'loaded.owl.lazy': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.autoHeight
-					&& e.element.closest('.' + this._core.settings.itemClass).index() === this._core.current()) {
-					this.update();
-				}
-			}, this)
-		};
-
-		// set default options
-		this._core.options = $.extend({}, AutoHeight.Defaults, this._core.options);
-
-		// register event handlers
-		this._core.$element.on(this._handlers);
-		this._intervalId = null;
-		var refThis = this;
-
-		// These changes have been taken from a PR by gavrochelegnou proposed in #1575
-		// and have been made compatible with the latest jQuery version
-		$(window).on('load', function() {
-			if (refThis._core.settings.autoHeight) {
-				refThis.update();
-			}
-		});
-
-		// Autoresize the height of the carousel when window is resized
-		// When carousel has images, the height is dependent on the width
-		// and should also change on resize
-		$(window).resize(function() {
-			if (refThis._core.settings.autoHeight) {
-				if (refThis._intervalId != null) {
-					clearTimeout(refThis._intervalId);
-				}
-
-				refThis._intervalId = setTimeout(function() {
-					refThis.update();
-				}, 250);
-			}
-		});
-
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	AutoHeight.Defaults = {
-		autoHeight: false,
-		autoHeightClass: 'owl-height'
-	};
-
-	/**
-	 * Updates the view.
-	 */
-	AutoHeight.prototype.update = function() {
-		var start = this._core._current,
-			end = start + this._core.settings.items,
-			lazyLoadEnabled = this._core.settings.lazyLoad,
-			visible = this._core.$stage.children().toArray().slice(start, end),
-			heights = [],
-			maxheight = 0;
-
-		$.each(visible, function(index, item) {
-			heights.push($(item).height());
-		});
-
-		maxheight = Math.max.apply(null, heights);
-
-		if (maxheight <= 1 && lazyLoadEnabled && this._previousHeight) {
-			maxheight = this._previousHeight;
-		}
-
-		this._previousHeight = maxheight;
-
-		this._core.$stage.parent()
-			.height(maxheight)
-			.addClass(this._core.settings.autoHeightClass);
-	};
-
-	AutoHeight.prototype.destroy = function() {
-		var handler, property;
-
-		for (handler in this._handlers) {
-			this._core.$element.off(handler, this._handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] !== 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.AutoHeight = AutoHeight;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Video Plugin
- * @version 2.3.4
- * @author Bartosz Wojciechowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates the video plugin.
-	 * @class The Video Plugin
-	 * @param {Owl} carousel - The Owl Carousel
-	 */
-	var Video = function(carousel) {
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		/**
-		 * Cache all video URLs.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._videos = {};
-
-		/**
-		 * Current playing item.
-		 * @protected
-		 * @type {jQuery}
-		 */
-		this._playing = null;
-
-		/**
-		 * All event handlers.
-		 * @todo The cloned content removale is too late
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'initialized.owl.carousel': $.proxy(function(e) {
-				if (e.namespace) {
-					this._core.register({ type: 'state', name: 'playing', tags: [ 'interacting' ] });
-				}
-			}, this),
-			'resize.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.video && this.isInFullScreen()) {
-					e.preventDefault();
-				}
-			}, this),
-			'refreshed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.is('resizing')) {
-					this._core.$stage.find('.cloned .owl-video-frame').remove();
-				}
-			}, this),
-			'changed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && e.property.name === 'position' && this._playing) {
-					this.stop();
-				}
-			}, this),
-			'prepared.owl.carousel': $.proxy(function(e) {
-				if (!e.namespace) {
-					return;
-				}
-
-				var $element = $(e.content).find('.owl-video');
-
-				if ($element.length) {
-					$element.css('display', 'none');
-					this.fetch($element, $(e.content));
-				}
-			}, this)
-		};
-
-		// set default options
-		this._core.options = $.extend({}, Video.Defaults, this._core.options);
-
-		// register event handlers
-		this._core.$element.on(this._handlers);
-
-		this._core.$element.on('click.owl.video', '.owl-video-play-icon', $.proxy(function(e) {
-			this.play(e);
-		}, this));
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	Video.Defaults = {
-		video: false,
-		videoHeight: false,
-		videoWidth: false
-	};
-
-	/**
-	 * Gets the video ID and the type (YouTube/Vimeo/vzaar only).
-	 * @protected
-	 * @param {jQuery} target - The target containing the video data.
-	 * @param {jQuery} item - The item containing the video.
-	 */
-	Video.prototype.fetch = function(target, item) {
-			var type = (function() {
-					if (target.attr('data-vimeo-id')) {
-						return 'vimeo';
-					} else if (target.attr('data-vzaar-id')) {
-						return 'vzaar'
-					} else {
-						return 'youtube';
-					}
-				})(),
-				id = target.attr('data-vimeo-id') || target.attr('data-youtube-id') || target.attr('data-vzaar-id'),
-				width = target.attr('data-width') || this._core.settings.videoWidth,
-				height = target.attr('data-height') || this._core.settings.videoHeight,
-				url = target.attr('href');
-
-		if (url) {
-
-			/*
-					Parses the id's out of the following urls (and probably more):
-					https://www.youtube.com/watch?v=:id
-					https://youtu.be/:id
-					https://vimeo.com/:id
-					https://vimeo.com/channels/:channel/:id
-					https://vimeo.com/groups/:group/videos/:id
-					https://app.vzaar.com/videos/:id
-
-					Visual example: https://regexper.com/#(http%3A%7Chttps%3A%7C)%5C%2F%5C%2F(player.%7Cwww.%7Capp.)%3F(vimeo%5C.com%7Cyoutu(be%5C.com%7C%5C.be%7Cbe%5C.googleapis%5C.com)%7Cvzaar%5C.com)%5C%2F(video%5C%2F%7Cvideos%5C%2F%7Cembed%5C%2F%7Cchannels%5C%2F.%2B%5C%2F%7Cgroups%5C%2F.%2B%5C%2F%7Cwatch%5C%3Fv%3D%7Cv%5C%2F)%3F(%5BA-Za-z0-9._%25-%5D*)(%5C%26%5CS%2B)%3F
-			*/
-
-			id = url.match(/(http:|https:|)\/\/(player.|www.|app.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com|be\-nocookie\.com)|vzaar\.com)\/(video\/|videos\/|embed\/|channels\/.+\/|groups\/.+\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
-
-			if (id[3].indexOf('youtu') > -1) {
-				type = 'youtube';
-			} else if (id[3].indexOf('vimeo') > -1) {
-				type = 'vimeo';
-			} else if (id[3].indexOf('vzaar') > -1) {
-				type = 'vzaar';
-			} else {
-				throw new Error('Video URL not supported.');
-			}
-			id = id[6];
-		} else {
-			throw new Error('Missing video URL.');
-		}
-
-		this._videos[url] = {
-			type: type,
-			id: id,
-			width: width,
-			height: height
-		};
-
-		item.attr('data-video', url);
-
-		this.thumbnail(target, this._videos[url]);
-	};
-
-	/**
-	 * Creates video thumbnail.
-	 * @protected
-	 * @param {jQuery} target - The target containing the video data.
-	 * @param {Object} info - The video info object.
-	 * @see `fetch`
-	 */
-	Video.prototype.thumbnail = function(target, video) {
-		var tnLink,
-			icon,
-			path,
-			dimensions = video.width && video.height ? 'width:' + video.width + 'px;height:' + video.height + 'px;' : '',
-			customTn = target.find('img'),
-			srcType = 'src',
-			lazyClass = '',
-			settings = this._core.settings,
-			create = function(path) {
-				icon = '<div class="owl-video-play-icon"></div>';
-
-				if (settings.lazyLoad) {
-					tnLink = $('<div/>',{
-						"class": 'owl-video-tn ' + lazyClass,
-						"srcType": path
-					});
-				} else {
-					tnLink = $( '<div/>', {
-						"class": "owl-video-tn",
-						"style": 'opacity:1;background-image:url(' + path + ')'
-					});
-				}
-				target.after(tnLink);
-				target.after(icon);
-			};
-
-		// wrap video content into owl-video-wrapper div
-		target.wrap( $( '<div/>', {
-			"class": "owl-video-wrapper",
-			"style": dimensions
-		}));
-
-		if (this._core.settings.lazyLoad) {
-			srcType = 'data-src';
-			lazyClass = 'owl-lazy';
-		}
-
-		// custom thumbnail
-		if (customTn.length) {
-			create(customTn.attr(srcType));
-			customTn.remove();
-			return false;
-		}
-
-		if (video.type === 'youtube') {
-			path = "//img.youtube.com/vi/" + video.id + "/hqdefault.jpg";
-			create(path);
-		} else if (video.type === 'vimeo') {
-			$.ajax({
-				type: 'GET',
-				url: '//vimeo.com/api/v2/video/' + video.id + '.json',
-				jsonp: 'callback',
-				dataType: 'jsonp',
-				success: function(data) {
-					path = data[0].thumbnail_large;
-					create(path);
-				}
-			});
-		} else if (video.type === 'vzaar') {
-			$.ajax({
-				type: 'GET',
-				url: '//vzaar.com/api/videos/' + video.id + '.json',
-				jsonp: 'callback',
-				dataType: 'jsonp',
-				success: function(data) {
-					path = data.framegrab_url;
-					create(path);
-				}
-			});
-		}
-	};
-
-	/**
-	 * Stops the current video.
-	 * @public
-	 */
-	Video.prototype.stop = function() {
-		this._core.trigger('stop', null, 'video');
-		this._playing.find('.owl-video-frame').remove();
-		this._playing.removeClass('owl-video-playing');
-		this._playing = null;
-		this._core.leave('playing');
-		this._core.trigger('stopped', null, 'video');
-	};
-
-	/**
-	 * Starts the current video.
-	 * @public
-	 * @param {Event} event - The event arguments.
-	 */
-	Video.prototype.play = function(event) {
-		var target = $(event.target),
-			item = target.closest('.' + this._core.settings.itemClass),
-			video = this._videos[item.attr('data-video')],
-			width = video.width || '100%',
-			height = video.height || this._core.$stage.height(),
-			html,
-			iframe;
-
-		if (this._playing) {
-			return;
-		}
-
-		this._core.enter('playing');
-		this._core.trigger('play', null, 'video');
-
-		item = this._core.items(this._core.relative(item.index()));
-
-		this._core.reset(item.index());
-
-		html = $( '<iframe frameborder="0" allowfullscreen mozallowfullscreen webkitAllowFullScreen ></iframe>' );
-		html.attr( 'height', height );
-		html.attr( 'width', width );
-		if (video.type === 'youtube') {
-			html.attr( 'src', '//www.youtube.com/embed/' + video.id + '?autoplay=1&rel=0&v=' + video.id );
-		} else if (video.type === 'vimeo') {
-			html.attr( 'src', '//player.vimeo.com/video/' + video.id + '?autoplay=1' );
-		} else if (video.type === 'vzaar') {
-			html.attr( 'src', '//view.vzaar.com/' + video.id + '/player?autoplay=true' );
-		}
-
-		iframe = $(html).wrap( '<div class="owl-video-frame" />' ).insertAfter(item.find('.owl-video'));
-
-		this._playing = item.addClass('owl-video-playing');
-	};
-
-	/**
-	 * Checks whether an video is currently in full screen mode or not.
-	 * @todo Bad style because looks like a readonly method but changes members.
-	 * @protected
-	 * @returns {Boolean}
-	 */
-	Video.prototype.isInFullScreen = function() {
-		var element = document.fullscreenElement || document.mozFullScreenElement ||
-				document.webkitFullscreenElement;
-
-		return element && $(element).parent().hasClass('owl-video-frame');
-	};
-
-	/**
-	 * Destroys the plugin.
-	 */
-	Video.prototype.destroy = function() {
-		var handler, property;
-
-		this._core.$element.off('click.owl.video');
-
-		for (handler in this._handlers) {
-			this._core.$element.off(handler, this._handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.Video = Video;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Animate Plugin
- * @version 2.3.4
- * @author Bartosz Wojciechowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates the animate plugin.
-	 * @class The Navigation Plugin
-	 * @param {Owl} scope - The Owl Carousel
-	 */
-	var Animate = function(scope) {
-		this.core = scope;
-		this.core.options = $.extend({}, Animate.Defaults, this.core.options);
-		this.swapping = true;
-		this.previous = undefined;
-		this.next = undefined;
-
-		this.handlers = {
-			'change.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && e.property.name == 'position') {
-					this.previous = this.core.current();
-					this.next = e.property.value;
-				}
-			}, this),
-			'drag.owl.carousel dragged.owl.carousel translated.owl.carousel': $.proxy(function(e) {
-				if (e.namespace) {
-					this.swapping = e.type == 'translated';
-				}
-			}, this),
-			'translate.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this.swapping && (this.core.options.animateOut || this.core.options.animateIn)) {
-					this.swap();
-				}
-			}, this)
-		};
-
-		this.core.$element.on(this.handlers);
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	Animate.Defaults = {
-		animateOut: false,
-		animateIn: false
-	};
-
-	/**
-	 * Toggles the animation classes whenever an translations starts.
-	 * @protected
-	 * @returns {Boolean|undefined}
-	 */
-	Animate.prototype.swap = function() {
-
-		if (this.core.settings.items !== 1) {
-			return;
-		}
-
-		if (!$.support.animation || !$.support.transition) {
-			return;
-		}
-
-		this.core.speed(0);
-
-		var left,
-			clear = $.proxy(this.clear, this),
-			previous = this.core.$stage.children().eq(this.previous),
-			next = this.core.$stage.children().eq(this.next),
-			incoming = this.core.settings.animateIn,
-			outgoing = this.core.settings.animateOut;
-
-		if (this.core.current() === this.previous) {
-			return;
-		}
-
-		if (outgoing) {
-			left = this.core.coordinates(this.previous) - this.core.coordinates(this.next);
-			previous.one($.support.animation.end, clear)
-				.css( { 'left': left + 'px' } )
-				.addClass('animated owl-animated-out')
-				.addClass(outgoing);
-		}
-
-		if (incoming) {
-			next.one($.support.animation.end, clear)
-				.addClass('animated owl-animated-in')
-				.addClass(incoming);
-		}
-	};
-
-	Animate.prototype.clear = function(e) {
-		$(e.target).css( { 'left': '' } )
-			.removeClass('animated owl-animated-out owl-animated-in')
-			.removeClass(this.core.settings.animateIn)
-			.removeClass(this.core.settings.animateOut);
-		this.core.onTransitionEnd();
-	};
-
-	/**
-	 * Destroys the plugin.
-	 * @public
-	 */
-	Animate.prototype.destroy = function() {
-		var handler, property;
-
-		for (handler in this.handlers) {
-			this.core.$element.off(handler, this.handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.Animate = Animate;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Autoplay Plugin
- * @version 2.3.4
- * @author Bartosz Wojciechowski
- * @author Artus Kolanowski
- * @author David Deutsch
- * @author Tom De Caluwé
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates the autoplay plugin.
-	 * @class The Autoplay Plugin
-	 * @param {Owl} scope - The Owl Carousel
-	 */
-	var Autoplay = function(carousel) {
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		/**
-		 * The autoplay timeout id.
-		 * @type {Number}
-		 */
-		this._call = null;
-
-		/**
-		 * Depending on the state of the plugin, this variable contains either
-		 * the start time of the timer or the current timer value if it's
-		 * paused. Since we start in a paused state we initialize the timer
-		 * value.
-		 * @type {Number}
-		 */
-		this._time = 0;
-
-		/**
-		 * Stores the timeout currently used.
-		 * @type {Number}
-		 */
-		this._timeout = 0;
-
-		/**
-		 * Indicates whenever the autoplay is paused.
-		 * @type {Boolean}
-		 */
-		this._paused = true;
-
-		/**
-		 * All event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'changed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && e.property.name === 'settings') {
-					if (this._core.settings.autoplay) {
-						this.play();
-					} else {
-						this.stop();
-					}
-				} else if (e.namespace && e.property.name === 'position' && this._paused) {
-					// Reset the timer. This code is triggered when the position
-					// of the carousel was changed through user interaction.
-					this._time = 0;
-				}
-			}, this),
-			'initialized.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.autoplay) {
-					this.play();
-				}
-			}, this),
-			'play.owl.autoplay': $.proxy(function(e, t, s) {
-				if (e.namespace) {
-					this.play(t, s);
-				}
-			}, this),
-			'stop.owl.autoplay': $.proxy(function(e) {
-				if (e.namespace) {
-					this.stop();
-				}
-			}, this),
-			'mouseover.owl.autoplay': $.proxy(function() {
-				if (this._core.settings.autoplayHoverPause && this._core.is('rotating')) {
-					this.pause();
-				}
-			}, this),
-			'mouseleave.owl.autoplay': $.proxy(function() {
-				if (this._core.settings.autoplayHoverPause && this._core.is('rotating')) {
-					this.play();
-				}
-			}, this),
-			'touchstart.owl.core': $.proxy(function() {
-				if (this._core.settings.autoplayHoverPause && this._core.is('rotating')) {
-					this.pause();
-				}
-			}, this),
-			'touchend.owl.core': $.proxy(function() {
-				if (this._core.settings.autoplayHoverPause) {
-					this.play();
-				}
-			}, this)
-		};
-
-		// register event handlers
-		this._core.$element.on(this._handlers);
-
-		// set default options
-		this._core.options = $.extend({}, Autoplay.Defaults, this._core.options);
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	Autoplay.Defaults = {
-		autoplay: false,
-		autoplayTimeout: 5000,
-		autoplayHoverPause: false,
-		autoplaySpeed: false
-	};
-
-	/**
-	 * Transition to the next slide and set a timeout for the next transition.
-	 * @private
-	 * @param {Number} [speed] - The animation speed for the animations.
-	 */
-	Autoplay.prototype._next = function(speed) {
-		this._call = window.setTimeout(
-			$.proxy(this._next, this, speed),
-			this._timeout * (Math.round(this.read() / this._timeout) + 1) - this.read()
-		);
-
-		if (this._core.is('interacting') || document.hidden) {
-			return;
-		}
-		this._core.next(speed || this._core.settings.autoplaySpeed);
-	}
-
-	/**
-	 * Reads the current timer value when the timer is playing.
-	 * @public
-	 */
-	Autoplay.prototype.read = function() {
-		return new Date().getTime() - this._time;
-	};
-
-	/**
-	 * Starts the autoplay.
-	 * @public
-	 * @param {Number} [timeout] - The interval before the next animation starts.
-	 * @param {Number} [speed] - The animation speed for the animations.
-	 */
-	Autoplay.prototype.play = function(timeout, speed) {
-		var elapsed;
-
-		if (!this._core.is('rotating')) {
-			this._core.enter('rotating');
-		}
-
-		timeout = timeout || this._core.settings.autoplayTimeout;
-
-		// Calculate the elapsed time since the last transition. If the carousel
-		// wasn't playing this calculation will yield zero.
-		elapsed = Math.min(this._time % (this._timeout || timeout), timeout);
-
-		if (this._paused) {
-			// Start the clock.
-			this._time = this.read();
-			this._paused = false;
-		} else {
-			// Clear the active timeout to allow replacement.
-			window.clearTimeout(this._call);
-		}
-
-		// Adjust the origin of the timer to match the new timeout value.
-		this._time += this.read() % timeout - elapsed;
-
-		this._timeout = timeout;
-		this._call = window.setTimeout($.proxy(this._next, this, speed), timeout - elapsed);
-	};
-
-	/**
-	 * Stops the autoplay.
-	 * @public
-	 */
-	Autoplay.prototype.stop = function() {
-		if (this._core.is('rotating')) {
-			// Reset the clock.
-			this._time = 0;
-			this._paused = true;
-
-			window.clearTimeout(this._call);
-			this._core.leave('rotating');
-		}
-	};
-
-	/**
-	 * Pauses the autoplay.
-	 * @public
-	 */
-	Autoplay.prototype.pause = function() {
-		if (this._core.is('rotating') && !this._paused) {
-			// Pause the clock.
-			this._time = this.read();
-			this._paused = true;
-
-			window.clearTimeout(this._call);
-		}
-	};
-
-	/**
-	 * Destroys the plugin.
-	 */
-	Autoplay.prototype.destroy = function() {
-		var handler, property;
-
-		this.stop();
-
-		for (handler in this._handlers) {
-			this._core.$element.off(handler, this._handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.autoplay = Autoplay;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Navigation Plugin
- * @version 2.3.4
- * @author Artus Kolanowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-	'use strict';
-
-	/**
-	 * Creates the navigation plugin.
-	 * @class The Navigation Plugin
-	 * @param {Owl} carousel - The Owl Carousel.
-	 */
-	var Navigation = function(carousel) {
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		/**
-		 * Indicates whether the plugin is initialized or not.
-		 * @protected
-		 * @type {Boolean}
-		 */
-		this._initialized = false;
-
-		/**
-		 * The current paging indexes.
-		 * @protected
-		 * @type {Array}
-		 */
-		this._pages = [];
-
-		/**
-		 * All DOM elements of the user interface.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._controls = {};
-
-		/**
-		 * Markup for an indicator.
-		 * @protected
-		 * @type {Array.<String>}
-		 */
-		this._templates = [];
-
-		/**
-		 * The carousel element.
-		 * @type {jQuery}
-		 */
-		this.$element = this._core.$element;
-
-		/**
-		 * Overridden methods of the carousel.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._overrides = {
-			next: this._core.next,
-			prev: this._core.prev,
-			to: this._core.to
-		};
-
-		/**
-		 * All event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'prepared.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.dotsData) {
-					this._templates.push('<div class="' + this._core.settings.dotClass + '">' +
-						$(e.content).find('[data-dot]').addBack('[data-dot]').attr('data-dot') + '</div>');
-				}
-			}, this),
-			'added.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.dotsData) {
-					this._templates.splice(e.position, 0, this._templates.pop());
-				}
-			}, this),
-			'remove.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.dotsData) {
-					this._templates.splice(e.position, 1);
-				}
-			}, this),
-			'changed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && e.property.name == 'position') {
-					this.draw();
-				}
-			}, this),
-			'initialized.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && !this._initialized) {
-					this._core.trigger('initialize', null, 'navigation');
-					this.initialize();
-					this.update();
-					this.draw();
-					this._initialized = true;
-					this._core.trigger('initialized', null, 'navigation');
-				}
-			}, this),
-			'refreshed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._initialized) {
-					this._core.trigger('refresh', null, 'navigation');
-					this.update();
-					this.draw();
-					this._core.trigger('refreshed', null, 'navigation');
-				}
-			}, this)
-		};
-
-		// set default options
-		this._core.options = $.extend({}, Navigation.Defaults, this._core.options);
-
-		// register event handlers
-		this.$element.on(this._handlers);
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 * @todo Rename `slideBy` to `navBy`
-	 */
-	Navigation.Defaults = {
-		nav: false,
-		navText: [
-			'<span aria-label="' + 'Previous' + '">&#x2039;</span>',
-			'<span aria-label="' + 'Next' + '">&#x203a;</span>'
-		],
-		navSpeed: false,
-		navElement: 'button type="button" role="presentation"',
-		navContainer: false,
-		navContainerClass: 'owl-nav',
-		navClass: [
-			'owl-prev',
-			'owl-next'
-		],
-		slideBy: 1,
-		dotClass: 'owl-dot',
-		dotsClass: 'owl-dots',
-		dots: true,
-		dotsEach: false,
-		dotsData: false,
-		dotsSpeed: false,
-		dotsContainer: false
-	};
-
-	/**
-	 * Initializes the layout of the plugin and extends the carousel.
-	 * @protected
-	 */
-	Navigation.prototype.initialize = function() {
-		var override,
-			settings = this._core.settings;
-
-		// create DOM structure for relative navigation
-		this._controls.$relative = (settings.navContainer ? $(settings.navContainer)
-			: $('<div>').addClass(settings.navContainerClass).appendTo(this.$element)).addClass('disabled');
-
-		this._controls.$previous = $('<' + settings.navElement + '>')
-			.addClass(settings.navClass[0])
-			.html(settings.navText[0])
-			.prependTo(this._controls.$relative)
-			.on('click', $.proxy(function(e) {
-				this.prev(settings.navSpeed);
-			}, this));
-		this._controls.$next = $('<' + settings.navElement + '>')
-			.addClass(settings.navClass[1])
-			.html(settings.navText[1])
-			.appendTo(this._controls.$relative)
-			.on('click', $.proxy(function(e) {
-				this.next(settings.navSpeed);
-			}, this));
-
-		// create DOM structure for absolute navigation
-		if (!settings.dotsData) {
-			this._templates = [ $('<button role="button">')
-				.addClass(settings.dotClass)
-				.append($('<span>'))
-				.prop('outerHTML') ];
-		}
-
-		this._controls.$absolute = (settings.dotsContainer ? $(settings.dotsContainer)
-			: $('<div>').addClass(settings.dotsClass).appendTo(this.$element)).addClass('disabled');
-
-		this._controls.$absolute.on('click', 'button', $.proxy(function(e) {
-			var index = $(e.target).parent().is(this._controls.$absolute)
-				? $(e.target).index() : $(e.target).parent().index();
-
-			e.preventDefault();
-
-			this.to(index, settings.dotsSpeed);
-		}, this));
-
-		/*$el.on('focusin', function() {
-			$(document).off(".carousel");
-
-			$(document).on('keydown.carousel', function(e) {
-				if(e.keyCode == 37) {
-					$el.trigger('prev.owl')
-				}
-				if(e.keyCode == 39) {
-					$el.trigger('next.owl')
-				}
-			});
-		});*/
-
-		// override public methods of the carousel
-		for (override in this._overrides) {
-			this._core[override] = $.proxy(this[override], this);
-		}
-	};
-
-	/**
-	 * Destroys the plugin.
-	 * @protected
-	 */
-	Navigation.prototype.destroy = function() {
-		var handler, control, property, override, settings;
-		settings = this._core.settings;
-
-		for (handler in this._handlers) {
-			this.$element.off(handler, this._handlers[handler]);
-		}
-		for (control in this._controls) {
-			if (control === '$relative' && settings.navContainer) {
-				this._controls[control].html('');
-			} else {
-				this._controls[control].remove();
-			}
-		}
-		for (override in this.overides) {
-			this._core[override] = this._overrides[override];
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	/**
-	 * Updates the internal state.
-	 * @protected
-	 */
-	Navigation.prototype.update = function() {
-		var i, j, k,
-			lower = this._core.clones().length / 2,
-			upper = lower + this._core.items().length,
-			maximum = this._core.maximum(true),
-			settings = this._core.settings,
-			size = settings.center || settings.autoWidth || settings.dotsData
-				? 1 : settings.dotsEach || settings.items;
-
-		if (settings.slideBy !== 'page') {
-			settings.slideBy = Math.min(settings.slideBy, settings.items);
-		}
-
-		if (settings.dots || settings.slideBy == 'page') {
-			this._pages = [];
-
-			for (i = lower, j = 0, k = 0; i < upper; i++) {
-				if (j >= size || j === 0) {
-					this._pages.push({
-						start: Math.min(maximum, i - lower),
-						end: i - lower + size - 1
-					});
-					if (Math.min(maximum, i - lower) === maximum) {
-						break;
-					}
-					j = 0, ++k;
-				}
-				j += this._core.mergers(this._core.relative(i));
-			}
-		}
-	};
-
-	/**
-	 * Draws the user interface.
-	 * @todo The option `dotsData` wont work.
-	 * @protected
-	 */
-	Navigation.prototype.draw = function() {
-		var difference,
-			settings = this._core.settings,
-			disabled = this._core.items().length <= settings.items,
-			index = this._core.relative(this._core.current()),
-			loop = settings.loop || settings.rewind;
-
-		this._controls.$relative.toggleClass('disabled', !settings.nav || disabled);
-
-		if (settings.nav) {
-			this._controls.$previous.toggleClass('disabled', !loop && index <= this._core.minimum(true));
-			this._controls.$next.toggleClass('disabled', !loop && index >= this._core.maximum(true));
-		}
-
-		this._controls.$absolute.toggleClass('disabled', !settings.dots || disabled);
-
-		if (settings.dots) {
-			difference = this._pages.length - this._controls.$absolute.children().length;
-
-			if (settings.dotsData && difference !== 0) {
-				this._controls.$absolute.html(this._templates.join(''));
-			} else if (difference > 0) {
-				this._controls.$absolute.append(new Array(difference + 1).join(this._templates[0]));
-			} else if (difference < 0) {
-				this._controls.$absolute.children().slice(difference).remove();
-			}
-
-			this._controls.$absolute.find('.active').removeClass('active');
-			this._controls.$absolute.children().eq($.inArray(this.current(), this._pages)).addClass('active');
-		}
-	};
-
-	/**
-	 * Extends event data.
-	 * @protected
-	 * @param {Event} event - The event object which gets thrown.
-	 */
-	Navigation.prototype.onTrigger = function(event) {
-		var settings = this._core.settings;
-
-		event.page = {
-			index: $.inArray(this.current(), this._pages),
-			count: this._pages.length,
-			size: settings && (settings.center || settings.autoWidth || settings.dotsData
-				? 1 : settings.dotsEach || settings.items)
-		};
-	};
-
-	/**
-	 * Gets the current page position of the carousel.
-	 * @protected
-	 * @returns {Number}
-	 */
-	Navigation.prototype.current = function() {
-		var current = this._core.relative(this._core.current());
-		return $.grep(this._pages, $.proxy(function(page, index) {
-			return page.start <= current && page.end >= current;
-		}, this)).pop();
-	};
-
-	/**
-	 * Gets the current succesor/predecessor position.
-	 * @protected
-	 * @returns {Number}
-	 */
-	Navigation.prototype.getPosition = function(successor) {
-		var position, length,
-			settings = this._core.settings;
-
-		if (settings.slideBy == 'page') {
-			position = $.inArray(this.current(), this._pages);
-			length = this._pages.length;
-			successor ? ++position : --position;
-			position = this._pages[((position % length) + length) % length].start;
-		} else {
-			position = this._core.relative(this._core.current());
-			length = this._core.items().length;
-			successor ? position += settings.slideBy : position -= settings.slideBy;
-		}
-
-		return position;
-	};
-
-	/**
-	 * Slides to the next item or page.
-	 * @public
-	 * @param {Number} [speed=false] - The time in milliseconds for the transition.
-	 */
-	Navigation.prototype.next = function(speed) {
-		$.proxy(this._overrides.to, this._core)(this.getPosition(true), speed);
-	};
-
-	/**
-	 * Slides to the previous item or page.
-	 * @public
-	 * @param {Number} [speed=false] - The time in milliseconds for the transition.
-	 */
-	Navigation.prototype.prev = function(speed) {
-		$.proxy(this._overrides.to, this._core)(this.getPosition(false), speed);
-	};
-
-	/**
-	 * Slides to the specified item or page.
-	 * @public
-	 * @param {Number} position - The position of the item or page.
-	 * @param {Number} [speed] - The time in milliseconds for the transition.
-	 * @param {Boolean} [standard=false] - Whether to use the standard behaviour or not.
-	 */
-	Navigation.prototype.to = function(position, speed, standard) {
-		var length;
-
-		if (!standard && this._pages.length) {
-			length = this._pages.length;
-			$.proxy(this._overrides.to, this._core)(this._pages[((position % length) + length) % length].start, speed);
-		} else {
-			$.proxy(this._overrides.to, this._core)(position, speed);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.Navigation = Navigation;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Hash Plugin
- * @version 2.3.4
- * @author Artus Kolanowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-	'use strict';
-
-	/**
-	 * Creates the hash plugin.
-	 * @class The Hash Plugin
-	 * @param {Owl} carousel - The Owl Carousel
-	 */
-	var Hash = function(carousel) {
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
-
-		/**
-		 * Hash index for the items.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._hashes = {};
-
-		/**
-		 * The carousel element.
-		 * @type {jQuery}
-		 */
-		this.$element = this._core.$element;
-
-		/**
-		 * All event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'initialized.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && this._core.settings.startPosition === 'URLHash') {
-					$(window).trigger('hashchange.owl.navigation');
-				}
-			}, this),
-			'prepared.owl.carousel': $.proxy(function(e) {
-				if (e.namespace) {
-					var hash = $(e.content).find('[data-hash]').addBack('[data-hash]').attr('data-hash');
-
-					if (!hash) {
-						return;
-					}
-
-					this._hashes[hash] = e.content;
-				}
-			}, this),
-			'changed.owl.carousel': $.proxy(function(e) {
-				if (e.namespace && e.property.name === 'position') {
-					var current = this._core.items(this._core.relative(this._core.current())),
-						hash = $.map(this._hashes, function(item, hash) {
-							return item === current ? hash : null;
-						}).join();
-
-					if (!hash || window.location.hash.slice(1) === hash) {
-						return;
-					}
-
-					window.location.hash = hash;
-				}
-			}, this)
-		};
-
-		// set default options
-		this._core.options = $.extend({}, Hash.Defaults, this._core.options);
-
-		// register the event handlers
-		this.$element.on(this._handlers);
-
-		// register event listener for hash navigation
-		$(window).on('hashchange.owl.navigation', $.proxy(function(e) {
-			var hash = window.location.hash.substring(1),
-				items = this._core.$stage.children(),
-				position = this._hashes[hash] && items.index(this._hashes[hash]);
-
-			if (position === undefined || position === this._core.current()) {
-				return;
-			}
-
-			this._core.to(this._core.relative(position), false, true);
-		}, this));
-	};
-
-	/**
-	 * Default options.
-	 * @public
-	 */
-	Hash.Defaults = {
-		URLhashListener: false
-	};
-
-	/**
-	 * Destroys the plugin.
-	 * @public
-	 */
-	Hash.prototype.destroy = function() {
-		var handler, property;
-
-		$(window).off('hashchange.owl.navigation');
-
-		for (handler in this._handlers) {
-			this._core.$element.off(handler, this._handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.Hash = Hash;
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-/**
- * Support Plugin
- *
- * @version 2.3.4
- * @author Vivid Planet Software GmbH
- * @author Artus Kolanowski
- * @author David Deutsch
- * @license The MIT License (MIT)
- */
-;(function($, window, document, undefined) {
-
-	var style = $('<support>').get(0).style,
-		prefixes = 'Webkit Moz O ms'.split(' '),
-		events = {
-			transition: {
-				end: {
-					WebkitTransition: 'webkitTransitionEnd',
-					MozTransition: 'transitionend',
-					OTransition: 'oTransitionEnd',
-					transition: 'transitionend'
-				}
-			},
-			animation: {
-				end: {
-					WebkitAnimation: 'webkitAnimationEnd',
-					MozAnimation: 'animationend',
-					OAnimation: 'oAnimationEnd',
-					animation: 'animationend'
-				}
-			}
-		},
-		tests = {
-			csstransforms: function() {
-				return !!test('transform');
-			},
-			csstransforms3d: function() {
-				return !!test('perspective');
-			},
-			csstransitions: function() {
-				return !!test('transition');
-			},
-			cssanimations: function() {
-				return !!test('animation');
-			}
-		};
-
-	function test(property, prefixed) {
-		var result = false,
-			upper = property.charAt(0).toUpperCase() + property.slice(1);
-
-		$.each((property + ' ' + prefixes.join(upper + ' ') + upper).split(' '), function(i, property) {
-			if (style[property] !== undefined) {
-				result = prefixed ? property : true;
-				return false;
-			}
-		});
-
-		return result;
-	}
-
-	function prefixed(property) {
-		return test(property, true);
-	}
-
-	if (tests.csstransitions()) {
-		/* jshint -W053 */
-		$.support.transition = new String(prefixed('transition'))
-		$.support.transition.end = events.transition.end[ $.support.transition ];
-	}
-
-	if (tests.cssanimations()) {
-		/* jshint -W053 */
-		$.support.animation = new String(prefixed('animation'))
-		$.support.animation.end = events.animation.end[ $.support.animation ];
-	}
-
-	if (tests.csstransforms()) {
-		/* jshint -W053 */
-		$.support.transform = new String(prefixed('transform'));
-		$.support.transform3d = tests.csstransforms3d();
-	}
-
-})(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
-
-
-/***/ }),
-
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -64150,10 +61732,10 @@ module.exports = function getSideChannel() {
 
 /***/ }),
 
-/***/ "./node_modules/owl.carousel/dist/assets/owl.carousel.css":
-/*!****************************************************************!*\
-  !*** ./node_modules/owl.carousel/dist/assets/owl.carousel.css ***!
-  \****************************************************************/
+/***/ "./resources/js/Lib/nivo-slider.css":
+/*!******************************************!*\
+  !*** ./resources/js/Lib/nivo-slider.css ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -64161,9 +61743,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_owl_carousel_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./owl.carousel.css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/owl.carousel/dist/assets/owl.carousel.css");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_nivo_slider_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./nivo-slider.css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/Lib/nivo-slider.css");
 
             
 
@@ -64172,11 +61754,41 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_owl_carousel_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_nivo_slider_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_owl_carousel_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_nivo_slider_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/Lib/preview.css":
+/*!**************************************!*\
+  !*** ./resources/js/Lib/preview.css ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_preview_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./preview.css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/Lib/preview.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_preview_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_preview_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

@@ -2,6 +2,7 @@
 @php
 
     $loadCss=[
+
         'css/bootstrap.min.css',
         'css/animate.css',
         'css/jquery-ui.min.css',
@@ -16,7 +17,7 @@
     array_walk($loadCss,function (&$val){
         $val= asset($val);
     });
-    //$loadCss[]=mix('css/app.css');
+    $loadCss[]=mix('css/app.css');
 
 @endphp
 

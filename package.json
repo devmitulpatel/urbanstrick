@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "jquery": "^3.6.0",
+        "vue-flux": "^6.4.0",
         "vue-owl-carousel": "^2.0.3"
     }
 }

@@ -2,47 +2,274 @@
 import FrontEndLayout from '@/Layouts/FrontEnd.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 import carousel from 'vue-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
-import {onMounted} from "vue";
-onMounted(()=>{
-    $('.owl-carousel').owlCarousel({
-        items:6,
-        center:true,
-       // autoWidth:true,
-        URLhashListener:true,
-        nav:true,
-        slideBy:true,
-        lazyLoad:true,
-        autoplay:true
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel';
+import '@/Lib/nivoslider'
+import '@/Lib/nivo-slider.css';
+import '@/Lib/preview.css';
+import {onBeforeMount, onMounted, ref} from "vue";
 
+onMounted(()=>{
+    // $('.landing-slider').owlCarousel({
+    //     items:1,
+    //     center:true,
+    //    // autoWidth:true,
+    //     loop:true,
+    //     URLhashListener:true,
+    //     nav:false,
+    //     slideBy:true,
+    //     lazyLoad:true,
+    //     autoplay:false,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         576: {
+    //             items: 1
+    //         },
+    //         768: {
+    //             items: 1
+    //         },
+    //         992: {
+    //             items: 1
+    //         },
+    //         1200: {
+    //             items: 1
+    //         }
+    //     },
+    //     dots:false
+    //
+    // });
+    $('#jquery-slider-demo').nivoSlider(
+        {
+            lazyLoad:true,
+            autoplay:true,
+            loop:true,
+            effect: 'random',
+            slices: 35,
+            boxCols: 12,
+            boxRows: 12,
+            animSpeed: 500,
+            pauseTime: 500,
+            startSlide: 0,
+            directionNav: true,
+            controlNavThumbs: true,
+            pauseOnHover: true,
+            manualAdvance: true}
+    );
+    $('#ensign-nivoslider').nivoSlider({
+        effect: 'random',
+        slices: 15,
+        boxCols: 8,
+        boxRows: 4,
+        animSpeed: 500,
+        pauseTime: 5000,
+        startSlide: 0,
+        directionNav: true,
+        controlNavThumbs: false,
+        pauseOnHover: false,
+        manualAdvance: true
     });
-})
+    $('#ensign-nivoslider-2').nivoSlider({
+        effect: 'random',
+        slices: 15,
+        boxCols: 8,
+        boxRows: 4,
+        animSpeed: 500,
+        pauseTime: 5000,
+        startSlide: 0,
+        directionNav: true,
+        controlNavThumbs: false,
+        pauseOnHover: true,
+        manualAdvance: true
+    });
+
+});
+
+
+const vfOptions=ref({
+    autoplay: true
+});
+const vfImages=ref([ 'img/slider/bg_slider1.jpg', 'img/slider/bg_slider22.jpg' ]);
+const vfTransitions=ref([ 'fade', 'cube', 'book', 'wave' ]);
+const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for image 3',]);
+
 </script>
 
 <template>
     <Head title="Dashboard" />
 <FrontEndLayout>
 
+    <div id="top"></div>
     <!-- mobile-menu-area end -->
     <section class="slider-main-area home-3 bg-gray">
         <div class="main-slider an-si">
             <div class="bend niceties preview-2">
 
 
+                <div v-if="false" class="landing-slider owl-carousel">
+                    <div class="col-12 t-cn Builder nivo-caption " style="min-height: 100vh;min-width: 100vw;">
 
-                <div class="owl-carousel">
-                    <div class="col-12"><img src="img/slider/bg_slider1.jpg" alt="" title="#slider-direction-1"  /></div>
-                    <div class="col-12"><img src="img/slider/bg_slider22.jpg" alt="" title="#slider-direction-2"  /></div>
-                    <div class="col-12"><h1>3</h1></div>
-                    <div class="col-12"><h1>4</h1></div>
-                    <div class="col-12"><h1>5</h1></div>
-                    <div class="col-12"><h1>6</h1></div>
+                        <img src="img/slider/slider-1.jpg" alt="" title="#slider-direction-1"  />
+                        <div style="float: right;display: block;position: relative;margin-top: -23%;margin-right: 2%;" class="slide-all2">
+                            <!-- layer 1 -->
+                            <div class="layer-1">
+                                <h2 class="title5">new collection</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <h2 class="title6">Men’s Fashion</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <p class="title0">Save Up To 40% Off</p>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-3">
+                                <a class="min1" href="#">Shop Now</a>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="col-12 t-cn Builder nivo-caption" style="min-height: 100vh;min-width: 100vw;">
+                        <img src="img/slider/slider-2.jpg" alt="" title="#slider-direction-1"  />
+                        <div style="display: block;position: relative;margin-top: -23%;" class="slide-all slide2">
+                            <!-- layer 1 -->
+                            <div class="layer-1">
+                                <h2 class="title5">new collection</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <h2 class="title6">Women’s Fashion</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <p class="title0">Save Up To 40% Off</p>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-3">
+                                <a class="min1" href="#">Shop Now</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 t-cn Builder nivo-caption" style="min-height: 100vh;min-width: 100vw;">
+                        <img src="img/slider/slider-3.jpg" alt="" title="#slider-direction-1"  />
+                        <div style="display: block;position: relative;margin-top: -23%;" class="slide-all slide2">
+                            <!-- layer 1 -->
+                            <div class="layer-1">
+                                <h2 class="title5">new collection</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <h2 class="title6">Women’s Fashion</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <p class="title0">Save Up To 40% Off</p>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-3">
+                                <a class="min1" href="#">Shop Now</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="slider-wrapper theme-default">
+                <div id="jquery-slider-demo" class="nivoSlider">
+
+                    <img title="#slide-title-1" src="img/slider/slider-1.jpg" alt="The slide 1" />
+
+                    <img title="#slide-title-2" src="img/slider/slider-2.jpg" alt="The slide 2" />
+
+                    <img title="#slide-title-3" src="img/slider/slider-3.jpg" alt="The slide 3" data-transition="slideInLeft" />
+
+
+                </div>
+                    <div id="slide-title-1" class="nivo-html-caption t-cn Builder">
+                        <div class="t-cn Builder">
+                        <div class="slide-all2">
+                            <!-- layer 1 -->
+                            <div class="layer-1">
+                                <h2 class="title5">new collection</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <h2 class="title6">Men’s Fashion</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <p class="title0">Save Up To 40% Off</p>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-3">
+                                <a class="min1" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    <div id="slide-title-2" class="nivo-html-caption t-cn Builder">
+                        <div class="t-cn Builder">
+                        <div class="slide-all slide2">
+                            <!-- layer 1 -->
+                            <div class="layer-1">
+                                <h2 class="title5">new collection</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <h2 class="title6">Women’s Fashion</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-2">
+                                <p class="title0">Save Up To 40% Off</p>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-3">
+                                <a class="min1" href="#">Shop Now</a>
+                            </div>
+                        </div>
+
+                        </div>
+
+                    </div>
+                    <div id="slide-title-3" class="nivo-html-caption">
+
+                        <div class="t-cn Builder">
+
+                            <div class="slide-all slide2">
+                                <!-- layer 1 -->
+                                <div class="layer-1">
+                                    <h2 class="title5">new collection</h2>
+                                </div>
+                                <!-- layer 2 -->
+                                <div class="layer-2">
+                                    <h2 class="title6">Women’s Fashion</h2>
+                                </div>
+                                <!-- layer 2 -->
+                                <div class="layer-2">
+                                    <p class="title0">Save Up To 40% Off</p>
+                                </div>
+                                <!-- layer 3 -->
+                                <div class="layer-3">
+                                    <a class="min1" href="#">Shop Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
                 </div>
 
 
-                <div id="ensign-nivoslider-2" class="slides" >
+
+                <span v-if="false">
+
+
+                <div id="ensign-nivoslider-2 " class="slides" >
 
                     <div><img src="img/slider/bg_slider1.jpg" alt="" title="#slider-direction-1"  /></div>
                     <div><img src="img/slider/bg_slider22.jpg" alt="" title="#slider-direction-2"  /></div>
@@ -88,6 +315,8 @@ onMounted(()=>{
                         </div>
                     </div>
                 </div>
+
+                </span>
             </div>
         </div>
     </section>
