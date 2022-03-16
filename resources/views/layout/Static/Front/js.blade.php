@@ -20,7 +20,7 @@
 
     ];
     array_walk($loadJs,function (&$val){
-        $val= asset($val).now();
+        $val= asset($val).'?'.now();
     });
     $loadJs[]=mix('js/app.js');
 

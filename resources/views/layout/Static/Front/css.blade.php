@@ -15,7 +15,7 @@
         'css/responsive.css'
     ];
     array_walk($loadCss,function (&$val){
-        $val= asset($val).now();
+        $val= asset($val).'?'.now();
     });
     $loadCss[]=mix('css/app.css');
 
