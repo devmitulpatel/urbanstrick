@@ -5,6 +5,8 @@ use App\Models\Product;
 use App\Facades\Unit;
 
 
+dd(Product::with(['media'])->find(1));
+
 $user=\App\Models\User::with(['country'])->find(1);
 
 $data=[

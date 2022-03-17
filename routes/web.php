@@ -21,11 +21,23 @@ use Inertia\Inertia;
 
 
 Route::get('/test', function () {
+
+    $getUrl=function ($map){
+
+        $map->setAttribute('url',$map->media->first()->getUrl());
+
+        return$map;};
+    $topProduct=\App\Models\Product::with(['media'])->whereIn('id',[1,2])->get()->map($getUrl);
+    $specialProduct=\App\Models\Product::with(['media'])->whereIn('id',[3,4])->get()->map($getUrl);
+    $mostView=\App\Models\Product::with(['media'])->whereIn('id',[5,6])->get()->map($getUrl);
     return Inertia::render('Front/LandingPage', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        'topProduct'=>$topProduct,
+        'specialProduct'=>$specialProduct,
+        'mostView'=>$mostView,
     ]);
 })->name('home');
 
@@ -35,6 +47,10 @@ Route::get('/migrate',function (){
     $exitCode = Artisan::call('migrate:fresh', [
         '--force'=>true,'--seed'=>true
     ]);
+    dd($exitCode);
+});
+Route::get('/storage_link',function (){
+    $exitCode = Artisan::call('storage:link');
     dd($exitCode);
 });
 Route::fallback([FallbackController::class,'comingSoon']);

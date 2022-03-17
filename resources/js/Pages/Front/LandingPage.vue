@@ -86,6 +86,11 @@ onMounted(()=>{
 
 });
 
+const props = defineProps({
+    topProduct:Object,
+    specialProduct:Object,
+    mostView:Object,
+})
 
 const vfOptions=ref({
     autoplay: true
@@ -739,20 +744,20 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
             <div class="row">
                 <div class="col-lg-4">
                     <div class="specail-top">
-                        <h3>Specail</h3>
+                        <h3>Special</h3>
                         <div class="row">
-                            <div class="col-lg-12  col-md-6">
+                            <div v-for="product in props.specialProduct" class="col-lg-12  col-md-6">
                                 <div class="tb-product-item">
                                     <div class="tb-image">
                                         <span class="new">New</span>
-                                        <img src="img/product/1.png" alt="">
+                                        <img :src="product.url" alt="">
                                         <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
                                     <div class="tb-content">
                                         <div class="tb-beg">
-                                            <a href="#">UrbanStrick Earth</a>
+                                            <a href="#">{{ product.name }}</a>
                                         </div>
                                         <div class="tb-product-price font-noraure-3">
                                             <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1299.00</del><br>₹999.00 <span class="text-warning">( 23 % off)</span></span>
@@ -771,36 +776,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12  col-md-6">
-                                <div class="tb-product-item">
-                                    <div class="tb-image">
-                                        <span class="new">New</span>
-                                        <img src="img/product/2.png" alt="">
-                                        <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="tb-content">
-                                        <div class="tb-beg">
-                                            <a href="#">U Urban</a>
-                                        </div>
-                                        <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1099.00</del><br>₹799.00 <span class="text-warning">( 27 % off)</span></span>
-                                        </div>
-                                        <div class="tb-product-btn">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -808,48 +784,18 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                     <div class="specail-top">
                         <h3>Most View </h3>
                         <div class="row">
-                            <div class="col-lg-12  col-md-6">
+                            <div v-for="product in props.mostView" class="col-lg-12  col-md-6" >
                                 <div class="tb-product-item">
                                     <div class="tb-image">
                                         <span class="new">New</span>
-                                        <img src="img/product/3.png" alt="">
+                                        <img :src="product.url" alt="">
                                         <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
                                     <div class="tb-content">
                                         <div class="tb-beg">
-                                            <a href="#">Focus</a>
-                                        </div>
-                                        <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1099.00</del><br>₹799.00 <span class="text-warning">( 27 % off)</span></span>
-                                        </div>
-                                        <div class="tb-product-btn">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12  col-md-6">
-                                <div class="tb-product-item">
-                                    <div class="tb-image">
-                                        <span class="new">New</span>
-                                        <img src="img/product/4.png" alt="">
-                                        <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="tb-content">
-                                        <div class="tb-beg">
-                                            <a href="#">Work Hard Stay Humble</a>
+                                            <a href="#">{{ product.name }}</a>
                                         </div>
                                         <div class="tb-product-price font-noraure-3">
                                             <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1099.00</del><br>₹799.00 <span class="text-warning">( 27 % off)</span></span>
@@ -875,51 +821,21 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                     <div class="specail-top">
                         <h3>Top Products </h3>
                         <div class="row">
-                            <div class="col-lg-12  col-md-6">
+                            <div  v-for="product in props.topProduct" class="col-lg-12  col-md-6">
                                 <div class="tb-product-item">
                                     <div class="tb-image">
                                         <span class="new">New</span>
-                                        <img src="img/product/5.png" alt="">
+                                        <img :src="product.url" alt="">
                                         <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
                                     <div class="tb-content">
                                         <div class="tb-beg">
-                                            <a href="#">Always Strong</a>
+                                            <a href="#">{{ product.name }}</a>
                                         </div>
                                         <div class="tb-product-price font-noraure-3">
                                             <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1099.00</del><br>₹799.00 <span class="text-warning">( 27 % off)</span></span>
-                                        </div>
-                                        <div class="tb-product-btn">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12  col-md-6">
-                                <div class="tb-product-item">
-                                    <div class="tb-image">
-                                        <span class="new">New</span>
-                                        <img src="img/product/6.png" alt="">
-                                        <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="tb-content">
-                                        <div class="tb-beg">
-                                            <a href="#">Big Dream Big act</a>
-                                        </div>
-                                        <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1299.00</del><br>₹999.00 <span class="text-warning">( 23 % off)</span></span>
                                         </div>
                                         <div class="tb-product-btn">
                                             <a href="#">
