@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('currenciables', function (Blueprint $table) {
             able_model_schema($table,'currency');
+            $table->unsignedBigInteger('related_id');
         });
     }
 

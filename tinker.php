@@ -1,52 +1,26 @@
 <?php
 
-
-use App\Models\Product;
-use App\Facades\Unit;
-
-
-dd(Product::with(['media'])->find(1));
-
-$user=\App\Models\User::with(['country'])->find(1);
+use App\Facades\Product;
+use Illuminate\Support\Str;
 
 $data=[
-    'name'=>' test 2',
+    'name'=>' test 1',
+    'price'=>120,
+    'currency'=>1,
+    'taxcode'=>'dsdsd'
 ];
-$products=[];
-$model=Product::find(1);
-//$model->name='Test';
-//$model->slug=\Illuminate\Support\Str::slug('Test');
-//$products[]=$model->save();
-//$model=$model->newInstance();
-//$model->name='Test';
-//$model->slug=\Illuminate\Support\Str::slug('Test');
-//$products[]=$model->save();
-//$model=$model->newInstance();
-//$model->name='Test';
-//$model->slug=\Illuminate\Support\Str::slug('Test');
-//$model->save();
-//$model->syncVariants($products);
-\Illuminate\Support\Facades\Artisan::call('migrate:fresh',['--seed'=>true]);
-$model->setManyVariants([1,2,3]);
-//$model->refresh();
-$model->setVariant(4);
-//$model->setManyVariants([1,2,3]);$model->new
 
+$product=Product::create($data);
 
-dd('her');
-//dd($model->variants());
-//
-//dd(Unit::create($data));
-//
-//dd(Product::delete( 3));
-//
-//dd(Product::update( 3,$data));
-//
-//$data=[
-//    'name'=>' test 1',
-//    'price'=>120,
-//    'currency'=>'inr',
-//    'taxcode'=>'dsdsd'
-//];
-//
-//dd((new App\Resource\ProductRepository)->create($data));
+$id=$product->id;
+$data2=[
+    'name'=>'Test 2',
+    'price'=>122
+];
+
+$product=Product::find(1);
+Product::update($product,$data2);
+
+$product=$product->neywInstance()->find($id);
+$condition=$product->name=='Test 2';
+dd($condition);

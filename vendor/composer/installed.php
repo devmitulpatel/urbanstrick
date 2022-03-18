@@ -5,11 +5,20 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a742ad270975f253b1ca2a7b450d3eb362bbab53',
+        'reference' => 'a780146e87fda6d5c7bc2e25df267c40e0196d09',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
+        'brianium/paratest' => array(
+            'pretty_version' => 'v6.4.3',
+            'version' => '6.4.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../brianium/paratest',
+            'aliases' => array(),
+            'reference' => '5123a31dbf0b5deeaec17b00c0c5f31732c14483',
+            'dev_requirement' => true,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.9.3',
             'version' => '0.9.3.0',
@@ -406,7 +415,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a742ad270975f253b1ca2a7b450d3eb362bbab53',
+            'reference' => 'a780146e87fda6d5c7bc2e25df267c40e0196d09',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1021,6 +1030,15 @@
             'aliases' => array(),
             'reference' => 'd349854331789aba9205fd755e0c1d1934ef1463',
             'dev_requirement' => true,
+        ),
+        'staudenmeir/eloquent-has-many-deep' => array(
+            'pretty_version' => 'v1.15.1',
+            'version' => '1.15.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../staudenmeir/eloquent-has-many-deep',
+            'aliases' => array(),
+            'reference' => 'c21dcb2bfa9618e8eaaeda95541d2ffb3f421ecd',
+            'dev_requirement' => false,
         ),
         'symfony/console' => array(
             'pretty_version' => 'v6.0.5',

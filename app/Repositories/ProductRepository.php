@@ -15,24 +15,36 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
 
     private $product=['name','slug'];
     private $price=['price',''];
+    private $types=['type_of_fabric','type_of_print'];
+    private $color=['color'];
 
 
+    private function createExtraMetas(){
+        $data=$this->getRawData();
+        $allowedKeys=array_merge($this->types,$this->color);
+        $metas=[];
+        foreach ($allowedKeys as $key){
+            if(array_key_exists($key,$data))$metas[$key]=$data[$key];
+        }
+        if(count($metas)){
+            $this->getRow()->setManyMeta($metas);
+        }
+    }
     public function create(array $data): Product
     {
         $this->setRawData($data);
         $this->createProduct();
-        $this->createPriceMeta();
+        $this->createPrice();
+        $this->createExtraMetas();
         return $this->getRow();
     }
 
-    private function createPriceMeta():void{
+    private function createPrice():void{
         $data=$this->getRawData();
-        $price=[
-            'price'=>$data['price'],
-            'currency'=>$data['currency']
-        ];
-        $this->getRow()->setManyMeta($price);
-
+        $currency=(array_key_exists('currency',$data))?$data['currency']:envmix('product-setting','default-currency');
+        $country=(array_key_exists('country',$data))?$data['country']:envmix('product-setting','default-country');
+        $this->getRow()->setPrice($data['price'],$country,$currency);
+        $this->getRow()->setCountry($country);
     }
 
     private function createProduct() :void
@@ -66,7 +78,7 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
         }
 
         $this->updateProduct();
-        $this->updatePriceMeta();
+        $this->updatePrice();
         if($this->getRow()->isDirty())$this->getRow()->save();
         return $this->getRow();
     }
@@ -80,13 +92,17 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
         $this->getRow()->fill($data);
     }
 
-    private function updatePriceMeta()
+    private function updatePrice()
     {
-        $data =[
-            'price'=>$this->getRawData('price'),
-            'currency'=>$this->getRawData('currency'),
-        ];
-        $this->getRow()->setManyMeta($data);
+     //   dd("here");
+//        $data =[
+//            'price'=>$this->getRawData('price'),
+//            'currency'=>$this->getRawData('currency'),
+//        ];
+
+
+        $this->getRow()->updatePrice($this->getRawData('price'),'india',$this->getRawData('currency'));
+        //$this->getRow()->setManyMeta($data);
 
     }
 
@@ -101,6 +117,10 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
 
         return $this->getRow()->delete();
     }
+
+
+
+
 
 
 }

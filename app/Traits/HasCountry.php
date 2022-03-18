@@ -42,6 +42,7 @@ trait HasCountry
 
     public function setCountry(mixed $country){
 
+
         if (empty($country)) {
             return;
         }
@@ -71,11 +72,14 @@ trait HasCountry
         return $this->getCountryRecord();
     }
     private function searchCountry($name){
-        return Country::orWhere('slug',Str::slug($name))->orWhere('short_name',$name)->first();
+
+        return Country::orWhere('name',$name)->orWhere('slug',Str::slug($name))
+            //->orWhere('short_name',$name)
+            ->first();
     }
     private function getCountryId($country){
 
-      //  dd($country);
+
         switch (gettype($country)){
             case 'string':
                 $country=$this->searchCountry($country)?->id;
@@ -119,9 +123,10 @@ trait HasCountry
     {
         // load meta relation if not loaded.
         if (!$this->relationLoaded($this->getCountryRelationName())) {
-            $this->setVariantRelation($this->getCountryRelationName(), $this->{$this->getCountryRelationName()}()->get());
+            $this->setCountryRelation($this->getCountryRelationName(), $this->{$this->getCountryRelationName()}()->get());
         }
-        //dd($this->{$this->getCountryRelationName()});
+
+        return $this->{$this->getCountryRelationName()};
         // reindex by key for quicker lookups if necessary.
 //        if ($this->indexedCountryCollection === null && $this->{$this->getCountryRelationName()}!==null) {
 //            $this->indexedCountryCollection = $this->{$this->getCountryRelationName()}->keyBy('id');

@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
         $user->password=Hash::make('password');
         $user->name='admin';
         $user->save();
+        $user->setCountry('india');
+        $user->country->setCurrency(1);
 
     }
 }

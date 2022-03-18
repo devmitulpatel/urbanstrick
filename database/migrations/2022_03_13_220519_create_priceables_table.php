@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('priceables', function (Blueprint $table) {
 
             able_model_schema($table,'price');
-            $table->unsignedBigInteger('item_id');
-            $table->unsignedBigInteger('currency_id');
-            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('price');
+//            $table->unsignedBigInteger('currency_id')->nullable();
+//            $table->unsignedBigInteger('country_id')->nullable();
         });
     }
 

@@ -9,6 +9,22 @@ import '@/Lib/nivo-slider.css';
 import '@/Lib/preview.css';
 import {onBeforeMount, onMounted, ref} from "vue";
 
+const currentProduct = ref({});
+
+const setCurrentProduct=(product)=>{
+    currentProduct.value=null;
+    currentProduct.value=product;
+}
+
+const getUpperPrice=(price)=>{
+    return(price==799)?1099:1299;
+}
+
+const getDiscountPercentage=(price)=>{
+    return(price==799)?27:23;
+}
+
+
 onMounted(()=>{
     // $('.landing-slider').owlCarousel({
     //     items:1,
@@ -751,7 +767,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                     <div class="tb-image">
                                         <span class="new">New</span>
                                         <img :src="product.url" alt="">
-                                        <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
+                                        <a v-on:click="setCurrentProduct(product)" class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
@@ -760,7 +776,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                             <a href="#">{{ product.name }}</a>
                                         </div>
                                         <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1299.00</del><br>₹999.00 <span class="text-warning">( 23 % off)</span></span>
+                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">{{ product.currency }}{{ getUpperPrice(product.price) }}.00</del><br>{{ product.currency }}{{ product.price }}.00 <span class="text-warning">( {{ getDiscountPercentage(product.price)}} % off)</span></span>
                                         </div>
                                         <div class="tb-product-btn">
                                             <a href="#">
@@ -789,7 +805,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                     <div class="tb-image">
                                         <span class="new">New</span>
                                         <img :src="product.url" alt="">
-                                        <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
+                                        <a v-on:click="setCurrentProduct(product)" class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
@@ -798,7 +814,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                             <a href="#">{{ product.name }}</a>
                                         </div>
                                         <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1099.00</del><br>₹799.00 <span class="text-warning">( 27 % off)</span></span>
+                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">{{ product.currency }}{{ getUpperPrice(product.price) }}.00</del><br>{{ product.currency }}{{ product.price }}.00 <span class="text-warning">( {{ getDiscountPercentage(product.price)}} % off)</span></span>
                                         </div>
                                         <div class="tb-product-btn">
                                             <a href="#">
@@ -826,7 +842,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                     <div class="tb-image">
                                         <span class="new">New</span>
                                         <img :src="product.url" alt="">
-                                        <a class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
+                                        <a v-on:click="setCurrentProduct(product)" class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
@@ -835,7 +851,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                             <a href="#">{{ product.name }}</a>
                                         </div>
                                         <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">₹1099.00</del><br>₹799.00 <span class="text-warning">( 27 % off)</span></span>
+                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">{{ product.currency }}{{ getUpperPrice(product.price) }}.00</del><br>{{ product.currency }}{{ product.price }}.00 <span class="text-warning">( {{ getDiscountPercentage(product.price)}} % off)</span></span>
                                         </div>
                                         <div class="tb-product-btn">
                                             <a href="#">
@@ -857,6 +873,74 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
             </div>
         </div>
     </section>
+    <!-- QUICKVIEW PRODUCT -->
+    <div id="quickview-wrapper">
+        <!-- Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-product">
+                            <div class="product-images">
+                                <div class="main-image images" style="max-height: 70vh">
+                                    <img  :src="currentProduct.url" alt="">
+                                </div>
+                            </div><!-- .product-images -->
+
+                            <div class="cras">
+                                <div class="product-name">
+                                    <h1>{{ currentProduct.name }}</h1>
+                                </div>
+                                <div class="tb-product-price font-noraure-3">
+                                    <span class="amount">{{ currentProduct.currency }}{{ getUpperPrice(currentProduct.price) }}.00</span>
+                                    <span class="amount2 ana">{{ currentProduct.currency }}{{ currentProduct.price }}.00</span>
+                                </div>
+                                <div class="short-description ">
+
+                                    <ul class="list-group py-3">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Type of Cloth
+                                            <span class="badge badge-primary bg-info badge-pill ">{{ currentProduct.type_of_fabric }}</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Type of Print
+                                            <span class="badge badge-primary bg-warning badge-pill">{{ currentProduct.type_of_print }}</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Cloth Color
+                                            <span class="badge badge-primary badge-pill bg-white" style="padding: 5px;border:1px solid black;"><span style="display:block;    height: 30px;width: 30px;" :style="{'background-color':currentProduct.color}"></span></span>
+                                        </li>
+                                    </ul>
+
+                                    <p class="d-none">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                                </div>
+                                <div class="add-to-box1">
+                                    <div class="add-to-box add-to-box2">
+                                        <div class="add-to-cart">
+                                            <div class="input-content">
+                                                <label for="qty">Qty:<span> *</span></label>
+                                                <input id="qty" class="input-text qty" type="text" name="qty" maxlength="12" value="1" title="Qty">
+                                            </div>
+                                            <div class="last-cart">
+                                                <a class="last1" href="#">Add To Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="stock2 d-none"><p class="availability in-stock2"> Availability:Accessories, Men </p></div>
+                            </div><!-- .product-info -->
+                        </div><!-- .modal-product -->
+                    </div><!-- .modal-body -->
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div>
+        <!-- END Modal -->
+    </div>
+    <!-- END QUICKVIEW PRODUCT -->
+
 </FrontEndLayout>
 
 </template>

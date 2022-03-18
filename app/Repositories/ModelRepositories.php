@@ -23,7 +23,9 @@ class ModelRepositories
      */
     public function getRawData($key=null): mixed
     {
-        return ($key==null)?$this->rawData:$this->rawData[$key];
+
+        if($key!=null && !array_key_exists($key,$this->rawData))return  null;
+        return ($key==null && !array_key_exists($key,$this->rawData))?$this->rawData:$this->rawData[$key];
     }
 
     /**

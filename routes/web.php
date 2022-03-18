@@ -3,6 +3,7 @@
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestController;
+use App\Models\Product;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -22,14 +23,18 @@ use Inertia\Inertia;
 
 Route::get('/test', function () {
 
-    $getUrl=function ($map){
-
+    $getUrl=function (Product $map){
+        $map->setAttribute('type_of_print',$map->getMeta('type_of_print'));
+        $map->setAttribute('type_of_fabric',$map->getMeta('type_of_fabric'));
+        $map->setAttribute('color',$map->getMeta('color'));
         $map->setAttribute('url',$map->media->first()->getUrl());
-
+        $map->setAttribute('price',$map->prices->first()->price);
+        $map->setAttribute('currency',$map->prices->first()->currency->currency->symbol);
+        $map->unsetRelations(['prices','media','meta']);
         return$map;};
-    $topProduct=\App\Models\Product::with(['media'])->whereIn('id',[1,2])->get()->map($getUrl);
-    $specialProduct=\App\Models\Product::with(['media'])->whereIn('id',[3,4])->get()->map($getUrl);
-    $mostView=\App\Models\Product::with(['media'])->whereIn('id',[5,6])->get()->map($getUrl);
+    $topProduct= Product::with(['media','meta'])->withCurrentPrice()->whereIn('id',[1,2])->get()->map($getUrl);
+    $specialProduct= Product::with(['media','meta'])->withCurrentPrice()->whereIn('id',[3,4])->get()->map($getUrl);
+    $mostView= Product::with(['media','meta'])->withCurrentPrice()->whereIn('id',[5,6])->get()->map($getUrl);
     return Inertia::render('Front/LandingPage', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
