@@ -27,6 +27,7 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
+        "animate.css": "^4.1.1",
         "jquery": "^3.6.0",
         "vue-flux": "^6.4.0",
         "vue-owl-carousel": "^2.0.3"

@@ -1,13 +1,41 @@
 <script setup>
-import { ref } from 'vue';
+import {onMounted, ref} from 'vue';
 import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue';
 import BreezeDropdown from '@/Components/Dropdown.vue';
 import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 import BreezeNavLink from '@/Components/NavLink.vue';
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
-
+import 'animate.css';
 const showingNavigationDropdown = ref(false);
+
+const isLogoAnimate=ref(false);
+
+
+
+onMounted(()=>{
+    setInterval(()=>{
+        isLogoAnimate.value=(isLogoAnimate.value)?false:true;
+    },25000)
+    var stickyTop = $('.header-menu').offset().top;
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > stickyTop) {
+            $('.header-menu').addClass('stick');
+            // $('.dynamic-logo-big').addClass('d-none');
+            // $('.dynamic-logo-small').removeClass('d-none');
+
+        } else {
+            $('.header-menu').removeClass('stick');
+            // $('.dynamic-logo-small').addClass('d-none');
+            // $('.dynamic-logo-big').removeClass('d-none');;
+        }
+    });
+
+    $('.top-shop-title').on('click', function(e){
+        e.preventDefault();
+        $('.wish-cart').toggleClass('active');
+    });
+});
 </script>
 
 <template>
@@ -15,8 +43,8 @@ const showingNavigationDropdown = ref(false);
         <div class="header-menu header-menu-2">
             <div class="header-wrapper">
                 <div class="logo-stiky">
-                    <a href="index.html">
-                        <img style="max-height: 50px" src="img/logo/logo.png" alt="">
+                    <a :href="route('home')">
+                        <img :class="{'animate__animated':isLogoAnimate}" class=" animate__tada animate__infinite animate__slower" style="max-height: 50px" src="img/logo/logo.png" alt="">
                     </a>
                 </div>
                 <div class="menu-cart">

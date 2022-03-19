@@ -39,19 +39,19 @@
     /*----------------------------
      sticky active
     ------------------------------ */
-    var stickyTop = $('.header-menu').offset().top;
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() > stickyTop) {
-            $('.header-menu').addClass('stick');
-            // $('.dynamic-logo-big').addClass('d-none');
-            // $('.dynamic-logo-small').removeClass('d-none');
-
-        } else {
-            $('.header-menu').removeClass('stick');
-            // $('.dynamic-logo-small').addClass('d-none');
-            // $('.dynamic-logo-big').removeClass('d-none');;
-        }
-    });
+    // var stickyTop = $('.header-menu').offset().top;
+    // $(window).on('scroll', function () {
+    //     if ($(window).scrollTop() > stickyTop) {
+    //         $('.header-menu').addClass('stick');
+    //         // $('.dynamic-logo-big').addClass('d-none');
+    //         // $('.dynamic-logo-small').removeClass('d-none');
+    //
+    //     } else {
+    //         $('.header-menu').removeClass('stick');
+    //         // $('.dynamic-logo-small').addClass('d-none');
+    //         // $('.dynamic-logo-big').removeClass('d-none');;
+    //     }
+    // });
 
 
     /*----------------------------

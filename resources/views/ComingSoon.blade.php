@@ -536,6 +536,7 @@ $bgPicPath=implode('/',array_merge(
 <script src="js/plugins.js"></script>
 <!-- main js -->
 <script src="js/main.js"></script>
+facebook_pixel
 </body>
 
 <!-- Mirrored from template.hasthemes.com/noraure/noraure/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Mar 2022 16:46:33 GMT -->

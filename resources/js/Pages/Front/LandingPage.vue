@@ -891,6 +891,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                             </div><!-- .product-images -->
 
                             <div class="cras">
+
                                 <div class="product-name">
                                     <h1>{{ currentProduct.name }}</h1>
                                 </div>
@@ -902,7 +903,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
 
                                     <ul class="list-group py-3">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Type of Cloth
+                                            Type of Fabric
                                             <span class="badge badge-primary bg-info badge-pill ">{{ currentProduct.type_of_fabric }}</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
