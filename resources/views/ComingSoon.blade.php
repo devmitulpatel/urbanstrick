@@ -8,6 +8,7 @@
     <title>UrbanStrick | India Fashion Store | Coming soon</title>
     <meta name="description" content="Your Clothing Boutique(Unisex) for Trending, Cool, Decent, Styles in India & for whole world">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    {!! facebook_pixel_head_tag(envmix('facebook','facebook-track-id')) !!}
     <link rel="apple-touch-icon" href="apple-touch-icon.html">
     <!-- favicon
     ============================================ -->
