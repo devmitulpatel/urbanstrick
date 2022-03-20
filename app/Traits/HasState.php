@@ -2,7 +2,9 @@
 
 namespace App\Traits;
 
+use App\Models\City;
 use App\Models\State;
+use Illuminate\Support\Str;
 
 trait HasState
 {
@@ -21,9 +23,26 @@ trait HasState
         return 'state_id';
     }
 
-    public function createCity($name,$state){
+    public function createState($name){
 
-        $this->cit;
+        $state=$this->getOrCreateState($name);
+        $this->{$this->getStateLocalKey()}=$state->id;
+        $this->save();
+        return $state;
 
     }
+
+    private function getOrCreateState($name)
+    {
+        $query=($this->getStateClassName())::query()->orWhere('name',(array)$name)->orWhere('slug',(array)Str::slug($name));
+        if($query->count()<1){
+            $model=new ($this->getStateClassName())(normal_name_seed($name));
+            $model->save();
+            return $model;
+        }else{
+            return $query->first();
+        }
+
+    }
+
 }

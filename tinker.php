@@ -1,26 +1,23 @@
 <?php
 
-use App\Facades\Product;
-use Illuminate\Support\Str;
+use App\Models\User;
+use Faker\Provider\Address;
 
-$data=[
-    'name'=>' test 1',
-    'price'=>120,
-    'currency'=>1,
-    'taxcode'=>'dsdsd'
+$user=User::first();
+
+$faker=Address::country();
+
+$address=[
+    'line_1'=>11,
+    'line_2'=>22,
+    'line_3'=>33,
+    'pincode'=>'112345',
+    'city'=>'Surat',
+    'state'=>'Gujarat'
+
 ];
+//dd($user->createAddress($address));
+dd($user->getAllAddress()->toArray());
+$user->load(['addresses','addresses.address']);
 
-$product=Product::create($data);
-
-$id=$product->id;
-$data2=[
-    'name'=>'Test 2',
-    'price'=>122
-];
-
-$product=Product::find(1);
-Product::update($product,$data2);
-
-$product=$product->neywInstance()->find($id);
-$condition=$product->name=='Test 2';
-dd($condition);
+//dd($user->createAddress($address));

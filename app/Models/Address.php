@@ -10,6 +10,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    use HasFactory,HasCity;
+    use HasFactory,HasCity,HasState;
+
+    protected $fillable=[
+        'line_1',
+        'line_2',
+        'line_3',
+        'pincode',
+    ];
+
+
 
 }

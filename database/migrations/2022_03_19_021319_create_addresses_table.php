@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
+            $table->string('line_1')->nullable();
             $table->string('line_2')->nullable();
             $table->string('line_3')->nullable();
             $table->string('pincode')->nullable();

@@ -3,7 +3,7 @@
 <title inertia>{{ envmix('site','site-title')}}</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-
+{!! facebook_pixel_head_tag(envmix('facebook','facebook-track-id')) !!}
 <link rel="apple-touch-icon" href="apple-touch-icon.html">
 <!-- favicon
 ============================================ -->

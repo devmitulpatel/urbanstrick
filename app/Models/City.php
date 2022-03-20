@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
-    use HasFactory,HasState;
+    use HasFactory;
+    protected $fillable=['name','slug'];
 }

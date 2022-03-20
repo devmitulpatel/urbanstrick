@@ -37,7 +37,9 @@ EOF);
         $data['site'][]=seed_array('up',false);
 
         $data['site'][]=seed_array('launch-date',new Carbon('2022-04-1'));
+        $data['site'][]=seed_array('help-email','help@urbanstrick.com');
         $data['facebook'][]=seed_array('facebook-pixel-id','558778465671730');
+        $data['facebook'][]=seed_array('facebook-track-id','ucddxw9xot52zlfjicnbw7d315mtjh');
         $data['google'][]=seed_array('analytic-id','G-WWHRD95S08');
         $data['google'][]=seed_array('google-tag-id','GTM-MBQCQQZ');
         $data['product-setting'][]=seed_array('default-country','india');

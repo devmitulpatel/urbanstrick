@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('addressables', function (Blueprint $table) {
 
-            able_model_schema($table,'address');
-            $table->unsignedBigInteger('related_id');
+            able_model_schema($table,'addressables');
+            $table->unsignedBigInteger('address_id');
 
         });
     }

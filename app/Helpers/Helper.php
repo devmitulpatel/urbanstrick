@@ -95,6 +95,13 @@ if(!function_exists('normal_name_table')){
         $table->timestamps();
     }
 }
+
+if(!function_exists('normal_name_seed')){
+    function normal_name_seed($name){
+            return ['name'=>$name,'slug'=>Str::slug($name)];
+    }
+}
+
 if(!function_exists('normal_seed')){
     function normal_seed($name,$extra=[]){
         $array=['name'=>$name,'slug'=>Str::slug($name)];
@@ -193,6 +200,19 @@ EOF;
         return $str;
 
 
+
+    }
+}
+
+if(!function_exists('facebook_pixel_head_tag')){
+    function facebook_pixel_head_tag($tag=null){
+
+        $str=
+        <<<EOF
+        <meta name="facebook-domain-verification" content="{$tag}" />
+        EOF;
+
+        return $str;
 
     }
 }

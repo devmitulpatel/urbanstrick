@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasAddresses;
 use App\Traits\HasCountry;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasCountry;
+    use HasApiTokens, HasFactory, Notifiable,HasCountry,HasAddresses;
 
     /**
      * The attributes that are mass assignable.

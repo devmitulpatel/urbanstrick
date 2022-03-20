@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\City;
+use Illuminate\Support\Str;
 
 trait HasCity
 {
@@ -28,8 +29,35 @@ trait HasCity
         }
     }
 
-    public function createCity($name,$state){
 
+    private function getOrCreateCity($name)
+    {
+        $query=City::query()->orWhere('name',(array)$name)->orWhere('slug',(array)Str::slug($name));
+        if($query->count()<1){
+
+
+            $model=new ($this->getCityClassName())(normal_name_seed($name));
+            $model->save();
+            return $model;
+        }else{
+            return $query->first();
+        }
+
+    }
+
+    public function createCity($name){
+
+        $city=$this->getOrCreateCity($name);
+        $this->{$this->getCityLocalKey()}=$city->id;
+        $this->save();
+        return $city;
+
+       // $state_id=$state;
+
+
+    }
+
+    public function attachToState($name){
 
 
     }
