@@ -27,4 +27,8 @@ class {{ class }} extends FormRequest
             //
         ];
     }
+
+    public function persist(){
+        $input=$this->validated();
+    }
 }

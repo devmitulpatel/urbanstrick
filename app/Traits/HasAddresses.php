@@ -11,6 +11,7 @@ trait HasAddresses
 {
 
 
+
     public function addresses(){
         return $this->morphMany($this->getAddressClassName(),$this->getAddressRelationalName());
     }

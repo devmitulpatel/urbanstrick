@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -37,12 +38,23 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'site'=>[
+                'customer_care_email_1'=>envmix('site','support-email_1'),
+                'customer_care_number_1'=>envmix('site','support-number-1'),
+                'address'=>envmix('site','display-address-1'),
+                'social'=>[
+                    'instagram'=>envmix('social','instagram'),
+                    'facebook'=>envmix('social','facebook')
+                ]
+            ]
         ]);
     }
 
     public function rootView(Request $request)
     {
-        if ($request->route()->getPrefix() == 'admin') {
+
+        ;
+        if (Str::startsWith($request->route()->getPrefix(),'test/admin')) {
             return 'layout.BackRoot';
         }
         return 'layout.FrontRoot';

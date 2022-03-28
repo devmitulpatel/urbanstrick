@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasCategory;
 use App\Traits\HasCountry;
 use App\Traits\HasPrice;
 use App\Traits\HasVariants;
@@ -13,14 +14,13 @@ use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 class Product extends Model
 {
-    use HasFactory,Metable,HasVariants,Mediable,HasPrice,HasCountry;
+    use HasFactory,Metable,HasVariants,Mediable,HasPrice,HasCountry,HasCategory;
     use HasRelationships;
     protected $fillable=[
         'name',
         'slug',
         'status'
     ];
-
 
 
 

@@ -6,6 +6,9 @@ use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\Facade;
 
 
+/**
+ * @method static hasCategory(string[] $array)
+ */
 class Product extends Facade implements FacadeInterface
 {
 

@@ -1,19 +1,43 @@
 <script setup>
-import {onMounted, ref} from 'vue';
+import {onMounted, ref,onUpdated} from 'vue';
 import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue';
 import BreezeDropdown from '@/Components/Dropdown.vue';
 import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 import BreezeNavLink from '@/Components/NavLink.vue';
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link,InertiaLink } from '@inertiajs/inertia-vue3';
 import 'animate.css';
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import _ from "lodash";
+import {asset, getLocalData, hasLocalData, manageCart, setLocalData} from "@/Lib/LaravelHelper";
 const showingNavigationDropdown = ref(false);
-
+import {store} from '@/FrontEndStore';
 const isLogoAnimate=ref(false);
+const getCart = () => {
+    currentCart.get();
+}
+const cart=ref([]);
 
+const isbuttons =[];
 
+const props = defineProps({
+    site:Object,
+    auth:Object,
+    errors:Object,
+    canlogin:Boolean,
+    cart:Array
+});
+const cartLocalKey='cart';
+const removeProduct = (product) => {
+    currentCart.remove(product,null,cart);
+}
+onUpdated(()=>{
 
+   // cart.value=props.cart;
+});
 onMounted(()=>{
+    if(!hasLocalData(cartLocalKey))setLocalData(cartLocalKey,[]);
+    cart.value=currentCart.get();
     setInterval(()=>{
         isLogoAnimate.value=(isLogoAnimate.value)?false:true;
     },25000)
@@ -35,7 +59,26 @@ onMounted(()=>{
         e.preventDefault();
         $('.wish-cart').toggleClass('active');
     });
+    $('.top-user-title').on('click', function(e){
+        e.preventDefault();
+        $('.user-popup').toggleClass('active');
+    });
 });
+const currentCart = manageCart();
+const allAvatar=[
+    asset('img/avatar/m1.png'),
+    // asset('img/avatar/m2.png'),
+    // asset('img/avatar/m3.png'),
+    // asset('img/avatar/m4.png'),
+    // asset('img/avatar/f1.png'),
+    // asset('img/avatar/f2.png'),
+    // asset('img/avatar/f3.png'),
+    // asset('img/avatar/f4.png'),
+];
+
+const getRandomAvatar=()=>{
+    return _.sample(allAvatar);
+}
 </script>
 
 <template>
@@ -43,9 +86,9 @@ onMounted(()=>{
         <div class="header-menu header-menu-2">
             <div class="header-wrapper">
                 <div class="logo-stiky">
-                    <a :href="route('home')">
-                        <img :class="{'animate__animated':isLogoAnimate}" class=" animate__tada animate__infinite animate__slower" style="max-height: 50px" src="img/logo/logo.png" alt="">
-                    </a>
+                    <InertiaLink :href="route('home')">
+                        <img :class="{'animate__animated':isLogoAnimate}" class=" animate__tada animate__infinite animate__slower" style="max-height: 50px" :src="asset('img/logo/logo.png')" alt="">
+                    </InertiaLink>
                 </div>
                 <div class="menu-cart">
                     <div class="muti_menu">
@@ -62,8 +105,9 @@ onMounted(()=>{
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="shop.html">Women <i class="fa fa-angle-down"></i></a>
-                                    <div class="mega-menu menu-minus">
+                                <li v-if="false" ><a href="#">Shop <i class="fa fa-angle-down"></i></a></li>
+                                <li v-if="true" ><InertiaLink :href="route('product_list',{type:'women'})">Women <i class="fa fa-angle-down"></i></InertiaLink>
+                                    <div v-if="false" class="mega-menu menu-minus">
                                         <div class="tas1">
                                             <div class="tas">
                                                 <h3 class="hedding-border">
@@ -97,8 +141,8 @@ onMounted(()=>{
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="shop.html">Men <i class="fa fa-angle-down"></i></a>
-                                    <div class="mega-menu menu-minus">
+                                <li v-if="true"><InertiaLink :href="route('product_list',{type:'men'})">Men <i class="fa fa-angle-down"></i></InertiaLink>
+                                    <div v-if="false" class="mega-menu menu-minus">
                                         <div class="tas1 tas3">
                                             <div class="tas">
                                                 <h3 class="hedding-border">
@@ -151,15 +195,15 @@ onMounted(()=>{
                                         </div>
                                         <div class="tas4">
                                             <div class="menu-img im3">
-                                                <a  href="#"><img alt="" src="img/banner/bg_menu2.jpg"></a>
+                                                <a  href="#"><img alt="" :src="asset('img/banner/bg_menu2.jpg')"></a>
                                             </div>
                                             <div class="menu-img im3">
-                                                <a  href="#"><img alt="" src="img/banner/bg_menu3.jpg"></a>
+                                                <a  href="#"><img alt="" :src="asset('img/banner/bg_menu3.jpg')"></a>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li  v-if="false"><a href="shop.html">Jewelry</a></li>
+                                <li v-if="false"><a href="shop.html">Jewelry</a></li>
                                 <li v-if="false"><a class="fast" href="index.html">Pages <i class="fa fa-angle-down"></i></a>
                                     <div class="rayed ru">
                                         <div class="tas menu-last2">
@@ -182,6 +226,7 @@ onMounted(()=>{
                                 <li v-if="false"><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li><a href="contact.html">About US</a></li>
+                                <li v-show="auth.user==null"><InertiaLink :href="route('login')">Login</InertiaLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -199,7 +244,7 @@ onMounted(()=>{
                                 </div>
                             </div>
                         </div>
-                        <div class="tb-menu-canvas-wrap floatleft">
+                        <div v-show="false" class="tb-menu-canvas-wrap floatleft">
                             <div class="header-menu-item-icon">
                                 <a href="#">
                                     <i class="fa fa-bars"></i>
@@ -230,30 +275,74 @@ onMounted(()=>{
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="top-cart-wrapper wrap floatleft" v-if="props.auth.user!=null">
+                            <div class="top-shop-contain">
+                                <div class="block-shop">
+                                    <div class="top-user-title " style="box-sizing: border-box;">
+                                        <a href="#">
+                                            <i class="fa fa-user text-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="user-popup margin" >
+                                    <div class="card py-4">
+                                        <div class="upper" v-if="false"> <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid"> </div>
+                                        <div class="user text-center ">
+                                            <div class="profile">
+                                                <img :src="getRandomAvatar()" class="rounded-circle" width="80">
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 text-center">
+                                            <h4 class="mb-0">{{ [props.auth.user.first_name,props.auth.user.last_name].join(' ') }}</h4>
+                                            <span v-if="false" class="text-muted d-block mb-2">Los Angles</span>
+
+                                            <div class="d-flex justify-content-between align-items-center mt-2 px-4">
+                                                <InertiaLink :href="route('logout')" method="post" as="div" class="btn btn-sm btn-block btn-danger w-full mt-2 pull-left" >
+                                                    Log out
+                                                </InertiaLink>
+                                                <InertiaLink :href="route('user.dashboard.home')" method="get" as="div" class="btn btn-sm btn-block btn-info w-full mt-2 pull-right" >
+                                                    My account
+                                                </InertiaLink>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="top-cart-wrapper wrap floatleft">
                             <div class="top-shop-contain">
                                 <div class="block-shop">
                                     <div class="top-shop-title">
                                         <a href="#">
                                             <i class="fa fa-shopping-cart"></i>
-                                            <span class="count co1">2</span>
+                                            <span class="count co1">{{ currentCart.getItemNo() }}</span>
                                         </a>
                                     </div>
-                                    <div class="wish-cart margin">
-                                        <div class="wish-item">
-                                            <div class="cat">
-                                                <a class="image" href="#"><img src="img/product/c1.jpg" alt=""></a>
+                                    <div class="wish-cart margin pr-2">
+                                        <div class="wish-item" style="max-height: 50vh;overflow-y: auto;position: relative;">
+
+                                            <div class="cat" v-for="itemList in store.cart" style="margin:0 10px">
+                                                <a class="image" href="#"><img :src="itemList.product.url" alt=""></a>
                                                 <div class="cat_two">
-                                                    <p>
-                                                        <a href="#">vintage-lambskin-shoe</a>
+                                                    <p >
+                                                        <a href="#" >{{ itemList.product.name }}</a>
                                                     </p>
-                                                    <p><span class="agn">1 </span>x <span>$199.00</span></p>
+                                                    <p>
+                                                        <small><span class="agn">{{ itemList.qt }} </span>x <span>{{[itemList.product.currency,itemList.product.price].join('')}}</span> =   </small><span>{{ [itemList.product.currency,itemList.product.price*itemList.qt].join('') }}</span>
+
+
+                                                    </p>
                                                 </div>
-                                                <div class="cat_icon">
-                                                    <a class="remove" href="#">×</a>
+                                                <div class="cat_icon ">
+                                                    <a class="remove " href="#" v-on:click="removeProduct(itemList.product) ">×</a>
                                                 </div>
                                             </div>
-                                            <div class="cat">
+                                            <div v-if="false" class="cat">
                                                 <a class="image" href="#"><img src="img/product/c2.jpg" alt=""></a>
                                                 <div class="cat_two">
                                                     <p>
@@ -270,10 +359,10 @@ onMounted(()=>{
                                             <div class="cat_bottom">
                                                 <p class="total">
                                                     <strong>Subtotal:</strong>
-                                                    <span class="amount">$298.00</span>
+                                                    <span class="amount">{{ currentCart.getTotal() }}</span>
                                                 </p>
                                                 <p class="buttons">
-                                                    <a class="button wc-forward" href="#">View Cart</a>
+                                                    <InertiaLink class="button wc-forward" :href="route('cart')">View Cart</InertiaLink>
                                                     <a class="button checkout wc-forward" href="#">Checkout</a>
                                                 </p>
                                             </div>
@@ -282,6 +371,9 @@ onMounted(()=>{
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="mobile-menu">
                             <nav id="dropdown">
                                 <ul class="main-menu">
@@ -443,24 +535,22 @@ onMounted(()=>{
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-map-marker"></i>
-                                            <span>NORAURE London Oxford Street 012 United Kingdom.</span>
+                                            <i class="fa fa-map-marker" style="top:-3px"></i>
+                                            <span>{{ props.site.address }}</span>
                                         </a>
                                     </li>
+                                    <hr>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                            <span>emailnoraure@gmail.com emailsupport@gmail.com</span>
+                                        <a :href="mailLink(props.site['customer_care_email_1'])">
+                                            <i class="fa fa-envelope" style="top:-3px"></i>
+                                            <span>{{ props.site['customer_care_email_1'] }}</span>
                                         </a>
                                     </li>
+                                    <hr>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-phone"></i>
-                                            <span>
-                                                    (+92) 3456 7890
-                                                    <br>
-                                                    (+92) 1234 5678
-                                                </span>
+                                        <a :href="callLink(props.site['customer_care_number_1'])">
+                                            <i class="fa fa-phone" style="top:-3px"></i>
+                                            <span>{{ props.site['customer_care_number_1']}}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -472,11 +562,11 @@ onMounted(()=>{
                             <h3 class="wg-title">Information</h3>
                             <div class="textwidget">
                                 <ul class="f-none">
-                                    <li><a href="#">My account</a></li>
+                                    <li><responsive-nav-link :href="route((props.auth.user==null)?'register':'user.dashboard.home')">{{(props.auth.user==null)?'Register':'My account'}}</responsive-nav-link ></li>
                                     <li><a href="#">Order history</a></li>
                                     <li><a href="#">Wish List</a></li>
                                     <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><responsive-nav-link :href="route('privacy_policy')">Privacy Policy</responsive-nav-link></li>
                                     <li><a href="#">Site Map</a></li>
                                 </ul>
                             </div>
@@ -525,11 +615,12 @@ onMounted(()=>{
                                 <h3 class="wg-title">Connect Us</h3>
                                 <div class="textwid">
                                     <ul class="socials">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a :href="props.site.social.instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a :href="props.site.social.facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li v-if="false"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li v-if="false"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li v-if="false"><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        <li v-if="false"><a href="#"><i class="fa fa-dribbble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -545,7 +636,7 @@ onMounted(()=>{
                         <div class="footer-address">
                             <address>
                                 Copyright ©
-                                <a :href="route('home')"><img src="img/logo/logo.png" style="max-height: 20px;"></a>
+                                <a :href="route('home')"><img :src="asset('img/logo/logo.png')" style="max-height: 20px;"></a>
                                 All Rights Reserved
                             </address>
                         </div>
@@ -553,10 +644,10 @@ onMounted(()=>{
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="foot-icon">
                             <ul>
-                                <li><a href="#"><img src="img/icon-img/payment-1.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon-img/payment-2.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon-img/payment-3.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon-img/payment-4.jpg" alt=""></a></li>
+                                <li><a href="#"><img :src="asset('img/icon-img/payment-1.jpg')" alt=""></a></li>
+                                <li><a href="#"><img :src="asset('img/icon-img/payment-2.jpg')" alt=""></a></li>
+                                <li><a href="#"><img :src="asset('img/icon-img/payment-3.jpg')" alt=""></a></li>
+                                <li><a href="#"><img :src="asset('img/icon-img/payment-4.jpg')" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -564,7 +655,4 @@ onMounted(()=>{
             </div>
         </div>
     </footer>
-
-
-
 </template>

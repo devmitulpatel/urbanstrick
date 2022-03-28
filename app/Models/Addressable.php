@@ -17,4 +17,7 @@ class Addressable extends Model
     {
         return $this->hasOne(Address::class,'id','address_id');
     }
+    protected $with=[
+        'address'
+    ];
 }

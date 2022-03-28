@@ -19,6 +19,7 @@ class Address extends Model
         'pincode',
     ];
 
+    protected $with=['city','state'];
 
 
 }

@@ -30,10 +30,14 @@ class DynamicDataSeeder extends Seeder
         $data['site'][]=seed_array('site-title', <<<EOF
 UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian
 EOF);
-        $data['site'][]=seed_array('support-email','help@urbanstrick.com');
+        $data['site'][]=seed_array('support-email-1','help@urbanstrick.com');
+        $data['site'][]=seed_array('support-number-1','+91 1234567890');
+        $data['site'][]=seed_array('registered-address-1','44-45, Chandralok Society, Near New Laxmi Sawmill, Vyara, Tapi, Gujarat, India - 394650');
+        $data['site'][]=seed_array('display-address-1','Vyara, Tapi, Gujarat, India - 394650');
         $data['sms_gateway'][]=seed_array('api-key','IEnWDHlXuYP5NLw7vJF2b69BijGRUfq8oTyegpdKCxQAOa0c4S5ALjFWOrV3otsgZlXBKQbnS2qHad6m');
         $data['sms_gateway'][]=seed_array('api-key','IEnWDHlXuYP5NLw7vJF2b69BijGRUfq8oTyegpdKCxQAOa0c4S5ALjFWOrV3otsgZlXBKQbnS2qHad6m');
         $data['social'][]=seed_array('instagram','https://www.instagram.com/urbanstrickindia/');
+        $data['social'][]=seed_array('facebook','https://www.facebook.com/urbanstrickindia/');
         $data['site'][]=seed_array('up',false);
 
         $data['site'][]=seed_array('launch-date',new Carbon('2022-04-1'));

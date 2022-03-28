@@ -1,12 +1,17 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
+const props=defineProps({
+    auth:Object,
+    site:Object,
+    canLogin:Boolean
+})
 </script>
 
 <template>
     <Head title="Dashboard" />
 
-    <BreezeAuthenticatedLayout>
+    <BreezeAuthenticatedLayout :auth="props.auth" :site="props.site" >
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Dashboard

@@ -2,6 +2,20 @@
 
 use App\Models\User;
 use Faker\Provider\Address;
+use Plank\Mediable\Facades\ImageManipulator;
+
+$product=\App\Models\Product::find(1)->load('media')->media->first();
+//dd($product);
+foreach (\App\Models\Product::with(['media'])->get() as $product){
+    ImageManipulator::createImageVariant($product->media->first(), 'thumb');
+}
+dd('1');
+$category=\App\Models\Category::all()->first();
+$category=\App\Models\Category::find(1);
+//$category->addSubCategory('Tshirt');
+//$category->deleteSubCategories(13);
+dd($category->parent);
+
 
 $user=User::first();
 

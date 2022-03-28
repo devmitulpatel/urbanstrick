@@ -78,6 +78,8 @@ if(!function_exists('able_model_schema')){
         $table->id();
         $table->unsignedBigInteger($related);
         $table->string($type);
+
+
         if(array_key_exists('foreign',$options))$table->unsignedBigInteger($options['foreign']);
         if(array_key_exists('pivot',$options))foreach ($options['pivot'] as $pivotColumn)$table->$pivotColumn['type']($pivotColumn['name'])->nullable();
 
@@ -210,6 +212,25 @@ if(!function_exists('facebook_pixel_head_tag')){
         $str=
         <<<EOF
         <meta name="facebook-domain-verification" content="{$tag}" />
+        EOF;
+
+        return $str;
+
+    }
+}
+if(!function_exists('google_catcha_tag')){
+    function google_catcha_tag($tag=null){
+
+        $str=
+        <<<EOF
+        <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc1iPceAAAAABFmmW4hKjrb28MtaMCNxp2Obm6q"></script>
+        <script>
+        grecaptcha.enterprise.ready(function() {
+            grecaptcha.enterprise.execute('6Lc1iPceAAAAABFmmW4hKjrb28MtaMCNxp2Obm6q', {action: 'login'}).then(function(token) {
+
+            });
+        });
+        </script>
         EOF;
 
         return $str;

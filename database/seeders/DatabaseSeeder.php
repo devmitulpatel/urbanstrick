@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(UnitSeeder::class);
         $this->call(DynamicDataSeeder::class);
         $this->call(ProductSeeder::class);
+        $this->call(CategorySeeder::class);
     }
 
     private function createBasicUsers()
@@ -27,10 +28,20 @@ class DatabaseSeeder extends Seeder
         $user=new User();
         $user->email='admin@admin.com';
         $user->password=Hash::make('password');
-        $user->name='admin';
+        $user->first_name='admin';
+        $user->last_name='admin';
         $user->save();
         $user->setCountry('india');
         $user->country->setCurrency(1);
+        $address =[
+            'line_1'=>'Plot no.530/2',
+            'line_2'=>'Sector 3C',
+            'line_3'=>'near Ayyapa Temple',
+            'pincode'=>'382021',
+            'city'=>'Gandhinagar',
+            'state'=>'Gujarat',
+        ];
+        $user->createAddress($address);
 
     }
 }

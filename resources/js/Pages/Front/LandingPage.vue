@@ -8,13 +8,21 @@ import '@/Lib/nivoslider'
 import '@/Lib/nivo-slider.css';
 import '@/Lib/preview.css';
 import {onBeforeMount, onMounted, ref} from "vue";
+import {manageCart} from '@/Lib/LaravelHelper';
 
 const currentProduct = ref({});
-
+const currentProductQt = ref(1);
+const currentCartData = ref([]);
 const setCurrentProduct=(product)=>{
     currentProduct.value=null;
     currentProduct.value=product;
 }
+import {store} from '@/FrontEndStore';
+const addProduct = (product) => {
+    $('.btn-close').trigger('click');
+    currentCart.add(product,currentProductQt.value,currentCartData,currentProductQt)
+}
+
 
 const getUpperPrice=(price)=>{
     return(price==799)?1099:1299;
@@ -24,8 +32,9 @@ const getDiscountPercentage=(price)=>{
     return(price==799)?27:23;
 }
 
-
+const currentCart=manageCart();
 onMounted(()=>{
+    console.log(store);
     // $('.landing-slider').owlCarousel({
     //     items:1,
     //     center:true,
@@ -99,15 +108,21 @@ onMounted(()=>{
         pauseOnHover: true,
         manualAdvance: true
     });
-
+    currentCartData.value=currentCart.get();
+    console.log("sdasds");
 });
 
 const props = defineProps({
     topProduct:Object,
     specialProduct:Object,
     mostView:Object,
+    site:Object,
+    auth:Object,
+    canlogin:Boolean
 })
-
+// const asset=(path)=>{
+//     return [route('base'),path].join('/');
+// }
 const vfOptions=ref({
     autoplay: true
 });
@@ -120,7 +135,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
 <template>
     <Head title="UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian" />
     <div id="top"></div>
-<FrontEndLayout>
+<FrontEndLayout :cart="currentCartData" :site="props.site" :auth="auth" :canlogin="props.canlogin">
 
 
     <section class="slider-main-area home-3 bg-gray">
@@ -130,11 +145,11 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                 <div class="slider-wrapper theme-default">
                 <div id="jquery-slider-demo" class="nivoSlider">
 
-                    <img title="#slide-title-1" src="img/slider/slider-1.jpg" alt="The slide 1" />
+                    <img title="#slide-title-1" :src="asset('img/slider/slider-1.jpg')" alt="The slide 1" />
 
-                    <img title="#slide-title-2" src="img/slider/slider-2.jpg" alt="The slide 2" />
+                    <img title="#slide-title-2" :src="asset('img/slider/slider-2.jpg')" alt="The slide 2" />
 
-                    <img title="#slide-title-3" src="img/slider/slider-3.jpg" alt="The slide 3" data-transition="slideInLeft" />
+                    <img title="#slide-title-3" :src="asset('img/slider/slider-3.jpg')" alt="The slide 3" data-transition="slideInLeft" />
 
 
                 </div>
@@ -923,10 +938,10 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                         <div class="add-to-cart">
                                             <div class="input-content">
                                                 <label for="qty">Qty:<span> *</span></label>
-                                                <input id="qty" class="input-text qty" type="text" name="qty" maxlength="12" value="1" title="Qty">
+                                                <input v-model="currentProductQt" id="qty" class="input-text qty" type="text" name="qty" maxlength="12" title="Qty">
                                             </div>
                                             <div class="last-cart">
-                                                <a class="last1" href="#">Add To Cart</a>
+                                                <a class="last1" href="#" v-on:click.prevent="addProduct(currentProduct)">Add To Cart</a>
                                             </div>
                                         </div>
                                     </div>

@@ -32,7 +32,6 @@
 
 
 @include('layout.Static.Front.js')
-@include('layout.Static.Front.js')
 </body>
 
 <!-- Mirrored from template.hasthemes.com/noraure/noraure/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Mar 2022 16:44:58 GMT -->

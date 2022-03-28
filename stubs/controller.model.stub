@@ -36,7 +36,7 @@ class {{ class }} extends Controller
      */
     public function store({{ storeRequest }} $request)
     {
-        //
+        return $request->persist();
     }
 
     /**
@@ -70,6 +70,7 @@ class {{ class }} extends Controller
      */
     public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
     {
+        return $request->persist();
         //
     }
 

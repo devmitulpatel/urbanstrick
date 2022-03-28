@@ -12,8 +12,18 @@ class {{ class }} extends Seeder
      *
      * @return void
      */
+
+     private $data=[];
+
     public function run()
     {
-        //
+         $model= {Model}::class;
+         $this->defaultSeedData();
+         $model::insert($this->data);
+    }
+
+    private function defaultSeedData(){
+       // $this->data[]=[];
+
     }
 }
