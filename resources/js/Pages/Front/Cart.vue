@@ -1,6 +1,5 @@
 <template>
-    <FrontEndLayout :site="props.site" :auth="props.auth">
-        <section class="contact-img-area">
+    <section class="contact-img-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -28,7 +27,7 @@
                                         <th class="low7">Price</th>
                                         <th class="low7">Total</th>
                                     </tr>
-                                    <tr v-for="product in getCart">
+                                    <tr v-for="product in currentCart.get()">
                                         <td class="sop-cart an-shop-cart">
                                             <a href="#"><img class="primary-image" style="max-height: 45px;max-width: 45px;" alt="" :src="product.product.thumbnail"></a>
                                             <a href="#">{{ product.product.name }}</a>
@@ -41,13 +40,13 @@
                                                 </div>
 
 
-                                                <a class="remove btn-success" href="#" style="width: 25px;height: 25px">
+                                                <a v-on:click.prevent="currentCart.add(product.product,1)" class="remove btn-success" href="#" style="width: 25px;height: 25px">
                                                     <span class="fa fa-plus" style="line-height: 25px;" ></span>
                                                 </a>
-                                                <a class="remove btn-warning" href="#" style="width: 25px;height: 25px">
+                                                <a v-on:click.prevent="currentCart.remove(product.product,1)" class="remove btn-warning" href="#" style="width: 25px;height: 25px">
                                                     <span class="fa fa-minus" style="line-height: 25px;" ></span>
                                                 </a>
-                                                <a class="remove btn-danger" href="#" style="width: 25px;height: 25px">
+                                                <a v-on:click.prevent="currentCart.remove(product.product)" class="remove btn-danger" href="#" style="width: 25px;height: 25px">
                                                     <span class="fa fa-trash" style="line-height: 25px;" ></span>
                                                 </a>
                                             </div>
@@ -61,6 +60,12 @@
                                         <td class="cen">
                                             <span class="amount">{{ [product.product.currency,product.product.price*product.qt].join(' ') }}</span>
                                         </td>
+                                    </tr>
+                                    <tr v-if="currentCart.get().length==0">
+                                        <th colspan="4">
+                                            <h3>There are no items in your cart</h3>
+                                            <InertiaLink class="btn btn-primary btn-black" :href="route('home')" >Shop Now & Add Exclusive Items to cart</InertiaLink>
+                                        </th>
                                     </tr>
                                 </table>
                             </div>
@@ -79,11 +84,11 @@
                         <div class="col-lg-7 col-md-12 col-12">
                             <div class="tb-tab-container2">
                                 <ul class="nav etabs" role="tablist">
-                                    <li role="presentation" class="vc_tta-tab"><a class="active" href="#home" aria-controls="home" role="tab" data-bs-toggle="tab">Estimate Shipping & Taxe</a></li>
-                                    <li class="vc_tta-tab " role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-bs-toggle="tab">Use Coupon Code</a></li>
+                                    <li v-if="false" role="presentation" class="vc_tta-tab"><a  href="#home" aria-controls="home" role="tab" data-bs-toggle="tab">Estimate Shipping & Taxe</a></li>
+                                    <li class="vc_tta-tab " role="presentation"><a class="active" href="#profile" aria-controls="profile" role="tab" data-bs-toggle="tab">Use Coupon Code</a></li>
                                 </ul>
                                 <div class="tab-content another-cen">
-                                    <div role="tabpanel" class="tab-pane active" id="home">
+                                    <div v-if="false" role="tabpanel" class="tab-pane" id="home">
                                         <div class="top-shopping4">
                                             <p class="shop9">Shipping Local Pickup (Free)</p>
                                             <p class="down-shop">Enter your destination to get a shipping estimate</p>
@@ -127,7 +132,7 @@
                                             </p>
                                         </form>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane" id="profile">
+                                    <div role="tabpanel" class="tab-pane active" id="profile">
                                         <div class="2nd-copun-code">
                                             <form action="#">
                                                 <p class="form-row form-row-wide">
@@ -175,24 +180,22 @@
                             </div>
                             <div class="wc-proceed-to-checkout">
                                 <p class="return-to-shop">
-                                    <a class="button wc-backward" href="#">Continue Shopping</a>
+                                    <InertiaLink  class="button wc-backward" :href="route('home')">Continue Shopping</InertiaLink>
                                 </p>
-                                <a class="wc-forward wc-forward-cart" href="#">Confirm Order</a>
+                                <InertiaLink v-if="currentCart.get().length>0" class="wc-forward wc-forward-cart" :href="route('checkout')">Confirm Order</InertiaLink>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </FrontEndLayout>
 </template>
 
 <script setup>
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import {onMounted} from "vue";
-import FrontEndLayout from '@/Layouts/FrontEnd'
 import {manageCart} from "@/Lib/LaravelHelper";
-import {store} from "@/FrontEndStore";
+
 
 const props=defineProps({
     site:Object,
@@ -209,7 +212,16 @@ onMounted(()=>{
 })
 
 </script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
 
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
+}
+</script>
 <style scoped>
 
 </style>

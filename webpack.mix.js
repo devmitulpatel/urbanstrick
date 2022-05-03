@@ -15,11 +15,13 @@ mix.js('resources/js/app.js', 'public/js')
     .vue()
     .postCss('resources/css/app.css', 'public/css')
     .postCss('resources/css/backend.css','public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-])
-    .webpackConfig(require('./webpack.config'));
+                require('postcss-import'),
+                require('tailwindcss'),
+                require('autoprefixer'),
+            ])
+    .webpackConfig(require('./webpack.config'))
+  //  .browserSync('urbanstrick.test')
+;
 
 if (mix.inProduction()) {
     mix.version();

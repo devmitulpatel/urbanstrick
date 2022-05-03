@@ -9,7 +9,13 @@ class Cartable extends Model
 {
     use HasFactory;
     protected $fillable = [
-            //'name',
-            //'slug'
+          'created_at',
+          'updated_at',
+          'product_id',
+          'quantity',
         ];
+
+    public function product(){
+        return $this->belongsTo(Product::class,'product_id','id');
+    }
 }

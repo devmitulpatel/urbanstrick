@@ -1,5 +1,4 @@
 <template>
-<FrontEndLayout :site="props.site"  :auth="props.auth">
 
     <section class="contact-img-area nu-blog">
         <div class="container">
@@ -93,11 +92,10 @@
             </div>
         </div>
     </section>
-</FrontEndLayout>
+
 </template>
 
 <script setup>
-import FrontEndLayout from '@/Layouts/FrontEnd'
 const props=defineProps({
     site:Object,
     auth:Object,
@@ -106,7 +104,16 @@ const props=defineProps({
 });
 
 </script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
 
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
+}
+</script>
 <style scoped>
 
 </style>

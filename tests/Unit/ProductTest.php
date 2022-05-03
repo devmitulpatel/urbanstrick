@@ -40,4 +40,17 @@ class ProductTest extends TestCase
         $condition2=$product->prices->first()->price==$data2['price'];
         $this->assertTrue($condition1 && $condition2);
     }
+
+    public function test_product_repository_variant_features(){
+
+        //$productRepo=
+        $product=\App\Models\Product::first();
+        $newProductVariant =clone $product;
+
+        $product->setRow($product);
+
+        $product->createVariant($newProductVariant);
+        dd($product);
+
+    }
 }

@@ -1,10 +1,9 @@
 <template>
-    <FrontEndLayout :site="props.site" :auth="props.auth">
 
-        <section class="contact-img-area">
+        <section class="contact-img-area" v-if="false">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-12" >
                         <div class="con-text">
                             <h2 class="page-title">{{ props.product.data.name }}</h2>
                         </div>
@@ -12,10 +11,10 @@
                 </div>
             </div>
         </section>
-        <section class="single-product-area">
+        <section class="single-product-area" style="margin-top: 145px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 col-xl-9 col-md-12 col-12">
+                    <div class="col-lg-12 col-xl-12 col-md-12 col-12">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="tab-zoom">
@@ -23,36 +22,36 @@
                                     <div class="tab-content">
                                         <div id="image1" class="tab-pane fade show active">
                                             <div class="s_big">
-                                                <a href="img/product/t1.jpg" class="demo4"><img :src="product.data.url" alt=""></a>
+                                                <a :href="props.product.data.url" class="demo4"><img :src="props.product.data.url" alt=""></a>
                                             </div>
                                         </div>
                                         <div id="image2" class="tab-pane fade">
                                             <div class="s_big">
-                                                <a href="img/product/z1.jpg" class="demo4"><img :src="product.data.url" alt=""></a>
+                                                <a :href="props.product.data.url" class="demo4"><img :src="props.product.data.url" alt=""></a>
                                             </div>
                                         </div>
                                         <div id="image3" class="tab-pane fade">
                                             <div class="s_big">
-                                                <a href="img/product/z2.jpg" class="demo4"><img src="img/product/1.jpg" alt=""></a>
+                                                <a :href="props.product.data.url" class="demo4"><img :src="props.product.data.url" alt=""></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="thumnail-image fix">
+                                    <div class="thumnail-image fix" v-if="false">
                                         <ul class="tab-menu nav">
-                                            <li><a class="active" data-bs-toggle="tab" href="#image1"><img alt="" src="img/product/9.jpg"></a></li>
-                                            <li><a data-bs-toggle="tab" href="#image2"><img alt="" src="img/product/2.jpg" ></a></li>
-                                            <li class="zoom-mrgn-none"><a data-bs-toggle="tab" href="#image3"><img alt="" src="img/product/1.jpg"></a></li>
+                                            <li><a class="active" data-bs-toggle="tab" href="#image1"><img alt="" :src="props.product.data.url"></a></li>
+                                            <li><a data-bs-toggle="tab" href="#image2"><img alt="" :src="props.product.data.url" ></a></li>
+                                            <li class="zoom-mrgn-none"><a data-bs-toggle="tab" href="#image3"><img alt="" :src="props.product.data.url"></a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="entry-summary">
-                                    <div class="entry-title">Glasses</div>
+                                    <div class="entry-title">{{ props.product.data.name }}</div>
                                     <div class="tb-product-wrap-price-rating">
                                         <div class="tb-product-price font-noraure-3 nurore">
-                                            <span class="amount2 ana">$79.00 - </span>
-                                            <span class="amount2 ana">$100.00</span>
+                                            <del class="amount2 text-danger pr-2">{{props.product.data.currency}} {{ getUpperPrice(props.product.data) }} </del>
+                                            <span class="amount2 ana text-success">{{props.product.data.currency}} {{ props.product.data.price }}</span>
                                         </div>
                                         <div class="stock">
                                             Avaiability:
@@ -65,15 +64,15 @@
                                     <form action="#" class="woocommerce-shipping-calculator">
                                         <p class="form-row form-row-wide">
                                             <label>
-                                                Color
+                                                Size
                                                 <span class="required">*</span>
                                             </label>
-                                            <select class="email s-email s-wid">
+                                            <select class="email s-email s-wid" v-model="currentSize">
                                                 <option>Choose an option</option>
-                                                <option>Black</option>
+                                                <option :value="size" v-for="size in msHelper().allSize()">{{ size.toUpperCase() }}</option>
                                             </select>
                                         </p>
-                                        <p class="form-row form-row-wide">
+                                        <p class="form-row form-row-wide" v-if="false">
                                             <label>
                                                 Brand
                                                 <span class="required">*</span>
@@ -98,13 +97,17 @@
                                             </label>
                                             <div class="quantity">
                                                 <div class="cart-plus-minus">
-                                                    <input type="text" value="0" name="qtybutton" class="cart-plus-minus-box">
+                                                    <input v-if="!currentCart.isItemExist(props.product.data)" v-model="currentQt" type="text"  name="qtybutton" class="cart-plus-minus-box">
+                                                    <input v-if="currentCart.isItemExist(props.product.data)" disabled :value="currentQt" type="text"  name="qtybutton" class="cart-plus-minus-box">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="add-two-single">
                                             <div class="last-cart l-mrgn ns">
-                                                <a class="las4" href="#">Add To Cart</a>
+                                                <a v-if="currentCart.isItemExist(props.product.data)" v-on:click.prevent="currentCart.add(props.product.data,1)" class="las4"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                <a v-if="currentCart.isItemExist(props.product.data) && currentCart.getItem(props.product.data)!=currentQt" class="las4" v-on:click.prevent="addProduct(props.product.data,currentQt)">Update Cart</a>
+                                                <a v-if="!currentCart.isItemExist(props.product.data)" class="las4" v-on:click.prevent="addProduct(props.product.data,currentQt)">Add To Cart</a>
+                                                <a v-if="currentCart.isItemExist(props.product.data)" v-on:click.prevent="currentCart.remove(props.product.data,1)" class="las4"><i class="fa fa-minus" aria-hidden="true"></i></a>
                                             </div>
                                             <div class="tb-product-btn shp">
                                                 <a href="#">
@@ -304,7 +307,7 @@
                 </div>
             </div>
         </section>
-        <section class="single-pro-area7">
+        <section class="single-pro-area7" v-if="false">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -424,24 +427,37 @@
                 </div>
             </div>
         </section>
-    </FrontEndLayout>
+
 </template>
 
 <script setup>
-import {InertiaLink} from "@inertiajs/inertia-vue3";
-import FrontEndLayout from '@/Layouts/FrontEnd'
-import {manageCart} from "@/Lib/LaravelHelper";
+
+import {manageCart,msHelper} from "@/Lib/LaravelHelper";
+import {onMounted, ref} from "vue";
+const currentSize=ref('m');
+const currentQt=ref('1');
+
 const props=defineProps({
     site:Object,
     auth:Object,
-    product:Array,
+    product:Object,
 });
 const currentCart=manageCart();
 const addProduct = (product) => {
     currentCart.add(product,1)
 }
-</script>
 
+</script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
+
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
+}
+</script>
 <style scoped>
 
 </style>

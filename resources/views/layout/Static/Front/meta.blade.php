@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.html">
 <!-- favicon
 ============================================ -->
-<link rel="shortcut icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" type="image/png" href="{{asset('img/favicon.png')}}">
 <!-- Google Fonts
 ============================================ -->
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300' rel='stylesheet' type='text/css'>

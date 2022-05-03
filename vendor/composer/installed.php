@@ -5,11 +5,20 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f672757f8bcc2f4d0e36edf4d7aa118fc6dad05e',
+        'reference' => '8d5028ebba046417e256489d81506b782aba59ec',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
+        'barryvdh/laravel-debugbar' => array(
+            'pretty_version' => 'v3.6.7',
+            'version' => '3.6.7.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../barryvdh/laravel-debugbar',
+            'aliases' => array(),
+            'reference' => 'b96f9820aaf1ff9afe945207883149e1c7afb298',
+            'dev_requirement' => true,
+        ),
         'brianium/paratest' => array(
             'pretty_version' => 'v6.4.3',
             'version' => '6.4.3.0',
@@ -385,11 +394,29 @@
             'reference' => '744ebba495319501b873a4e48787759c72e3fb8c',
             'dev_requirement' => false,
         ),
+        'jorenvanhocht/laravel-share' => array(
+            'pretty_version' => '4.2.0',
+            'version' => '4.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jorenvanhocht/laravel-share',
+            'aliases' => array(),
+            'reference' => '86af334068038a840567ed62f2082fe3ac981476',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'laminas/laminas-diactoros' => array(
+            'pretty_version' => '2.9.2',
+            'version' => '2.9.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-diactoros',
+            'aliases' => array(),
+            'reference' => '07475df6b4bf6277ae8b9cbbc94d0ac6fee5e726',
+            'dev_requirement' => false,
         ),
         'laravel/breeze' => array(
             'pretty_version' => 'v1.8.2',
@@ -415,7 +442,16 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f672757f8bcc2f4d0e36edf4d7aa118fc6dad05e',
+            'reference' => '8d5028ebba046417e256489d81506b782aba59ec',
+            'dev_requirement' => false,
+        ),
+        'laravel/octane' => array(
+            'pretty_version' => 'v1.2.7',
+            'version' => '1.2.7.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/octane',
+            'aliases' => array(),
+            'reference' => 'c08cff913657080455b1f2fa504ded3825ba8824',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -489,6 +525,15 @@
             'aliases' => array(),
             'reference' => 'aa70e813a6ad3d1558fc927863d47309b4c23e69',
             'dev_requirement' => false,
+        ),
+        'maximebf/debugbar' => array(
+            'pretty_version' => 'v1.18.0',
+            'version' => '1.18.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../maximebf/debugbar',
+            'aliases' => array(),
+            'reference' => '0d44b75f3b5d6d41ae83b79c7a4bceae7fbc78b6',
+            'dev_requirement' => true,
         ),
         'mockery/mockery' => array(
             'pretty_version' => '1.5.0',
@@ -703,6 +748,15 @@
             'reference' => 'f6bc5f0f8c494b9ec8493a5573bae9231bb99492',
             'dev_requirement' => false,
         ),
+        'predis/predis' => array(
+            'pretty_version' => 'v1.1.10',
+            'version' => '1.1.10.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../predis/predis',
+            'aliases' => array(),
+            'reference' => 'a2fb02d738bedadcffdbb07efa3a5e7bd57f8d6e',
+            'dev_requirement' => false,
+        ),
         'psr/container' => array(
             'pretty_version' => '2.0.2',
             'version' => '2.0.2.0',
@@ -790,8 +844,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -845,11 +899,29 @@
             'reference' => 'fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df',
             'dev_requirement' => false,
         ),
+        'razorpay/razorpay' => array(
+            'pretty_version' => 'v2.8.2',
+            'version' => '2.8.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../razorpay/razorpay',
+            'aliases' => array(),
+            'reference' => 'f36ad5ec74522d2930ffad3b160dddc454e42f4d',
+            'dev_requirement' => false,
+        ),
         'rhumsaa/uuid' => array(
             'dev_requirement' => false,
             'replaced' => array(
                 0 => '4.2.3',
             ),
+        ),
+        'rmccue/requests' => array(
+            'pretty_version' => 'v1.8.0',
+            'version' => '1.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../rmccue/requests',
+            'aliases' => array(),
+            'reference' => 'afbe4790e4def03581c4a0963a1e8aa01f6030f1',
+            'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(
             'pretty_version' => '1.0.1',
@@ -1058,6 +1130,15 @@
             'reference' => '1955d595c12c111629cc814d3f2a2ff13580508a',
             'dev_requirement' => false,
         ),
+        'symfony/debug' => array(
+            'pretty_version' => 'v4.4.37',
+            'version' => '4.4.37.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/debug',
+            'aliases' => array(),
+            'reference' => '5de6c6e7f52b364840e53851c126be4d71e60470',
+            'dev_requirement' => true,
+        ),
         'symfony/deprecation-contracts' => array(
             'pretty_version' => 'v3.0.0',
             'version' => '3.0.0.0',
@@ -1226,6 +1307,15 @@
             'reference' => '1ccceccc6497e96f4f646218f04b97ae7d9fa7a1',
             'dev_requirement' => false,
         ),
+        'symfony/psr-http-message-bridge' => array(
+            'pretty_version' => 'v2.1.2',
+            'version' => '2.1.2.0',
+            'type' => 'symfony-bridge',
+            'install_path' => __DIR__ . '/../symfony/psr-http-message-bridge',
+            'aliases' => array(),
+            'reference' => '22b37c8a3f6b5d94e9cdbd88e1270d96e2f97b34',
+            'dev_requirement' => false,
+        ),
         'symfony/routing' => array(
             'pretty_version' => 'v6.0.5',
             'version' => '6.0.5.0',
@@ -1296,12 +1386,12 @@
             'dev_requirement' => true,
         ),
         'tightenco/ziggy' => array(
-            'pretty_version' => 'v1.4.4',
-            'version' => '1.4.4.0',
+            'pretty_version' => 'v1.4.6',
+            'version' => '1.4.6.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../tightenco/ziggy',
             'aliases' => array(),
-            'reference' => 'ad1b6590978efe3ec36ca404e91f8acaa6c742bd',
+            'reference' => 'a9e0e078ae6f0768836bc640a80f4cf99fa3d08f',
             'dev_requirement' => false,
         ),
         'tijsverkoyen/css-to-inline-styles' => array(

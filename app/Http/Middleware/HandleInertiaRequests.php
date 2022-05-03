@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\UserInertiaResource;
+use App\Http\Resources\WishedProductResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Middleware;
@@ -26,17 +28,11 @@ class HandleInertiaRequests extends Middleware
         return parent::version($request);
     }
 
-    /**
-     * Define the props that are shared by default.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function share(Request $request)
-    {
-        return array_merge(parent::share($request), [
+    private function getSharedData($request){
+        $data=[
             'auth' => [
-                'user' => $request->user(),
+                'user' => (auth()->check())?UserInertiaResource::make($request->user())->toArray($request):[],
+                'wished'=>(auth()->check())?WishedProductResource::collection(auth()->user()->hasWished):[]
             ],
             'site'=>[
                 'customer_care_email_1'=>envmix('site','support-email_1'),
@@ -46,14 +42,29 @@ class HandleInertiaRequests extends Middleware
                     'instagram'=>envmix('social','instagram'),
                     'facebook'=>envmix('social','facebook')
                 ]
-            ]
-        ]);
+            ],
+
+        ];
+
+        return $data;
+
+    }
+
+    /**
+     * Define the props that are shared by default.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function share(Request $request)
+    {
+
+        return array_merge(parent::share($request),$this->getSharedData($request) );
     }
 
     public function rootView(Request $request)
     {
 
-        ;
         if (Str::startsWith($request->route()->getPrefix(),'test/admin')) {
             return 'layout.BackRoot';
         }

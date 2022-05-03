@@ -17,7 +17,8 @@
     array_walk($loadCss,function (&$val){
         $val= asset($val).'?'.now();
     });
-    $loadCss[]=mix('css/app.css');
+    //$loadCss[]=asset(mix('css/app.css'));
+    $loadCss[]=asset('css/app.css');
 
 @endphp
 

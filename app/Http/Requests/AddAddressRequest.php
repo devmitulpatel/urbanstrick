@@ -33,9 +33,9 @@ class AddAddressRequest extends FormRequest
         ];
     }
 
-    public function persist($user){
+    public function persist($user,$redirectTo='user.dashboard.home'){
         $input=$this->validated();
         $user->createAddress($input);
-        return redirect()->route('user.dashboard.home');
+        return redirect()->route($redirectTo);
     }
 }

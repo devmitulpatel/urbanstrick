@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,8 +20,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create($this->table, function (Blueprint $table) {
-            able_model_schema($table,'cartable_id');
-            $table->foreignIdFor(User::class);
+            able_model_schema($table,'cartable');
+            $table->foreignIdFor(Product::class);
+            $table->unsignedBigInteger('quantity')->default(1);
         });
     }
 

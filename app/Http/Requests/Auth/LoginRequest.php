@@ -31,7 +31,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ['required', 'string', 'email'],
-          //  'password' => ['required', 'string'],
+            'password' => ['required', 'string'],
         ];
     }
 
@@ -46,23 +46,22 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-       // dd($this->get('email'));
-        $foundUser=User::query()
-            ->where('email','=',$this->get('email'))
-        ;
-            //->first();
-
-        if($foundUser==null) throw ValidationException::withMessages(['email' => trans('auth.failed'),]);
-
-        $foundUser=$foundUser->first();
-        Auth::loginUsingId($foundUser->id);
-//        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-//            RateLimiter::hit($this->throttleKey());
+//       // dd($this->get('email'));
+//        $foundUser=User::query()
+//            ->where('email','=',$this->get('email'))
+//        ;
+//            //->first();
 //
-//            throw ValidationException::withMessages([
-//                'email' => trans('auth.failed'),
-//            ]);
-//        }
+//        if($foundUser==null) throw ValidationException::withMessages(['email' => trans('auth.failed'),]);
+//
+//        $foundUser=$foundUser->first();
+//        Auth::loginUsingId($foundUser->id);
+        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed'),
+            ]);
+        }
 
         RateLimiter::clear($this->throttleKey());
     }

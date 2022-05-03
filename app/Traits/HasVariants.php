@@ -85,6 +85,20 @@ trait HasVariants
 
         return $variant;
     }
+    public function scopeMakeVariant($query,mixed $product=''): Variantable
+    {
+        $className = $this->getVariantsClassName();
+        $parent_id =$this->getProductId($product);
+        $variant = new $className([
+            'parent_id'=>$parent_id,
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+        $variant->variant_type = $this->getMorphClass();
+        $variant->variant_id = $this->getKey();
+        $variant->save();
+        return $variant;
+    }
 
     public function scopeWhereHasVariants(Builder $q): void
     {

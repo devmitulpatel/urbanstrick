@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddAddressRequest;
 use App\Http\Requests\UpdateUserDataRequest;
+use App\Http\Resources\ProductResource;
+use App\Http\Resources\WishedProductResource;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -22,13 +24,14 @@ class UserDashboardController extends Controller
 
     public function index(){
 
+
         $data=[
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'is_password_set'=>auth()->user()->is_password_set
-
+            'is_password_set'=>auth()->user()->is_password_set,
+            'wish'=>WishedProductResource::collection(auth()->user()->hasWished)
         ];
         return Inertia::render('Front/Dashboard',$data);
     }

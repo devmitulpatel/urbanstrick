@@ -1,40 +1,72 @@
 <script setup>
-import FrontEndLayout from '@/Layouts/FrontEnd.vue';
-import { Head } from '@inertiajs/inertia-vue3';
-import carousel from 'vue-owl-carousel';
+import OptionAskModal from "@/Components/OptionAskModal";
+import {Head, InertiaLink, usePage} from '@inertiajs/inertia-vue3';
+
+//import carousel from 'vue-owl-carousel';
+import ProductModel from '@/Components/ProductModel';
+import ProductModal from '@/Components/ProductModal';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel';
-import '@/Lib/nivoslider'
+
+// const jsdom = require('jsdom').jsdom
+// const myWindow = jsdom().createWindow()
+// const $ = require('jQuery')
+// const jq = require('jQuery').create()
+//const jQuery = require('jQuery');
+    //.create(myWindow)
+
+import '@/Lib/nivoslider';
 import '@/Lib/nivo-slider.css';
 import '@/Lib/preview.css';
-import {onBeforeMount, onMounted, ref} from "vue";
-import {manageCart} from '@/Lib/LaravelHelper';
 
+import {onBeforeMount, onMounted, onUpdated, ref} from "vue";
+import {manageCart, msHelper} from '@/Lib/LaravelHelper';
+import ProductListUnit from "@/Components/ProductListUnit";
+import ShareModal from "@/Components/ShareModal";
+
+const productModalOpen =ref(false)
+const shareModalOpen =ref(false)
 const currentProduct = ref({});
 const currentProductQt = ref(1);
 const currentCartData = ref([]);
-const setCurrentProduct=(product)=>{
-    currentProduct.value=null;
+const setCurrentProduct = (product) => {
+    productModalOpen.value=true;
+    //currentProduct.value = null;
+    currentProduct.value = product;
+}
+
+const sizeModalOpen=ref(false);
+
+const addProduct = (product,fromModal=false) => {
     currentProduct.value=product;
-}
-import {store} from '@/FrontEndStore';
-const addProduct = (product) => {
-    $('.btn-close').trigger('click');
-    currentCart.add(product,currentProductQt.value,currentCartData,currentProductQt)
-}
+    if(currentProductQt.value<0)currentProductQt.value=1;
+   // $('.btn-close').trigger('click');
+    if(!fromModal){
+        sizeModalOpen.value=true;
+    }else {
+        currentCart.add(product, currentProductQt.value,currentSize.value)
+    }
 
-
-const getUpperPrice=(price)=>{
-    return(price==799)?1099:1299;
 }
 
-const getDiscountPercentage=(price)=>{
-    return(price==799)?27:23;
+const shareModalToggle=(product)=> {
+    currentProduct.value=product;
+    shareModalOpen.value = !shareModalOpen.value
+};
+
+const getUpperPrice = (price) => {
+    return (price == 799) ? 1099 : 1299;
 }
 
-const currentCart=manageCart();
-onMounted(()=>{
-    console.log(store);
+const getDiscountPercentage = (price) => {
+    return (price == 799) ? 27 : 23;
+}
+
+const currentCart = manageCart();
+onMounted(() => {
+
+    msHelper().auth().login(props.auth.user);
+    // console.log(store);
     // $('.landing-slider').owlCarousel({
     //     items:1,
     //     center:true,
@@ -65,137 +97,153 @@ onMounted(()=>{
     //     dots:false
     //
     // });
-    $('#jquery-slider-demo').nivoSlider(
-        {
-            lazyLoad:true,
-            autoplay:true,
-            loop:true,
+    if (process.browser) {
+        $('#jquery-slider-demo').nivoSlider(
+            {
+                lazyLoad: true,
+                autoplay: true,
+                loop: true,
+                effect: 'random',
+                slices: 35,
+                boxCols: 12,
+                boxRows: 12,
+                animSpeed: 500,
+                pauseTime: 500,
+                startSlide: 0,
+                directionNav: true,
+                controlNavThumbs: true,
+                pauseOnHover: true,
+                manualAdvance: true
+            }
+        );
+        $('#ensign-nivoslider').nivoSlider({
             effect: 'random',
-            slices: 35,
-            boxCols: 12,
-            boxRows: 12,
+            slices: 15,
+            boxCols: 8,
+            boxRows: 4,
             animSpeed: 500,
-            pauseTime: 500,
+            pauseTime: 5000,
             startSlide: 0,
             directionNav: true,
-            controlNavThumbs: true,
+            controlNavThumbs: false,
+            pauseOnHover: false,
+            manualAdvance: true
+        });
+        $('#ensign-nivoslider-2').nivoSlider({
+            effect: 'random',
+            slices: 15,
+            boxCols: 8,
+            boxRows: 4,
+            animSpeed: 500,
+            pauseTime: 5000,
+            startSlide: 0,
+            directionNav: true,
+            controlNavThumbs: false,
             pauseOnHover: true,
-            manualAdvance: true}
-    );
-    $('#ensign-nivoslider').nivoSlider({
-        effect: 'random',
-        slices: 15,
-        boxCols: 8,
-        boxRows: 4,
-        animSpeed: 500,
-        pauseTime: 5000,
-        startSlide: 0,
-        directionNav: true,
-        controlNavThumbs: false,
-        pauseOnHover: false,
-        manualAdvance: true
-    });
-    $('#ensign-nivoslider-2').nivoSlider({
-        effect: 'random',
-        slices: 15,
-        boxCols: 8,
-        boxRows: 4,
-        animSpeed: 500,
-        pauseTime: 5000,
-        startSlide: 0,
-        directionNav: true,
-        controlNavThumbs: false,
-        pauseOnHover: true,
-        manualAdvance: true
-    });
-    currentCartData.value=currentCart.get();
-    console.log("sdasds");
+            manualAdvance: true
+        });
+    }
+    currentCartData.value = currentCart.get();
+    //  console.log("sdasds");
 });
-
+onUpdated(() => {
+    msHelper().auth().login(props.auth.user);
+});
 const props = defineProps({
-    topProduct:Object,
-    specialProduct:Object,
-    mostView:Object,
-    site:Object,
-    auth:Object,
-    canlogin:Boolean
+    topProduct: Object,
+    specialProduct: Object,
+    mostView: Object,
+    site: Object,
+    auth: Object,
+    canlogin: Boolean
 })
 // const asset=(path)=>{
 //     return [route('base'),path].join('/');
 // }
-const vfOptions=ref({
+const vfOptions = ref({
     autoplay: true
 });
-const vfImages=ref([ 'img/slider/bg_slider1.jpg', 'img/slider/bg_slider22.jpg' ]);
-const vfTransitions=ref([ 'fade', 'cube', 'book', 'wave' ]);
-const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for image 3',]);
-
+const vfImages = ref(['img/slider/bg_slider1.jpg', 'img/slider/bg_slider22.jpg']);
+const vfTransitions = ref(['fade', 'cube', 'book', 'wave']);
+const vfCaptions = ref(['Caption for image 1', 'Caption for image 2', 'Caption for image 3',]);
+const currentSize=ref();
 </script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
 
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
+}
+</script>
 <template>
-    <Head title="UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian" />
+    <Head title="UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian"/>
     <div id="top"></div>
-<FrontEndLayout :cart="currentCartData" :site="props.site" :auth="auth" :canlogin="props.canlogin">
-
 
     <section class="slider-main-area home-3 bg-gray">
         <div class="main-slider an-si">
             <div class="bend niceties preview-2">
 
                 <div class="slider-wrapper theme-default">
-                <div id="jquery-slider-demo" class="nivoSlider">
+                    <div id="jquery-slider-demo" class="nivoSlider">
 
-                    <img title="#slide-title-1" :src="asset('img/slider/slider-1.jpg')" alt="The slide 1" />
-
-                    <img title="#slide-title-2" :src="asset('img/slider/slider-2.jpg')" alt="The slide 2" />
-
-                    <img title="#slide-title-3" :src="asset('img/slider/slider-3.jpg')" alt="The slide 3" data-transition="slideInLeft" />
+                        <img :src="asset('img/slider/slider-1.jpg')" alt="The slide 1" title="#slide-title-1"/>
 
 
-                </div>
+                        <img :src="asset('img/slider/slider-2.jpg')" alt="The slide 2" title="#slide-title-2"/>
+
+                        <img :src="asset('img/slider/slider-3.jpg')" alt="The slide 3" data-transition="slideInLeft"
+                             title="#slide-title-3"/>
+
+
+                    </div>
                     <div id="slide-title-1" class="nivo-html-caption t-cn Builder">
                         <div class="t-cn Builder">
-                        <div class="slide-all2">
-                            <!-- layer 1 -->
-                            <div class="layer-1">
-                                <h2 class="title5">new collection</h2>
+                            <div class="slide-all slide-title-fix-1">
+                                <!-- layer 1 -->
+                                <div class="layer-1">
+                                    <h2 class="title5">New Collection</h2>
+                                </div>
+                                <!-- layer 2 -->
+                                <div class="layer-2">
+                                    <h2 class="title6 slide-title-fix-1-layer-2">Men’s Fashion</h2>
+                                </div>
+                                <!-- layer 2 -->
+                                <div class="layer-2">
+                                    <p class="title0">Save Up To 40% Off</p>
+                                </div>
+                                <!-- layer 3 -->
+                                <div class="layer-3">
+                                    <InertiaLink :href="route('product_list','men')" class="min1 btn-black">Shop Now
+                                    </InertiaLink>
+                                </div>
                             </div>
-                            <!-- layer 2 -->
-                            <div class="layer-2">
-                                <h2 class="title6">Men’s Fashion</h2>
-                            </div>
-                            <!-- layer 2 -->
-                            <div class="layer-2">
-                                <p class="title0">Save Up To 40% Off</p>
-                            </div>
-                            <!-- layer 3 -->
-                            <div class="layer-3">
-                                <a class="min1" href="#">Shop Now</a>
-                            </div>
-                        </div>
                         </div>
 
                     </div>
                     <div id="slide-title-2" class="nivo-html-caption t-cn Builder">
                         <div class="t-cn Builder">
-                        <div class="slide-all slide2">
-                            <!-- layer 1 -->
-                            <div class="layer-1">
-                                <h2 class="title5">new collection</h2>
+                            <div class="slide-all  slide-title-fix-2">
+                                <!-- layer 1 -->
+                                <div class="layer-1">
+                                    <h2 class="title5">New Collection</h2>
+                                </div>
+                                <!-- layer 2 -->
+                                <div class="layer-2">
+                                    <h2 class="title6 slide-title-fix-1-layer-2">Women’s<br> Fashion</h2>
+                                </div>
+                                <!-- layer 2 -->
+                                <div class="layer-2">
+                                    <p class="title0">Save Up To 40% Off</p>
+                                </div>
+                                <!-- layer 3 -->
+                                <div class="layer-3">
+                                    <InertiaLink :href="route('product_list','women')" class="min1 btn-black">Shop Now
+                                    </InertiaLink>
+                                </div>
                             </div>
-                            <!-- layer 2 -->
-                            <div class="layer-2">
-                                <h2 class="title6">Women’s Fashion</h2>
-                            </div>
-                            <!-- layer 2 -->
-                            <div class="layer-2">
-                                <p class="title0">Save Up To 40% Off</p>
-                            </div>
-                            <!-- layer 3 -->
-                            <div class="layer-3">
-                                <a class="min1" href="#">Shop Now</a>
-                            </div>
-                        </div>
 
                         </div>
 
@@ -204,14 +252,14 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
 
                         <div class="t-cn Builder">
 
-                            <div class="slide-all slide2">
+                            <div class="slide-all  slide-title-fix-3 ">
                                 <!-- layer 1 -->
                                 <div class="layer-1">
-                                    <h2 class="title5">new collection</h2>
+                                    <h2 class="title5">New Collection</h2>
                                 </div>
                                 <!-- layer 2 -->
                                 <div class="layer-2">
-                                    <h2 class="title6">Women’s Fashion</h2>
+                                    <h2 class="title6 slide-title-fix-1-layer-2">Unisex Fashion</h2>
                                 </div>
                                 <!-- layer 2 -->
                                 <div class="layer-2">
@@ -219,7 +267,9 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                                 </div>
                                 <!-- layer 3 -->
                                 <div class="layer-3">
-                                    <a class="min1" href="#">Shop Now</a>
+                                    <InertiaLink :href="route('product_list','unisex')" class="min1 btn-black">Shop
+                                        Now
+                                    </InertiaLink>
                                 </div>
                             </div>
 
@@ -229,15 +279,14 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                     </div>
                 </div>
 
-
-
+                <marquee class="top-marquee" scrolldelay="20">This is basic example of marquee</marquee>
 
             </div>
         </div>
     </section>
     <section class="design-area home-4">
         <div class="container">
-            <div class="bottom-design res">
+            <div class="bottom-design res" v-if="false">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-12">
                         <div class="tb-info-box">
@@ -279,495 +328,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="features-tab indicator-style2">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="vc_tta-tab"><a href="#home" aria-controls="home" role="tab" data-bs-toggle="tab">BESTSELLER</a></li>
-                            <li class="vc_tta-tab " role="presentation"><a class="active" href="#profile" aria-controls="profile" role="tab" data-bs-toggle="tab">NEW PRODUCTS</a></li>
-                            <li class="vc_tta-tab" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-bs-toggle="tab">MUST HAVE</a></li>
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content jump">
-                            <div role="tabpanel" class="tab-pane" id="home">
-                                <div class="features-curosel2 indicator-style2 owl-carousel">
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/1.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount">$180.00</span>
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/9.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Glasses</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$79.00 - </span>
-                                                        <span class="amount2 ana">$100.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/7.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Skin Shoulder Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/6.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Glasses</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$199.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/5.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Luxury Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$150.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/3.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Lambskin Shoe</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount">$180.00</span>
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/4.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Skin Shoulder Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane active" id="profile">
-                                <div class="features-curosel2 indicator-style2 owl-carousel">
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/10.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Lambskin Shoe</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/2.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Shoe</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$220.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/8.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Shoulder Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$99.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/7.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount">$180.00</span>
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/6.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Glasses</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$120.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/5.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Luxury Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/4.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount">$180.00</span>
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/3.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Lambskin Shoe</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$250.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="messages">
-                                <div class="features-curosel2 indicator-style2 owl-carousel">
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/6.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Glasses</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/5.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Luxury Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$160.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/4.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount">$180.00</span>
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale">Sale!</span>
-                                        <img alt="" src="img/product/3.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Vintage Lambskin Shoe</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$270.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <span class="onsale two">Sale!</span>
-                                        <img alt="" src="img/product/2.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Shoe</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount2 ana">$120.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tb-product-item-inner tb2 pct-last">
-                                        <img alt="" src="img/product/1.jpg">
-                                        <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                        <div class="tb-content">
-                                            <div class="tb-it">
-                                                <div class="tb-beg">
-                                                    <a href="#">Leather Bag</a>
-                                                </div>
-                                                <div class="tb-product-wrap-price-rating">
-                                                    <div class="tb-product-price font-noraure-3">
-                                                        <span class="amount">$180.00</span>
-                                                        <span class="amount2 ana">$170.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="last-cart l-mrgn">
-                                                    <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                    <a class="las4" href="#">Add To Cart</a>
-                                                    <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
     <section class="specail-area home-3 hm-4">
@@ -778,34 +339,7 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                         <h3>Special</h3>
                         <div class="row">
                             <div v-for="product in props.specialProduct" class="col-lg-12  col-md-6">
-                                <div class="tb-product-item">
-                                    <div class="tb-image">
-                                        <span class="new">New</span>
-                                        <img :src="product.url" alt="">
-                                        <a v-on:click="setCurrentProduct(product)" class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="tb-content">
-                                        <div class="tb-beg">
-                                            <a href="#">{{ product.name }}</a>
-                                        </div>
-                                        <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">{{ product.currency }}{{ getUpperPrice(product.price) }}.00</del><br>{{ product.currency }}{{ product.price }}.00 <span class="text-warning">( {{ getDiscountPercentage(product.price)}} % off)</span></span>
-                                        </div>
-                                        <div class="tb-product-btn">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ProductListUnit :product="product" @addProduct="addProduct"  @setCurrentProduct="setCurrentProduct" @shareModalToggle="shareModalToggle"></ProductListUnit>
                             </div>
 
                         </div>
@@ -815,35 +349,8 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                     <div class="specail-top">
                         <h3>Most View </h3>
                         <div class="row">
-                            <div v-for="product in props.mostView" class="col-lg-12  col-md-6" >
-                                <div class="tb-product-item">
-                                    <div class="tb-image">
-                                        <span class="new">New</span>
-                                        <img :src="product.url" alt="">
-                                        <a v-on:click="setCurrentProduct(product)" class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="tb-content">
-                                        <div class="tb-beg">
-                                            <a href="#">{{ product.name }}</a>
-                                        </div>
-                                        <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">{{ product.currency }}{{ getUpperPrice(product.price) }}.00</del><br>{{ product.currency }}{{ product.price }}.00 <span class="text-warning">( {{ getDiscountPercentage(product.price)}} % off)</span></span>
-                                        </div>
-                                        <div class="tb-product-btn">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div v-for="product in props.mostView" class="col-lg-12  col-md-6">
+                                <ProductListUnit @shareModalToggle="shareModalToggle" @addProduct="addProduct"  @setCurrentProduct="setCurrentProduct" :product="product"></ProductListUnit>
                             </div>
                         </div>
                     </div>
@@ -852,35 +359,8 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
                     <div class="specail-top">
                         <h3>Top Products </h3>
                         <div class="row">
-                            <div  v-for="product in props.topProduct" class="col-lg-12  col-md-6">
-                                <div class="tb-product-item">
-                                    <div class="tb-image">
-                                        <span class="new">New</span>
-                                        <img :src="product.url" alt="">
-                                        <a v-on:click="setCurrentProduct(product)" class="la-icon" data-bs-toggle="modal" title="Quick View" href="#productModal">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="tb-content">
-                                        <div class="tb-beg">
-                                            <a href="#">{{ product.name }}</a>
-                                        </div>
-                                        <div class="tb-product-price font-noraure-3">
-                                            <span class="amount2 ana text-success"> <del class="text-danger text-sm">{{ product.currency }}{{ getUpperPrice(product.price) }}.00</del><br>{{ product.currency }}{{ product.price }}.00 <span class="text-warning">( {{ getDiscountPercentage(product.price)}} % off)</span></span>
-                                        </div>
-                                        <div class="tb-product-btn">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div v-for="product in props.topProduct" class="col-lg-12  col-md-6">
+                                <ProductListUnit @shareModalToggle="shareModalToggle" @addProduct="addProduct" @setCurrentProduct="setCurrentProduct" :product="product"></ProductListUnit>
                             </div>
                         </div>
                     </div>
@@ -889,74 +369,13 @@ const vfCaptions=ref(['Caption for image 1','Caption for image 2','Caption for i
         </div>
     </section>
     <!-- QUICKVIEW PRODUCT -->
-    <div id="quickview-wrapper">
-        <!-- Modal -->
-        <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-product">
-                            <div class="product-images">
-                                <div class="main-image images" style="max-height: 70vh">
-                                    <img  :src="currentProduct.url" alt="">
-                                </div>
-                            </div><!-- .product-images -->
 
-                            <div class="cras">
+    <OptionAskModal v-model="currentSize" :product="currentProduct" v-model:is-show="sizeModalOpen" ></OptionAskModal>
+    <ProductModal :product="currentProduct" v-model:is-show="productModalOpen" @addProduct="addProduct" ></ProductModal>
+    <ShareModal :product="currentProduct" v-model:is-show="shareModalOpen" ></ShareModal>
 
-                                <div class="product-name">
-                                    <h1>{{ currentProduct.name }}</h1>
-                                </div>
-                                <div class="tb-product-price font-noraure-3">
-                                    <span class="amount">{{ currentProduct.currency }}{{ getUpperPrice(currentProduct.price) }}.00</span>
-                                    <span class="amount2 ana">{{ currentProduct.currency }}{{ currentProduct.price }}.00</span>
-                                </div>
-                                <div class="short-description ">
 
-                                    <ul class="list-group py-3">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Type of Fabric
-                                            <span class="badge badge-primary bg-info badge-pill ">{{ currentProduct.type_of_fabric }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Type of Print
-                                            <span class="badge badge-primary bg-warning badge-pill">{{ currentProduct.type_of_print }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Cloth Color
-                                            <span class="badge badge-primary badge-pill bg-white" style="padding: 5px;border:1px solid black;"><span style="display:block;    height: 30px;width: 30px;" :style="{'background-color':currentProduct.color}"></span></span>
-                                        </li>
-                                    </ul>
 
-                                    <p class="d-none">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-                                </div>
-                                <div class="add-to-box1">
-                                    <div class="add-to-box add-to-box2">
-                                        <div class="add-to-cart">
-                                            <div class="input-content">
-                                                <label for="qty">Qty:<span> *</span></label>
-                                                <input v-model="currentProductQt" id="qty" class="input-text qty" type="text" name="qty" maxlength="12" title="Qty">
-                                            </div>
-                                            <div class="last-cart">
-                                                <a class="last1" href="#" v-on:click.prevent="addProduct(currentProduct)">Add To Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="stock2 d-none"><p class="availability in-stock2"> Availability:Accessories, Men </p></div>
-                            </div><!-- .product-info -->
-                        </div><!-- .modal-product -->
-                    </div><!-- .modal-body -->
-                </div><!-- .modal-content -->
-            </div><!-- .modal-dialog -->
-        </div>
-        <!-- END Modal -->
-    </div>
     <!-- END QUICKVIEW PRODUCT -->
-
-</FrontEndLayout>
 
 </template>

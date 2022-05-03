@@ -6,6 +6,7 @@ use App\Models\Countriable;
 use App\Models\Country;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 /**
@@ -125,6 +126,8 @@ trait HasCountry
         if (!$this->relationLoaded($this->getCountryRelationName())) {
             $this->setCountryRelation($this->getCountryRelationName(), $this->{$this->getCountryRelationName()}()->get());
         }
+      //  dd(method_exists($this));
+      //  return (Cache::has($this->getCurrencyCacheKey()))? Cache::get($this->getCurrencyCacheKey()) : Cache::remember($this->getCurrencyCacheKey(),1200,function (){return $this->{$this->getCountryRelationName()};});
 
         return $this->{$this->getCountryRelationName()};
         // reindex by key for quicker lookups if necessary.
@@ -153,7 +156,6 @@ trait HasCountry
     }
     public function getCountryRecord(): ?Countriable
     {
-     //   dd($this->getCountryCollection()->get());
         return $this->getCountryCollection()->first();
     }
     private function purgeCountry()

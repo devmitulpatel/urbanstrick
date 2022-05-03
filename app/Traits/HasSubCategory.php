@@ -14,6 +14,10 @@ trait HasSubCategory
         return $this->hasOneThrough(CategoryCategories::class,self::class,'id','id','parent_id','child_id');
     }
 
+    public function scopeParentOnly($query){
+        return $query->has('parent','>',0);
+    }
+
     public function addSubCategory($category){
         $foundSub=self::where('slug',$category);
         if($foundSub->count()<1) {

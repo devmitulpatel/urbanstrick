@@ -9,4 +9,8 @@ class Variantable extends Model
 {
     use HasFactory;
     protected $fillable=['parent_id'];
+
+    public function variant_type(){
+        return $this->hasOne(variantType::)
+    }
 }

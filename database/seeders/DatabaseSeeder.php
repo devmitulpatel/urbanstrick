@@ -19,8 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CountrySeeder::class);
         //$this->call(UnitSeeder::class);
         $this->call(DynamicDataSeeder::class);
-        $this->call(ProductSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(VariantTypeSeeder::class);
+
     }
 
     private function createBasicUsers()
@@ -39,6 +41,25 @@ class DatabaseSeeder extends Seeder
             'line_3'=>'near Ayyapa Temple',
             'pincode'=>'382021',
             'city'=>'Gandhinagar',
+            'state'=>'Gujarat',
+        ];
+        $user->createAddress($address);
+
+
+        $user=new User();
+        $user->email='mitul@admin.com';
+        $user->password=Hash::make('password');
+        $user->first_name='mitul';
+        $user->last_name='patel';
+        $user->save();
+        $user->setCountry('india');
+        $user->country->setCurrency(1);
+        $address =[
+            'line_1'=>'17',
+            'line_2'=>'Divine Bunglows,Behind Rajhans Cinema',
+            'line_3'=>'Pragatinagar,Piplod',
+            'pincode'=>'395007',
+            'city'=>'Surat',
             'state'=>'Gujarat',
         ];
         $user->createAddress($address);

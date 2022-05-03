@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -50,6 +52,19 @@ class AdminDashboardController extends Controller
             'product_data'=>ProductResource::collection($topProduct->paginate(5)),
         ];
         return Inertia::render('Back/Product',$data);
+    }
+    public function order(){
+
+
+        $topProduct= Order::with(['meta','cart','cart.product','user']);
+        $data=[
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'order_data'=>OrderResource::collection($topProduct->paginate(5)),
+        ];
+        return Inertia::render('Back/Order',$data);
     }
 
 }

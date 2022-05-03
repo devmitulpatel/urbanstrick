@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('variantables', function (Blueprint $table) {
             able_model_schema($table,'variant');
             $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('variant_type_id');
         });
     }
 

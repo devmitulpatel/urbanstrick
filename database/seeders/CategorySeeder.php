@@ -36,6 +36,7 @@ class CategorySeeder extends Seeder
 
     private function defaultSubSeedData()
     {
+
         foreach ($this->model::all() as $category){
             switch ($category->slug){
                 case Str::slug('Women'):
@@ -50,7 +51,6 @@ class CategorySeeder extends Seeder
                 case Str::slug('Kid'):
                     $category->addSubCategory('Tshirt');
                     break;
-
             }
         }
     }

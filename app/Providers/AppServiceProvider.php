@@ -4,6 +4,8 @@ namespace App\Providers;
 
 
 
+use App\Repositories\OrderRepository;
+use App\Repositories\PaymentRepository;
 use App\Repositories\ProductRepository;
 
 use App\Repositories\UnitRepository;
@@ -24,9 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-
-
         $this->app->singleton(ProductRepository::class, function($app)
         {
             return new ProductRepository; // Name of your class, be sure to include the namespace if you are using one.
@@ -34,6 +33,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(UnitRepository::class, function($app)
         {
             return new UnitRepository; // Name of your class, be sure to include the namespace if you are using one.
+        });
+        $this->app->singleton(OrderRepository::class, function($app)
+        {
+            return new OrderRepository; // Name of your class, be sure to include the namespace if you are using one.
+        });
+        $this->app->singleton(PaymentRepository::class, function($app)
+        {
+            return new PaymentRepository; // Name of your class, be sure to include the namespace if you are using one.
         });
     }
 
@@ -64,5 +71,7 @@ class AppServiceProvider extends ServiceProvider
                 $image->fit(263, 263);
             })
         );
+
+        \URL::forceScheme('https');
     }
 }

@@ -637,10 +637,10 @@ h1.title5 {
     font-weight: lighter;
 }
 h2.title6 {
-    font-size: 79px;
+    font-size: 55px;
     font-weight: 400;
     letter-spacing: 7px;
-    line-height: 79px;
+    line-height: 55px;
     text-transform: uppercase;
     margin: 0;
 }
@@ -1758,8 +1758,8 @@ address {
     margin-top: 10%;
 }
 .home-3 .slide-all2 {
-    margin-left: 9%;
-    margin-top: 11%;
+    /*margin-left: 9%;*/
+    /*margin-top: 11%;*/
 }
 .home-3 .muti_menu ul li a:hover , .home-3 .muti_menu ul li a.active {
     background: #f3f3f3 none repeat scroll 0 0;

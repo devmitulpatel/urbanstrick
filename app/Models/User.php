@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasAddresses;
+use App\Traits\HasCart;
 use App\Traits\HasCountry;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,7 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasCountry,HasAddresses;
+    use HasApiTokens, HasFactory, Notifiable,HasCountry,HasAddresses,HasCart;
 
     /**
      * The attributes that are mass assignable.
@@ -55,5 +56,13 @@ class User extends Authenticatable
     public function getIsPasswordSetAttribute(){
         return ((boolean)$this->password);
 
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class,'user_id','id');
+    }
+
+    public function hasWished(){
+        return $this->hasMany(Wish::class,'user_id','id')->with(['product','product.meta','product.media']);
     }
 }

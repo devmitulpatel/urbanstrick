@@ -17,11 +17,12 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
     private $price=['price',''];
     private $types=['type_of_fabric','type_of_print'];
     private $color=['color'];
+    private $size=['size'];
 
 
     private function createExtraMetas(){
         $data=$this->getRawData();
-        $allowedKeys=array_merge($this->types,$this->color);
+        $allowedKeys=array_merge($this->types,$this->color,$this->size);
         $metas=[];
         foreach ($allowedKeys as $key){
             if(array_key_exists($key,$data))$metas[$key]=$data[$key];
@@ -118,9 +119,33 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
         return $this->getRow()->delete();
     }
 
+    public function createVariant($model){
+        $model->fill($this->getRow()->toArray());
+        $variantCount=$this->getRow()->getAllVariants()->count();
+        $model->slug=$this->getUniqueSlug($this->getRow()->slug,$variantCount+1);
+        $model->save();
+        //dd($model);
 
+        $this->getRow()->makeVariant($model);
+        dd($this->getRow()->getAllVariants());
 
+    }
 
+    public function getUniqueSlug($realted,$count=0){
+        $rawSlug=$realted;
+        $slug=$realted;
+        $rawCount=$count;
+        while($this->query()->where('slug',$slug)->count()){
+         //$slug=Str::uuid();
+            if($rawCount<$count){
+                $slug=implode('-',[$rawSlug,$count]);
+            }else{
+                $slug=implode('-',[$slug,$count]);
+            }
 
+         $count++;
+        }
+        return $slug;
+    }
 
 }

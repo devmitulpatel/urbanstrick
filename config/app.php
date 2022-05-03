@@ -1,7 +1,5 @@
 <?php
 
-use App\Resource\ProductFacade;
-use App\Resource\ProductRepository;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -194,8 +192,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Product'=> ProductFacade::class,
+//        'Product'=> ProductFacade::class,
         'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
+        'Redis' => Illuminate\Support\Facades\Redis::class,
     ])->toArray(),
 
 ];

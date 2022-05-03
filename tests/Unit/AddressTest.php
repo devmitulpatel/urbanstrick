@@ -30,7 +30,7 @@ class AddressTest extends TestCase
         ];
         $user->createAddress($address);
 
-        dd($user->toArray());
+       // dd($user->toArray());
 
         $this->assertTrue(true);
     }

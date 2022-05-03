@@ -3,7 +3,10 @@
 namespace App\Traits;
 
 use App\Models\Currenciable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Facades\Cache;
+use function Symfony\Component\Translation\t;
 
 trait HasCurrency
 {
@@ -11,6 +14,34 @@ trait HasCurrency
     public function currency() :MorphOne
     {
         return $this->morphOne($this->getCurrencyClassName(), $this->getCurrencyRelationName());
+    }
+
+    public function getCurrencyCacheKey(){
+        return implode(':',['currency',$this->getKey()]);
+    }
+
+    public function getCurrencyAttribute()
+    {
+        $relation=(Cache::has($this->getCurrencyCacheKey()))?
+            Cache::remember($this->getCurrencyCacheKey(),1200, function () {
+            return $this->getRelationValue($this->getCurrencyRelationName());
+        }):$this->getRelationValue($this->getCurrencyRelationName());
+
+        $this->setRelation($this->getCurrencyRelationName(), $relation);
+
+        return $relation;
+        if ($this->relationLoaded($this->getCurrencyRelationName())) {
+            return $this->getRelationValue($this->getCurrencyRelationName());
+        }
+
+
+        $relation = Cache::rememberForever($this->getCurrencyCacheKey(), function () {
+            return $this->getRelationValue($this->getCurrencyRelationName());
+        });
+
+        $this->setRelation($this->getCurrencyRelationName(), $relation);
+
+        return $relation;
     }
     public static function bootHasCurrency(){
         static::deleted(function (self $model) {

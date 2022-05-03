@@ -1,7 +1,4 @@
 <template>
-    <Head title="UrbanStrick | India's Best Fashion Store | Authentic Style | Premium Quality | Truly Indian" />
-    <div id="top"></div>
-    <FrontEndLayout :site="props.site" :auth="auth" :errors="props.errors">
 
         <section class="contact-img-area">
             <div class="container">
@@ -27,7 +24,7 @@
                     <small>Find "Click here to set password for your New UrbanStrick Account" & set first & last name and password to active your account</small>
                     </h6>
 
-                    <h7 class="text-danger">Did not get any mail please drop a mail to <a :href="['mailto:',props.site['customer_care_email_1']]">{{props.site['customer_care_email_1']}}</a></h7>
+                    <h6 class="text-danger">Did not get any mail please drop a mail to <a :href="['mailto:',props.site['customer_care_email_1']]">{{props.site['customer_care_email_1']}}</a></h6>
                 </div>
 
             </div>
@@ -36,7 +33,7 @@
 
 
 
-        <section v-if="props.is_password_set" class="collapse_area coll2">
+    <section v-if="props.is_password_set" class="collapse_area coll2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
@@ -129,11 +126,8 @@
                                                         <a class="btn btn-default ce5" href="#">Reset</a>
                                                     </div>
                                                     <div class="pull-right">
-                                                        <button type="submit" value="Save" class="btn btn-primary ce5">
-                                                            <div style="max-height: 15px;max-width: 15px;" v-if="userForm.processing" class="spinner-border" role="status"></div>
-                                                            <div v-else  role="status">Save</div>
-                                                        </button>
-                                                        <input v-if="false" class="btn btn-primary ce5" type="submit" value="Save">
+                                                        <ClickableButton :form="userForm" text="save"></ClickableButton>
+
 
                                                     </div>
                                                 </div>
@@ -175,7 +169,7 @@
                                                         <a class="btn btn-default ce5" href="#">Back</a>
                                                     </div>
                                                     <div class="pull-right">
-                                                        <input class="btn btn-primary ce5" type="submit" value="Save">
+                                                        <ClickableButton :form="userForm" text="change password"></ClickableButton>
                                                     </div>
                                                 </div>
                                             </form>
@@ -191,130 +185,91 @@
 
                                     <div id="collapseThree" class="panel-collapse collapse" data-bs-parent="#accordion2" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                                         <div class="easy2">
-                                            <form class="form-horizontal" @submit.prevent="addressSaved" v-if="isAddAddressOpened">
-                                                <fieldset>
-                                                    <legend>Add new Address</legend>
-                                                    <div class="form-group required">
-                                                        <div class="row">
-                                                            <label class="col-md-3 control-label">Plot no/Bloc No/ Building Name</label>
-                                                            <div class="col-md-9">
-                                                                <BreezeInput :class="{'is-invalid':hasError(addressForm,'line_1')}" v-model="addressForm.line_1" class="form-control" type="text" placeholder="Address line 1"></BreezeInput>
-                                                                <BootstrapInputError  :form="addressForm" name="line_1"></BootstrapInputError>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group required">
-                                                        <div class="row">
-                                                            <label class="col-md-3 control-label">Landmark</label>
-                                                            <div class="col-md-9">
-                                                                <BreezeInput :class="{'is-invalid':hasError(addressForm,'line_2')}" v-model="addressForm.line_2" class="form-control" type="text" placeholder="Address line 2"></BreezeInput>
-                                                                <BootstrapInputError  :form="addressForm" name="line_2"></BootstrapInputError>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group required">
-                                                        <div class="row">
-                                                            <label class="col-md-3 control-label">Area/Road Name</label>
-                                                            <div class="col-md-9">
-                                                                <BreezeInput :class="{'is-invalid':hasError(addressForm,'line_3')}" v-model="addressForm.line_3" class="form-control" type="text" placeholder="Address line 3"></BreezeInput>
-                                                                <BootstrapInputError  :form="addressForm" name="line_3"></BootstrapInputError>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group required">
-                                                        <div class="row">
-                                                            <label class="col-md-3 control-label">Pincode</label>
-                                                            <div class="col-md-9">
-                                                                <BreezeInput :class="{'is-invalid':hasError(addressForm,'pincode')}" v-model="addressForm.pincode" class="form-control" type="text" placeholder="Pincode"></BreezeInput>
-                                                                <BootstrapInputError  :form="addressForm" name="pincode"></BootstrapInputError>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group required">
-                                                        <div class="row">
-                                                            <label class="col-md-3 control-label">City</label>
-                                                            <div class="col-md-9">
-                                                                <BreezeInput :class="{'is-invalid':hasError(addressForm,'city')}" v-model="addressForm.city" class="form-control" type="text" placeholder="City"></BreezeInput>
-                                                                <BootstrapInputError  :form="addressForm" name="city"></BootstrapInputError>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group required">
-                                                        <div class="row">
-                                                            <label class="col-md-3 control-label">State</label>
-                                                            <div class="col-md-9">
-                                                                <BreezeInput :class="{'is-invalid':hasError(addressForm,'state')}" v-model="addressForm.state" class="form-control" type="text" placeholder="State"></BreezeInput>
-                                                                <BootstrapInputError  :form="addressForm" name="state"></BootstrapInputError>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                                <div class="buttons clearfix">
 
-                                                    <div class="pull-right">
-                                                        <button type="submit" value="Save" class="btn btn-primary ce5">
-                                                            <div style="max-height: 15px;max-width: 15px;" v-if="addressForm.processing" class="spinner-border" role="status"></div>
-                                                            <div v-else  role="status">Add address</div>
-                                                        </button>
+                                            <AddressSection></AddressSection>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingFour">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-bs-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">Modify your Wish list   <i class="fa fa-caret-down"></i></a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseFour" class="panel-collapse collapse" data-bs-parent="#accordion2" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                        <div class="easy2">
+                                            <div v-for="wish in props.wish.data">
+                                                <div class="card my-2">
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-between">
+                                                            <div>
+                                                                <img :src="wish.product.thumbnail" class="img-wish">
+                                                            </div>
+                                                            <div class="d-flex w-full    justify-content-between">
+                                                                <div class="pl-2">
+                                                                    <InertiaLink :href="route('product_page',{name:wish.product.slug})">
+                                                                    {{wish.product.name}}
+                                                                    </InertiaLink>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div class="">
+                                                                        <button v-on:click="addProduct(wish)" class="btn btn-black">Add to cart</button>
+                                                                    </div>
+                                                                    <div class="">
+                                                                        <button v-on:click="removeFromWish(wish)" class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </form>
-                                            <h2>Address Book Entries</h2>
-                                            <table class="table table-bordered table-hover">
-                                                <tr v-for="(address,key) in props.auth.user.addresses">
-                                                    <td class="text-left" style="text-align: left">
-                                                        {{key+1}}
-                                                    </td>
-                                                    <td class="text-left" style="text-align: left">
-                                                        {{address.address.line_1}},
-                                                        <br>
-                                                        {{address.address.line_2}},
-                                                        <br>
-                                                        {{address.address.line_3}},
-                                                        <br>
-                                                        {{[address.address.city.name,[address.address.state.name,address.address.pincode].join('-')].join()}}
-                                                    </td>
-                                                    <td class="text-right" >
-                                                        <a class="btn btn-info g6" href="#">Make it primary</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <div class="buttons clearfix">
 
-                                                <div class="pull-right">
-                                                    <div class="btn btn-primary ce5" v-on:click="addAddressToggle">
-
-                                                        <div style="max-height: 15px;max-width: 15px;" v-if="addressForm.processing" class="spinner-border" role="status"></div>
-                                                        <div v-else  role="status">Add New Address</div>
-
-                                                    </div>
-                                                </div>
                                             </div>
+                                            <div v-if="props.wish.data.length<1">
+                                                <InertiaLink :href="route('home')" class="btn btn-black" >
+                                                    Add your desired product to wish cart
+                                                </InertiaLink>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a class="collap" href="wishlist.html">Modify your wish list   <i class="fa fa-caret-down"></i></a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    <OptionAskModal :product="currentProduct" v-model:is-show="sizeModalOpen" v-model="currentSize"  ></OptionAskModal>
+    <ProductModal :product="currentProduct" v-model:is-show="productModalOpen" @addProduct="addProduct" ></ProductModal>
+    <ShareModal :product="currentProduct" v-model:is-show="shareModalOpen" ></ShareModal>
 
-    </FrontEndLayout>
+
 
 </template>
 <script setup>
-import FrontEndLayout from '@/Layouts/FrontEnd.vue';
-import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import BreezeInput from "@/Components/Input";
+import ProductModal from '@/Components/ProductModal';
+import ShareModal from "@/Components/ShareModal";
+import OptionAskModal from "@/Components/OptionAskModal"
+
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import {ref} from "vue";
 import {useForm} from "@inertiajs/inertia-vue3";
-import {asset, createSuccessToast,createErrorToast,hasError,getError} from "@/Lib/LaravelHelper";
+import {asset, createSuccessToast, createErrorToast, hasError, getError, routes} from "@/Lib/LaravelHelper";
 import _ from "lodash";
 import BootstrapInputError from "@/Components/BootstrapInputError";
-
+import BreezeInput from "@/Components/Input";
+import Button from "@/Components/Button";
+import {Inertia} from "@inertiajs/inertia";
+import AddressRow from "@/Components/AddressRow";
+import ClickableButton from "@/Components/ClickableButton";
+import AddressSection from "@/Components/AddressSection";
 const props = defineProps({
     topProduct:Object,
     specialProduct:Object,
@@ -323,7 +278,8 @@ const props = defineProps({
     auth:Object,
     canlogin:Boolean,
     is_password_set:Boolean,
-    errors:Object
+    errors:Object,
+    wish:[Array,Object]
 })
 
 const userForm =useForm({
@@ -341,7 +297,11 @@ const addressForm =useForm({
     state:'',
 })
 
-
+const currentSize=ref();
+const currentProduct=ref();
+const sizeModalOpen=ref(false);
+const productModalOpen=ref(false);
+const shareModalOpen=ref(false);
 const passwordForm =useForm({
     password:'',
     password_confirmation:'',
@@ -349,7 +309,7 @@ const passwordForm =useForm({
 
 
 const userFormSaved=()=>{
-    let url = route('user.dashboard.updateUser',{user:props.auth.user});
+    let url = routes('user.dashboard.updateUser',{user:props.auth.user});
     userForm.post(url,{
         preserveState:true,
         preserveScroll:true,
@@ -376,7 +336,7 @@ const userFormSaved=()=>{
     console.log("save");
 }
 const addressSaved=()=>{
-    let url = route('user.dashboard.addAddress',{user:props.auth.user});
+    let url = routes('user.dashboard.addAddress',{user:props.auth.user});
     addressForm.post(url,{
         preserveState:true,
         preserveScroll:true,
@@ -409,10 +369,10 @@ const addressSaved=()=>{
 
 const isAddAddressOpened=ref(false);
 const addAddressToggle=()=>{
-    isAddAddressOpened.value=(isAddAddressOpened.value)?false:true
+    isAddAddressOpened.value=!isAddAddressOpened.value
 }
 
-const paswwordFormSaved=()=>{
+const passwordFormSaved=()=>{
     console.log("password");
 }
 const isEditOn=ref(false);
@@ -430,8 +390,41 @@ const allAvatar=[
 const getRandomAvatar=()=>{
     return _.sample(allAvatar);
 }
-</script>
 
+const currentProductQt=ref(1);
+
+const addProduct = (wish,fromModal=false) => {
+    const product=wish.product;
+    currentProduct.value=product;
+    if(currentProductQt.value<0)currentProductQt.value=1;
+    if(!fromModal){
+        sizeModalOpen.value=true;
+    }else {
+        currentCart.add(product, currentProductQt.value,currentSize.value)
+    }
+}
+
+const removeFromWish=(product)=>{
+    currentProduct.value=product;
+    Inertia.post(routes('wish.destroy',{wish:product.id,_query:{redirectTo:route().current()}}),{},{
+        onSuccess:()=>{
+            createSuccessToast('product removed from wish list');
+        },
+        preserveState:true,
+        preserveScroll:true
+    })
+}
+</script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
+
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
+}
+</script>
 <style scoped>
 
 </style>

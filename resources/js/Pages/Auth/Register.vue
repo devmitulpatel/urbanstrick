@@ -175,7 +175,7 @@ const getSubmitText=()=>{
                                     <span class="px-3">
                                         - or -
                                     </span>
-                                    <BreezeButton type="submit" :class="{ 'opacity-25': form.processing }" value="getLogin" class="button-info btn btn-black">Log in</BreezeButton>
+                                    <InertiaLink :href="route('login',{email:form.email})"  class="btn button-info btn-black">Log in</InertiaLink>
 
                                 </p>
                             </form>

@@ -88,6 +88,7 @@ trait HasPrice
         return $query->with(['prices','prices.currency','prices.currency.currency']);
     }
 
+
     public function getPriceRow(mixed $country, mixed $currency)
     {
         $country_id=$this->getCountry($country)->id;
@@ -143,6 +144,7 @@ trait HasPrice
     }
 
     private function loadPricesRelationIfNot(){
+
         if (!$this->relationLoaded($this->getPricesRelationName())) {
             $this->setPricesRelation($this->getPricesRelationName(), $this->{$this->getPricesRelationName()}()->get());
         }

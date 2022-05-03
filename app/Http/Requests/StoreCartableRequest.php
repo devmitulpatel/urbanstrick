@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCartableRequest extends FormRequest
@@ -13,7 +14,7 @@ class StoreCartableRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -24,11 +25,16 @@ class StoreCartableRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'items'=>[]
         ];
     }
 
     public function persist(){
         $input=$this->validated();
+        if (count($input['items'])<1){
+            auth()->user()->cart()->delete();
+        }
+        auth()->user()->syncCartWithRawData($input['items']);
+
     }
 }

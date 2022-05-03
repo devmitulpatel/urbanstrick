@@ -7,14 +7,17 @@ import BreezeLabel from '@/Components/Label.vue';
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import _ from "lodash";
-import {asset} from "@/Lib/LaravelHelper";
+import {asset, routes} from "@/Lib/LaravelHelper";
+import {onMounted} from "vue";
+import ClickableButton from "@/Components/ClickableButton";
 
 
 const props=defineProps({
     canResetPassword: Boolean,
     status: String,
     site:Object,
-    auth:Object
+    auth:Object,
+    preFilled:Object
 });
 
 const form = useForm({
@@ -29,12 +32,17 @@ const submit = () => {
         onSuccess:() => window.location.reload()
     });
 };
-const formUrl=route('user.dashboard.home');
+const formUrl=routes('user.dashboard.home');
 const bg =[
     'img/slider/bg_slider1.jpg',
     'img/slider/bg_slider22.jpg',
 
 ];
+
+onMounted(()=>{
+    props.preFilled.hasOwnProperty('email');
+    form.email=props.preFilled.email;
+})
 
 const getBg = () => {
     return _.sample(bg);
@@ -80,7 +88,10 @@ const getBg = () => {
                                         Email Address
                                         <em>*</em>
                                     </label>
-                                    <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
+                                    <BreezeInput :class="{'is-invalid':hasError(form,'email')}" id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
+                                    <span  v-if="hasError(form,'email')" class="invalid-feedback">
+                                    {{getError(form,'email')}}
+                                    </span>
                                 </p>
                                 <p class="checkout-coupon top-down log a-an">
                                     <label class="l-contact">
@@ -97,45 +108,18 @@ const getBg = () => {
                                     <a class="forgot-password" href="#">Forgot Your password?</a>
                                 </div>
                                 <p class="login-submit5">
-                                    <input class="button-primary btn-block" type="submit" value="login">
+                                    <ClickableButton :form="form" text="login"></ClickableButton>
                                 </p>
                             </form>
                         </div>
                     </div>
-        <BreezeValidationErrors class="mb-4" />
+
                 </div>
             </div>
         </div>
         <div v-if="status && false" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
-        <form v-if="false" @submit.prevent="submit">
-            <div>
-                <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
-            </div>
 
-            <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
-                <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <BreezeCheckbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
-                </Link>
-
-                <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </BreezeButton>
-            </div>
-        </form>
     </FrontEndLayout>
 </template>

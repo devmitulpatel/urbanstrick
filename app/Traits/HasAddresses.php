@@ -108,8 +108,6 @@ trait HasAddresses
         return $model;
     }
 
-
-
     private function getOrCreateCity($data){
 
         switch (gettype($data)){

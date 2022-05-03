@@ -1,69 +1,34 @@
 <template>
-    <FrontEndLayout :site="props.site" :auth="props.auth">
 
-        <section class="contact-img-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="con-text">
-                            <h2 class="page-title">{{ props.currentCategory.name }}</h2>
-                            <p><InertiaLink :href="route('home')">Home</InertiaLink> | {{ props.currentCategory.name }}</p>
-                            <p>shop good quality, decent looking, {{ props.currentCategory.name }} clothings </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+    <HeaderImage :currentCategory="currentCategory">
+
+    </HeaderImage>
+
+
         <section class="shop-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-xl-3 col-md-12">
+                    <div class="col-lg-4 col-xl-3 col-md-12 d-none d-md-block d-lg-block ">
                         <div class="all-shop-sidebar">
                             <div class="top-shop-sidebar">
                                 <h3 class="wg-title">SHOP BY</h3>
                             </div>
                             <div class="shop-one">
-                                <h3 class="wg-title2">Categories</h3>
+                                <h3 class="wg-title2">Gender</h3>
                                 <ul class="product-categories">
-                                    <li class="cat-item">
-                                        <a href="#">Accessories</a>
-                                        <span class="count">(10)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Jewelry</a>
-                                        <span class="count">(8)</span>
-                                    </li>
-                                    <li class="cat-item current-cat">
-                                        <a href="#">Men</a>
-                                        <span class="count">(5)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Watches</a>
-                                        <span class="count">(6)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Women</a>
-                                        <span class="count">(10)</span>
+                                    <li  v-for="type in props.categoryCount.data" class="cat-item" :class="{'current-cat':type.active}" >
+                                        <InertiaLink v-if="type.count" preserve-scroll :href="type.url">{{  type.name }}</InertiaLink>
+                                        <a v-else="type.count">{{  type.name }}</a>
+                                        <span class="count pl-2">( {{ type.count }} )</span>
                                     </li>
                                 </ul>
                             </div>
                             <div class="shop-one">
-                                <h3 class="wg-title2">Our Brand</h3>
+                                <h3 class="wg-title2">Our Lable</h3>
                                 <ul class="product-categories">
                                     <li class="cat-item">
-                                        <a href="#">Nike</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Religion</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item-10">
-                                        <a href="#">Diesel</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Monki</a>
+                                        <a href="#">UrbanStrick</a>
                                         <span class="count">(1)</span>
                                     </li>
                                 </ul>
@@ -212,6 +177,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="shop5">
                                             <label>Show :</label>
                                             <select>
@@ -220,43 +186,18 @@
                                                 <option value="">36</option>
                                             </select>
                                         </div>
+
+
+
                                     </div>
+
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="tab-view">
-                                            <div class="shop-tab">
-                                                <div class="row">
-                                                    <!-- single-product start -->
-                                                    <div v-for="product in props.productList.data" class="col-lg-6 col-xl-4 col-md-6">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" :src="product.thumbnail">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <InertiaLink :href="route('product_page',{name:product.slug})">{{ product.name }}</InertiaLink>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount text-danger">{{ [product.currency,getUpperPrice(product.price)].join(' ') }}</span>
-                                                                            <span class="amount2 ana text-success">{{ [product.currency,product.price].join(' ') }}</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a v-on:click.prevent="addProduct(product)" class="las4">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
+                                            <ProductListThumbnail :list="props.productList" @productModalOpen="viewProduct" @productModalAdd="addProduct" @productModalShare="shareModalToggle"></ProductListThumbnail>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="list-view">
+
                                             <div v-for="product in props.productList.data" class="li-item">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4">
@@ -314,26 +255,130 @@
                     </div>
                 </div>
             </div>
+            <div class="bottom-sticky-navbar d-none d-xs-block d-sm-block">
+                <i class="fa fa-cogs"></i> Filter
+            </div>
         </section>
-    </FrontEndLayout>
+    <ProductModal  v-model:is-show="productModalOpen" :product="currentProduct" @addProduct="addProduct" ></ProductModal>
+    <OptionAskModal v-model:is-show="sizeModalOpen" :product="currentProduct" v-model="currentSize"   ></OptionAskModal>
+    <ShareModal v-model:is-show="shareModalOpen" :product="currentProduct"  ></ShareModal>
 </template>
 
 <script setup>
 import {InertiaLink} from "@inertiajs/inertia-vue3";
-import FrontEndLayout from '@/Layouts/FrontEnd'
-import {manageCart} from "@/Lib/LaravelHelper";
+import {manageCart, routes} from "@/Lib/LaravelHelper";
+import {ref} from "vue";
+import HeaderImage from "@/Components/HeaderImage";
+import ProductModal from "@/Components/ProductModal";
+import ShareModal from "@/Components/ShareModal";
+import OptionAskModal from "@/Components/OptionAskModal";
+import ProductListThumbnail from "@/Components/ProductListThumbnail";
+
+const allowedModal = ['productModalOpen','sizeModalOpen','shareModalOpen'];
+
+const shareModalOpen = ref(false);
+const productModalOpen = ref(false);
+const currentProduct = ref({});
+const currentSize = ref();
+const setCurrentProduct=(product)=>{
+   // currentProduct.value=null;
+    currentProduct.value=product;
+}
+
+const viewProduct = (product) => {
+    currentProduct.value=product;
+    productModalOpen.value=true;
+}
 const props=defineProps({
     site:Object,
     auth:Object,
-    productList:Array,
-    currentCategory:Object
+    productList:Object,
+    currentCategory:Object,
+    categoryCount:Object
 });
+const shareModalToggle=(product)=>{
+    currentProduct.value=product;
+    shareModalOpen.value=true;
+}
+const closeAllModal = () => {
+
+    for (let i in allowedModal){
+        [allowedModal[i]].value=false;
+    }
+
+}
+
+const getCategorySpecificBackground=()=>{
+
+    let defaultAddress='img/bg-img/bg-pagetitle.jpg';
+    if (routes().current('product_list',{type:'women'}))defaultAddress='img/slider/slider-2.jpg'
+    return defaultAddress;
+}
 const currentCart=manageCart();
-const addProduct = (product) => {
-    currentCart.add(product,1)
+const currentProductQt =ref(1);
+const sizeModalOpen =ref(false);
+const addProduct = (product,fromModal=false) => {
+    currentProduct.value=product;
+    if(currentProductQt.value<0)currentProductQt.value=1;
+    // $('.btn-close').trigger('click');
+    if(!fromModal){
+        sizeModalOpen.value=true;
+    }else {
+        currentCart.add(product, currentProductQt.value,currentSize.value)
+    }
+    //currentCart.add(product,1)
+}
+
+const productType=ref([
+    {
+        name:'Women',
+        active:routes().current('product_list',{type:'women'}),
+        url:routes('product_list',{type:'women'}),
+        count:0
+    },
+    {
+        name:'Men',
+        active:routes().current('product_list',{type:'men'}),
+        url:routes('product_list',{type:'men'}),
+        count:0
+    },
+    {
+        name:'Unisex',
+        active:routes().current('product_list',{type:'unisex'}),
+        url:routes('product_list',{type:'unisex'}),
+        count:0
+    }
+
+]);
+const productColor=ref([
+    {
+        name:'white'
+    },
+    {
+        name:'black'
+    },
+    {
+        name:'red'
+    },
+    {
+        name:'blue'
+    },
+    {
+        name:'orange'
+    },
+]);
+
+</script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
+
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
 }
 </script>
-
 <style scoped>
 
 </style>

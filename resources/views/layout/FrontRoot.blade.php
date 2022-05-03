@@ -1,13 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
-<!-- Mirrored from template.hasthemes.com/noraure/noraure/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Mar 2022 16:44:58 GMT -->
 <head>
-
-    @include('layout.Static.Front.meta')
-    @include('layout.Static.Front.css')
-    <!-- modernizr css -->
-
+@include('layout.Static.Front.meta')
+@include('layout.Static.Front.css')
+@inertiaHead
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -17,10 +13,12 @@
 <!-- Add your site or application content here -->
 @include('layout.Static.Front.header')
 @inertia
-@routes
+
+
 @include('layout.Static.Front.footer')
 <!-- start scrollUp
 ============================================ -->
+
 <div id="toTop">
     <i class="fa fa-chevron-up"></i>
 </div>
@@ -32,7 +30,7 @@
 
 
 @include('layout.Static.Front.js')
+
 </body>
 
-<!-- Mirrored from template.hasthemes.com/noraure/noraure/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Mar 2022 16:44:58 GMT -->
 </html>

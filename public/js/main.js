@@ -25,10 +25,10 @@
     /*----------------------------
     top cart active
     ------------------------------ */
-        $('.top-shop-title').on('click', function(e){
-            e.preventDefault();
-            $('.wish-cart').toggleClass('active');
-        });
+        // $('.top-shop-title').on('click', function(e){
+        //     e.preventDefault();
+        //     $('.wish-cart').toggleClass('active');
+        // });
     /*----------------------------
     top search active
     ------------------------------ */

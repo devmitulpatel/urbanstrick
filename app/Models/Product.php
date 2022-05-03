@@ -22,6 +22,16 @@ class Product extends Model
         'status'
     ];
 
+    public function wishedByOwn(){
+        $query=$this->hasMany(Wish::class,'product_id','id');
+        if(auth()->check())$query->where('user_id','=',auth()->id());
+        return $query ;
+    }
+
+    public function scopeLoadWithBasics($query){
+        return $query->with(['meta','wishedByOwn'])->withMediaAndVariants();
+    }
+
 
 
 }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckoutCartRequest;
 use App\Models\Cartable;
 use App\Http\Requests\StoreCartableRequest;
 use App\Http\Requests\UpdateCartableRequest;
+use Inertia\Inertia;
 
 class CartableController extends Controller
 {
@@ -84,4 +86,6 @@ class CartableController extends Controller
     {
         //
     }
+
+
 }

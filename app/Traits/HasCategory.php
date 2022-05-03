@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\Categoriable;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 trait HasCategory
@@ -51,16 +52,22 @@ trait HasCategory
         return $this->count()>0;
     }
 
-    public function scopeHasCategories($query,mixed $names,$with=[]){
-        $this->load($with);
-        foreach ((array)$names as $category) {
-            $query->whereHas('category', function ($builder) use ($category) {
-                $builder->whereHas('category', function ($builder2) use ($category) {
-                    $builder2->orWhere('name', $category)->orWhere('slug', Str::slug($category));
+
+
+    public function scopeHasCategories(Builder $query,mixed $names,$with=[]){
+        $names=collect((array)$names);
+
+            $query->whereHas('category', function ($builder) use ($names) {
+                $builder->where(function ($builder2) use ($names) {
+                    $builder2->whereHas('category',function ($builder3) use ($names) {
+                        $builder3->WhereIn('slug', $names);
+                    });
                 });
 
             });
-        }
+
+
+
 
     }
 

@@ -3,32 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SetUserPasswordFromEmailRequest;
+use App\Http\Resources\CategoriesCountResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 class LandingPageController extends Controller
 {
+
+
     public function index(){
 
-        $getUrl=function (Product $map){
-            $map->setAttribute('type_of_print',$map->getMeta('type_of_print'));
-            $map->setAttribute('type_of_fabric',$map->getMeta('type_of_fabric'));
-            $map->setAttribute('color',$map->getMeta('color'));
-            $map->setAttribute('url',$map->media->first()->getUrl());
-            $map->setAttribute('price',$map->prices->first()->price);
-            $map->setAttribute('currency',$map->prices->first()->currency->currency->symbol);
-            $map->unsetRelations(['prices','media','meta']);
-            return$map;};
-        $topProduct= Product::with(['media','meta'])->withCurrentPrice()->whereIn('id',[1,2])->get()->map($getUrl);
-        $specialProduct= Product::with(['media','meta'])->withCurrentPrice()->whereIn('id',[3,4])->get()->map($getUrl);
-        $mostView= Product::with(['media','meta'])->withCurrentPrice()->whereIn('id',[5,6])->get()->map($getUrl);
+
+        $allProducts=Product::loadWithBasics()->withCurrentPrice()->get();
+        $topProduct= $allProducts->whereIn('id',[1,2])->map(fn($ar)=>product_map($ar));
+        $specialProduct= $allProducts->whereIn('id',[3,4])->map(fn($ar)=>product_map($ar));
+        $mostView= $allProducts->whereIn('id',[5,6])->map(fn($ar)=>product_map($ar)   );
         return Inertia::render('Front/LandingPage', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
@@ -52,13 +49,24 @@ class LandingPageController extends Controller
     public function privacyPolicy(){
         return Inertia::render('Front/PrivacyPolicy');
     }
-    public function productList($type){
-        $category=Category::getCategory($type)->get()->first();
-        if($category==null)return redirect()->route('error_404');
+    public function aboutUs(){
+        return Inertia::render('Front/AboutUs');
+    }
+    public function productList(Category $type){
+        $category=$type;
 
+        $categoryCount=Cache::remember('category_count',1200,function (){
+            return Category::query()
+                ->with(['parent','products'])
+                ->parentOnly()
+                ->withCount(['products'])->get();
+        }) ;
+
+        $productList=$category->products;
         $data =[
+            'categoryCount'=>CategoriesCountResource::collection($categoryCount),
             'currentCategory'=>$category,
-            'productList'=>ProductResource::collection(Product::hasCategories($category->slug,['media','meta'])->paginate())
+            'productList'=>ProductResource::collection($productList)
         ];
 
         return Inertia::render('Front/ProductList',$data);
@@ -86,5 +94,8 @@ class LandingPageController extends Controller
     }
     public function notFound(){
         return redirect()->route('error_404');
+    }  public function contactUs(){
+    $data =[];
+    return Inertia::render('Front/ContactUs',$data);
     }
 }

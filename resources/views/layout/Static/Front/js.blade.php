@@ -22,10 +22,14 @@
     array_walk($loadJs,function (&$val){
         $val= asset($val).'?'.now();
     });
-    $loadJs[]=mix('js/app.js');
+  //  $loadJs[]=asset(mix('js/app.js')).'?'.now();
+    //$loadJs[]=asset('js/ssr.js');
+    $loadJs[]=asset('js/app.js');
 
 @endphp
 
 @foreach($loadJs as $path)
     <script src="{{$path}}"></script>
 @endforeach
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+@routes

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\NewAccountCreated;
 use App\Http\Controllers\Controller;
 use App\Mail\UserRequestedToGetAccount;
 use App\Models\User;
@@ -49,20 +50,9 @@ class RegisteredUserController extends Controller
         //    'password' => Hash::make($request->password),
         ]);
 
-
-
       //  event(new Registered($user));
-        if(!Str::startsWith($request->getQueryString(),'admin')){
-
-
-        }{
-        $mail=Mail::to($user->mail)->send(new UserRequestedToGetAccount($user));
-    }
-
+        NewAccountCreated::dispatch($user);
         Auth::login($user);
-
-
-
         return redirect(RouteServiceProvider::HOME);
     }
 }

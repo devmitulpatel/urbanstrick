@@ -42,11 +42,19 @@ EOF);
 
         $data['site'][]=seed_array('launch-date',new Carbon('2022-04-1'));
         $data['site'][]=seed_array('help-email','help@urbanstrick.com');
+        $data['site.landingPage'][]=seed_array('slider-img-1','img/slider/slider-1.jpg');
+        $data['site.landingPage'][]=seed_array('slider-img-2','img/slider/slider-1.jpg');
+        $data['site.landingPage'][]=seed_array('slider-img-3','img/slider/slider-1.jpg');
         $data['facebook'][]=seed_array('facebook-pixel-id','558778465671730');
         $data['facebook'][]=seed_array('facebook-track-id','ucddxw9xot52zlfjicnbw7d315mtjh');
         $data['google'][]=seed_array('analytic-id','G-WWHRD95S08');
         $data['google'][]=seed_array('google-tag-id','GTM-MBQCQQZ');
         $data['product-setting'][]=seed_array('default-country','india');
         $data['product-setting'][]=seed_array('default-currency',1);
+        $data['payment-gateway-razorpay'][]=seed_array('id','BvrThlPIagLsgA');
+        $data['payment-gateway-razorpay'][]=seed_array('key','rzp_test_T4WaRIP2Ume1eC');
+        $data['payment-gateway-razorpay'][]=seed_array('secret','ARP3J4Pf1sa7JWMbjE901VDC');
+        $data['payment-gateway-razorpay'][]=seed_array('fee',2);
+        $data['payment-gateway'][]=seed_array('fee-from-customer',true);
     }
 }

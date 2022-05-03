@@ -89,4 +89,12 @@ class ModelRepositories
         return $data;
     }
 
+    public function emptyRepo():self{
+        return clone $this;
+    }
+    public function emptyModel(){
+        $class=$this->getModel();
+            return new  $class();
+    }
+
 }

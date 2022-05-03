@@ -46,8 +46,8 @@
     }
     .home-3 .slide-all2 {
         margin-top: 30%;
-        float: right;
-        margin-right: 5%;
+        float: left;
+        margin-left: 0;
 
     }
     .zo-recent-posts .tb-recentb, .top-shop-sidebar .tb-recentb {

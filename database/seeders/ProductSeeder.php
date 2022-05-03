@@ -28,12 +28,14 @@ class ProductSeeder extends Seeder
        // dd($files);
         $uploader=[];
         $data=[
+            [    'name'=>'Your Self','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(120,121,121)','image'=>'sample_product/7.png'],
         [    'name'=>'Urban Earth','price'=>999,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(229,173,154)','image'=>'sample_product/1.png'],
         [    'name'=>'Urban U','price'=>999,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(246,247,247)','image'=>'sample_product/2.png'],
         [    'name'=>'Focus','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(42,43,43)','image'=>'sample_product/3.png'],
         [    'name'=>'Work Hard','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(144,179,190)','image'=>'sample_product/4.png'],
         [    'name'=>'Always','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(246,247,247)','image'=>'sample_product/5.png'],
         [    'name'=>'Big Dream Big Act','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(120,121,121)','image'=>'sample_product/6.png'],
+
         ];
 
         foreach ($data as $key=>$product){
