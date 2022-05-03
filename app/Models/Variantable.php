@@ -11,6 +11,6 @@ class Variantable extends Model
     protected $fillable=['parent_id'];
 
     public function variant_type(){
-        return $this->hasOne(variantType::)
+        //return $this->hasOne(variantType::)
     }
 }
