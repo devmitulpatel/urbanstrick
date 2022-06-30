@@ -5,7 +5,9 @@
             <div v-for="product in props.list.data" class="col-lg-6 col-xl-4 col-md-6">
                 <div class="tb-product-item-inner tb2 pct-last">
                     <span class="onsale two">Sale!</span>
-                    <img alt="" :src="product.thumbnail">
+
+                    <div class="product-img" :style='imgStyle(product)'></div>
+<!--                    <img alt="" :src="product.thumbnail">-->
                     <a v-on:click.prevent="viewProductInModal(product)" class="la-icon"  href="#" title="Quick View" ><i class="fa fa-eye"></i></a>
                     <div class="tb-content">
                         <div class="tb-it">
@@ -72,6 +74,10 @@ const props=defineProps({
 const currentCart =manageCart();
 const viewProductInModal=(product)=>{
     emit('productModalOpen',product)
+}
+
+const imgStyle=(product)=>{
+    return 'background-image:url("'+product.url+'");';
 }
 const currentProduct=ref();
 const currentProductQt=ref();

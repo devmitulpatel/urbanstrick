@@ -3,18 +3,41 @@
 use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\User;
+use App\Repositories\StockOprate;
 use Faker\Provider\Address;
 use Plank\Mediable\Facades\ImageManipulator;
+$currentNifty=16200;
+$historyData=[
+    16000,
+    16200,
+    16400,
+    16300,
+    16900,
+    16870,
+];
+$stock=new StockOprate($currentNifty,$historyData);
+dd($stock->deriveStrickPoints());
 
+
+
+
+
+
+$product=\App\Models\Product::find(1);
+$product->removeStock(1);
+dd($product->getRequiredgetStock());
 
 
 $productRepo=\App\Facades\Product::emptyRepo();
 $product=\App\Models\Product::first();
 $newProductVariant =\App\Facades\Product::emptyRepo()->emptyModel();
 $productRepo->setRow($product);
-$productRepo->createVariant($newProductVariant);
+$productRepo->createVariant($newProductVariant,'color','red');
+$productRepo->createVariant($newProductVariant,'size','xl');
+$productRepo->createVariant($newProductVariant,'size','l');
 
-
+$productRepo->getRow()->refresh();
+dd($productRepo->getRow()->getAllVariants());
 $str=rand(11111111111111111,100000000000000000);
 $encodeStr=encode($str);
 $decodeStr=decode($encodeStr);

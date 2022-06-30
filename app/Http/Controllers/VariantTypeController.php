@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\variantType;
-use App\Http\Requests\StorevariantTypeRequest;
-use App\Http\Requests\UpdatevariantTypeRequest;
+use App\Models\VariantType;
+use App\Http\Requests\StoreVariantTypeRequest;
+use App\Http\Requests\UpdateVariantTypeRequest;
 
 class VariantTypeController extends Controller
 {
@@ -31,10 +31,10 @@ class VariantTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorevariantTypeRequest  $request
+     * @param  \App\Http\Requests\StoreVariantTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorevariantTypeRequest $request)
+    public function store(StoreVariantTypeRequest $request)
     {
         return $request->persist();
     }
@@ -42,10 +42,10 @@ class VariantTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\variantType  $variantType
+     * @param  \App\Models\VariantType  $variantType
      * @return \Illuminate\Http\Response
      */
-    public function show(variantType $variantType)
+    public function show(VariantType $variantType)
     {
         //
     }
@@ -53,10 +53,10 @@ class VariantTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\variantType  $variantType
+     * @param  \App\Models\VariantType  $variantType
      * @return \Illuminate\Http\Response
      */
-    public function edit(variantType $variantType)
+    public function edit(VariantType $variantType)
     {
         //
     }
@@ -64,11 +64,11 @@ class VariantTypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatevariantTypeRequest  $request
-     * @param  \App\Models\variantType  $variantType
+     * @param  \App\Http\Requests\UpdateVariantTypeRequest  $request
+     * @param  \App\Models\VariantType  $variantType
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatevariantTypeRequest $request, variantType $variantType)
+    public function update(UpdateVariantTypeRequest $request, VariantType $variantType)
     {
         return $request->persist();
         //
@@ -77,10 +77,10 @@ class VariantTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\variantType  $variantType
+     * @param  \App\Models\VariantType  $variantType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(variantType $variantType)
+    public function destroy(VariantType $variantType)
     {
         //
     }

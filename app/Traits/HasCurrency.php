@@ -3,9 +3,11 @@
 namespace App\Traits;
 
 use App\Models\Currenciable;
+use App\Models\Currency;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 use function Symfony\Component\Translation\t;
 
 trait HasCurrency
@@ -91,27 +93,35 @@ trait HasCurrency
         return $this->indexedCountryCollection??new ($this->getCurrencyClassName())();
     }
 
-    private function getCurrencyId($price){
+    private function searchCurrency($name){
 
-        //  dd($country);
-        switch (gettype($price)){
+        return Currency::orWhere('name',$name)->orWhere('slug',Str::slug($name))->orWhere('id',(int)$name)
+            //->orWhere('short_name',$name)
+            ->first();
+    }
+
+    private function getCurrencyId($currency){
+        switch (gettype($currency)){
             case 'string':
-                $price=$this->searchCountry($price)?->id;
-                goto IntegerCase;
+                $currency2=$this->searchCurrency($currency)?->id;
+                $id=$currency2;
+                //goto IntegerCase;
                 break;
             case 'integer':
                 IntegerCase:
-                $id=(integer)$price;
+                $id=(integer)$currency;
+
                 break;
             case 'object':
-                $id=$price->id;
+                $id=$currency->id;
                 break;
             case 'array':
-                $id=$price['id'];
+                $id=$currency['id'];
                 break;
             default:
-                $id=(integer)$price;
+                $id=(integer)$currency;
         }
+
 
         return $id;
 
@@ -129,6 +139,7 @@ trait HasCurrency
 
         $currency_id=$this->getCurrencyId($currency);
 
+        if($currency_id==0)dd('here 2');
 
         if ($this->hasCurrency()) {
             $item = $this->getCurrencyRecord();

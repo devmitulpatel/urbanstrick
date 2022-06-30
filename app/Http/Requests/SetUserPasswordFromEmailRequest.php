@@ -39,7 +39,7 @@ class SetUserPasswordFromEmailRequest extends FormRequest
         $input['password']=Hash::make($input['password']);
         $user->fill($input);
         if($user->isDirty())$user->save();
-        return redirect()->route('user.dashboard.home');
+        return redirect()->route('dashboard.home');
 
     }
 

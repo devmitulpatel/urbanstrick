@@ -32,7 +32,7 @@ const submit = () => {
         onSuccess:() => window.location.reload()
     });
 };
-const formUrl=routes('user.dashboard.home');
+const formUrl=routes('dashboard.home');
 const bg =[
     'img/slider/bg_slider1.jpg',
     'img/slider/bg_slider22.jpg',

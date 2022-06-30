@@ -46,7 +46,7 @@
 
                     <div class="d-flex justify-content-between">
 
-                        <a v-on:click.prevent="openAnotherPage(routes('user.dashboard.home'),'get')" method="get" as="div" class="btn las4 btn-info " >
+                        <a v-on:click.prevent="openAnotherPage(routes('dashboard.home'),'get')" method="get" as="div" class="btn las4 btn-info " >
                             My account
                         </a>
 

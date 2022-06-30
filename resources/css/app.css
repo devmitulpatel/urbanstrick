@@ -32,6 +32,12 @@
     border-color:rgba(0,0,0,0.85)!important;
 }
 
+.btn-inactive{
+    color: rgba(0,0,0,0.5);
+    background-color: rgba(255,255,255,255.95)!important;
+    border-color:rgba(0,0,0,0.85)!important;
+}
+
 .btn-black:hover{
     color: rgba(255,255,255,0.9);
     border-color:rgba(255,255,255,0.9)!important;
@@ -227,4 +233,180 @@ line-height: 80px;
 
 .top-marquee{
     width: 100vw;
+    color:rgba(255,255,255,0.95);
+    line-height: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: -31px;
+    position: absolute;
+    background-color: rgba(0,0,0,0.45);
+    padding: 10px 0;
+}
+
+.home-5 .muti_menu ul li a.active{
+    border-bottom: 1px solid rgba(0,0,0,1);
+    background-color: rgba(255,255,255,0.8);
+    color: rgba(0,0,0,0.7);
+    cursor:not-allowed;
+    transform: rotate(-9deg);
+    margin-top: 30px;
+    line-height: 30px;
+}
+
+.home-2 .header-menu.stick .muti_menu ul li a.active{
+    background-color: rgba(255,255,255,0.8);
+    color: rgba(0,0,0,0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+    cursor:not-allowed;
+    transform: rotate(9deg);
+    margin-top: 30px;
+    line-height: 30px;
+
+}
+
+.home-2 .header-menu.stick .muti_menu ul li a.active:hover .fa{
+    text-shadow: 5px 5px rgba(0,0,0,0.19);
+
+
+}
+
+.home-5 .muti_menu ul li a.active:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+}
+
+.home-5 .muti_menu ul li a:hover .fa{
+    text-shadow: 5px 5px rgba(255,255,255,0.19);
+}
+.home-2 .header-menu.stick .muti_menu ul li a.active:hover{
+    background-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+}
+
+.home-5 .muti_menu ul li a.active .header-text{
+    text-transform: lowercase;
+    text-decoration: underline;
+
+}
+
+
+.logo-when-not-sticky{
+    opacity: 1;
+    max-height: 50px;
+    transition:opacity 1000ms ease-in,position 800ms ease-in;
+    /*transition:max-height 800ms ease-in-out,margin 800ms ease-in-out;*/
+}
+
+.logo-when-sticky{
+
+    margin-top: 20px;
+    position: absolute;
+    margin-left: -63px;
+    max-height: 10px;
+    opacity: 0;
+    transition:opacity 1000ms ease-out,max-height 800ms ease-out,position  800ms ease-out;
+
+}
+
+.stick .logo-when-not-sticky{
+    position: absolute;
+    opacity: 0;
+    transition:opacity 1ms ease-in,position 1000ms ease-in;
+}
+
+.stick .logo-when-sticky{
+    opacity: 1;
+    margin-top: 0px;
+    margin-left: 0;
+    max-height: 25px;
+    transition:max-height 1000ms ease-out,margin-left 800ms ease-out;
+    position: relative;
+}
+
+.productList-hidden{
+    height: 0;
+    transition:height 1000ms ease-out,margin-left 800ms ease-out;
+}
+.productList-hidden .productList-table{
+   display: none;
+}
+
+.productList-show .productList-table{
+    width: 100%;
+
+}
+
+.productList-show{
+    margin: 0;
+    height:auto;
+    transition:height 1000ms ease-out,margin-left 800ms ease-out;
+}
+
+.orderList-title{
+    margin:auto 10px;
+}
+
+.active-orderList{
+
+}
+
+.active-orderList .orderList-title{
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+}
+.p-0{
+    padding:0;
+}
+
+.tb-info-login h5.tb-title4{
+    margin-top: 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+
+.product-img{
+    min-height: 363px;
+    background-size: cover;
+    background-position: center;
+}
+.tb-product-item .product-img{
+    min-height: 143px;
+    background-size: cover;
+    background-position: center;
+}
+.btn-outline-black{
+    border-color: rgba(0,0,0,0.95)!important;
+}
+.btn-outline-black:hover{
+    background-color: rgba(0,0,0,0.65)!important;
+    color: rgba(255,255,255,0.95)!important;
+
+}
+.us-text-headline{
+    color: rgba(0,0,0,1);
+    font-weight: 800;
+    line-height: 28.8px;
+    font-size:24px ;
+}
+
+.us-text-headline img{
+    max-height:18px;
+    margin: -3px 5px 0 10px;
+    padding: 0;
+}
+.btn-black img{
+    max-height: 12px;
+    margin: -2px 3px 0 6px;
+}
+
+.card.selected{
+    border-color:rgba(0,0,0,0.95);
+}
+.card.selected .card-header{
+    color:rgba(0,0,0,0.95);
+    font-weight: bold;
+}
+.features-tab .shop-all-tab{
+    display: flex;
+    justify-content: space-between;
 }

@@ -61,7 +61,6 @@ trait HasAddresses
     public function createAddress($data=[]){
         $rawData=$data;
         $data=Arr::only($data,['line_1','line_2','line_3','pincode']);
-
         $newModel=new (Address::class)();
         $newModel->fill($data);
         $newModel->save();

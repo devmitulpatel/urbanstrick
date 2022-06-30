@@ -16,13 +16,14 @@ class CategoriesCountResource extends JsonResource
     {
 
 
-
+        $routeType=$request->route()->parameter('type');
+        if(is_object($routeType))$routeType=$routeType->slug;
         return [
             'id'=>$this->id,
             'name'=>$this->name,
             'count'=>$this->products_count,
             'url'=>route('product_list',['type'=>$this->slug]),
-            'active'=>$request->route()->parameter('type')==$this->slug
+            'active'=>$routeType==$this->slug
         ];
         return parent::toArray($request);
     }

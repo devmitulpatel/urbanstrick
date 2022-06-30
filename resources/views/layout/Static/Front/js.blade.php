@@ -16,7 +16,9 @@
             'lib/js/jquery.nivo.slider.js',
             'lib/home.js',
             'js/plugins.js',
+            //'checkout.js',
             'js/main.js',
+
 
     ];
     array_walk($loadJs,function (&$val){
@@ -31,5 +33,5 @@
 @foreach($loadJs as $path)
     <script src="{{$path}}"></script>
 @endforeach
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 @routes

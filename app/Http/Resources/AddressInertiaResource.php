@@ -23,6 +23,7 @@ class AddressInertiaResource extends JsonResource
 
         return [
             'id'=>$address->id,
+            'name'=>$address->name,
             'line_1'=>$address->line_1,
             'line_2'=>$address->line_2,
             'line_3'=>$address->line_3,

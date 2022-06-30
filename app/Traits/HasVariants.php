@@ -3,6 +3,8 @@
 namespace App\Traits;
 
 use App\Models\Variantable;
+use App\Models\VariantType;
+use App\Models\VariantTypeValue;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -10,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection as CollectionSupport;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Plank\Metable\Meta;
 
 trait HasVariants
@@ -71,7 +74,64 @@ trait HasVariants
 
         return $this->indexedVariantsCollection;
     }
-    protected function makeVariant(mixed $product=''): Variantable
+    public function getVariantTypeId(mixed $variantType)
+    {
+        switch (gettype($variantType)){
+            case 'string':
+                $foundVariant=VariantType::query()->orWhere('slug',Str::slug($variantType))->orWhere('name',$variantType)->first();;
+                if($foundVariant==null) goto IntegerCase;
+                if(is_object($foundVariant) && get_class($foundVariant) == VariantType::class){
+                    $variantType=$foundVariant;
+                    goto ObjectCase;
+                }
+                break;
+            case 'integer':
+                IntegerCase:
+                $id=(integer)$variantType;
+                break;
+            case 'object':
+                ObjectCase:
+                $id=$variantType->id;
+                break;
+            case 'array':
+                $id=$variantType['id'];
+                break;
+            default:
+                $id=(integer)$variantType['id'];
+        }
+
+        return $id;
+    }
+    public function getVariantValueId(mixed $variantTypeValue)
+    {
+        switch (gettype($variantTypeValue)){
+            case 'string':
+                $foundVariant=$this->getVariantValueModel()::query()->orWhere('slug',Str::slug($variantTypeValue))->orWhere('name',$variantTypeValue)->first();
+                if($foundVariant==null) goto IntegerCase;
+                if(is_object($foundVariant) && get_class($foundVariant) == VariantType::class){
+                    $variantType=$foundVariant;
+                    goto ObjectCase;
+                }
+                break;
+            case 'integer':
+                IntegerCase:
+                $id=(integer)$variantTypeValue;
+                break;
+            case 'object':
+                ObjectCase:
+                $id=$variantTypeValue->id;
+                break;
+            case 'array':
+                $id=$variantTypeValue['id'];
+                break;
+            default:
+                $id=(integer)$variantTypeValue['id'];
+        }
+
+        return $id;
+    }
+
+    protected function makeVariantModel(mixed $product=''): Variantable
     {
         $className = $this->getVariantsClassName();
         $parent_id =$this->getProductId($product);
@@ -83,21 +143,45 @@ trait HasVariants
         $variant->variant_type = $this->getMorphClass();
         $variant->variant_id = $this->getKey();
 
+
         return $variant;
     }
-    public function scopeMakeVariant($query,mixed $product=''): Variantable
+    public function scopeMakeVariant($query,mixed $product='',$variantType='',$variantName=''): Variantable
     {
+        $variantTypeId=$this->getVariantTypeId($variantType);
         $className = $this->getVariantsClassName();
-        $parent_id =$this->getProductId($product);
-        $variant = new $className([
-            'parent_id'=>$parent_id,
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
+        $parent_id =$this->getProductId($this);
+        $variantValueId=$this->getVariantValueId($this->makeVariantValue($variantName));
+        if($variantTypeId==null)dd($variantValueId);
+        $foundVariant=$this->getVariantsClassName()::query()
+                ->where('variant_type_id',$variantTypeId)
+                ->where('variant_type_value_id',$variantValueId)
+                ->where('parent_id',$parent_id)
+                ->where('variant_type',$this->getMorphClass())
+                ->where('variant_id',$this->getKey())
+                ->first()
+        ;
+
+        if(is_object($foundVariant))return $foundVariant;
+        $variant =$this->makeVariantModel($this);
         $variant->variant_type = $this->getMorphClass();
         $variant->variant_id = $this->getKey();
+        $variant->variant_type_id = $variantTypeId;
+        $variant->variant_type_value_id = $variantValueId;
+        $this->variants()->save($variant);
+        return $variant;
         $variant->save();
         return $variant;
+    }
+
+    private function getVariantValueModel(){
+        return VariantTypeValue::class;
+    }
+
+    private function makeVariantValue($value){
+        $found=$this->getVariantValueModel()::orWhere('name',$value)->orWhere('slug',Str::slug($value))->first();
+        if(is_object($found))return $found;
+        return $this->getVariantValueModel()::create(normal_seed($value));
     }
 
     public function scopeWhereHasVariants(Builder $q): void
@@ -112,7 +196,7 @@ trait HasVariants
     public function purgeVariants(): void
     {
         $this->variants()->delete();
-        $this->setRelation('variants', $this->makeVariant()->newCollection([]));
+        $this->setRelation('variants', $this->makeVariantModel()->newCollection([]));
     }
 
     public function getVariantRecord(string $key): ?Variantable
@@ -139,7 +223,7 @@ trait HasVariants
             } else {
                 CreateNewVariant:
 
-                $item = $this->makeVariant($parent_id);
+                $item = $this->makeVariantModel($parent_id);
                 $this->variants()->save($item);
                 //$this->variants()[] = $item;
                 $this->indexedVariantsCollection[] = $item;
@@ -163,7 +247,7 @@ trait HasVariants
             // requires Laravel >8.0
             $variantsModels = new Collection();
             foreach ($variantDictionary as $key=>$product) {
-                $variantsModels[$key] = $this->makeVariant($product);
+                $variantsModels[$key] = $this->makeVariantModel($product);
             }
 
 
@@ -200,12 +284,12 @@ trait HasVariants
         if(is_array($array)){
 
             foreach ($array as $key => $value) {
-                $variant[$key] = $this->makeVariant($value);
+                $variant[$key] = $this->makeVariantModel($value);
             }
         }elseif (is_object($array)){
             $x=0;
             foreach ($array as $value) {
-                $variant[$x] = $this->makeVariant($value);
+                $variant[$x] = $this->makeVariantModel($value);
                 $x++;
             }
         }
@@ -214,7 +298,7 @@ trait HasVariants
         $this->variants()->saveMany($variant);
 
         // Update cached relationship.
-        $collection = $this->makeVariant()->newCollection($variant);
+        $collection = $this->makeVariantModel()->newCollection($variant);
         $this->setRelation('variants', $collection);
     }
 
@@ -251,7 +335,7 @@ trait HasVariants
     {
         return collect([])->merge(
             $this->getVariantCollection()->toBase()->map(function (Variantable $variant) {
-                return $variant->getAttribute('parent_id');
+                return $variant;
             })
         );
     }

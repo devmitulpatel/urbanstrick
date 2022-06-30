@@ -94,7 +94,7 @@ class ModelRepositories
     }
     public function emptyModel(){
         $class=$this->getModel();
-            return new  $class();
+            return new $class();
     }
 
 }

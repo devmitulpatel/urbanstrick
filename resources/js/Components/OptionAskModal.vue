@@ -70,7 +70,7 @@
                                     <input type="text" class="form-control" v-model="currentQt">
                                 </div>
 
-                                <div v-for="(option,k) in options" class="cursor-pointer">
+                                <div v-if="false" v-for="(option,k) in options" class="cursor-pointer">
                                     <div class="form-check" >
                                         <input
                                             :id="[option.value,k].join('_')"
@@ -88,6 +88,18 @@
                                         </label>
                                     </div>
                                 </div>
+
+
+
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button v-on:click="()=>selectedOption=option.value" v-for="(option,k) in options" type="button" class="btn " :class="{'btn-black':option.value==selectedOption,'btn-inactive':option.value!=selectedOption}">
+                                            {{ option.text }}
+                                            <small v-if="currentCart.isItemExist(props.product,option.value)">
+                                                (in cart: {{currentCart.getItem(props.product,option.value).qt}})
+                                            </small>
+                                        </button>
+                                    </div>
+
 
                             </div>
 

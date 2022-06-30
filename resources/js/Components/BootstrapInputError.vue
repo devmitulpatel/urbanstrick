@@ -8,8 +8,7 @@
 
 const props=defineProps({
     form:Object,
-    name:String,
-    vModel:Object
+    name:String
 });
 
 </script>

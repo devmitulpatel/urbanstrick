@@ -7,6 +7,8 @@ use App\Models\DynamicData;
 use App\Models\Product;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 //use Jorenvh\Share\Share;
@@ -253,27 +255,36 @@ if (!function_exists('google_catcha_tag')) {
 if (!function_exists('product_map')) {
     function product_map(Product|ProductResource $map)
     {
+            if(get_class($map)==ProductResource::class){
+                $map=$map->resource;
+            }
+            $media = $map->media->first();
+            $price = $map->prices->first();
+            $meta = $map->meta;
+            $wishedByOwn = $map->wishedByOwn;
+            $slug=$map->slug;
+            $name=$map->name;
 
-        $media = $map->media->first();
-        $price = $map->prices->first();
-        $meta = $map->meta;
-        $wishedByOwn = $map->wishedByOwn;
-        $key = implode(':', ['currency_symbol', $map->id]);
+
+
+        $key = implode(':', ['currency_symbol']);
         $currency = (Cache::has($key)) ?
             Cache::remember($key, 1200, function () use ($price) {
                 return $price->currency->currency;
             }) : $price->currency->currency;
 
+        if($currency==null)dd($price->currency);
+
         $map->setAttribute('type_of_print', $meta->where('key', 'type_of_print')->first()->value);
         $map->setAttribute('type_of_fabric', $map->getMeta('type_of_fabric'));
         $map->setAttribute('color', $map->getMeta('color'));
-        $map->setAttribute('url', makeSureHttps($media->getUrl()));
-        $map->setAttribute('thumbnail', makeSureHttps($media->findVariant('thumb')->getUrl()));
+        $map->setAttribute('url', makeSureHttps($media?->getUrl()));
+        $map->setAttribute('thumbnail', makeSureHttps($media?->findVariant('thumb')->getUrl()));
         $map->setAttribute('price', $price->price);
         $map->setAttribute('currency', $currency->symbol);
         $map->setAttribute('wished', $wishedByOwn->count() > 0);
         $map->setAttribute('wished_id', $wishedByOwn->first()?->id);
-        $map->setAttribute('share', social_share_link(route('product_page', ['name' => $map->slug]), implode(' ', ['Buy', $map->name, 'only on UrbanStrick'])));
+        $map->setAttribute('share', social_share_link(route('product_page', ['name' =>$slug ]), implode(' ', ['Buy', $name, 'only on UrbanStrick'])));
         $map->unsetRelations(['prices', 'media', 'meta']);
 
 
@@ -442,6 +453,35 @@ if (!function_exists('social_share_link')) {
             ->getRawLinks();
 
 
+    }
+}
+if (!function_exists('get_file_name')) {
+    function get_file_name($path,$seprator='/')
+    {
+
+        $explode=explode($seprator,$path);
+        $fileName=$explode[count($explode)-1];
+        $explodeFileName=explode('.',$fileName);
+        return $explodeFileName[0];
+
+    }
+}
+if (!function_exists('load_routes')) {
+    function load_routes($path,$controllers=[],$auto=true)
+    {
+        $basePath=['routes'];
+        $basePath[]=$path;
+        $files=\Illuminate\Support\Facades\Storage::disk('root')->allFiles(implode('/',$basePath));
+        foreach ($files as $file){
+            $filename=Str::slug(get_file_name($file));
+            $name=implode('.',[$filename,'']);
+            $routes=Route::prefix($filename)->as($name);
+            if(array_key_exists($filename,$controllers))$routes->controller($controllers[$filename]);
+            $routes->group(function () use ($file) {
+                require base_path($file);
+            });
+
+        }
     }
 }
 

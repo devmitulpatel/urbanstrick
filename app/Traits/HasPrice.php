@@ -61,7 +61,6 @@ trait HasPrice
 
     public function setPrice($price,$country='india',$currency=1){
 
-        $price_id=$this->getPriceId($price);
         $newModel=$this->makePrice($price);
         $newModel->save();
         $newModel->setCountry($country);
@@ -89,16 +88,38 @@ trait HasPrice
     }
 
 
-    public function getPriceRow(mixed $country, mixed $currency)
+    public function getPriceRow(mixed $currency=1)
     {
-        $country_id=$this->getCountry($country)->id;
+        $country_id=$this->getCountry()->related_id;
+
+//        dd()
+        //dd($this->getCountry());
+
         $currency_id=$currency;
 
-       $this->loadPricesRelationIfNot();
+        $prices=$this->prices->toArray();
 
-       // dd($currency_id);
-      //  $this->with(['prices']);
-        //dd($currency_id.$country_id);
+
+
+        if(collect($prices)->where('country.related_id',$country_id)->where('currency.related_id',$currency_id)->first()===null)
+
+            dd(
+                $this,
+                collect($prices)->where('country.related_id',$country_id)->where('currency.related_id',$currency_id)->first()
+                ,
+                $prices,
+                $currency_id,
+                $country_id
+            );
+        return collect($prices)->where('country.related_id',$country_id)->where('currency.related_id',$currency_id)->first();
+//        return $this->prices->first();
+//        dd($this->prices);
+//
+//       $this->loadPricesRelationIfNot();
+//
+//       // dd($currency_id);
+//      //  $this->with(['prices']);
+//        //dd($currency_id.$country_id);
         return $this->prices->where('country.related_id',$country_id)->where('currency.related_id',$currency_id)->first();
         dd($this->prices()->whereHas('country',function (Builder $builder){})->whereHas('currency',function (Builder $builder){})->get()->toArray());
         dd($this->with(['prices'])->whereHas($this->getPricesRelationName(),function (Builder $builder) use ($country_id,$currency_id) {
@@ -130,6 +151,10 @@ trait HasPrice
         })?->first();
     }
 
+    public function getPrice(){
+
+        dd($this->getPriceRow('india','inr'));
+    }
 
     public function setPricesRelation($relation,$value)
     {

@@ -1,10 +1,12 @@
 import {createToast} from "mosha-vue-toastify";
+import { Iodine } from '@kingshott/iodine';
 
 const cartLocalKey='cart';
 import {store} from '@/FrontEndStore';
 //import {debounce} from "lodash/function";
 import route from "ziggy-js";
 import {Ziggy} from "@/ziggy";
+import axios from "axios";
 
 
 function routes(name, params, absolute, config = Ziggy){
@@ -87,32 +89,44 @@ const getDiscountPercentage=(price)=>{
     return(price==799)?27:23;
 }
 
-
+const iodine = new Iodine();
 const msHelper=()=>{
 
     let allSizeAvailable=[
 
         {
-            text:'Small (S)',
+            text:'S',
             value:'s'
         },
         {
-            text:'Medium (M)',
+            text:'M',
             value:'m'
         },
         {
-            text:'Large (L)',
+            text:'L',
             value:'l'
         },
         {
-            text:'Extra Large (XL)',
+            text:'XL',
             value:'xl'
         },
         {
-            text:'Extra Double Large (2XL)',
+            text:'XXL',
             value:'xxl'
         },
     ];
+    let forms= {
+
+        checkout:{
+            quickBuy:[
+                {
+                    name:'First Name',
+                    slug:'firstname'
+                }
+            ]
+        }
+
+    };
 
     return {
         getYear() {
@@ -145,6 +159,13 @@ const msHelper=()=>{
                 },
                 setRawWished:(data)=>{
                     store.setWish(data);
+                },
+                refresh:()=>{
+                    let url = routes('dashboard.userData')
+                    axios.post(url).then((response)=>{
+                        let user=response.data;
+                        msHelper().auth().login(user);
+                    })
                 }
 
 
@@ -170,7 +191,51 @@ const msHelper=()=>{
             }
 
             return returnArray.join('');
-    }
+    },
+        validator:()=>{
+            return iodine;
+        },
+        collection:()=>{
+            return {
+                pluckOnly:(arrayObject,keys=[])=>{
+                    var collectionOut=[];
+                    for (var x in arrayObject){
+                        let rowData={
+                            'id':arrayObject[x].product.slug,
+                            'size':arrayObject[x].size,
+                            'qt':arrayObject[x].qt,
+                        };
+
+
+                        // for(var i in keys){
+                        //     if(arrayObject[x].hasOwnProperty(keys[i])) {
+                        //         rowData[keys[i]] = arrayObject[x][keys[i]];
+                        //     }else {
+                        //         let splitedKey=keys[i].split('.');
+                        //         let objectRow = null;
+                        //         for (var z in splitedKey){
+                        //             if(arrayObject[x].hasOwnProperty(splitedKey[z])){
+                        //                 if (arrayObject[x][splitedKey[z]]){
+                        //
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        console.log(rowData);
+                        collectionOut.push(rowData);
+                    }
+                    return collectionOut;
+                }
+            };
+        },
+        formData:()=>{
+            return {
+                get:(key)=>{
+                    return(forms.hasOwnProperty(key))?forms[key]:{};
+                }
+            };
+        }
     }
 }
 // function msHelper(){
@@ -272,8 +337,15 @@ const cart={
     },
     get(){
         let existingCart=getLocalData(cartLocalKey);
-        if (existingCart!=null && existingCart.length>0 && store.getCart().length<1)store.setCart(existingCart);
+        if (existingCart!=null && existingCart.length>0 && store.getCart().length<1)store.setCart(existingCart,false);
         return store.getCart();
+    },
+    doEmpty:()=>{
+        store.setCart([]);
+        setLocalData(cartLocalKey,[]);
+    },
+    isEmpty:()=>{
+        return store.getCart().length<1;
     },
     getTotal(){
         let cart= store.getCart();
@@ -305,7 +377,6 @@ const cart={
     getItem(product,size=null){
         return cart.get()[findItem(product,size)];
     },
-
     getItemTotalQt(product,size=null){
         let foundItems=findItemAll(product,size);
         let total = 0 ;

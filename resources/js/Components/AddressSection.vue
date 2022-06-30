@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <AddAddressModal v-model:is-show="isAddAddressOpened"></AddAddressModal>
+    <AddAddressModal v-model:is-show="isAddAddressOpened" :added-address="reloadAddress"></AddAddressModal>
 
 </template>
 
@@ -97,9 +97,14 @@ import BootstrapInputError from "@/Components/BootstrapInputError";
 import AddressRow from "@/Components/AddressRow";
 import ClickableButton from "@/Components/ClickableButton";
 import {ref} from "vue";
+import { Inertia } from '@inertiajs/inertia';
 const props =defineProps({
 
-})
+});
+
+const reloadAddress=()=>{
+    msHelper().auth().refresh();
+}
 const addressForm =useForm({
     line_1:'',
     line_2:'',

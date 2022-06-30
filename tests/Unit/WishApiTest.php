@@ -14,7 +14,6 @@ use Tests\TestCase;
 class WishApiTest extends TestCase
 {
 
-    use RefreshDatabase;
     use InteractsWithSession;
     /**
      * A basic unit test example.

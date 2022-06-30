@@ -23,6 +23,7 @@ return new class extends Migration
             able_model_schema($table,'cartable');
             $table->foreignIdFor(Product::class);
             $table->unsignedBigInteger('quantity')->default(1);
+            $table->string('uuid')->nullable();
         });
     }
 

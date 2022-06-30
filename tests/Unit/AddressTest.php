@@ -9,7 +9,6 @@ use Tests\TestCase;
 
 class AddressTest extends TestCase
 {
-    use RefreshDatabase;
     /**
      * A basic unit test example.
      *

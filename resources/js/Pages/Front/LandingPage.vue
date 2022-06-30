@@ -284,7 +284,7 @@ export default {
             </div>
         </div>
     </section>
-    <section class="design-area home-4">
+    <section class="design-area home-4" v-if="false">
         <div class="container">
             <div class="bottom-design res" v-if="false">
                 <div class="row">

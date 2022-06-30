@@ -1,5 +1,12 @@
 <script setup>
 import {onMounted, ref,onUpdated} from 'vue';
+import anime from 'animejs/lib/anime.es.js';
+var battery = {
+    charged: '0%',
+    cycles: 120
+}
+
+
 //import route from "ziggy-js";
 // import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue';
 // import BreezeDropdown from '@/Components/Dropdown.vue';
@@ -27,7 +34,7 @@ const props = defineProps({
     auth:Object,
     errors:Object,
     canlogin:Boolean,
-    cart:Array
+    cart:[Array,Object]
 });
 const cartLocalKey='cart';
 const removeProduct = (product) => {
@@ -43,6 +50,8 @@ const toggleUserModal=()=>{
 onUpdated(()=>{
     // msHelper().auth().login(props.auth.user);
 });
+
+
 onMounted(()=>{
 
    msHelper().auth().login(props.auth.user)
@@ -57,11 +66,13 @@ onMounted(()=>{
         $(window).on('scroll', function () {
             if ($(window).scrollTop() > stickyTop) {
                 $('.header-menu').addClass('stick');
+
                 // $('.dynamic-logo-big').addClass('d-none');
                 // $('.dynamic-logo-small').removeClass('d-none');
 
             } else {
                 $('.header-menu').removeClass('stick');
+
                 // $('.dynamic-logo-small').addClass('d-none');
                 // $('.dynamic-logo-big').removeClass('d-none');;
             }
@@ -76,6 +87,8 @@ onMounted(()=>{
             $('.user-popup').toggleClass('active');
         });
     }
+
+
 });
 const currentCart = manageCart();
 const allAvatar=[
@@ -119,14 +132,16 @@ const toggleProfile=()=>{
                 <div class="header-wrapper">
                     <div class="logo-stiky">
                         <InertiaLink :href="route('home')">
-                            <img :class="{'animate__animated':isLogoAnimate}" class=" animate__tada animate__infinite animate__slower" style="max-height: 50px" :src="asset('img/logo/logo.png')" alt="">
+                            <img :class="{'animate__animated':isLogoAnimate}" class=" animate__tada animate__infinite animate__slower logo-when-not-sticky"  :src="asset('img/logo/logo.png')" alt="">
+                            <img :class="{'animate__animated':isLogoAnimate}" class=" animate__tada animate__infinite animate__slower logo-when-sticky"  :src="asset('img/logo/step2b.png')" alt="">
                         </InertiaLink>
                     </div>
                     <div class="menu-cart">
                         <div class="muti_menu">
                             <nav>
                                 <ul>
-                                    <li v-if="!route().current('product_list',{type:'women'})" ><InertiaLink :href="route('product_list',{type:'women'})">Women <i class="fa fa-angle-down"></i></InertiaLink>
+                                    <li>
+                                        <InertiaLink :href="route('product_list',{type:'women'})" :class="{'active':route().current('product_list',{type:'women'})}"><span class="header-text">Women</span> <i class="fa fa-venus ml-2" aria-hidden="true"></i></InertiaLink>
                                         <div v-if="false" class="mega-menu menu-minus">
                                             <div class="tas1">
                                                 <div class="tas">
@@ -161,7 +176,8 @@ const toggleProfile=()=>{
                                             </div>
                                         </div>
                                     </li>
-                                    <li v-if="!route().current('product_list',{type:'men'})"><InertiaLink :href="route('product_list',{type:'men'})">Men <i class="fa fa-angle-down"></i></InertiaLink>
+                                    <li>
+                                        <InertiaLink :href="route('product_list',{type:'men'})" :class="{'active':route().current('product_list',{type:'men'})}"><span class="header-text">Men</span> <i class="fa fa-mars ml-2"></i></InertiaLink>
                                         <div v-if="false" class="mega-menu menu-minus">
                                             <div class="tas1 tas3">
                                                 <div class="tas">
@@ -223,7 +239,8 @@ const toggleProfile=()=>{
                                             </div>
                                         </div>
                                     </li>
-                                    <li v-if="!route().current('product_list',{type:'unisex'})"><InertiaLink :href="route('product_list',{type:'unisex'})">Unisex <i class="fa fa-angle-down"></i></InertiaLink>
+                                    <li>
+                                        <InertiaLink :href="route('product_list',{type:'unisex'})" :class="{'active':route().current('product_list',{type:'unisex'})}"><span class="header-text">Unisex</span> <i class="fa fa-genderless ml-2" aria-hidden="true"></i></InertiaLink>
                                         <div v-if="false" class="mega-menu menu-minus">
                                             <div class="tas1 tas3">
                                                 <div class="tas">
@@ -286,10 +303,10 @@ const toggleProfile=()=>{
                                         </div>
                                     </li>
 
-                                    <li v-if="!route().current('contact_us')" ><InertiaLink :href="route('contact_us')">Contact</InertiaLink></li>
-                                    <li v-if="!route().current('about-us')"><InertiaLink :href="route('about-us')">About US</InertiaLink></li>
-                                    <li v-if="!route().current('login') && !msHelper().auth().check()" ><InertiaLink :href="route('login')">Login</InertiaLink></li>
-                                    <li v-if="!route().current('register') && !msHelper().auth().check()" ><InertiaLink :href="route('register')">Register</InertiaLink></li>
+                                    <li><InertiaLink :class="{'active':route().current('contact_us')}"  :href="route('contact_us')">Contact</InertiaLink></li>
+                                    <li><InertiaLink :class="{'active':route().current('about-us')}" :href="route('about-us')">About US</InertiaLink></li>
+                                    <li v-if="!msHelper().auth().check()" ><InertiaLink :class="{'active':route().current('login')}" :href="route('login')">Login</InertiaLink></li>
+                                    <li v-if="!msHelper().auth().check()" ><InertiaLink :class="{'active':route().current('register')}" :href="route('register')">Register</InertiaLink></li>
                                 </ul>
                             </nav>
                         </div>
@@ -363,7 +380,7 @@ const toggleProfile=()=>{
 
                                                 <div class="d-flex justify-content-between align-items-center mt-2 px-4">
 
-                                                    <InertiaLink :href="route('user.dashboard.home')" method="get" as="div" class="btn btn-sm btn-block btn-info w-full mt-2 pull-right" >
+                                                    <InertiaLink :href="route('dashboard.home')" method="get" as="div" class="btn btn-sm btn-block btn-info w-full mt-2 pull-right" >
                                                         My account
                                                     </InertiaLink>
 
@@ -628,10 +645,10 @@ const toggleProfile=()=>{
                                 <h3 class="wg-title">Information</h3>
                                 <div class="textwidget">
                                     <ul class="f-none">
-                                        <li><responsive-nav-link :href="route((!msHelper().auth().check())?'register':'user.dashboard.home')">{{(!msHelper().auth().check())?'Register':'My account'}}</responsive-nav-link ></li>
+                                        <li><responsive-nav-link :href="route((!msHelper().auth().check())?'register':'dashboard.home')">{{(!msHelper().auth().check())?'Register':'My account'}}</responsive-nav-link ></li>
                                         <li v-if="!msHelper().auth().check()" ><responsive-nav-link :href="route('login')">Login</responsive-nav-link ></li>
-                                        <li v-if="msHelper().auth().check()" ><responsive-nav-link :href="route('user.dashboard.home')">Order history</responsive-nav-link></li>
-                                        <li v-if="msHelper().auth().check()" ><responsive-nav-link :href="route('user.dashboard.home')">Wish List</responsive-nav-link></li>
+                                        <li v-if="msHelper().auth().check()" ><responsive-nav-link :href="route('dashboard.home')">Order history</responsive-nav-link></li>
+                                        <li v-if="msHelper().auth().check()" ><responsive-nav-link :href="route('dashboard.home')">Wish List</responsive-nav-link></li>
                                         <li v-if="false"><a href="#">Returns</a></li>
                                         <li><responsive-nav-link :href="route('privacy_policy')">Privacy Policy</responsive-nav-link></li>
                                         <li v-if="false"><a href="#">Site Map</a></li>

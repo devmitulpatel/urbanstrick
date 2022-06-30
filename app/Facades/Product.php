@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static hasCategory(string[] $array)
+ * @method static createVariant($productModel, string $string, string $string1)
  */
 class Product extends Facade implements FacadeInterface
 {

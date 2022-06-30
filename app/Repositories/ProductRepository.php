@@ -14,7 +14,7 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
 
 
     private $product=['name','slug'];
-    private $price=['price',''];
+    private $price=['price'];
     private $types=['type_of_fabric','type_of_print'];
     private $color=['color'];
     private $size=['size'];
@@ -31,12 +31,14 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
             $this->getRow()->setManyMeta($metas);
         }
     }
-    public function create(array $data): Product
+    public function create(array $data,$getClass=false): Product|self
     {
+
         $this->setRawData($data);
         $this->createProduct();
         $this->createPrice();
         $this->createExtraMetas();
+        if($getClass)return $this;
         return $this->getRow();
     }
 
@@ -44,7 +46,10 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
         $data=$this->getRawData();
         $currency=(array_key_exists('currency',$data))?$data['currency']:envmix('product-setting','default-currency');
         $country=(array_key_exists('country',$data))?$data['country']:envmix('product-setting','default-country');
+
+
         $this->getRow()->setPrice($data['price'],$country,$currency);
+
         $this->getRow()->setCountry($country);
     }
 
@@ -119,16 +124,30 @@ class ProductRepository extends ModelRepositories implements ModelRepositoriesIn
         return $this->getRow()->delete();
     }
 
-    public function createVariant($model){
-        $model->fill($this->getRow()->toArray());
+    public function createVariant($type,$typeValue){
+        $model=$this;
+        $data=$this->getRow()->toArray();
+        if(array_key_exists('country',$data))unset($data['country']);
+        if(array_key_exists('created_at',$data))unset($data['created_at']);
+        if(array_key_exists('updated_at',$data))unset($data['updated_at']);
+        if(array_key_exists('id',$data))unset($data['id']);
+        if(array_key_exists('variants',$data))unset($data['variants']);
         $variantCount=$this->getRow()->getAllVariants()->count();
-        $model->slug=$this->getUniqueSlug($this->getRow()->slug,$variantCount+1);
-        $model->save();
-        //dd($model);
+        $data['slug']=$this->getUniqueSlug($this->getRow()->slug,$variantCount+1);
+        $data['price']=$model->getRawData('price');
+        $data['image']=$model->getRawData('image');
+        $data['type_of_print']=$model->getRawData('type_of_print');
+        $data['type_of_fabric']=$model->getRawData('type_of_fabric');
+        $data['color']=$model->getRawData('color');
+        $model=$model->getRow();
+        return $this->getRow()->makeVariant($model,$type,$typeValue);
 
-        $this->getRow()->makeVariant($model);
-        dd($this->getRow()->getAllVariants());
+    }
 
+    public function addCategory($categories){
+        $categories=(array)$categories;
+        Product:
+        $this->getRow()->attachCategory($categories);
     }
 
     public function getUniqueSlug($realted,$count=0){

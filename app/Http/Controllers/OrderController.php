@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
@@ -43,11 +48,18 @@ class OrderController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
-    public function show(Order $order)
+    public function show(Order $order,Request $request)
     {
-        //
+
+        if (auth()->id()!=$order->user_id)abort(404);
+        $order->load(['payments','cart','cart.product','cart.meta']);
+        $order=OrderResource::make($order);
+        return Inertia::render('Front/Order', [
+                'order'=>$order->toArray($request)
+                ]);
+
     }
 
     /**

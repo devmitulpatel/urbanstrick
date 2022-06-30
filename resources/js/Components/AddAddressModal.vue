@@ -5,15 +5,19 @@
         v-model="isShow"
         :close="closeModal"
     >
-        <div class="col-12 col-md-4 col-lg-4 mx-auto">
+        <div class="col-12 col-md-9 col-lg-9 mx-auto">
+            <form class="my-3" v-on:submit.prevent="addAddressToServer">
+
+
+
             <div class="card">
 
-                <div v-if="false" class="card-header">
+                <div  class="card-header">
 
                     <div class="d-flex justify-content-between">
 
                         <div class="w-full">
-                            <h5>Share</h5>
+                            <h5>Add New Address</h5>
 
                         </div>
                         <div class="btn las4 btn-outline-danger  btn-block" @click="closeModal">
@@ -26,17 +30,77 @@
 
                 <div class="card-body" >
 
-
-
-                    <div class="row">
-                        <div class=" col-12 col-md-3 col-lg-3 mx-auto">
-                            <div class="profile-avatar avatar-1">
-                                {{ msHelper().getFirstOfAll([msHelper().auth().user().first_name,msHelper().auth().user().last_name]) }}
-                            </div>
+                    <div class="d-flex flex-wrap justify-content-between w-full">
+                        <div class="form-group required w-full">
+                                <label class="control-label">Plot no/Bloc No/ Building Name</label>
+                                <div class="">
+                                    <input :class="{'is-invalid':hasError(addressForm,'line_1')}" v-model="addressForm.line_1" class="form-control" type="text" placeholder="Address line 1">
+                                    <BootstrapInputError  :form="addressForm" name="line_1"></BootstrapInputError>
+                                </div>
                         </div>
 
                     </div>
 
+                    <div class="d-flex  flex-wrap justify-content-between w-full">
+                        <div class="form-group required col-12 col-md-5 col-lg-5">
+
+                                <label class=" control-label">Landmark</label>
+                                <div class="">
+                                    <input :class="{'is-invalid':hasError(addressForm,'line_2')}" v-model="addressForm.line_2" class="form-control" type="text" placeholder="Address line 2">
+                                    <BootstrapInputError  :form="addressForm" name="line_2"></BootstrapInputError>
+                                </div>
+
+                        </div>
+                        <div class="form-group required col-12 col-md-6 col-lg-6">
+                            <div class="row">
+                                <label class="control-label">Area/Road Name</label>
+                                <div class="">
+                                    <input :class="{'is-invalid':hasError(addressForm,'line_3')}" v-model="addressForm.line_3" class="form-control" type="text" placeholder="Address line 3">
+                                    <BootstrapInputError  :form="addressForm" name="line_3"></BootstrapInputError>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex  flex-wrap justify-content-between w-full">
+
+                        <div class="form-group required col-12 col-md-3 col-lg-3">
+
+                                <label class=" control-label">Pincode</label>
+
+                                    <input :class="{'is-invalid':hasError(addressForm,'pincode') ,'form-control':true}" v-model="addressForm.pincode" type="text" placeholder="Pincode" >
+                                    <BootstrapInputError  :form="addressForm" name="pincode"></BootstrapInputError>
+
+
+                        </div>
+                        <div class="form-group required col-12 col-md-3 col-lg-3">
+
+                                <label class=" control-label">City</label>
+                                <div class="">
+                                    <input :class="{'is-invalid':hasError(addressForm,'city')}" v-model="addressForm.city" class="form-control" type="text" placeholder="City">
+                                    <BootstrapInputError  :form="addressForm" name="city"></BootstrapInputError>
+                                </div>
+
+                        </div>
+                        <div class="form-group required col-12 col-md-4 col-lg-4">
+
+                                <label class="control-label">State</label>
+                                <div class="">
+                                    <input :class="{'is-invalid':hasError(addressForm,'state')}" v-model="addressForm.state" class="form-control" type="text" placeholder="State">
+                                    <BootstrapInputError  :form="addressForm" name="state"></BootstrapInputError>
+                                </div>
+                            </div>
+
+
+                    </div>
+
+
+
+
+
+                        <div class="text-center my-4">
+
+                        </div>
 
 
 
@@ -44,18 +108,17 @@
 
                 <div class="card-footer">
 
-                    <div class="d-flex justify-content-between">
-
-                        <a v-on:click.prevent="openAnotherPage(routes('user.dashboard.home'),'get')" method="get" as="div" class="btn las4 btn-info " >
-                            My account
-                        </a>
+                    <div class="d-flex justify-content-around">
 
                         <div class="btn las4 btn-black btn-block col-6" @click="closeModal">
                             close
                         </div>
-                        <a v-on:click.prevent="openAnotherPage(routes('logout'),'post')" method="post" as="div" class="btn  btn-block btn-danger las4 " >
-                            Log out
-                        </a>
+
+                        <button type="submit" value="Save" class="btn btn-primary btn-lg ce5 btn-block w-full">
+                            <div v-if="addressForm.processing" class="spinner-border loading" role="status"></div>
+                            <div v-else  role="status">Add address</div>
+                        </button>
+
 
                     </div>
 
@@ -63,6 +126,8 @@
                 </div>
 
             </div>
+
+        </form>
         </div>
 
     </Modal>
@@ -79,7 +144,7 @@ import {createErrorToast,routes, createSuccessToast, manageCart, msHelper} from 
 import {onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref, watch} from "vue";
 import Table from "@/Components/Table";
 import Input from "@/Components/Input";
-import{InertiaLink} from "@inertiajs/inertia-vue3";
+import {InertiaLink, useForm} from "@inertiajs/inertia-vue3";
 //import route from "ziggy-js";
 import {Inertia} from "@inertiajs/inertia";
 
@@ -92,11 +157,19 @@ const openAnotherPage=(url,type,data={},options={},autoCloseModal=true)=>{
     if(autoCloseModal)closeModal();
 }
 
+const addressForm=useForm('addressForm',{
+    line_1:'',
+    line_2:'',
+    line_3:'',
+    city:'',
+    state:'',
+    pincode:'',
+});
 const emit=defineEmits(
     [
         'update:modelValue',
         'update:isShow',
-        'addProduct'
+        'addedAddress'
     ]
 );
 const closeModal=()=>{
@@ -120,7 +193,38 @@ const addToCart=()=>{
     emit('addProduct',props.product);
     closeModal();
 }
+const addAddressToServer= () => {
+    let url = routes('dashboard.addAddress',{user:msHelper().auth().user()});
+    addressForm.post(url,{
+        preserveState:true,
+        preserveScroll:true,
+        //  errorBag:'userError',
+        onSuccess:()=> {
+            addressForm.reset();
+            closeModal()
+            createSuccessToast('Address added successfully.');
+            emit('addedAddress');
+        },
+        onError:()=> {
 
+            let hasErrorInForm= false;
+            let form=addressForm;
+            if(
+                hasError(form,'line_1') ||
+                hasError(form,'line_2') ||
+                hasError(form,'line_3') ||
+                hasError(form,'pincode') ||
+                hasError(form,'city') ||
+                hasError(form,'state')
+            )hasErrorInForm=true;
+
+            if(hasErrorInForm)createErrorToast('Opps.. Something went wrong.Please try again');
+
+
+        }
+
+    });
+}
 
 const currentQt = ref(1);
 

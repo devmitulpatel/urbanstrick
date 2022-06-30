@@ -21,6 +21,7 @@ class ProductResource extends JsonResource
     {
 
 
+
         product_map($this);
 //        $this->setAttribute('type_of_print',$this->getMeta('type_of_print'));
 //        $this->setAttribute('type_of_fabric',$this->getMeta('type_of_fabric'));

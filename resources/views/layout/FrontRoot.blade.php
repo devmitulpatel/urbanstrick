@@ -24,11 +24,6 @@
 </div>
 
 
-
-
-
-
-
 @include('layout.Static.Front.js')
 
 </body>

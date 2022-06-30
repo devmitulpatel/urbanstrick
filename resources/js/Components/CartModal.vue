@@ -54,10 +54,12 @@
                             <a class="remove btn-black" href="#" v-on:click="removeProduct(itemList.product) ">×</a>
                         </div>
                     </div>
-                    <div v-if="manageCart().getItemNo()==0" class="cat"  style="margin:0 10px">
-                        <div class="cat_two text-center" style="display: contents;">
-                            <h3 >
-                                No Item added yet
+                    <div v-if="manageCart().getItemNo()==0" class=""  style="margin:0 10px">
+                        <div class="cat_two text-center w-full mb-3" >
+
+                            <i class="fa fa-shopping-basket fa-5x mb-3 text-black" aria-hidden="true"></i>
+                            <h3 class="mb-3">
+                                Oops... There is nothing to show here
                             </h3>
 
                             <div  v-on:click.prevent="goAndCloseModal(route('home'))"  class="btn btn-primary btn-black w-full">

@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
        // dd($files);
         $uploader=[];
         $data=[
-            [    'name'=>'Your Self','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(120,121,121)','image'=>'sample_product/7.png'],
+        [    'name'=>'Your Self','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(120,121,121)','image'=>'sample_product/7.png'],
         [    'name'=>'Urban Earth','price'=>999,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(229,173,154)','image'=>'sample_product/1.png'],
         [    'name'=>'Urban U','price'=>999,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(246,247,247)','image'=>'sample_product/2.png'],
         [    'name'=>'Focus','price'=>799,'type_of_fabric'=>'100 % Cotton','type_of_print'=>'Dye Print','color'=>'rgb(42,43,43)','image'=>'sample_product/3.png'],
@@ -38,21 +38,28 @@ class ProductSeeder extends Seeder
 
         ];
 
+        $sizes=[
+            's','m','l','xl','xxl'
+        ];
+
+
         foreach ($data as $key=>$product){
+                $productModel=\App\Facades\Product::create($product,true);
+                foreach ($sizes as $size){
+                    $productModel->createVariant('Size',$size);
+                }
 
-
-                $productModel=\App\Facades\Product::create($product);
-                $productModel->attachMedia(MediaUploader::importPath('app',$product['image']),'image');
-                $productModel->attachCategory(['men','women','unisex','tshirt']);
-                $productModel->refresh();
-                ImageManipulator::createImageVariant($productModel->media->first()->findOriginal(), 'thumb');
-                ImageManipulator::createImageVariant($productModel->media->first()->findOriginal(), 'thumbnail');
+                $productModel->addCategory(['men','women','unisex','tshirt']);
+                $productModel->getRow()->attachMedia(MediaUploader::importPath('app',$product['image']),'image');
+                $productModel->getRow()->refresh();
+                ImageManipulator::createImageVariant($productModel->getRow()->media->first()->findOriginal(), 'thumb');
+                ImageManipulator::createImageVariant($productModel->getRow()->media->first()->findOriginal(), 'thumbnail');
 //            $productModel=new Product();
 //            $productModel->name=$product['name'];
 //            $productModel->slug=Str::slug($product['name']);
 //            $productModel->save();
 //            $productModel->attachMedia(MediaUploader::importPath('app',$files[$key]),'image');
-//            $productModel->setPrice($product['price']);
+           // $productModel->getRow()->setPrice($product['price']);
         }
 
 
@@ -61,4 +68,5 @@ class ProductSeeder extends Seeder
         //dd($uploader);
 
     }
+
 }

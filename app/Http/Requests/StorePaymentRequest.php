@@ -10,7 +10,7 @@ class StorePaymentRequest extends FormRequest
 {
 
     private $requestModel=Payment::class;
-    private $redirectTo='checkout_proceed_to_payment';
+    private $redirectTo='order.show';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -51,7 +51,9 @@ class StorePaymentRequest extends FormRequest
         $newModel= new $this->requestModel ();
         $newModel->fill($newPaymentData);
         $newModel->save();
-        $data=[];
+        $data=[
+            'order'=>$order->id
+        ];
         return redirect()->route($this->redirectTo,$data);
 
     }

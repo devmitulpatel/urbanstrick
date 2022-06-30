@@ -55,7 +55,7 @@
                                     <ul class="list-group mt-2 px-4">
                                         <li class="list-group-item text-muted text-sm">Quick action</li>
                                         <li class="list-group-item">Pending Orders</li>
-                                        <li class="list-group-item">All Orders</li>
+                                        <li class="list-group-item"><InertiaLink :href="route('dashboard.orderList')">All Orders</InertiaLink></li>
                                         <li class="list-group-item">View UrbanStrick Rewards</li>
                                     </ul>
 
@@ -270,6 +270,7 @@ import {Inertia} from "@inertiajs/inertia";
 import AddressRow from "@/Components/AddressRow";
 import ClickableButton from "@/Components/ClickableButton";
 import AddressSection from "@/Components/AddressSection";
+import AddAddressModal from "@/Components/AddAddressModal";
 const props = defineProps({
     topProduct:Object,
     specialProduct:Object,
@@ -363,7 +364,7 @@ const addressSaved=()=>{
 
         }
 
-    })
+    });
     console.log("save");
 }
 

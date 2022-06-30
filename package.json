@@ -31,9 +31,13 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
+        "@headlessui/vue": "^1.6.4",
+        "@heroicons/vue": "^1.0.6",
         "@inertiajs/server": "^0.1.0",
+        "@kingshott/iodine": "^7.0.1",
         "@vue/server-renderer": "^3.2.31",
         "animate.css": "^4.1.1",
+        "animejs": "^3.2.1",
         "browserify-zlib": "^0.2.0",
         "crypto-browserify": "^3.12.0",
         "css-loader": "^6.7.1",

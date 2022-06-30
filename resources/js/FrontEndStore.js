@@ -1,5 +1,6 @@
 import { reactive,ref } from 'vue'
 import axios from "axios";
+import {routes} from "@/Lib/LaravelHelper";
 
 const globalCart=ref([]);
 const globalSite=ref({});
@@ -10,8 +11,12 @@ export const store = reactive({
     site:globalSite,
     auth:globalAuth,
 
-    setCart:(cart)=>{
+    setCart:(cart,remoteUpdate=true)=>{
         globalCart.value=cart;
+        let data = {
+            items:cart
+        }
+         if(remoteUpdate)axios.post(routes('update_cart'),data);
         //console.log(globalAuth.value);
         //if(globalAuth.value!=null)
             //axios.post(route('update_cart'),{'items':cart});

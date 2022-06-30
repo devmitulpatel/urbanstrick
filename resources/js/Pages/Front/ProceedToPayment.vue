@@ -23,7 +23,8 @@
                             <div class="cart-form table-responsive">
                                 <table id="shopping-cart-table" class="data-table cart-table">
                                     <tr>
-                                        <th class="low1">Product</th>
+                                        <th class="low1 text-left">Product</th>
+                                        <th class="low1">Size</th>
                                         <th class="low7">Quantity</th>
                                         <th class="low7">Price</th>
                                         <th class="low7">Total</th>
@@ -32,6 +33,14 @@
                                         <td class="sop-cart an-shop-cart">
                                             <a href="#"><img class="primary-image" style="max-height: 45px;max-width: 45px;" alt="" :src="product.product.thumbnail"></a>
                                             <a href="#">{{ product.product.name }}</a>
+                                        </td>
+                                        <td class="sop-cart an-sh">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="quantity">
+                                                    {{ product.size.toUpperCase() }}
+                                                </div>
+                                            </div>
+
                                         </td>
                                         <td class="sop-cart an-sh">
                                             <div class="d-flex justify-content-center">
@@ -98,9 +107,8 @@
 import {InertiaLink, useForm} from "@inertiajs/inertia-vue3";
 import { ref} from "vue";
 import {createSuccessToast, manageCart} from "@/Lib/LaravelHelper";
+ require('@/Lib/checkout');
 
-
-//import * as Razorpay from "https://checkout.razorpay.com/v1/checkout.js";
 const props=defineProps({
     site:Object,
     auth:Object,
@@ -113,6 +121,7 @@ const paymentForm=useForm({
     'order_id':''
 })
 
+const orderPaid = ref(false);
 const paymentSuccess=(response)=>{
 
     paymentForm.payment_id=response.razorpay_payment_id;
@@ -121,6 +130,8 @@ const paymentSuccess=(response)=>{
         preserveState:true,
         preserveScroll:true,
         onSuccess:()=>{
+            orderPaid.value=true;
+            manageCart().doEmpty();
             createSuccessToast('We received your payment, You will shortly receive confirmation mail.')
         },
         onError:()=>{
@@ -131,9 +142,8 @@ const paymentSuccess=(response)=>{
 
 }
 
-const payNow=()=>{
-
-    const options = {
+const makeRazorPayOption=()=>{
+    return {
         "key_id": props.api.razorpay.key, // Enter the Key ID generated from the Dashboard
         "key_secret": props.api.razorpay.secret, // Enter the Key ID generated from the Dashboard
         "amount": (props.order.data.total_amount*props.order.data.total_tax)*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -143,24 +153,32 @@ const payNow=()=>{
         "image": "https://www.urbanstrick.com/img/logo/payment_logo.png",
         "order_id": props.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         "handler": function (response){
-            paymentSuccess(response)
-        },
+        paymentSuccess(response)
+    },
         "prefill": {
-            "name": [props.auth.user.first_name,props.auth.user.last_name].join(' ') ,
+        "name": [props.auth.user.first_name,props.auth.user.last_name].join(' ') ,
             "email": props.auth.user.email,
             "contact": "9999999999"
-        },
+    },
         "notes": {
-            "address": props.site.addressx
-        },
+        "address": props.site.addressx
+    },
         "theme": {
-            "color": "#070807"
-        }
+        "color": "#070807"
+    }
     };
+};
+
+const payNow=()=>{
+
+    const options = makeRazorPayOption();
+
+    console.log(options);
 
     const rzp1 = new Razorpay(options);
     rzp1.open();
 }
+
 
 
 const cart=ref(manageCart().get());

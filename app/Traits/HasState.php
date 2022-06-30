@@ -23,11 +23,11 @@ trait HasState
         return 'state_id';
     }
 
-    public function createState($name){
+    public function createState($name,$forced=true){
 
         $state=$this->getOrCreateState($name);
         $this->{$this->getStateLocalKey()}=$state->id;
-        $this->save();
+        if($forced)$this->save();
         return $state;
 
     }

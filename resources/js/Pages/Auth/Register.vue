@@ -81,7 +81,7 @@ const submit = () => {
         },
         onSuccess:()=>{
             if(isAbleToCreatePassword)isPasswordSetted.value=true;
-            createSuccessToast('Action taken successfully.');
+            createSuccessToast('Your account is created successfully.');
         },
         onError:()=>{
             createErrorToast('Opps.. Something went wrong.Please try again');
@@ -95,11 +95,18 @@ const getSubmitText=()=>{
 }
 
 </script>
+<script>
+import FrontEndLayout from '@/Layouts/FrontEnd.vue';
 
+export default {
+    // Using the shorthand
+    layout: FrontEndLayout,
+
+
+}
+</script>
 <template>
-    <FrontEnd :site="props.site" :auth="props.auth">
         <Head title="Register" />
-
         <section class="contact-img-area" :style="{'background-image':'url('+asset(getBg())+')'}">
             <div class="container">
                 <div class="row">
@@ -125,7 +132,7 @@ const getSubmitText=()=>{
                             <form @submit.prevent="submit">
 
 
-                                <p class="checkout-coupon top log a-an" v-if="!isAbleToCreatePassword">
+                                <div class="checkout-coupon top log a-an" v-if="!isAbleToCreatePassword">
                                     <label class="l-contact">
                                         Email Address
                                         <em>*</em>
@@ -134,7 +141,7 @@ const getSubmitText=()=>{
                                     <div v-if="hasError(form,'email')" class="invalid-feedback">
                                         {{getError(form,'email')}}
                                     </div>
-                                </p>
+                                </div>
 
                                 <span v-else>
                                        <p class="checkout-coupon top log a-an" >
@@ -169,26 +176,16 @@ const getSubmitText=()=>{
 
                                 <p class="login-submit5">
 
-                                    <BreezeButton value="geRegister" class="button-info btn btn-black" type="submit" :class="{ 'opacity-25': form.processing }" :disabled="form.processing" >
+                                    <BreezeButton value="geRegister" class="btn button-info  btn-black" type="submit" :class="{ 'opacity-25': form.processing }" :disabled="form.processing" >
                                         {{getSubmitText()}}
                                 </BreezeButton>
                                     <span class="px-3">
                                         - or -
                                     </span>
-                                    <InertiaLink :href="route('login',{email:form.email})"  class="btn button-info btn-black">Log in</InertiaLink>
+                                    <button :href="route('login',{email:form.email})"  class="btn button-info btn-black">Continue</button>
 
                                 </p>
                             </form>
-                            <div class="tb-info-login ">
-
-                                <h5 class="tb-title4">
-                                    SignUp today and you'll be able to:</h5>
-                                <ul>
-                                    <li>Speed your way through the checkout.</li>
-                                    <li>Track your orders easily.</li>
-                                    <li>Keep a record of all your purchases.</li>
-                                </ul>
-                            </div>
                         </div>
 
 
@@ -196,40 +193,23 @@ const getSubmitText=()=>{
                             <h5 class="tb-title text-danger"  >Opps Link is expired. Please Contact our Support team.</h5>
                         </div>
                     </div>
+
+                    <div class="col-lg-4 mx-auto">
+                        <div class="tb-info-login ">
+
+                            <h5 class="tb-title4">
+                                SignUp today and you'll be able to:</h5>
+                            <ul>
+                                <li>Become life time meber of UrbanStrick Club.</li>
+                                <li>Speed your way through the checkout.</li>
+                                <li>Track your orders easily.</li>
+                                <li>Keep a record of all your purchases.</li>
+                                <li>Earn Rewards.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <form v-if="false" @submit.prevent="submit">
-            <div>
-                <BreezeLabel for="name" value="Name" />
-                <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
-            </div>
-
-            <div class="mt-4">
-                <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
-                <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <BreezeLabel for="password_confirmation" value="Confirm Password" />
-                <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </Link>
-
-                <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </BreezeButton>
-            </div>
-        </form>
-    </FrontEnd>
 </template>

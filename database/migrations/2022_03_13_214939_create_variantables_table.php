@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\VariantType;
+use App\Models\VariantTypeValue;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +18,8 @@ return new class extends Migration
         Schema::create('variantables', function (Blueprint $table) {
             able_model_schema($table,'variant');
             $table->unsignedBigInteger('parent_id');
-            $table->unsignedBigInteger('variant_type_id');
+            $table->foreignIdFor(VariantType::class);
+            $table->foreignIdFor(VariantTypeValue::class);
         });
     }
 

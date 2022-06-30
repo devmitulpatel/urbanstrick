@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
-    use RefreshDatabase;
+
     /**
      * A basic unit test example.
      *

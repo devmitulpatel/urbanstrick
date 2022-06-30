@@ -40,7 +40,7 @@ class UpdateUserDataRequest extends FormRequest
         }
         $user->fill($input);
         if($user->isDirty())$user->save();
-        return redirect()->route('user.dashboard.home');
+        return redirect()->route('dashboard.home');
 
     }
 }

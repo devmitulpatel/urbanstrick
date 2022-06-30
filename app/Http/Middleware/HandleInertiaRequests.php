@@ -2,8 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\ProductResource;
 use App\Http\Resources\UserInertiaResource;
 use App\Http\Resources\WishedProductResource;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Middleware;
@@ -29,10 +31,12 @@ class HandleInertiaRequests extends Middleware
     }
 
     private function getSharedData($request){
+
         $data=[
             'auth' => [
                 'user' => (auth()->check())?UserInertiaResource::make($request->user())->toArray($request):[],
-                'wished'=>(auth()->check())?WishedProductResource::collection(auth()->user()->hasWished):[]
+                'wished'=>(auth()->check())?WishedProductResource::collection(auth()->user()->hasWished):[],
+        //        'cart'=>(auth()->check())?ProductResource::collection(User::getCurrentUserCart())->toArray($request):[]
             ],
             'site'=>[
                 'customer_care_email_1'=>envmix('site','support-email_1'),

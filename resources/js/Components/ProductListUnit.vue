@@ -2,7 +2,7 @@
     <div class="tb-product-item">
         <div class="tb-image">
             <span class="new">New</span>
-            <img :src="props.product.url" alt="">
+            <div class="product-img" :style='imgStyle(props.product)'></div>
             <a class="la-icon"  title="Quick View" v-on:click.prevent="setCurrentProduct">
                 <i class="fa fa-eye"></i>
             </a>
@@ -79,7 +79,9 @@ const setCurrentProduct=()=>{
 const toggleShareModal=()=>{
     emit("shareModalToggle",props.product);
 }
-
+const imgStyle=(product)=>{
+    return 'background-image:url("'+product.url+'");';
+}
 </script>
 <script>
 export default {

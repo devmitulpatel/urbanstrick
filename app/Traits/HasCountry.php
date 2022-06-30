@@ -49,8 +49,7 @@ trait HasCountry
         }
 
         $country_id=$this->getCountryId($country);
-
-
+        //dd($country_id);
             if ($this->hasCountry()) {
                 $item = $this->getCountryRecord();
                 $item->setAttribute($this->getCountryRelationalName(),$country_id);
@@ -162,7 +161,7 @@ trait HasCountry
     {
 
         $this->{$this->getCountryRelationName()}()->delete();
-        $this->setCountryRelation($this, $this->makeVariant()->newCollection([]));
+        $this->setCountryRelation($this, $this->makeCountry()->newCollection([]));
 
     }
 

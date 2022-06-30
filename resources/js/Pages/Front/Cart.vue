@@ -4,8 +4,8 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="con-text">
-                            <h2 class="page-title">shopping-Cart</h2>
-                            <p><a href="#">Home</a> | shopping-Cart</p>
+                            <h2 class="page-title">Shopping Cart</h2>
+                            <p><InertiaLink href="route('home')">Home</InertiaLink> | Shopping Cart</p>
                         </div>
                     </div>
                 </div>
@@ -17,12 +17,13 @@
                     <div class="col-lg-12 col-12">
                         <div class="s-cart-all">
                             <div class="page-title">
-                                <h1>Your shopping cart on UrbanStrick </h1>
+                                <h1>Your selected Items in shopping cart on UrbanStrick </h1>
                             </div>
                             <div class="cart-form table-responsive">
                                 <table id="shopping-cart-table" class="data-table cart-table">
                                     <tr>
                                         <th class="low1">Product</th>
+                                        <th class="low1">Size</th>
                                         <th class="low7">Quantity</th>
                                         <th class="low7">Price</th>
                                         <th class="low7">Total</th>
@@ -32,6 +33,9 @@
                                             <a href="#"><img class="primary-image" style="max-height: 45px;max-width: 45px;" alt="" :src="product.product.thumbnail"></a>
                                             <a href="#">{{ product.product.name }}</a>
                                         </td>
+                                        <td class="sop-cart an-shop-cart text-center">
+                                            {{ product.size.toUpperCase() }}
+                                        </td>
                                         <td class="sop-cart an-sh">
                                             <div class="d-flex">
                                                 <div class="quantity ray">
@@ -40,10 +44,10 @@
                                                 </div>
 
 
-                                                <a v-on:click.prevent="currentCart.add(product.product,1)" class="remove btn-success" href="#" style="width: 25px;height: 25px">
+                                                <a v-on:click.prevent="currentCart.add(product.product,1,product.size)" class="remove btn-success" href="#" style="width: 25px;height: 25px">
                                                     <span class="fa fa-plus" style="line-height: 25px;" ></span>
                                                 </a>
-                                                <a v-on:click.prevent="currentCart.remove(product.product,1)" class="remove btn-warning" href="#" style="width: 25px;height: 25px">
+                                                <a v-on:click.prevent="currentCart.remove(product.product,1,product.size)" class="remove btn-warning" href="#" style="width: 25px;height: 25px">
                                                     <span class="fa fa-minus" style="line-height: 25px;" ></span>
                                                 </a>
                                                 <a v-on:click.prevent="currentCart.remove(product.product)" class="remove btn-danger" href="#" style="width: 25px;height: 25px">
@@ -62,7 +66,7 @@
                                         </td>
                                     </tr>
                                     <tr v-if="currentCart.get().length==0">
-                                        <th colspan="4">
+                                        <th colspan="5">
                                             <h3>There are no items in your cart</h3>
                                             <InertiaLink class="btn btn-primary btn-black" :href="route('home')" >Shop Now & Add Exclusive Items to cart</InertiaLink>
                                         </th>

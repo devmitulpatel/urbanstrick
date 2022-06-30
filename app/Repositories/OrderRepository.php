@@ -31,17 +31,32 @@ class OrderRepository extends ModelRepositories implements ModelRepositoriesInte
         Payment::create($data,$this->getRow());
     }
     private function attachProducts(){
-        $this->getRow()->syncCartWithRawData($this->getRawData());
+
+        $this->getRow()->syncOrderItems($this->getRawData());
+
     }
 
+    private static $transactionFee=5;
     private function createOrder(){
         $orderData=collect($this->getRawData());
 
-        $orderData=$orderData->map(function ($model){
-            $model['sub_total']=$model['product']['price']*$model['qt'];
-            $model['sub_tax']=$model['sub_total']*0.05;
+        $foundItem=Product::withCurrentPrice()->whereIn('slug',$orderData->pluck('id'))->get();
+
+        $orderData=$orderData->map(function ($model) use ($foundItem) {
+            $sellingPrice=0;
+
+            $currentItem=$foundItem->where('slug',$model['id'])->first();
+            $price=$currentItem->getPriceRow();
+
+            if($price)$sellingPrice=$price['price'];
+
+            $model['sub_total']=$sellingPrice*$model['qt'];
+            $model['sub_tax']=$model['sub_total']*(self::$transactionFee/100);
+
             return $model;
         });
+
+
 
         $payment=[
             'total'=>$orderData->sum('sub_total'),

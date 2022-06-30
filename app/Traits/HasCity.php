@@ -34,8 +34,6 @@ trait HasCity
     {
         $query=City::query()->orWhere('name',(array)$name)->orWhere('slug',(array)Str::slug($name));
         if($query->count()<1){
-
-
             $model=new ($this->getCityClassName())(normal_name_seed($name));
             $model->save();
             return $model;
@@ -45,11 +43,11 @@ trait HasCity
 
     }
 
-    public function createCity($name){
+    public function createCity($name,$forced=true){
 
         $city=$this->getOrCreateCity($name);
         $this->{$this->getCityLocalKey()}=$city->id;
-        $this->save();
+        if($forced)$this->save();
         return $city;
 
        // $state_id=$state;

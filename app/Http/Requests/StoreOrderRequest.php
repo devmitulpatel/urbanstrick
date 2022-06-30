@@ -11,6 +11,12 @@ class StoreOrderRequest extends FormRequest
 
     private $requestModel=Order::class;
     private $redirectTo='checkout_proceed_to_payment';
+
+    public function __construct(array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
+    {
+        parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -18,6 +24,11 @@ class StoreOrderRequest extends FormRequest
      */
     public function authorize()
     {
+        if(auth()->check()){
+            $data=['items'=>[],'address'];
+            $this->mergeIfMissing($data);
+        }
+
         return auth()->check();
     }
 
@@ -35,9 +46,10 @@ class StoreOrderRequest extends FormRequest
     }
 
     public function persist(){
+
+        if(strtolower($this->method())!='post')return redirect()->route('checkout');
         $input=$this->validated();
         $order=Order::create($input)->load('meta');
-
         $orderId=$order->getMeta('order_id');
         $data =[
             'api'=>[
@@ -50,8 +62,8 @@ class StoreOrderRequest extends FormRequest
                 'id'=>$orderId,
                 'data'=>$order->only(['total_amount','total_tax','id'])
             ]
-
         ];
+
 
         return Inertia::render('Front/ProceedToPayment',$data);
 

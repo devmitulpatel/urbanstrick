@@ -9,6 +9,7 @@ class Currenciable extends Model
 {
     use HasFactory;
     protected $fillable=['created_at'];
+    protected $with=['currency'];
     public function currency(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Currency::class,'id','related_id');

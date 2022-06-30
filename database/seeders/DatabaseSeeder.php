@@ -14,15 +14,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->createBasicUsers();
+
         $this->call(CurrencySeeder::class);
         $this->call(CountrySeeder::class);
         //$this->call(UnitSeeder::class);
         $this->call(DynamicDataSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(ProductSeeder::class);
         $this->call(VariantTypeSeeder::class);
 
+        $this->call(ProductSeeder::class);
+
+        $this->call(InventoriableSeeder::class);
+        $this->createBasicUsers();
     }
 
     private function createBasicUsers()
